@@ -22,7 +22,7 @@ export function SiteCard({
 }: SiteCardProps) {
   return (
     <motion.a
-      href={`/webbuilder/${slug}`}
+      href={`/webbuilder/sites/${slug}/index.html`}
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{ scale: 1.02, y: -4 }}
@@ -32,7 +32,7 @@ export function SiteCard({
       {/* Preview bar */}
       <div className="mb-4 aspect-video overflow-hidden rounded-sm border border-border bg-bg-secondary relative">
         <iframe
-          src={`/api/sites/${slug}`}
+          src={`/webbuilder/sites/${slug}/index.html`}
           title={title}
           className="h-full w-full border-0 pointer-events-none scale-[0.5] origin-top-left"
           style={{ width: "200%", height: "200%" }}
