@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Code Reviewer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0f0f1a; color: #e0e0e0; font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
+    .app { max-width: 900px; margin: 0 auto; padding: 24px; }
+    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #2a2a3e; }
+    .header h1 { font-size: 18px; font-weight: 600; }
+    .header .badge { background: rgba(123,47,247,0.15); color: #7b2ff7; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-family: monospace; }
+    .pr-card { background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+    .pr-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .pr-meta { font-size: 12px; color: #6b7280; margin-bottom: 16px; font-family: monospace; }
+    .diff { background: #0a0a0f; border: 1px solid #2a2a3e; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; overflow: hidden; margin-bottom: 16px; }
+    .diff-header { background: #1a1a2e; padding: 8px 16px; color: #6b7280; font-size: 11px; border-bottom: 1px solid #2a2a3e; }
+    .diff-line { padding: 2px 16px; white-space: pre; }
+    .diff-line.add { background: rgba(34,197,94,0.08); color: #22c55e; }
+    .diff-line.remove { background: rgba(255,45,85,0.08); color: #ff2d55; }
+    .diff-line.context { color: #6b7280; }
+    .review { background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px; overflow: hidden; }
+    .review-header { padding: 12px 16px; border-bottom: 1px solid #2a2a3e; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+    .review-header .ai-badge { background: linear-gradient(135deg, #00f0ff, #7b2ff7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 11px; font-family: monospace; }
+    .review-item { padding: 14px 16px; border-bottom: 1px solid #1f1f35; }
+    .review-item:last-child { border-bottom: none; }
+    .review-label { font-size: 11px; font-family: monospace; margin-bottom: 6px; letter-spacing: 1px; }
+    .review-label.security { color: #ff2d55; }
+    .review-label.suggestion { color: #00f0ff; }
+    .review-label.performance { color: #ffbd2e; }
+    .review-label.approval { color: #22c55e; }
+    .review-text { font-size: 13px; color: #9ca3af; line-height: 1.6; }
+    .review-text code { background: #0a0a0f; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 12px; color: #00f0ff; }
+    .score { display: flex; align-items: center; gap: 16px; padding: 16px; background: #12121a; }
+    .score-circle { width: 48px; height: 48px; border-radius: 50%; border: 3px solid #22c55e; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; font-family: monospace; color: #22c55e; }
+    .score-text { font-size: 13px; color: #9ca3af; }
+    .score-text strong { color: #22c55e; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate { animation: slideIn 0.4s ease forwards; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <h1>Neural Code Reviewer</h1>
+      <span class="badge">AI-Powered</span>
+    </div>
+    <div class="pr-card animate" style="animation-delay: 0.1s">
+      <div class="pr-title">feat: Add rate limiting to API endpoints</div>
+      <div class="pr-meta">PR #847 · opened by @developer · 3 files changed · +127 -23</div>
+      <div class="diff">
+        <div class="diff-header">src/middleware/rateLimit.ts</div>
+        <div class="diff-line context">  import { Redis } from 'ioredis';</div>
+        <div class="diff-line add">+ import { RateLimiter } from '@/lib/rate-limiter';</div>
+        <div class="diff-line add">+ import { logger } from '@/lib/logger';</div>
+        <div class="diff-line context">  </div>
+        <div class="diff-line remove">- const limit = 100;</div>
+        <div class="diff-line add">+ const RATE_LIMIT = parseInt(process.env.RATE_LIMIT || '100');</div>
+        <div class="diff-line add">+ const WINDOW_MS = 60 * 1000;</div>
+        <div class="diff-line context">  </div>
+        <div class="diff-line add">+ export async function rateLimit(req: Request) {</div>
+        <div class="diff-line add">+   const ip = req.headers.get('x-forwarded-for');</div>
+        <div class="diff-line add">+   const key = `rate:${ip}`;</div>
+        <div class="diff-line add">+   const limiter = new RateLimiter(RATE_LIMIT, WINDOW_MS);</div>
+        <div class="diff-line add">+   return limiter.check(key);</div>
+        <div class="diff-line add">+ }</div>
+      </div>
+    </div>
+    <div class="review animate" style="animation-delay: 0.3s">
+      <div class="review-header">
+        <span class="ai-badge">AI REVIEW</span> Analysis Results
+      </div>
+      <div class="review-item">
+        <div class="review-label security">SECURITY</div>
+        <div class="review-text">The <code>x-forwarded-for</code> header can be spoofed. Consider using a trusted proxy configuration or falling back to <code>req.socket.remoteAddress</code> for accurate client identification.</div>
+      </div>
+      <div class="review-item">
+        <div class="review-label suggestion">SUGGESTION</div>
+        <div class="review-text">The <code>RateLimiter</code> instance is created per-request. Move instantiation outside the function to reuse the Redis connection pool and reduce overhead.</div>
+      </div>
+      <div class="review-item">
+        <div class="review-label performance">PERFORMANCE</div>
+        <div class="review-text">Consider using a sliding window algorithm instead of fixed windows to prevent burst traffic at window boundaries. The current implementation allows up to 2x the rate limit during window transitions.</div>
+      </div>
+      <div class="score">
+        <div class="score-circle">87</div>
+        <div class="score-text"><strong>Approved with suggestions.</strong> Code quality is high. 3 items to address before merge.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

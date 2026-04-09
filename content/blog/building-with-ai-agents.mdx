@@ -1,0 +1,50 @@
+---
+title: "Building Production AI Agents: Lessons Learned"
+description: "Practical lessons from building and deploying AI agents in production environments — what works, what doesn't, and what I wish I knew earlier."
+date: "2025-03-15"
+tags: ["AI", "agents", "production", "lessons"]
+published: true
+---
+
+After months of building AI agents for production use cases, here are the hard-won lessons I've learned along the way.
+
+## Lesson 1: Start with the Simplest Agent That Works
+
+It's tempting to build a multi-model, multi-tool, memory-enhanced super-agent from day one. Don't.
+
+Start with a single model, a single tool, and a clear objective. You'll learn more from deploying a simple agent than from architecting a complex one that never ships.
+
+## Lesson 2: Observability Is Non-Negotiable
+
+When an agent makes a decision, you need to know *why*. Every agent call should log:
+
+- The input context
+- The model's reasoning
+- Which tools were called and their results
+- The final output
+
+Without this, debugging agent failures is like debugging a program without stack traces.
+
+## Lesson 3: Guardrails > Prompts
+
+Prompt engineering gets you 80% of the way. The last 20% — the part that matters in production — comes from structural guardrails:
+
+- **Input validation**: Reject malformed or adversarial inputs before they hit the model
+- **Output parsing**: Use structured outputs (JSON schemas, TypeScript types) instead of hoping for the right format
+- **Fallback chains**: When the primary model fails, have a deterministic fallback
+
+## Lesson 4: Cost Management Is a Feature
+
+AI API costs can spike fast. Implement:
+
+- Token budgets per request
+- Caching for repeated queries
+- Model tiering (use smaller models for simple tasks)
+
+## Lesson 5: Users Don't Care About the AI
+
+They care about the outcome. The best AI features are the ones users don't even realize are powered by AI. Focus on the user experience, not the technology.
+
+## What's Next
+
+I'm continuing to push the boundaries of what's possible with agentic systems. Follow along on this blog for more deep dives into specific patterns, architectures, and real-world implementations.

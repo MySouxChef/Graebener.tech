@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Automation CLI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a0f; color: #e0e0e0; font-family: 'Courier New', monospace; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .terminal { width: 100%; max-width: 700px; background: #12121a; border: 1px solid #2a2a3e; border-radius: 8px; overflow: hidden; box-shadow: 0 0 40px rgba(0,240,255,0.08); }
+    .terminal-bar { background: #1a1a2e; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #2a2a3e; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.r { background: #ff5f57; } .dot.y { background: #ffbd2e; } .dot.g { background: #28c840; }
+    .terminal-title { margin-left: 12px; font-size: 12px; color: #6b7280; }
+    .terminal-body { padding: 20px; font-size: 13px; line-height: 1.8; min-height: 350px; }
+    .line { opacity: 0; transform: translateY(5px); animation: fadein 0.3s forwards; }
+    @keyframes fadein { to { opacity: 1; transform: translateY(0); } }
+    .prompt { color: #22c55e; }
+    .cmd { color: #00f0ff; }
+    .output { color: #9ca3af; }
+    .success { color: #22c55e; }
+    .warning { color: #ffbd2e; }
+    .accent { color: #7b2ff7; }
+    .cursor { display: inline-block; width: 8px; height: 14px; background: #00f0ff; animation: blink 1s step-end infinite; vertical-align: middle; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .progress { display: inline-block; }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <span class="terminal-title">smart-auto — bash</span>
+    </div>
+    <div class="terminal-body" id="output"></div>
+  </div>
+  <script>
+    const lines = [
+      { text: '<span class="prompt">$</span> <span class="cmd">smart-auto init</span>', delay: 500 },
+      { text: '<span class="accent">▸</span> <span class="output">Initializing Smart Automation CLI v2.4.1...</span>', delay: 800 },
+      { text: '<span class="success">✓</span> <span class="output">Configuration loaded from ~/.smartauto/config.yml</span>', delay: 600 },
+      { text: '<span class="success">✓</span> <span class="output">AI model connected (Claude 3.5 Sonnet)</span>', delay: 700 },
+      { text: '', delay: 400 },
+      { text: '<span class="prompt">$</span> <span class="cmd">smart-auto analyze ./src --suggest-improvements</span>', delay: 1000 },
+      { text: '<span class="accent">▸</span> <span class="output">Scanning 147 files across 23 directories...</span>', delay: 1200 },
+      { text: '<span class="accent">▸</span> <span class="output">Running pattern analysis...</span>', delay: 800 },
+      { text: '', delay: 400 },
+      { text: '<span class="output">  Found <span class="cmd">12</span> optimization opportunities:</span>', delay: 600 },
+      { text: '<span class="output">  ├─ <span class="warning">3</span> unused imports in auth module</span>', delay: 300 },
+      { text: '<span class="output">  ├─ <span class="warning">4</span> functions exceeding complexity threshold</span>', delay: 300 },
+      { text: '<span class="output">  ├─ <span class="success">2</span> type safety improvements</span>', delay: 300 },
+      { text: '<span class="output">  └─ <span class="success">3</span> performance optimizations detected</span>', delay: 300 },
+      { text: '', delay: 400 },
+      { text: '<span class="prompt">$</span> <span class="cmd">smart-auto fix --auto-apply</span>', delay: 800 },
+      { text: '<span class="accent">▸</span> <span class="output">Applying fixes with AI assistance...</span>', delay: 1000 },
+      { text: '<span class="success">✓</span> <span class="output">12/12 improvements applied successfully</span>', delay: 800 },
+      { text: '<span class="success">✓</span> <span class="output">All tests passing (98 tests, 0 failures)</span>', delay: 600 },
+      { text: '', delay: 300 },
+      { text: '<span class="prompt">$</span> <span class="cursor"></span>', delay: 0 },
+    ];
+
+    const output = document.getElementById('output');
+    let total = 0;
+    lines.forEach((line, i) => {
+      total += line.delay;
+      setTimeout(() => {
+        const div = document.createElement('div');
+        div.className = 'line';
+        div.style.animationDelay = '0s';
+        div.innerHTML = line.text || '&nbsp;';
+        output.appendChild(div);
+        output.scrollTop = output.scrollHeight;
+      }, total);
+    });
+  </script>
+</body>
+</html>

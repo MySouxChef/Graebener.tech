@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f0f1a; color: #e0e0e0; min-height: 100vh; }
+    .dashboard { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+    .sidebar { background: #1a1a2e; border-right: 1px solid #2a2a3e; padding: 20px; }
+    .sidebar h2 { font-size: 14px; color: #00f0ff; letter-spacing: 2px; margin-bottom: 24px; font-family: monospace; }
+    .nav-item { padding: 10px 14px; margin-bottom: 4px; border-radius: 4px; font-size: 13px; cursor: pointer; color: #6b7280; transition: all 0.2s; }
+    .nav-item:hover, .nav-item.active { background: rgba(0,240,255,0.1); color: #00f0ff; }
+    .main { padding: 24px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .header h1 { font-size: 22px; font-weight: 600; }
+    .status-badge { background: rgba(34,197,94,0.15); color: #22c55e; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-family: monospace; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px; padding: 20px; }
+    .card-label { font-size: 12px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+    .card-value { font-size: 28px; font-weight: 700; font-family: monospace; }
+    .card-value.cyan { color: #00f0ff; }
+    .card-value.purple { color: #7b2ff7; }
+    .card-value.green { color: #22c55e; }
+    .card-value.pink { color: #ff2d55; }
+    .agents-table { background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px; overflow: hidden; }
+    .table-header { padding: 14px 20px; border-bottom: 1px solid #2a2a3e; font-size: 14px; font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; padding: 10px 20px; font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #2a2a3e; }
+    td { padding: 12px 20px; font-size: 13px; border-bottom: 1px solid #1f1f35; font-family: monospace; }
+    .status { display: inline-flex; align-items: center; gap: 6px; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .status-dot.running { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+    .status-dot.idle { background: #6b7280; }
+    .status-dot.error { background: #ff2d55; box-shadow: 0 0 6px #ff2d55; }
+    .progress-bar { width: 100px; height: 4px; background: #2a2a3e; border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #00f0ff, #7b2ff7); border-radius: 2px; transition: width 1s; }
+    @media (max-width: 768px) { .dashboard { grid-template-columns: 1fr; } .sidebar { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>AI AGENTS</h2>
+      <div class="nav-item active">Dashboard</div>
+      <div class="nav-item">Agents</div>
+      <div class="nav-item">Tasks</div>
+      <div class="nav-item">Logs</div>
+      <div class="nav-item">Analytics</div>
+      <div class="nav-item">Settings</div>
+    </aside>
+    <div class="main">
+      <div class="header">
+        <h1>Agent Overview</h1>
+        <div class="status-badge">● System Online</div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-label">Active Agents</div>
+          <div class="card-value cyan" id="active-count">7</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Tasks Completed</div>
+          <div class="card-value purple" id="tasks-count">1,284</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Success Rate</div>
+          <div class="card-value green">98.7%</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Avg Response</div>
+          <div class="card-value pink">142ms</div>
+        </div>
+      </div>
+      <div class="agents-table">
+        <div class="table-header">Active Agents</div>
+        <table>
+          <thead><tr><th>Agent</th><th>Status</th><th>Current Task</th><th>Progress</th></tr></thead>
+          <tbody id="agent-rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    const agents = [
+      { name: 'CodeReview-01', status: 'running', task: 'Analyzing PR #847', progress: 72 },
+      { name: 'DataPipe-03', status: 'running', task: 'ETL batch processing', progress: 45 },
+      { name: 'SecurityScan-02', status: 'running', task: 'Vulnerability audit', progress: 91 },
+      { name: 'DocGen-01', status: 'idle', task: 'Waiting for input', progress: 0 },
+      { name: 'TestRunner-04', status: 'running', task: 'Integration suite', progress: 33 },
+      { name: 'DeployBot-01', status: 'error', task: 'Rollback initiated', progress: 15 },
+      { name: 'ChatAgent-02', status: 'running', task: 'Customer support', progress: 60 },
+    ];
+    const tbody = document.getElementById('agent-rows');
+    agents.forEach(a => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${a.name}</td><td><span class="status"><span class="status-dot ${a.status}"></span>${a.status}</span></td><td>${a.task}</td><td><div class="progress-bar"><div class="progress-fill" style="width:${a.progress}%"></div></div></td>`;
+      tbody.appendChild(tr);
+    });
+    // Animate counters
+    setInterval(() => {
+      const el = document.getElementById('tasks-count');
+      const val = parseInt(el.textContent.replace(/,/g, ''));
+      el.textContent = (val + Math.floor(Math.random() * 3)).toLocaleString();
+    }, 3000);
+    // Animate progress
+    setInterval(() => {
+      document.querySelectorAll('.progress-fill').forEach(bar => {
+        const current = parseInt(bar.style.width);
+        if (current < 100 && current > 0) bar.style.width = Math.min(current + Math.floor(Math.random() * 5), 100) + '%';
+      });
+    }, 2000);
+  </script>
+</body>
+</html>

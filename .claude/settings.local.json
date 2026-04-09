@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --turbopack --import-alias \"@/*\" --yes)",
+      "Bash(npx create-next-app@latest graebener-tech --typescript --tailwind --eslint --app --src-dir --turbopack --import-alias \"@/*\" --yes)",
+      "Bash(shopt -s dotglob)",
+      "Bash(mv graebener-tech/* .)",
+      "Bash(mv graebener-tech/.* .)",
+      "Bash(rmdir graebener-tech:*)",
+      "Bash(npm i:*)",
+      "Bash(npm run:*)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\('github'\\) || k.toLowerCase\\(\\).includes\\('linkedin'\\)\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(node -e \"import\\('lucide-react'\\).then\\(m => { const keys = Object.keys\\(m\\).filter\\(k => /git|linked/i.test\\(k\\)\\); console.log\\(keys.join\\('\\\\n'\\)\\); }\\)\")",
+      "Bash(node -e \"import\\('lucide-react'\\).then\\(m => { const keys = Object.keys\\(m\\).filter\\(k => /^\\(Globe|Link|ExternalLink|Mail|Send|ArrowLeft|Menu|X|ChevronDown|Calendar|Clock|Maximize|Minimize|Loader|CheckCircle|Search\\)/.test\\(k\\)\\); console.log\\(keys.sort\\(\\).join\\('\\\\n'\\)\\); }\\)\")",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+---
+title: "What Is Agentic Engineering?"
+description: "Exploring the emerging field of agentic engineering — building AI systems that can reason, plan, and act autonomously."
+date: "2025-04-01"
+tags: ["AI", "agentic", "engineering", "automation"]
+published: true
+---
+
+The term **agentic engineering** is gaining traction, and for good reason. It represents a fundamental shift in how we build software — from tools that respond to commands, to systems that can *think*, *plan*, and *act* on their own.
+
+## What Makes Software "Agentic"?
+
+Traditional software follows a simple pattern: input → process → output. Agentic software breaks this mold:
+
+- **Autonomy**: The system can decide what to do next without explicit instructions
+- **Reasoning**: It can break complex problems into smaller steps
+- **Tool use**: It can invoke external APIs, databases, and services
+- **Memory**: It can learn from past interactions and improve over time
+
+## A Simple Example
+
+Consider a code review bot. A traditional approach might check for linting errors and flag them. An agentic approach would:
+
+1. Understand the *intent* of the PR
+2. Analyze the code for bugs, security issues, and architectural concerns
+3. Suggest specific improvements with reasoning
+4. Learn from accepted/rejected suggestions
+
+```typescript
+const agent = new CodeReviewAgent({
+  model: "claude-3.5-sonnet",
+  tools: [analyzeDiff, checkSecurity, suggestFix],
+  memory: new ConversationMemory(),
+});
+
+const review = await agent.review(pullRequest);
+```
+
+## Why This Matters
+
+As AI models become more capable, the bottleneck shifts from *what the AI can do* to *how well we can orchestrate it*. That's where agentic engineering comes in — designing the scaffolding, guardrails, and workflows that let AI operate reliably in production.
+
+This isn't about replacing developers. It's about building tools that multiply what a single developer can accomplish.
+
+## The Future
+
+We're still in the early days. The patterns and best practices are being written right now, by engineers who are willing to experiment and push boundaries. If you're building in this space, you're not just using AI — you're shaping how the next generation of software works.
