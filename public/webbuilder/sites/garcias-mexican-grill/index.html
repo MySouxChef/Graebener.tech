@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Garcia's Mexican Grill — Authentic Mexican Flavors, San Antonio TX</title>
+<meta name="description" content="Family recipes, fresh ingredients, San Antonio soul. Breakfast tacos, enchiladas, carne asada & more at 843 Waverly Ave.">
+<meta name="theme-color" content="#1B4332">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terra: #C2452D;
+  --terra-dark: #9E3624;
+  --cream: #FFF5E6;
+  --cream-dark: #F5E6CC;
+  --green: #1B4332;
+  --green-light: #2D6A4F;
+  --gold: #D4A843;
+  --gold-light: #E8C96A;
+  --charcoal: #2D2D2D;
+  --charcoal-light: #4A4A4A;
+  --radius: 12px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+html { scroll-behavior: smooth }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+/* Grain overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px;
+}
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: clamp(2.8rem, 7vw, 5.5rem) }
+h2 { font-size: clamp(2rem, 5vw, 3.5rem) }
+h3 { font-size: 1.4rem }
+a { color: inherit; text-decoration: none }
+img { max-width: 100%; display: block }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px }
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 36px; border-radius: 999px;
+  font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.95rem;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  border: 2px solid transparent;
+  cursor: pointer; transition: all 0.25s ease;
+}
+.btn-primary {
+  background: var(--terra); color: #fff; border-color: var(--terra);
+  box-shadow: 0 4px 20px rgba(194,69,45,0.35);
+}
+.btn-primary:hover {
+  background: var(--terra-dark); transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(194,69,45,0.45);
+}
+.btn-outline {
+  background: transparent; color: #fff; border-color: rgba(255,255,255,0.5);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1); border-color: #fff;
+}
+.btn-dark {
+  background: var(--green); color: var(--gold); border-color: var(--green);
+  box-shadow: 0 4px 20px rgba(27,67,50,0.3);
+}
+.btn-dark:hover {
+  background: var(--green-light); transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(27,67,50,0.4);
+}
+
+/* --- NAV --- */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--green);
+  border-bottom: 3px solid var(--gold);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 76px;
+}
+.nav-logo img { height: 52px; width: auto; filter: brightness(1.1) }
+.nav-links { display: flex; gap: 32px; list-style: none }
+.nav-links a {
+  color: var(--cream); font-weight: 500; font-size: 0.9rem;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  position: relative; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold) }
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px;
+  height: 2px; background: var(--gold); transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover::after { transform: scaleX(1) }
+.nav-cta { display: none }
+@media(min-width:900px) { .nav-cta { display: inline-flex } }
+.burger { display: none; background: none; border: 0; color: var(--cream); font-size: 28px; cursor: pointer }
+@media(max-width:780px) {
+  .nav-links { display: none }
+  .burger { display: block }
+  .nav.open .nav-links {
+    display: flex; flex-direction: column; gap: 16px;
+    position: absolute; top: 76px; left: 0; right: 0;
+    background: var(--green); padding: 24px; border-bottom: 3px solid var(--gold);
+  }
+}
+
+/* --- HERO --- */
+.hero {
+  position: relative; min-height: 92vh; display: flex; align-items: center;
+  padding: 100px 0 80px; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    linear-gradient(135deg, rgba(27,67,50,0.92) 0%, rgba(27,67,50,0.7) 40%, rgba(194,69,45,0.5) 100%),
+    url('https://d2gqo3h0psesgi.cloudfront.net/auto/garcias-mexican-grill-l43hkvrc-food3.jpg') center/cover;
+}
+.hero-bg::after {
+  content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+  background: linear-gradient(to top, var(--cream), transparent);
+}
+.hero-content { position: relative; z-index: 2; max-width: 680px }
+.hero-eyebrow {
+  display: inline-block; background: var(--gold); color: var(--green);
+  padding: 8px 20px; border-radius: 999px; font-weight: 700;
+  text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.12em;
+  margin-bottom: 28px;
+}
+.hero h1 { color: #fff; margin-bottom: 24px }
+.hero h1 em { color: var(--gold); font-style: italic }
+.hero-desc { color: rgba(255,255,255,0.88); font-size: 1.2rem; max-width: 520px; margin-bottom: 40px }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap }
+/* Decorative corner ornament */
+.hero-ornament {
+  position: absolute; bottom: 40px; right: 60px; z-index: 2;
+  width: 180px; height: 180px; border: 3px solid var(--gold);
+  border-radius: 50%; opacity: 0.2;
+}
+@media(max-width:780px) { .hero-ornament { display: none } }
+
+/* --- MARQUEE --- */
+.marquee {
+  background: var(--terra); border-top: 3px solid var(--terra-dark);
+  border-bottom: 3px solid var(--terra-dark);
+  overflow: hidden; padding: 18px 0; position: relative; z-index: 5;
+}
+.marquee-track {
+  display: flex; gap: 40px; white-space: nowrap;
+  animation: slide 30s linear infinite;
+  font-family: 'Playfair Display', serif; font-size: 1.6rem;
+  font-weight: 700; color: #fff; text-transform: uppercase;
+}
+.marquee-track span { display: flex; align-items: center; gap: 40px }
+.marquee-track span::after { content: "★"; color: var(--gold); font-size: 1.2rem }
+@keyframes slide { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+/* --- SECTIONS --- */
+section { padding: 100px 0; position: relative }
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--terra); font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.15em; font-size: 0.85rem; margin-bottom: 16px;
+}
+.section-label::before {
+  content: ""; display: block; width: 40px; height: 2px; background: var(--terra);
+}
+.section-head { max-width: 600px; margin-bottom: 56px }
+.section-head p { margin-top: 16px; font-size: 1.1rem; color: var(--charcoal-light) }
+
+/* --- FEATURED CARDS --- */
+.featured-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;
+}
+.featured-card {
+  background: #fff; border: 2px solid rgba(0,0,0,0.06); border-radius: var(--radius);
+  padding: 32px 28px; position: relative; overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.featured-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  border-color: var(--terra);
+}
+.featured-card .card-emoji { font-size: 2.8rem; margin-bottom: 16px }
+.featured-card h3 { margin-bottom: 8px; color: var(--green) }
+.featured-card p { font-size: 0.95rem; color: var(--charcoal-light); margin-bottom: 16px }
+.featured-card .price {
+  display: inline-block; background: var(--green); color: var(--gold);
+  padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+.featured-card::after {
+  content: ""; position: absolute; top: 0; right: 0;
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, transparent 50%, rgba(212,168,67,0.08) 50%);
+}
+
+/* --- MENU HIGHLIGHTS --- */
+.menu-section { padding: 80px 0 }
+.menu-section .bg-green { background: var(--green); color: var(--cream); border-radius: 20px; padding: 64px 48px }
+@media(max-width:780px) { .menu-section .bg-green { padding: 40px 20px; border-radius: 12px } }
+.menu-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-top: 48px }
+.menu-cat h3 {
+  color: var(--gold); font-size: 1.3rem; margin-bottom: 20px;
+  padding-bottom: 10px; border-bottom: 1px solid rgba(212,168,67,0.3);
+}
+.menu-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.menu-item-name { font-weight: 500; font-size: 0.95rem }
+.menu-item-price {
+  color: var(--gold); font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 1rem; white-space: nowrap; margin-left: 12px;
+}
+.menu-item-desc { font-size: 0.8rem; color: rgba(255,245,230,0.5); margin-top: 2px }
+
+/* --- ABOUT SPLIT --- */
+.about-split {
+  display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center;
+}
+@media(min-width:900px) { .about-split { grid-template-columns: 1fr 1fr } }
+.about-img {
+  aspect-ratio: 4/5; border-radius: var(--radius); overflow: hidden;
+  position: relative;
+  box-shadow: 20px 20px 0 var(--gold);
+  border: 3px solid var(--green);
+}
+.about-img img { width: 100%; height: 100%; object-fit: cover }
+.about-text h2 { margin-bottom: 24px; color: var(--green) }
+.about-text p { margin-bottom: 16px; font-size: 1.05rem; color: var(--charcoal-light) }
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px;
+}
+.about-stat {
+  text-align: center; padding: 20px 12px; background: var(--green);
+  border-radius: var(--radius); color: var(--cream);
+}
+.about-stat .num {
+  font-family: 'Playfair Display', serif; font-size: 2rem;
+  font-weight: 900; color: var(--gold); line-height: 1;
+}
+.about-stat .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; opacity: 0.8 }
+
+/* --- LOCATION --- */
+.loc-card {
+  background: #fff; border: 2px solid rgba(0,0,0,0.06); border-radius: 20px;
+  padding: 48px; display: grid; grid-template-columns: 1fr;
+  gap: 40px; max-width: 900px; margin: 0 auto;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+}
+@media(min-width:700px) { .loc-card { grid-template-columns: 1fr 1fr } }
+.loc-card h3 { font-size: 1.6rem; color: var(--green); margin-bottom: 16px }
+.loc-info p { margin-bottom: 8px; font-size: 1rem }
+.loc-info a { color: var(--terra); font-weight: 700 }
+.loc-hours-grid {
+  display: grid; grid-template-columns: auto auto; gap: 6px 20px;
+  font-size: 0.95rem;
+}
+.loc-hours-grid .day { font-weight: 600 }
+.loc-hours-grid .time { color: var(--charcoal-light) }
+
+/* --- CTA BANNER --- */
+.cta-banner {
+  background:
+    linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  text-align: center; padding: 80px 24px; color: var(--cream);
+}
+.cta-banner h2 { color: #fff; margin-bottom: 12px }
+.cta-banner p { font-size: 1.15rem; opacity: 0.85; margin-bottom: 36px; max-width: 500px; margin-inline: auto }
+
+/* --- FOOTER --- */
+footer {
+  background: var(--charcoal); color: var(--cream);
+  padding: 60px 0 30px; border-top: 4px solid var(--gold);
+}
+.footer-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+footer h4 {
+  color: var(--gold); font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; margin-bottom: 16px;
+}
+footer a { display: block; padding: 3px 0; opacity: 0.75; transition: opacity 0.2s }
+footer a:hover { opacity: 1; color: var(--gold) }
+.footer-copy {
+  margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center; font-size: 0.85rem; opacity: 0.5;
+}
+
+/* --- ANIMATIONS --- */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.in { opacity: 1; transform: none }
+.reveal-delay-1 { transition-delay: 0.1s }
+.reveal-delay-2 { transition-delay: 0.2s }
+.reveal-delay-3 { transition-delay: 0.3s }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#">
+      <img src="https://d2gqo3h0psesgi.cloudfront.net/auto/garcias-mexican-grill-bqk4pf63-logo.png" alt="Garcia's Mexican Grill">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="tel:+12107018610">Call Us</a></li>
+    </ul>
+    <a href="https://garciasmexicangrilltx.com/garcias-mexican-grill/" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Order Now</a>
+    <button class="burger" id="burger" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <span class="hero-eyebrow">&#9733; San Antonio, TX &#9733;</span>
+    <h1>Authentic Mexican Flavors, <em>Made Fresh Daily</em></h1>
+    <p class="hero-desc">Family recipes passed down through generations. From breakfast tacos at dawn to sizzling parrilladas at lunch &mdash; every dish is made with love at 843 Waverly Ave.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-primary">View Our Menu</a>
+      <a href="https://garciasmexicangrilltx.com/garcias-mexican-grill/" class="btn btn-outline" target="_blank" rel="noopener">Order Online</a>
+    </div>
+  </div>
+  <div class="hero-ornament"></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Breakfast Tacos</span><span>Enchiladas</span><span>Carne Asada</span>
+    <span>Barbacoa</span><span>Caldos</span><span>Fresh Daily</span>
+    <span>Breakfast Tacos</span><span>Enchiladas</span><span>Carne Asada</span>
+    <span>Barbacoa</span><span>Caldos</span><span>Fresh Daily</span>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Nuestros Favoritos</div>
+      <h2>Signature Dishes</h2>
+      <p>The plates our regulars can't stop ordering. Made from scratch, served with soul.</p>
+    </div>
+    <div class="featured-grid">
+      <div class="featured-card reveal">
+        <div class="card-emoji">&#127798;</div>
+        <h3>Garcia's Plate</h3>
+        <p>2 cheese enchiladas with your choice of chicken or beef fajitas. Our namesake dish &mdash; the one that started it all.</p>
+        <span class="price">$12.99</span>
+      </div>
+      <div class="featured-card reveal reveal-delay-1">
+        <div class="card-emoji">&#128293;</div>
+        <h3>Sizzling Parrilladas</h3>
+        <p>Chicken fajita, beef fajita, sausage &amp; shrimp on a sizzling platter with charro beans, rice, salad &amp; guacamole.</p>
+        <span class="price">$17.99</span>
+      </div>
+      <div class="featured-card reveal reveal-delay-2">
+        <div class="card-emoji">&#129385;</div>
+        <h3>Carne Asada</h3>
+        <p>Grilled to perfection, served with nopales, ensalada, and fresh guacamole. A true Texas-Mex classic.</p>
+        <span class="price">$13.25</span>
+      </div>
+      <div class="featured-card reveal reveal-delay-3">
+        <div class="card-emoji">&#127790;</div>
+        <h3>Breakfast Tacos</h3>
+        <p>17 varieties made fresh every morning. From papas con chorizo to machacado &mdash; served all day.</p>
+        <span class="price">from $4.15</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU HIGHLIGHTS -->
+<section class="menu-section">
+  <div class="container">
+    <div class="bg-green reveal">
+      <div class="section-label" style="color:var(--gold)">El Men&uacute;</div>
+      <h2 style="color:#fff">Menu Highlights</h2>
+      <div class="menu-cats">
+        <!-- Breakfast -->
+        <div>
+          <h3>Breakfast</h3>
+          <div class="menu-item"><div><div class="menu-item-name">Huevos Rancheros</div></div><div class="menu-item-price">$8.99</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chilaquiles Mexicanos</div><div class="menu-item-desc">Rojos o verdes</div></div><div class="menu-item-price">$10.99</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Machacado</div></div><div class="menu-item-price">$9.99</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Migas with Cheese</div></div><div class="menu-item-price">$8.99</div></div>
+        </div>
+        <!-- Lunch Plates -->
+        <div>
+          <h3>Lunch Plates</h3>
+          <div class="menu-item"><div><div class="menu-item-name">Garcia's Plate</div><div class="menu-item-desc">Enchiladas + fajitas</div></div><div class="menu-item-price">$12.99</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Carne Guisada</div></div><div class="menu-item-price">$11.99</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Plato Guadalajara</div><div class="menu-item-desc">Camarones, chicken &amp; beef</div></div><div class="menu-item-price">$13.25</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Barbacoa Plate</div><div class="menu-item-desc">With cilantro &amp; onion</div></div><div class="menu-item-price">$12.99</div></div>
+        </div>
+        <!-- Seafood -->
+        <div>
+          <h3>Mariscos</h3>
+          <div class="menu-item"><div><div class="menu-item-name">Camarones a la Plancha</div></div><div class="menu-item-price">$15.99</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Camarones Rancheros</div><div class="menu-item-desc">With melted cheese</div></div><div class="menu-item-price">$15.99</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Mojarra</div><div class="menu-item-desc">With fries, salad &amp; rice</div></div><div class="menu-item-price">$15.99</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Coctel de Camaron</div></div><div class="menu-item-price">$15.99</div></div>
+        </div>
+        <!-- Tacos & More -->
+        <div>
+          <h3>Tacos &amp; More</h3>
+          <div class="menu-item"><div><div class="menu-item-name">Taco Carne Asada</div></div><div class="menu-item-price">$5.45</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Taco Al Pastor</div></div><div class="menu-item-price">$5.45</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Gorditas</div><div class="menu-item-desc">Your choice of meat</div></div><div class="menu-item-price">$7.50</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Burrito Jalisco</div><div class="menu-item-desc">Rice, beans &amp; all the fixings</div></div><div class="menu-item-price">$9.99</div></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:48px">
+        <a href="https://garciasmexicangrilltx.com/garcias-mexican-grill/" class="btn btn-primary" target="_blank" rel="noopener">See Full Menu &amp; Order</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-split">
+      <div class="about-img reveal">
+        <img src="https://d2gqo3h0psesgi.cloudfront.net/auto/garcias-mexican-grill-nz9rxpfk-food1.jpg" alt="Fresh food prep at Garcia's Mexican Grill">
+      </div>
+      <div class="about-text reveal">
+        <div class="section-label">Nuestra Historia</div>
+        <h2>Family Recipes, <em>San Antonio Soul</em></h2>
+        <p>At Garcia's, every dish tells a story. Our recipes have been passed down through generations &mdash; from our abuela's kitchen to your table. We believe the best Mexican food starts with the freshest ingredients, prepared with care, and served with warmth.</p>
+        <p>Open early for the breakfast crowd and serving through lunch, we're the neighborhood spot where regulars become family. Whether it's your first visit or your hundredth, you'll always leave with a full stomach and a smile.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="num">6am</div>
+            <div class="lbl">Doors Open</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">150+</div>
+            <div class="lbl">Menu Items</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">17</div>
+            <div class="lbl">Taco Varieties</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD GALLERY STRIP -->
+<section style="padding:40px 0">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-radius:var(--radius);overflow:hidden" class="reveal">
+      <img src="https://d2gqo3h0psesgi.cloudfront.net/auto/garcias-mexican-grill-nz9rxpfk-food1.jpg" alt="Food at Garcia's" style="aspect-ratio:1/1;object-fit:cover;width:100%">
+      <img src="https://d2gqo3h0psesgi.cloudfront.net/auto/garcias-mexican-grill-mq3vxg64-food2.jpg" alt="Food at Garcia's" style="aspect-ratio:1/1;object-fit:cover;width:100%">
+      <img src="https://d2gqo3h0psesgi.cloudfront.net/auto/garcias-mexican-grill-l43hkvrc-food3.jpg" alt="Food at Garcia's" style="aspect-ratio:1/1;object-fit:cover;width:100%">
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" style="padding-bottom:60px">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px" class="reveal">
+      <div class="section-label" style="justify-content:center">Visit Us</div>
+      <h2>Location &amp; Hours</h2>
+    </div>
+    <div class="loc-card reveal">
+      <div class="loc-info">
+        <h3>Garcia's Mexican Grill</h3>
+        <p>843 Waverly Ave<br>San Antonio, TX 78201</p>
+        <p style="margin-top:12px">
+          <a href="tel:+12107018610">(210) 701-8610</a>
+        </p>
+        <a href="https://garciasmexicangrilltx.com/garcias-mexican-grill/" class="btn btn-dark" style="margin-top:24px" target="_blank" rel="noopener">Order Online</a>
+      </div>
+      <div>
+        <h3 style="font-size:1.3rem">Business Hours</h3>
+        <div class="loc-hours-grid" style="margin-top:12px">
+          <span class="day">Monday</span><span class="time">6:00 am &ndash; 3:00 pm</span>
+          <span class="day">Tuesday</span><span class="time">6:00 am &ndash; 3:00 pm</span>
+          <span class="day">Wednesday</span><span class="time">6:00 am &ndash; 3:00 pm</span>
+          <span class="day">Thursday</span><span class="time">6:00 am &ndash; 3:00 pm</span>
+          <span class="day">Friday</span><span class="time">6:00 am &ndash; 3:00 pm</span>
+          <span class="day">Saturday</span><span class="time">6:00 am &ndash; 3:00 pm</span>
+          <span class="day">Sunday</span><span class="time">7:00 am &ndash; 3:00 pm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Eat?</h2>
+    <p>Skip the line &mdash; order online for pickup and have Garcia's ready when you arrive.</p>
+    <a href="https://garciasmexicangrilltx.com/garcias-mexican-grill/" class="btn btn-primary" target="_blank" rel="noopener" style="font-size:1.1rem;padding:18px 48px">Order Online Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Garcia's Mexican Grill</h4>
+        <p style="opacity:0.7;margin-top:8px;font-size:0.95rem">Authentic Mexican flavors, made fresh daily in the heart of San Antonio.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#location">Location</a>
+        <a href="https://garciasmexicangrilltx.com/garcias-mexican-grill/" target="_blank" rel="noopener">Order Online</a>
+      </div>
+      <div>
+        <h4>Location</h4>
+        <p style="opacity:0.8">843 Waverly Ave<br>San Antonio, TX 78201</p>
+        <p style="margin-top:10px;opacity:0.8">Mon&ndash;Sat: 6am&ndash;3pm<br>Sun: 7am&ndash;3pm</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+12107018610">(210) 701-8610</a>
+        <a href="https://garciasmexicangrilltx.com" target="_blank" rel="noopener">garciasmexicangrilltx.com</a>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; <span id="yr"></span> Garcia's Mexican Grill. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  // Mobile nav
+  const b=document.getElementById('burger'),n=document.getElementById('nav');
+  if(b)b.addEventListener('click',()=>n.classList.toggle('open'));
+  // Scroll reveal
+  const io=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // Year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+});
+</script>
+</body>
+</html>
