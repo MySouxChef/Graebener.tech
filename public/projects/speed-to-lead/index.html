@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Speed to Lead — Automated Lead Response Demo</title>
+<meta name="description" content="See how fast AI-powered lead response works. Fill out a form and watch the magic happen in under 5 seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #00ff88;
+  --green-dim: #00cc6a;
+  --green-glow: rgba(0,255,136,.15);
+  --bg: #0a0a0a;
+  --bg2: #111;
+  --bg3: #1a1a1a;
+  --border: #2a2a2a;
+  --text: #e0e0e0;
+  --text-dim: #888;
+  --red: #ff4444;
+  --yellow: #ffd700;
+  --blue: #4488ff;
+  --purple: #aa66ff;
+  --radius: 12px;
+  --max: 1100px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* NAV */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(10,10,10,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+.topbar-inner {
+  max-width: var(--max); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.topbar-brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800; font-size: .95rem;
+  color: var(--green);
+  display: flex; align-items: center; gap: 8px;
+}
+.topbar-brand .dot {
+  width: 8px; height: 8px; background: var(--green);
+  border-radius: 50%; animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+.topbar-tag {
+  font-size: .75rem; color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  padding: 4px 12px; border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+/* HERO */
+.hero {
+  min-height: 80vh; display: flex; align-items: center;
+  padding: 80px 24px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(0,255,136,.08), transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(68,136,255,.05), transparent 50%);
+}
+.hero-inner {
+  max-width: var(--max); margin: 0 auto; width: 100%;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem; font-weight: 700;
+  color: var(--green); text-transform: uppercase;
+  letter-spacing: .12em; margin-bottom: 20px;
+  padding: 6px 16px;
+  border: 1px solid rgba(0,255,136,.3);
+  border-radius: 999px;
+  background: rgba(0,255,136,.06);
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 900; line-height: 1.05;
+  letter-spacing: -.03em;
+  max-width: 800px;
+}
+.hero h1 .accent { color: var(--green); }
+.hero h1 .dim { color: var(--text-dim); }
+.hero-sub {
+  font-size: 1.15rem; color: var(--text-dim);
+  max-width: 600px; margin: 24px 0 40px;
+}
+.hero-stats {
+  display: flex; gap: 40px; flex-wrap: wrap;
+  padding-top: 32px; border-top: 1px solid var(--border);
+}
+.hero-stat .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2rem; font-weight: 800; color: var(--green);
+}
+.hero-stat .lbl {
+  font-size: .8rem; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: .08em;
+}
+
+/* SECTION SHARED */
+section { padding: 100px 24px; }
+.section-inner { max-width: var(--max); margin: 0 auto; }
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem; font-weight: 700;
+  color: var(--green); text-transform: uppercase;
+  letter-spacing: .15em; margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900; letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 1.05rem; color: var(--text-dim);
+  max-width: 600px; margin-bottom: 48px;
+}
+
+/* DEMO SECTION */
+.demo-wrap {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.demo-toolbar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem; color: var(--text-dim);
+}
+.demo-toolbar .dots {
+  display: flex; gap: 6px; margin-right: 12px;
+}
+.demo-toolbar .dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 1px solid var(--border);
+}
+.demo-toolbar .dots span:nth-child(1) { background: var(--red); border-color: var(--red); }
+.demo-toolbar .dots span:nth-child(2) { background: var(--yellow); border-color: var(--yellow); }
+.demo-toolbar .dots span:nth-child(3) { background: var(--green); border-color: var(--green); }
+.demo-body { padding: 32px; }
+
+/* FORM */
+.lead-form { max-width: 500px; }
+.lead-form label {
+  display: block; font-weight: 700;
+  font-size: .8rem; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.lead-form input, .lead-form select, .lead-form textarea {
+  width: 100%; padding: 14px 16px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text);
+  font-family: inherit; font-size: 1rem;
+  margin-bottom: 18px;
+  transition: border-color .2s;
+}
+.lead-form input:focus, .lead-form select:focus, .lead-form textarea:focus {
+  outline: none; border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(0,255,136,.1);
+}
+.lead-form textarea { min-height: 100px; resize: vertical; }
+.lead-form select { cursor: pointer; }
+.lead-form select option { background: var(--bg); color: var(--text); }
+.submit-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px;
+  background: var(--green); color: var(--bg);
+  font-weight: 800; font-size: 1rem;
+  text-transform: uppercase; letter-spacing: .06em;
+  border: none; border-radius: 8px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.submit-btn:hover { background: #00ffaa; transform: translateY(-1px); }
+.submit-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* TIMER */
+.timer-container {
+  display: none;
+  margin-top: 24px; padding: 24px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.timer-container.active { display: block; animation: slideUp .4s ease; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.timer-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.timer-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--yellow); animation: blink .6s ease infinite;
+}
+.timer-dot.done { background: var(--green); animation: none; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+.timer-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .85rem; font-weight: 700;
+}
+.timer-clock {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 3rem; font-weight: 800;
+  color: var(--green);
+  margin-bottom: 12px;
+  letter-spacing: .05em;
+}
+.timer-bar {
+  height: 4px; background: var(--border);
+  border-radius: 2px; overflow: hidden;
+}
+.timer-bar-fill {
+  height: 100%; background: var(--green);
+  border-radius: 2px;
+  transition: width .1s linear;
+  width: 0%;
+}
+
+/* RESPONSE CARDS */
+.response-grid {
+  display: none; margin-top: 28px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.response-grid.active { display: grid; animation: slideUp .5s ease; }
+@media(min-width: 700px) { .response-grid.active { grid-template-columns: 1fr 1fr 1fr; } }
+.resp-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.resp-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.resp-card.sms::before { background: var(--green); }
+.resp-card.email::before { background: var(--blue); }
+.resp-card.chat::before { background: var(--purple); }
+.resp-card .channel {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  margin-bottom: 12px; padding: 3px 10px;
+  border-radius: 999px;
+}
+.resp-card.sms .channel { color: var(--green); background: rgba(0,255,136,.1); }
+.resp-card.email .channel { color: var(--blue); background: rgba(68,136,255,.1); }
+.resp-card.chat .channel { color: var(--purple); background: rgba(170,102,255,.1); }
+.resp-card .msg {
+  font-size: .9rem; color: var(--text);
+  line-height: 1.5;
+}
+.resp-card .msg .typing {
+  display: inline-block; width: 4px; height: 16px;
+  background: var(--green); border-radius: 1px;
+  animation: cursor .6s ease infinite;
+  vertical-align: text-bottom;
+}
+@keyframes cursor { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+.resp-card .timestamp {
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; color: var(--text-dim);
+}
+
+/* FEATURES */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.feat {
+  padding: 28px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color .2s;
+}
+.feat:hover { border-color: var(--green); }
+.feat-icon {
+  font-size: 1.6rem; margin-bottom: 14px;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg3); border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.feat h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+.feat p { font-size: .9rem; color: var(--text-dim); }
+
+/* PIPELINE */
+.pipeline {
+  display: flex; align-items: stretch; gap: 0;
+  margin-top: 48px; overflow-x: auto;
+  padding-bottom: 8px;
+}
+.pipe-step {
+  flex: 1; min-width: 180px;
+  padding: 24px 20px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  position: relative;
+  text-align: center;
+}
+.pipe-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+.pipe-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.pipe-step:not(:last-child)::after {
+  content: "\2192"; position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%); z-index: 2;
+  color: var(--green); font-weight: 800;
+  background: var(--bg); padding: 4px;
+  font-size: 1rem;
+}
+.pipe-step .pipe-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; color: var(--green);
+  font-weight: 700; margin-bottom: 8px;
+}
+.pipe-step .pipe-label { font-weight: 800; font-size: .9rem; margin-bottom: 4px; }
+.pipe-step .pipe-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem; color: var(--text-dim);
+}
+
+/* CTA */
+.cta-section {
+  text-align: center;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 18px 40px;
+  background: var(--green); color: var(--bg);
+  font-weight: 800; font-size: 1.05rem;
+  text-transform: uppercase; letter-spacing: .05em;
+  text-decoration: none;
+  border-radius: 8px; border: none;
+  transition: all .2s;
+}
+.cta-btn:hover { background: #00ffaa; transform: translateY(-2px); }
+
+/* FOOTER */
+.s2l-footer {
+  padding: 40px 24px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem; color: var(--text-dim);
+}
+.s2l-footer a { color: var(--green); text-decoration: none; }
+.s2l-footer a:hover { text-decoration: underline; }
+
+/* RESET BTN */
+.reset-btn {
+  display: none; margin-top: 16px;
+  padding: 10px 24px;
+  background: transparent; color: var(--text-dim);
+  border: 1px solid var(--border);
+  border-radius: 8px; cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem;
+  transition: all .2s;
+}
+.reset-btn:hover { border-color: var(--text); color: var(--text); }
+.reset-btn.active { display: inline-block; }
+
+/* RESPONSIVE */
+@media(max-width: 600px) {
+  .hero { min-height: auto; padding: 60px 20px; }
+  .hero-stats { gap: 24px; }
+  .pipeline { flex-direction: column; }
+  .pipe-step { border-radius: var(--radius) !important; }
+  .pipe-step:not(:last-child)::after { display: none; }
+}
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: all .7s cubic-bezier(.2,.8,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand">
+      <span class="dot"></span>
+      GRAEBENER.TECH
+    </div>
+    <span class="topbar-tag">Speed to Lead Demo</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">// service offering</div>
+    <h1>Your leads go cold<br>in <span class="accent">5 minutes.</span><br><span class="dim">We respond in 5 seconds.</span></h1>
+    <p class="hero-sub">We build automated lead response systems that engage your prospects the instant they reach out — via SMS, email, and chat. No more lost deals from slow follow-up.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">&lt;5s</div>
+        <div class="lbl">Avg Response Time</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">100x</div>
+        <div class="lbl">More Likely to Connect</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="lbl">Channels Covered</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">24/7</div>
+        <div class="lbl">Always On</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section id="demo" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label reveal">// try it live</div>
+    <h2 class="section-title reveal">See it in action.</h2>
+    <p class="section-desc reveal">Fill out this form like a real prospect would. Watch how fast the AI generates personalized responses across all three channels.</p>
+
+    <div class="demo-wrap reveal">
+      <div class="demo-toolbar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        lead-capture-form.tsx — speed-to-lead
+      </div>
+      <div class="demo-body">
+        <div class="lead-form" id="leadForm">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Jane Rodriguez">
+
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="jane@company.com">
+
+          <label for="service">What are you interested in?</label>
+          <select id="service">
+            <option value="" disabled selected>Select a service...</option>
+            <option value="website">Website Development</option>
+            <option value="automation">Business Automation</option>
+            <option value="seo">SEO &amp; Marketing</option>
+            <option value="consulting">Technical Consulting</option>
+          </select>
+
+          <label for="message">Tell us more (optional)</label>
+          <textarea id="message" placeholder="We need a new website for our restaurant..."></textarea>
+
+          <div id="formError" style="display:none;color:var(--red);font-family:'JetBrains Mono',monospace;font-size:.85rem;margin-bottom:16px;padding:10px 14px;border:1px solid var(--red);border-radius:8px;background:rgba(255,68,68,.08);">
+            Please fill in at least your name and pick a service to see the demo.
+          </div>
+
+          <button type="button" class="submit-btn" id="submitBtn" onclick="handleSubmit()">
+            Submit Lead Form
+            <span style="font-size:.8em;opacity:.7">&rarr;</span>
+          </button>
+        </div>
+
+        <!-- TIMER -->
+        <div class="timer-container" id="timerBox">
+          <div class="timer-header">
+            <div class="timer-dot" id="timerDot"></div>
+            <span class="timer-label" id="timerLabel">Processing lead...</span>
+          </div>
+          <div class="timer-clock" id="timerClock">0.00s</div>
+          <div class="timer-bar">
+            <div class="timer-bar-fill" id="timerBar"></div>
+          </div>
+        </div>
+
+        <!-- MULTI-CHANNEL RESPONSES -->
+        <div class="response-grid" id="responseGrid">
+          <div class="resp-card sms">
+            <div class="channel">SMS</div>
+            <div class="msg" id="smsMsg"><span class="typing"></span></div>
+            <div class="timestamp" id="smsTime"></div>
+          </div>
+          <div class="resp-card email">
+            <div class="channel">Email</div>
+            <div class="msg" id="emailMsg"><span class="typing"></span></div>
+            <div class="timestamp" id="emailTime"></div>
+          </div>
+          <div class="resp-card chat">
+            <div class="channel">Live Chat</div>
+            <div class="msg" id="chatMsg"><span class="typing"></span></div>
+            <div class="timestamp" id="chatTime"></div>
+          </div>
+        </div>
+
+        <button class="reset-btn" id="resetBtn" onclick="resetDemo()">Run demo again</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="section-inner">
+    <div class="section-label reveal">// the pipeline</div>
+    <h2 class="section-title reveal">From form submit to first contact.</h2>
+    <p class="section-desc reveal">Every second counts. Here's how the system moves from the moment a lead hits your form.</p>
+
+    <div class="pipeline reveal">
+      <div class="pipe-step">
+        <div class="pipe-num">01</div>
+        <div class="pipe-label">Form Captured</div>
+        <div class="pipe-time">+0.0s</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">02</div>
+        <div class="pipe-label">AI Analyzes Intent</div>
+        <div class="pipe-time">+0.5s</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">03</div>
+        <div class="pipe-label">Personalized Reply</div>
+        <div class="pipe-time">+1.8s</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">04</div>
+        <div class="pipe-label">Multi-Channel Send</div>
+        <div class="pipe-time">+2.5s</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">05</div>
+        <div class="pipe-label">CRM + Routing</div>
+        <div class="pipe-time">+3.0s</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label reveal">// what we build</div>
+    <h2 class="section-title reveal">Everything included.</h2>
+    <p class="section-desc reveal">We don't just set up a chatbot. We build the full pipeline — custom to your business, your tools, your workflow.</p>
+
+    <div class="features-grid">
+      <div class="feat reveal">
+        <div class="feat-icon">AI</div>
+        <h3>AI Smart Replies</h3>
+        <p>Every response is personalized based on what the lead actually asked about. Not generic templates — real context-aware messages.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon">MC</div>
+        <h3>Multi-Channel</h3>
+        <p>SMS, email, and live chat fire simultaneously. Meet your leads wherever they're most likely to respond.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon">5s</div>
+        <h3>Sub-5-Second Response</h3>
+        <p>From form submission to first contact in under 5 seconds. Your competitors are still checking their inbox.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon">CRM</div>
+        <h3>CRM Integration</h3>
+        <p>Leads flow directly into your CRM with full context — service interest, message history, lead score. Zero manual entry.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon">RT</div>
+        <h3>Real-Time Dashboard</h3>
+        <p>Track response times, conversion rates, and pipeline value. Know exactly what's working and what's not.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon">++</div>
+        <h3>Custom Everything</h3>
+        <p>Your brand voice. Your workflow. Your integrations. We build it from scratch — no cookie-cutter SaaS limitations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner" style="max-width: 700px;">
+    <div class="section-label reveal">// ready?</div>
+    <h2 class="section-title reveal" style="text-align:center;">Stop losing leads to slow follow-up.</h2>
+    <p class="section-desc reveal" style="text-align:center;margin-left:auto;margin-right:auto;">We'll build you a custom speed-to-lead system tailored to your business. From intake form to first response in seconds — not hours.</p>
+    <div class="reveal" style="text-align:center;">
+      <a href="#demo" class="cta-btn">Try the Demo Again</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="s2l-footer">
+  Built by <a href="/">Graebener.Tech</a> — Custom Automation &amp; Web Development
+</div>
+
+<script>
+// Service-specific AI responses
+const responses = {
+  website: {
+    sms: (name) => `Hey ${name}! Thanks for reaching out about a new website. I'd love to learn more about your vision. Do you have 15 min this week for a quick call? — Graebener.Tech`,
+    email: (name, msg) => `Hi ${name},\n\nThanks for your interest in website development! ${msg ? `You mentioned: "${msg}" — that's a great project.` : "We'd love to hear more about what you have in mind."}\n\nWe specialize in fast, modern sites that convert visitors into customers. I'll send over some relevant examples within the hour.\n\nLet's connect — reply with your availability or grab a slot at our booking link.\n\n— The Graebener.Tech Team`,
+    chat: (name) => `Welcome, ${name}! I see you're interested in website development. I can show you some recent projects while you wait for a team member. What industry is your business in?`
+  },
+  automation: {
+    sms: (name) => `Hi ${name}! Got your automation inquiry. We love building systems that save time and money. What's the biggest bottleneck in your workflow right now? — Graebener.Tech`,
+    email: (name, msg) => `Hi ${name},\n\n${msg ? `You mentioned: "${msg}" — sounds like a perfect fit for automation.` : "Business automation is our bread and butter."}\n\nWe build custom workflows that eliminate repetitive tasks, reduce errors, and free your team to focus on what matters. From lead routing to invoice processing — if it's manual and repeatable, we can automate it.\n\nLet's talk specifics. Reply with a good time or book directly.\n\n— The Graebener.Tech Team`,
+    chat: (name) => `Hey ${name}! Automation is our specialty. Quick question: are you looking to automate a specific process, or do you need a full workflow audit? I can point you in the right direction.`
+  },
+  seo: {
+    sms: (name) => `Hey ${name}! Thanks for your interest in SEO & marketing. We'd love to run a quick audit on your site. Mind sharing your URL? — Graebener.Tech`,
+    email: (name, msg) => `Hi ${name},\n\n${msg ? `You mentioned: "${msg}" — let's dig into that.` : "SEO and marketing are how great businesses get found."}\n\nWe take a technical-first approach: site speed, structured data, content strategy, and conversion optimization. No fluff, just results you can measure.\n\nI'd love to run a free initial audit on your site. Reply with your URL and we'll get started.\n\n— The Graebener.Tech Team`,
+    chat: (name) => `Hi ${name}! Interested in SEO & marketing — great move. Do you have an existing website you'd like us to audit, or are you starting from scratch?`
+  },
+  consulting: {
+    sms: (name) => `Hi ${name}! Got your consulting request. We help businesses make smart tech decisions. What's the biggest challenge you're facing? — Graebener.Tech`,
+    email: (name, msg) => `Hi ${name},\n\n${msg ? `You mentioned: "${msg}" — happy to help you think through this.` : "Technical consulting is all about making the right decisions before writing a single line of code."}\n\nWhether it's architecture review, vendor selection, or scaling strategy, we bring hands-on experience across the full stack.\n\nLet's set up a discovery call. Reply with your availability.\n\n— The Graebener.Tech Team`,
+    chat: (name) => `Welcome, ${name}! Technical consulting — great choice. Are you evaluating tools/platforms, planning an architecture, or troubleshooting an existing system?`
+  }
+};
+
+let timerInterval = null;
+
+function handleSubmit() {
+  const nameVal = document.getElementById('name').value.trim();
+  const service = document.getElementById('service').value;
+  const message = document.getElementById('message').value;
+  const errorBox = document.getElementById('formError');
+
+  // Use defaults if fields are empty — keep demo frictionless
+  const name = nameVal ? nameVal.split(' ')[0] : 'Alex';
+  const finalService = service || 'website';
+
+  // Only require a service selection (show error if nothing picked)
+  if (!service && !nameVal) {
+    errorBox.style.display = 'block';
+    errorBox.textContent = 'Tip: fill in a name and pick a service for a personalized demo — or just hit submit again and we\'ll use defaults!';
+    // Auto-fill defaults on second click
+    document.getElementById('name').value = 'Alex';
+    document.getElementById('service').value = 'website';
+    return;
+  }
+
+  errorBox.style.display = 'none';
+
+  // Disable form
+  document.getElementById('submitBtn').disabled = true;
+
+  // Show timer
+  const timerBox = document.getElementById('timerBox');
+  timerBox.classList.add('active');
+
+  let elapsed = 0;
+  const clock = document.getElementById('timerClock');
+  const bar = document.getElementById('timerBar');
+  const totalTime = 3200; // ms
+
+  timerInterval = setInterval(() => {
+    elapsed += 50;
+    clock.textContent = (elapsed / 1000).toFixed(2) + 's';
+    bar.style.width = Math.min((elapsed / totalTime) * 100, 100) + '%';
+  }, 50);
+
+  // Phase 1: Show "Analyzing intent..." at 0.8s
+  setTimeout(() => {
+    document.getElementById('timerLabel').textContent = 'AI analyzing intent...';
+  }, 800);
+
+  // Phase 2: Show "Generating responses..." at 1.6s
+  setTimeout(() => {
+    document.getElementById('timerLabel').textContent = 'Generating personalized responses...';
+  }, 1600);
+
+  // Phase 3: Show responses at ~2.5s
+  setTimeout(() => {
+    document.getElementById('timerLabel').textContent = 'Dispatching across channels...';
+    document.getElementById('responseGrid').classList.add('active');
+
+    // Type out SMS
+    typeText('smsMsg', responses[finalService].sms(name), 18, () => {
+      document.getElementById('smsTime').textContent = 'Delivered \u00B7 ' + new Date().toLocaleTimeString();
+    });
+
+    // Type out chat
+    setTimeout(() => {
+      typeText('chatMsg', responses[finalService].chat(name), 15, () => {
+        document.getElementById('chatTime').textContent = 'Sent \u00B7 ' + new Date().toLocaleTimeString();
+      });
+    }, 200);
+
+    // Type out email
+    setTimeout(() => {
+      typeText('emailMsg', responses[finalService].email(name, message), 8, () => {
+        document.getElementById('emailTime').textContent = 'Sent \u00B7 ' + new Date().toLocaleTimeString();
+      });
+    }, 400);
+  }, 2500);
+
+  // Phase 4: Done at ~3.2s
+  setTimeout(() => {
+    clearInterval(timerInterval);
+    clock.textContent = (totalTime / 1000).toFixed(2) + 's';
+    bar.style.width = '100%';
+    document.getElementById('timerDot').classList.add('done');
+    document.getElementById('timerLabel').textContent = 'All channels engaged';
+    document.getElementById('resetBtn').classList.add('active');
+  }, totalTime);
+
+  return false;
+}
+
+function typeText(elementId, text, speed, callback) {
+  const el = document.getElementById(elementId);
+  el.innerHTML = '';
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      if (text[i] === '\n') {
+        el.innerHTML += '<br>';
+      } else {
+        el.innerHTML += text[i];
+      }
+      i++;
+    } else {
+      clearInterval(interval);
+      if (callback) callback();
+    }
+  }, speed);
+}
+
+function resetDemo() {
+  document.getElementById('name').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('service').selectedIndex = 0;
+  document.getElementById('message').value = '';
+  document.getElementById('formError').style.display = 'none';
+  document.getElementById('submitBtn').disabled = false;
+
+  document.getElementById('timerBox').classList.remove('active');
+  document.getElementById('responseGrid').classList.remove('active');
+  document.getElementById('resetBtn').classList.remove('active');
+
+  clearInterval(timerInterval);
+  document.getElementById('timerClock').textContent = '0.00s';
+  document.getElementById('timerBar').style.width = '0%';
+  document.getElementById('timerDot').classList.remove('done');
+  document.getElementById('timerLabel').textContent = 'Processing lead...';
+
+  ['smsMsg', 'emailMsg', 'chatMsg'].forEach(id => {
+    document.getElementById(id).innerHTML = '<span class="typing"></span>';
+  });
+  ['smsTime', 'emailTime', 'chatTime'].forEach(id => {
+    document.getElementById(id).textContent = '';
+  });
+
+  document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Scroll reveal
+document.addEventListener('DOMContentLoaded', () => {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+});
+</script>
+</body>
+</html>

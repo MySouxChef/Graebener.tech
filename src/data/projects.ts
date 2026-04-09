@@ -44,6 +44,19 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "speed-to-lead",
+    title: "Speed to Lead",
+    description:
+      "AI-powered lead response system that engages prospects in under 5 seconds across SMS, email, and live chat — with personalized, context-aware messages.",
+    longDescription:
+      "An automated lead response pipeline that eliminates slow follow-up. The moment a prospect submits a form, AI analyzes their intent and generates personalized responses dispatched simultaneously across SMS (Twilio), email (Resend), and live chat. Includes lead scoring, smart routing to the right team member, CRM sync, and a real-time analytics dashboard. Built as a service offering for businesses that lose deals to slow response times.",
+    techStack: ["Next.js", "Claude AI", "Twilio", "Resend", "Supabase"],
+    thumbnail: "/images/projects/speed-to-lead-thumb.png",
+    thumbnailExists: false,
+    demoPath: "/projects/speed-to-lead/index.html",
+    featured: true,
+  },
+  {
     slug: "ai-agent-dashboard",
     title: "AI Agent Dashboard",
     description:
