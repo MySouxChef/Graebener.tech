@@ -24,7 +24,10 @@
       "Bash(vercel domains:*)",
       "mcp__porkbun__dns_list",
       "mcp__porkbun__dns_delete",
-      "mcp__porkbun__dns_create"
+      "mcp__porkbun__dns_create",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_snapshot"
     ]
   }
 }

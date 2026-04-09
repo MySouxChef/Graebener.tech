@@ -48,7 +48,7 @@ export async function GET() {
       dirs.map(async (dir: { name: string }) => {
         try {
           const metaRes = await fetch(
-            `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/${SITES_PATH}/${dir.name}/meta.json`,
+            `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/master/${SITES_PATH}/${dir.name}/meta.json`,
             { next: { revalidate: 60 } }
           );
           if (!metaRes.ok) return;

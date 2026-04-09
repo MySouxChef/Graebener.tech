@@ -17,7 +17,7 @@ export async function GET(
 
   try {
     const res = await fetch(
-      `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/${SITES_PATH}/${slug}/index.html`,
+      `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/master/${SITES_PATH}/${slug}/index.html`,
       { next: { revalidate: 60 } }
     );
 

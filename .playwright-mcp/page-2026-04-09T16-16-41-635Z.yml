@@ -1,0 +1,101 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "GRAEBENER.TECH" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "Home" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "Projects" [ref=e7] [cursor=pointer]:
+          - /url: /projects
+        - link "Skills" [ref=e8] [cursor=pointer]:
+          - /url: /skills
+        - link "Blog" [ref=e9] [cursor=pointer]:
+          - /url: /blog
+        - link "Contact" [ref=e10] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e11]:
+    - generic [ref=e13]:
+      - heading "> Projects" [level=2] [ref=e15]
+      - paragraph [ref=e17]: A collection of projects showcasing agentic engineering, AI integration, and modern full-stack development.
+      - generic [ref=e18]:
+        - link "</> AI Web Builder AI Web Builder Agentic website generator that creates full websites from prompts, pushes them to GitHub, and displays them in a searchable portfolio. Next.js Claude AI GitHub API TypeScript" [ref=e20] [cursor=pointer]:
+          - /url: /webbuilder
+          - generic [ref=e21]:
+            - generic [ref=e24]:
+              - generic [ref=e25]: </>
+              - text: AI Web Builder
+            - heading "AI Web Builder" [level=3] [ref=e26]
+            - paragraph [ref=e27]: Agentic website generator that creates full websites from prompts, pushes them to GitHub, and displays them in a searchable portfolio.
+            - generic [ref=e28]:
+              - generic [ref=e29]: Next.js
+              - generic [ref=e30]: Claude AI
+              - generic [ref=e31]: GitHub API
+              - generic [ref=e32]: TypeScript
+        - link "MySouxChef MySouxChef AI personal assistant for chefs — manage inventory, menus, recipes, food cost, and alerts all from one chat interface. Next.js TypeScript Supabase Claude AI Stripe Tailwind" [ref=e34] [cursor=pointer]:
+          - /url: /projects/mysouxchef
+          - generic [ref=e35]:
+            - img "MySouxChef" [ref=e37]
+            - heading "MySouxChef" [level=3] [ref=e38]
+            - paragraph [ref=e39]: AI personal assistant for chefs — manage inventory, menus, recipes, food cost, and alerts all from one chat interface.
+            - generic [ref=e40]:
+              - generic [ref=e41]: Next.js
+              - generic [ref=e42]: TypeScript
+              - generic [ref=e43]: Supabase
+              - generic [ref=e44]: Claude AI
+              - generic [ref=e45]: Stripe
+              - generic [ref=e46]: Tailwind
+        - link "</> AI Agent Dashboard AI Agent Dashboard Real-time monitoring dashboard for autonomous AI agents with task management and analytics. React TypeScript WebSocket D3.js Tailwind" [ref=e48] [cursor=pointer]:
+          - /url: /projects/ai-agent-dashboard
+          - generic [ref=e49]:
+            - generic [ref=e52]:
+              - generic [ref=e53]: </>
+              - text: AI Agent Dashboard
+            - heading "AI Agent Dashboard" [level=3] [ref=e54]
+            - paragraph [ref=e55]: Real-time monitoring dashboard for autonomous AI agents with task management and analytics.
+            - generic [ref=e56]:
+              - generic [ref=e57]: React
+              - generic [ref=e58]: TypeScript
+              - generic [ref=e59]: WebSocket
+              - generic [ref=e60]: D3.js
+              - generic [ref=e61]: Tailwind
+        - link "</> Smart Automation CLI Smart Automation CLI Intelligent command-line tool that automates repetitive development workflows using AI. Python OpenAI Click Rich" [ref=e63] [cursor=pointer]:
+          - /url: /projects/smart-automation-cli
+          - generic [ref=e64]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: </>
+              - text: Smart Automation CLI
+            - heading "Smart Automation CLI" [level=3] [ref=e69]
+            - paragraph [ref=e70]: Intelligent command-line tool that automates repetitive development workflows using AI.
+            - generic [ref=e71]:
+              - generic [ref=e72]: Python
+              - generic [ref=e73]: OpenAI
+              - generic [ref=e74]: Click
+              - generic [ref=e75]: Rich
+        - link "</> Neural Code Reviewer Neural Code Reviewer AI-powered code review system that provides intelligent feedback and security analysis. Next.js Claude API GitHub API PostgreSQL" [ref=e77] [cursor=pointer]:
+          - /url: /projects/neural-code-reviewer
+          - generic [ref=e78]:
+            - generic [ref=e81]:
+              - generic [ref=e82]: </>
+              - text: Neural Code Reviewer
+            - heading "Neural Code Reviewer" [level=3] [ref=e83]
+            - paragraph [ref=e84]: AI-powered code review system that provides intelligent feedback and security analysis.
+            - generic [ref=e85]:
+              - generic [ref=e86]: Next.js
+              - generic [ref=e87]: Claude API
+              - generic [ref=e88]: GitHub API
+              - generic [ref=e89]: PostgreSQL
+  - contentinfo [ref=e90]:
+    - generic [ref=e91]:
+      - paragraph [ref=e92]: © 2026 Graebener.tech
+      - generic [ref=e93]:
+        - link "GitHub" [ref=e94] [cursor=pointer]:
+          - /url: https://github.com
+          - img [ref=e95]
+        - link "LinkedIn" [ref=e98] [cursor=pointer]:
+          - /url: https://linkedin.com
+          - img [ref=e99]
+        - link "Email" [ref=e102] [cursor=pointer]:
+          - /url: mailto:hello@graebener.tech
+          - img [ref=e103]
+  - alert [ref=e106]
