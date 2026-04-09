@@ -44,6 +44,20 @@ Graebener.tech is a dark, futuristic portfolio website showcasing agentic engine
 
 **New blog post:** Create `content/blog/{slug}.mdx` with frontmatter: `title`, `description`, `date`, `tags`, `published`
 
+## Git Workflow (git-auto skill)
+
+This project uses the **git-auto** skill (`.claude/skills/git-auto/SKILL.md`) for all git operations. When performing any git action — commits, pushes, branch creation, PRs — follow the skill's instructions:
+
+- **Auto-accept permissions** are configured in `.claude/settings.local.json` (safety-first: force pushes blocked, pushes to main/master/prod require confirmation, everything else auto-approved)
+- **Use conventional commits**: `feat:`, `fix:`, `refactor:`, `docs:`, `style:`, `test:`, `chore:`
+- **Stage files explicitly** — never use `git add -A` or `git add .`
+- **Log every git session** to `.claude/git-auto-log.json` after completing any git workflow
+- **Create PRs** with structured descriptions using `gh pr create`
+- **Review workflow periodically** — run the review process when 20+ sessions accumulate or the user asks
+- Never commit `.env`, credentials, API keys, or secrets
+- Never force push to main, master, or prod
+- If a pre-commit hook fails, fix the issue and create a NEW commit (never --amend)
+
 ## Design System
 
 Dark cyberpunk aesthetic. Key colors: cyan accent `#00f0ff`, purple `#7b2ff7`, pink `#ff2d55`. Backgrounds: `#0a0a0f`, `#12121a`. Fonts: Inter (sans), JetBrains Mono (mono). CSS utility classes: `.glow-text`, `.glow-box`, `.glitch-text`, `.grid-bg`

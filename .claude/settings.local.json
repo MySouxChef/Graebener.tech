@@ -1,6 +1,19 @@
 {
   "permissions": {
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -f *)"
+    ],
+    "ask": [
+      "Bash(git push * main)",
+      "Bash(git push * master)",
+      "Bash(git push * prod)"
+    ],
     "allow": [
+      "Bash(git *)",
+      "Bash(gh *)",
       "WebSearch",
       "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --turbopack --import-alias \"@/*\" --yes)",
       "Bash(npx create-next-app@latest graebener-tech --typescript --tailwind --eslint --app --src-dir --turbopack --import-alias \"@/*\" --yes)",
@@ -28,7 +41,9 @@
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_take_screenshot",
       "mcp__playwright__browser_snapshot",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(wc -l *.js *.css *.html)",
+      "Bash(file *.js *.css)"
     ]
   }
 }

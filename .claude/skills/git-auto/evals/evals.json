@@ -1,0 +1,23 @@
+{
+  "skill_name": "git-auto",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "i just want claude code to stop bugging me about git permissions every time. how do i set that up so it just does it automatically",
+      "expected_output": "Should provide the exact settings.json configuration for auto-approving git commands, explain where to put the file, and mention both the quick setup and the safety-first option",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "ok i made a bunch of changes to the login page and the api routes. commit everything and push it up and make a PR",
+      "expected_output": "Should run git status/diff, stage specific files, write a conventional commit message, push with upstream tracking, create a PR with gh cli, and LOG the entire session to .claude/git-auto-log.json",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "review my git activity and tell me how i can improve my workflow",
+      "expected_output": "Should read .claude/git-auto-log.json, analyze patterns, score the workflow on 5 dimensions, generate a review report to .claude/git-auto-review.md, and produce specific improvement suggestions for both the user workflow and the skill itself",
+      "files": []
+    }
+  ]
+}
