@@ -14,7 +14,10 @@
       "Bash(node -e \"import\\('lucide-react'\\).then\\(m => { const keys = Object.keys\\(m\\).filter\\(k => /git|linked/i.test\\(k\\)\\); console.log\\(keys.join\\('\\\\n'\\)\\); }\\)\")",
       "Bash(node -e \"import\\('lucide-react'\\).then\\(m => { const keys = Object.keys\\(m\\).filter\\(k => /^\\(Globe|Link|ExternalLink|Mail|Send|ArrowLeft|Menu|X|ChevronDown|Calendar|Clock|Maximize|Minimize|Loader|CheckCircle|Search\\)/.test\\(k\\)\\); console.log\\(keys.sort\\(\\).join\\('\\\\n'\\)\\); }\\)\")",
       "Bash(gh auth:*)",
-      "Bash(gh repo:*)"
+      "Bash(gh repo:*)",
+      "Bash(head -30 app/api/invoice/scan/route.ts)",
+      "Bash(head -30 app/api/invoices/scan/route.ts)",
+      "Bash(ls app/api/invoice*)"
     ]
   }
 }

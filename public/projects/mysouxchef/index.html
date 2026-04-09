@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySouxChef — Your AI Sous Chef</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, 'Segoe UI', system-ui, sans-serif; background: #fff; color: #1a1a1a; min-height: 100vh; }
+
+    /* Nav */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-bottom: 1px solid #f0f0f0; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #f97316, #ea580c); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; }
+    .nav-logo span { color: #f97316; font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { text-decoration: none; font-size: 14px; color: #666; transition: color 0.2s; }
+    .nav-links a:hover { color: #1a1a1a; }
+    .btn-trial { background: #f97316; color: white; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.2s; border: none; cursor: pointer; }
+    .btn-trial:hover { background: #ea580c; }
+
+    /* Hero */
+    .hero { text-align: center; padding: 60px 20px 20px; }
+    .hero-badge { display: inline-block; background: #fff7ed; color: #c2410c; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; border: 1px solid #fed7aa; }
+    .hero h1 { font-size: 42px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .hero h1 span { color: #f97316; font-style: italic; }
+    .hero p { font-size: 17px; color: #666; max-width: 520px; margin: 0 auto 40px; line-height: 1.6; }
+
+    /* Chat demo */
+    .chat-container { max-width: 580px; margin: 0 auto 32px; }
+    .chat-box { background: #fff; border: 1px solid #e5e5e5; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); overflow: hidden; }
+    .chat-header { padding: 16px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; }
+    .chat-header-dot { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.4); }
+    .chat-header-text { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+    .chat-header-sub { font-size: 12px; color: #999; margin-left: auto; }
+    .chat-body { padding: 20px; min-height: 180px; }
+    .chat-label { font-size: 13px; color: #999; text-align: center; margin-bottom: 16px; }
+
+    /* Suggested prompts */
+    .prompts { display: flex; flex-direction: column; gap: 8px; }
+    .prompt-chip { display: block; width: 100%; text-align: left; padding: 12px 16px; background: #fafafa; border: 1px solid #e5e5e5; border-radius: 10px; font-size: 14px; color: #333; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .prompt-chip:hover { background: #fff7ed; border-color: #f97316; color: #c2410c; }
+
+    /* Chat input */
+    .chat-input { display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-top: 1px solid #f0f0f0; background: #fafafa; }
+    .chat-input input { flex: 1; border: 1px solid #e5e5e5; border-radius: 8px; padding: 10px 14px; font-size: 14px; background: #fff; outline: none; font-family: inherit; color: #333; }
+    .chat-input input:focus { border-color: #f97316; box-shadow: 0 0 0 3px rgba(249,115,22,0.1); }
+    .chat-input input::placeholder { color: #bbb; }
+    .send-btn { width: 36px; height: 36px; border-radius: 8px; background: #f97316; border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; font-size: 16px; }
+    .send-btn:hover { background: #ea580c; }
+
+    .chat-footer { text-align: center; padding: 0 20px 16px; }
+    .chat-footer span { font-size: 11px; color: #bbb; }
+
+    /* CTA */
+    .cta { text-align: center; padding: 20px 20px 60px; }
+    .cta .btn-trial { font-size: 16px; padding: 14px 32px; border-radius: 10px; display: inline-block; }
+
+    /* Conversation mode */
+    .chat-msg { padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.6; margin-bottom: 10px; max-width: 85%; opacity: 0; transform: translateY(8px); animation: msgIn 0.3s ease forwards; }
+    .chat-msg-user { background: #f97316; color: white; margin-left: auto; border-bottom-right-radius: 4px; }
+    .chat-msg-ai { background: #f5f5f5; color: #333; border-bottom-left-radius: 4px; }
+    .chat-msg-ai strong { color: #c2410c; }
+    @keyframes msgIn { to { opacity: 1; transform: translateY(0); } }
+    .hidden { display: none; }
+
+    @media (max-width: 640px) {
+      .nav { padding: 12px 16px; }
+      .nav-links a:not(.btn-trial) { display: none; }
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 15px; }
+      .chat-container { margin: 0 16px 32px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-icon">🍳</div>
+      My<span>SouxChef</span>
+    </a>
+    <div class="nav-links">
+      <a href="#">Pricing</a>
+      <a href="#">Sign in</a>
+      <a href="#" class="btn-trial">Start free trial</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">The AI personal assistant for chefs.</div>
+    <h1>Your AI <span>Sous Chef.</span></h1>
+    <p>Talk to your kitchen. Manage inventory, menus, recipes, food cost, and alerts &mdash; all from one chat.</p>
+  </section>
+
+  <!-- Chat Demo -->
+  <div class="chat-container">
+    <div class="chat-box">
+      <div class="chat-header">
+        <div class="chat-header-dot"></div>
+        <div class="chat-header-text">Chat with Chef</div>
+        <div class="chat-header-sub">Try the AI Sous Chef live &mdash; no signup needed</div>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-label">Try a question to see Chef in action:</div>
+        <div class="prompts" id="prompts">
+          <button class="prompt-chip" data-msg="What's low in inventory?">What's low in inventory?</button>
+          <button class="prompt-chip" data-msg="What's my most expensive menu item?">What's my most expensive menu item?</button>
+          <button class="prompt-chip" data-msg="Show me my recipe costs">Show me my recipe costs</button>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Ask Chef anything about your kitchen items..." />
+        <button class="send-btn" id="sendBtn">↑</button>
+      </div>
+      <div class="chat-footer">
+        <span>Chef uses your actual data from a Kitchen database · 3 messages left</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta">
+    <a href="#" class="btn-trial">Start 14-day free trial</a>
+  </section>
+
+  <script>
+    const responses = {
+      "What's low in inventory?": "You have <strong>6 items</strong> below par level right now:\n\n• <strong>Heavy Cream</strong> — 2 qt remaining (par: 8)\n• <strong>Fresh Basil</strong> — 1 bunch (par: 5)\n• <strong>Arborio Rice</strong> — 3 lbs (par: 15)\n• <strong>Shallots</strong> — 4 oz (par: 16 oz)\n• <strong>White Wine</strong> — 1 bottle (par: 4)\n• <strong>Parmesan</strong> — 0.5 lb (par: 3 lb)\n\nI'd suggest ordering from <strong>Sysco</strong> — they deliver Tuesdays.",
+      "What's my most expensive menu item?": "Your most expensive menu item is the <strong>Lobster Risotto</strong> at <strong>$8.42 per plate</strong> (food cost: 33.7%).\n\nTop 3 by plate cost:\n1. Lobster Risotto — $8.42 (33.7%)\n2. NY Strip 12oz — $7.85 (28.4%)\n3. Pan-Seared Halibut — $6.90 (31.2%)\n\nYour menu average food cost is <strong>29.1%</strong> — within the healthy range.",
+      "Show me my recipe costs": "Here are your recipe costs updated with latest prices:\n\n📋 <strong>Appetizers</strong>\n• Bruschetta — $1.24/plate\n• Caesar Salad — $1.85/plate\n\n📋 <strong>Mains</strong>\n• Chicken Marsala — $4.12/plate\n• NY Strip — $7.85/plate\n• Lobster Risotto — $8.42/plate\n\n📋 <strong>Desserts</strong>\n• Tiramisu — $2.10/plate\n• Panna Cotta — $1.65/plate\n\nTotal menu avg: <strong>$3.89/plate</strong> (29.1% food cost)"
+    };
+
+    const chatBody = document.getElementById('chatBody');
+    const promptsEl = document.getElementById('prompts');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+    let conversationStarted = false;
+
+    function startConversation(msg) {
+      if (!conversationStarted) {
+        conversationStarted = true;
+        chatBody.querySelector('.chat-label').classList.add('hidden');
+        promptsEl.classList.add('hidden');
+      }
+
+      // User message
+      const userDiv = document.createElement('div');
+      userDiv.className = 'chat-msg chat-msg-user';
+      userDiv.textContent = msg;
+      chatBody.appendChild(userDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      // AI response after delay
+      setTimeout(() => {
+        const aiDiv = document.createElement('div');
+        aiDiv.className = 'chat-msg chat-msg-ai';
+        const response = responses[msg] || "I can help with that! Let me check your kitchen data... Based on your current inventory and recent orders, everything looks good. Want me to dig deeper into any specific category?";
+        aiDiv.innerHTML = response.replace(/\n/g, '<br>');
+        chatBody.appendChild(aiDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, 800);
+    }
+
+    promptsEl.querySelectorAll('.prompt-chip').forEach(btn => {
+      btn.addEventListener('click', () => startConversation(btn.dataset.msg));
+    });
+
+    sendBtn.addEventListener('click', () => {
+      const val = chatInput.value.trim();
+      if (val) { startConversation(val); chatInput.value = ''; }
+    });
+
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { sendBtn.click(); }
+    });
+  </script>
+</body>
+</html>

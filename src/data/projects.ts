@@ -5,6 +5,7 @@ export interface Project {
   longDescription: string;
   techStack: string[];
   thumbnail: string;
+  thumbnailExists: boolean;
   demoPath: string;
   githubUrl?: string;
   liveUrl?: string;
@@ -12,6 +13,20 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "mysouxchef",
+    title: "MySouxChef",
+    description:
+      "AI personal assistant for chefs — manage inventory, menus, recipes, food cost, and alerts all from one chat interface.",
+    longDescription:
+      "MySouxChef is an AI-powered kitchen management platform where chefs talk to their kitchen through a single chat interface. Ask about inventory levels, recipe costs, menu pricing, and get instant answers powered by Claude AI using your real kitchen data. Features include photo-based inventory scanning, invoice processing, smart par level alerts, vendor price tracking, shelf-life monitoring, recipe costing, team collaboration with role-based access, and Stripe-powered subscription billing with a 14-day free trial.",
+    techStack: ["Next.js", "TypeScript", "Supabase", "Claude AI", "Stripe", "Tailwind"],
+    thumbnail: "/images/projects/mysouxchef-thumb.png",
+    thumbnailExists: true,
+    demoPath: "/projects/mysouxchef/index.html",
+    githubUrl: "https://github.com/MySouxChef/MySouxChef",
+    featured: true,
+  },
   {
     slug: "ai-agent-dashboard",
     title: "AI Agent Dashboard",
@@ -21,6 +36,7 @@ export const projects: Project[] = [
       "A comprehensive dashboard for managing and monitoring autonomous AI agents. Features include real-time task tracking, performance analytics, agent communication logs, and automated workflow visualization. Built with a focus on clean UX and instant data updates.",
     techStack: ["React", "TypeScript", "WebSocket", "D3.js", "Tailwind"],
     thumbnail: "/images/projects/ai-dashboard-thumb.png",
+    thumbnailExists: false,
     demoPath: "/projects/ai-agent-dashboard/index.html",
     featured: true,
   },
@@ -33,6 +49,7 @@ export const projects: Project[] = [
       "A CLI tool that learns from your development patterns and automates repetitive tasks. Uses natural language processing to understand commands and can generate boilerplate, run test suites, and manage deployments with simple conversational inputs.",
     techStack: ["Python", "OpenAI", "Click", "Rich"],
     thumbnail: "/images/projects/cli-thumb.png",
+    thumbnailExists: false,
     demoPath: "/projects/smart-automation-cli/index.html",
     featured: true,
   },
@@ -45,6 +62,7 @@ export const projects: Project[] = [
       "An automated code review system that uses large language models to analyze pull requests, identify potential bugs, suggest improvements, and flag security vulnerabilities. Integrates directly with GitHub via webhooks for seamless developer experience.",
     techStack: ["Next.js", "Claude API", "GitHub API", "PostgreSQL"],
     thumbnail: "/images/projects/code-reviewer-thumb.png",
+    thumbnailExists: false,
     demoPath: "/projects/neural-code-reviewer/index.html",
     featured: true,
   },
