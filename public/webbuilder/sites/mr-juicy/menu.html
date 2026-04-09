@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Menu · Mr Juicy</title>
+<meta name="description" content="The full Mr Juicy menu — burgers, combos, shakes, and more. San Antonio, TX.">
+<meta name="theme-color" content="#8BC63F">
+<link rel="icon" href="assets/logo-full.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mr Juicy">
+<meta property="og:title" content="Menu · Mr Juicy">
+<meta property="og:description" content="Burgers, combos, shakes, and more. Built to be devoured.">
+<meta property="og:url" content="https://mrjuicy.net/menu">
+<meta property="og:image" content="https://mrjuicy.net/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mrjuicy.net/assets/og-image.png">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/logo-full.svg" alt="Mr Juicy"> Mr Juicy</a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="gallery.html#contact">Contact</a></li>
+    </ul></nav>
+    <a href="tel:+12109949838" class="btn cta">Call to Order</a>
+    <button class="burger-icon" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="bg-dark" style="padding:80px 0 60px">
+  <div class="container" style="text-align:center">
+    <span class="eyebrow-dark">The Menu</span>
+    <h1 style="color:var(--cream);margin-top:10px">Built to be <span style="color:var(--lime)">Devoured</span>.</h1>
+    <p style="max-width:620px;margin:20px auto 0;color:#bbb;font-size:1.1rem">Premium Angus, fresh daily, crafted in-house. Prices shown for dine-in and takeout.</p>
+    <div style="margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="#" class="btn disabled" onclick="event.preventDefault();alert('Online ordering launching soon!');">Order Online <span class="badge">Soon</span></a>
+      <a href="tel:+12109949838" class="btn alt">Call to Order</a>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="menu-section">
+    <h2>À La Carte</h2>
+    <div class="menu-grid">
+      <div class="menu-item"><div><h4>Hamburger</h4><p class="desc">Fresh beef patty grilled to perfection with lettuce, tomato, and secret sauce on a soft bun.</p></div><div class="price">$5</div></div>
+      <div class="menu-item"><div><h4>Cheeseburger</h4><p class="desc">Classic beef burger topped with melted American cheese and fresh vegetables.</p></div><div class="price">$6</div></div>
+      <div class="menu-item"><div><h4>Double Cheeseburger</h4><p class="desc">Two juicy beef patties stacked high with double cheese for extra indulgence.</p></div><div class="price">$7</div></div>
+      <div class="menu-item"><div><h4>Chicken Sandwich</h4><p class="desc">Crispy fried chicken breast with pickles and special seasoning on brioche bun.</p></div><div class="price">$10</div></div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <h2>Combos</h2>
+    <div class="menu-grid">
+      <div class="menu-item"><div><h4>Hamburger Combo</h4><p class="desc">Traditional beef burger with fresh toppings, fries and drink. Simple yet satisfying.</p></div><div class="price">$10</div></div>
+      <div class="menu-item"><div><h4>Cheeseburger Combo</h4><p class="desc">Classic beef patty with cheese, golden fries and drink. Our signature combo meal.</p></div><div class="price">$11</div></div>
+      <div class="menu-item"><div><h4>Double Cheeseburger Combo</h4><p class="desc">Juicy double patties with melted cheese, crispy fries and refreshing drink. Big-appetite value.</p></div><div class="price">$12</div></div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <h2>Add Ons</h2>
+    <div class="menu-grid">
+      <div class="menu-item"><div><h4>Fries</h4></div><div class="price">$4</div></div>
+      <div class="menu-item"><div><h4>Extra Patty</h4></div><div class="price">$2</div></div>
+      <div class="menu-item"><div><h4>Mushrooms</h4></div><div class="price">$2.50</div></div>
+      <div class="menu-item"><div><h4>Bacon</h4></div><div class="price">$2</div></div>
+      <div class="menu-item"><div><h4>Egg</h4></div><div class="price">$2</div></div>
+      <div class="menu-item"><div><h4>Wet (Extra Sauce)</h4></div><div class="price">$1.50</div></div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <h2>Shakes</h2>
+    <div class="menu-grid">
+      <div class="menu-item"><div><h4>Strawberry</h4></div><div class="price">$6</div></div>
+      <div class="menu-item"><div><h4>Chocolate</h4></div><div class="price">$6</div></div>
+      <div class="menu-item"><div><h4>Vanilla</h4></div><div class="price">$6</div></div>
+      <div class="menu-item"><div><h4>Nutella</h4></div><div class="price">$6</div></div>
+      <div class="menu-item"><div><h4>Cookies</h4></div><div class="price">$6</div></div>
+      <div class="menu-item"><div><h4>Mint Chip</h4></div><div class="price">$6</div></div>
+      <div class="menu-item"><div><h4>Peanut Butter</h4></div><div class="price">$6</div></div>
+      <div class="menu-item"><div><h4>Caramel</h4></div><div class="price">$6</div></div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <h2>Boozy Shakes</h2>
+    <div class="menu-grid">
+      <div class="menu-item"><div><h4>Baileys</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Rum</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Tequila</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Whiskey</h4></div><div class="price">MP</div></div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <h2>Beverages</h2>
+    <div class="menu-grid">
+      <div class="menu-item"><div><h4>Fountain Drinks</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Topo Chico</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Bottled Water</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Tea (Sweet or Unsweet)</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Nitro Cold Brew Coffee</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Domestic Beers</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Craft Beer</h4></div><div class="price">MP</div></div>
+      <div class="menu-item"><div><h4>Mixed Drinks</h4></div><div class="price">MP</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="grid">
+      <div><div class="brand" style="color:var(--cream)"><img src="assets/logo-full.svg" alt=""> Mr Juicy</div><p style="margin-top:16px;opacity:.75">A burger isn't just food — it's an experience.</p></div>
+      <div><h4>Quick Links</h4><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="gallery.html">Gallery</a></div>
+      <div><h4>Location & Hours</h4><p>3315 San Pedro Ave<br>San Antonio, TX 78212</p><p style="margin-top:10px">Mon – Sun · 11am – 9pm</p></div>
+      <div><h4>Get In Touch</h4><a href="tel:+12109949838">+1-210-994-9838</a><a href="https://mrjuicy.net">mrjuicy.net</a></div>
+    </div>
+    <div class="copy">© <span id="y"></span> Mr Juicy. All rights reserved.</div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

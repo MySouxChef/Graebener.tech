@@ -44,7 +44,7 @@ export default async function SiteViewerPage({ params }: Props) {
           </div>
 
           <iframe
-            src={`/api/sites/${slug}`}
+            src={`/webbuilder/sites/${slug}/index.html`}
             title={slug}
             className="w-full border-0 bg-white"
             style={{ height: "80vh" }}
