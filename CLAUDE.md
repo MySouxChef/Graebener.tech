@@ -25,6 +25,7 @@ Graebener.tech is a dark, futuristic portfolio website showcasing agentic engine
 
 **Content Systems:**
 - **Projects:** Static HTML demos in `public/projects/{slug}/index.html`, metadata in `src/data/projects.ts`, served via sandboxed iframes in ProjectViewer
+- **Webbuilder Sites:** Fetched from GitHub repo `MySouxChef/website-demos` at `sites/[slug]/`. API routes at `/api/sites` (list) and `/api/sites/[slug]` (serve HTML). SiteGallery + SiteCard components display them at `/webbuilder`
 - **Blog:** MDX files in `content/blog/` with gray-matter frontmatter, compiled via `next-mdx-remote/rsc` + `rehype-pretty-code`
 
 **Directory Layout:**
@@ -38,6 +39,8 @@ Graebener.tech is a dark, futuristic portfolio website showcasing agentic engine
 ## Adding New Content
 
 **New project:** Add entry to `src/data/projects.ts`, create `public/projects/{slug}/index.html`
+
+**New webbuilder site:** Add `sites/[slug]/index.html` + `sites/[slug]/meta.json` to the `MySouxChef/website-demos` GitHub repo. The `/webbuilder` page picks it up automatically via the API routes (60s revalidation cache).
 
 **New blog post:** Create `content/blog/{slug}.mdx` with frontmatter: `title`, `description`, `date`, `tags`, `published`
 
