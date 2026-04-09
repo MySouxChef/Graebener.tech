@@ -17,7 +17,14 @@
       "Bash(gh repo:*)",
       "Bash(head -30 app/api/invoice/scan/route.ts)",
       "Bash(head -30 app/api/invoices/scan/route.ts)",
-      "Bash(ls app/api/invoice*)"
+      "Bash(ls app/api/invoice*)",
+      "Bash(vercel whoami:*)",
+      "Bash(vercel --prod --yes)",
+      "Bash(vercel link:*)",
+      "Bash(vercel domains:*)",
+      "mcp__porkbun__dns_list",
+      "mcp__porkbun__dns_delete",
+      "mcp__porkbun__dns_create"
     ]
   }
 }

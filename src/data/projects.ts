@@ -9,10 +9,26 @@ export interface Project {
   demoPath: string;
   githubUrl?: string;
   liveUrl?: string;
+  externalLink?: string;
   featured: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    slug: "web-builder",
+    title: "AI Web Builder",
+    description:
+      "Agentic website generator that creates full websites from prompts, pushes them to GitHub, and displays them in a searchable portfolio.",
+    longDescription:
+      "An AI-powered website generation system built with agentic engineering. Describe the website you need and the agent builds it — complete HTML, CSS, and JavaScript — then automatically pushes it to a GitHub repository. All generated sites are displayed in a searchable gallery portfolio with live previews, industry filters, and tag-based search.",
+    techStack: ["Next.js", "Claude AI", "GitHub API", "TypeScript"],
+    thumbnail: "/images/projects/webbuilder-thumb.png",
+    thumbnailExists: false,
+    demoPath: "",
+    githubUrl: "https://github.com/MySouxChef/website-demos",
+    externalLink: "/webbuilder",
+    featured: true,
+  },
   {
     slug: "mysouxchef",
     title: "MySouxChef",

@@ -8,8 +8,11 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const href = project.externalLink || `/projects/${project.slug}`;
+  const isExternal = !!project.externalLink;
+
   return (
-    <Link href={`/projects/${project.slug}`}>
+    <Link href={href} target={isExternal ? "_blank" : undefined}>
       <GlowCard className="h-full cursor-pointer">
         {/* Thumbnail */}
         <div className="mb-4 aspect-video overflow-hidden rounded-sm bg-bg-secondary border border-border relative">
