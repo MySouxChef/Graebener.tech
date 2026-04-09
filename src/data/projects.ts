@@ -57,6 +57,19 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "db-reactivation",
+    title: "Database Reactivation",
+    description:
+      "AI-powered workflow that mines your existing CRM, segments cold leads, and runs personalized re-engagement campaigns to recover lost revenue.",
+    longDescription:
+      "Most businesses are sitting on hundreds of dormant contacts that already know them. This system imports your CRM or contact database, uses AI to segment contacts by recency, value, and intent, then generates personalized multi-channel outreach sequences. Staggered drip campaigns via SMS and email re-engage cold leads with context-aware messaging. Includes response routing, A/B testing, compliance filtering, and a revenue attribution dashboard. Pairs with Speed to Lead for full pipeline coverage.",
+    techStack: ["Next.js", "Claude AI", "Twilio", "Resend", "Supabase"],
+    thumbnail: "/images/projects/db-reactivation-thumb.png",
+    thumbnailExists: false,
+    demoPath: "/projects/db-reactivation/index.html",
+    featured: true,
+  },
+  {
     slug: "ai-agent-dashboard",
     title: "AI Agent Dashboard",
     description:

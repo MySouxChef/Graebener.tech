@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Database Reactivation — Wake Up Dead Leads Demo</title>
+<meta name="description" content="See how AI-powered database reactivation brings cold leads back to life with personalized multi-channel outreach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #ff8800;
+  --orange-dim: #cc6e00;
+  --orange-glow: rgba(255,136,0,.15);
+  --green: #00ff88;
+  --bg: #0a0a0a;
+  --bg2: #111;
+  --bg3: #1a1a1a;
+  --border: #2a2a2a;
+  --text: #e0e0e0;
+  --text-dim: #888;
+  --red: #ff4444;
+  --yellow: #ffd700;
+  --blue: #4488ff;
+  --purple: #aa66ff;
+  --radius: 12px;
+  --max: 1100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.topbar-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.topbar-brand{font-family:'JetBrains Mono',monospace;font-weight:800;font-size:.95rem;color:var(--orange);display:flex;align-items:center;gap:8px}
+.topbar-brand .dot{width:8px;height:8px;background:var(--orange);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.topbar-tag{font-size:.75rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace;padding:4px 12px;border:1px solid var(--border);border-radius:999px}
+
+/* HERO */
+.hero{min-height:80vh;display:flex;align-items:center;padding:80px 24px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(255,136,0,.08),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(170,102,255,.05),transparent 50%)}
+.hero-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.12em;margin-bottom:20px;padding:6px 16px;border:1px solid rgba(255,136,0,.3);border-radius:999px;background:rgba(255,136,0,.06)}
+.hero h1{font-size:clamp(2.2rem,6vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;max-width:800px}
+.hero h1 .accent{color:var(--orange)}
+.hero h1 .dim{color:var(--text-dim)}
+.hero-sub{font-size:1.15rem;color:var(--text-dim);max-width:600px;margin:24px 0 40px}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--border)}
+.hero-stat .num{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:800;color:var(--orange)}
+.hero-stat .lbl{font-size:.8rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em}
+
+/* SECTIONS */
+section{padding:100px 24px}
+.section-inner{max-width:var(--max);margin:0 auto}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.15em;margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-.02em;margin-bottom:16px}
+.section-desc{font-size:1.05rem;color:var(--text-dim);max-width:600px;margin-bottom:48px}
+
+/* DEMO */
+.demo-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.demo-toolbar{display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--bg3);border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--text-dim)}
+.demo-toolbar .dots{display:flex;gap:6px;margin-right:12px}
+.demo-toolbar .dots span{width:10px;height:10px;border-radius:50%;border:1px solid var(--border)}
+.demo-toolbar .dots span:nth-child(1){background:var(--red);border-color:var(--red)}
+.demo-toolbar .dots span:nth-child(2){background:var(--yellow);border-color:var(--yellow)}
+.demo-toolbar .dots span:nth-child(3){background:var(--green);border-color:var(--green)}
+.demo-body{padding:32px}
+
+/* DATABASE TABLE */
+.db-table-wrap{overflow-x:auto;margin-bottom:24px}
+table.db{width:100%;border-collapse:collapse;font-size:.85rem;font-family:'JetBrains Mono',monospace}
+table.db th{text-align:left;padding:10px 14px;background:var(--bg3);color:var(--orange);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid var(--border)}
+table.db td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text)}
+table.db tr{transition:background .2s}
+table.db tr.highlight{background:rgba(255,136,0,.06)}
+table.db tr.processing td:first-child::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-right:8px;animation:blink .6s ease infinite}
+table.db tr.sent td:first-child::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:8px}
+.tag-cold{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.65rem;font-weight:700;background:rgba(68,136,255,.12);color:var(--blue)}
+.tag-warm{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.65rem;font-weight:700;background:rgba(255,136,0,.12);color:var(--orange)}
+.tag-lost{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.65rem;font-weight:700;background:rgba(255,68,68,.12);color:var(--red)}
+.tag-vip{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.65rem;font-weight:700;background:rgba(170,102,255,.12);color:var(--purple)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ACTION BTN */
+.action-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--orange);color:var(--bg);font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:.06em;border:none;border-radius:8px;cursor:pointer;transition:all .2s}
+.action-btn:hover{background:#ffaa33;transform:translateY(-1px)}
+.action-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* STATUS LOG */
+.status-log{margin-top:24px;padding:20px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);font-family:'JetBrains Mono',monospace;font-size:.8rem;max-height:300px;overflow-y:auto;display:none}
+.status-log.active{display:block;animation:slideUp .4s ease}
+.log-line{padding:4px 0;color:var(--text-dim);opacity:0;animation:fadeIn .3s ease forwards}
+.log-line .time{color:var(--text-dim);margin-right:8px}
+.log-line .action{color:var(--orange)}
+.log-line .success{color:var(--green)}
+.log-line .info{color:var(--blue)}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* RESULTS PANEL */
+.results-panel{display:none;margin-top:28px;grid-template-columns:1fr 1fr;gap:16px}
+.results-panel.active{display:grid;animation:slideUp .5s ease}
+@media(max-width:700px){.results-panel.active{grid-template-columns:1fr}}
+.result-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.result-card h4{font-size:.9rem;font-weight:800;margin-bottom:4px}
+.result-card .big-num{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:800;color:var(--orange)}
+.result-card .sub{font-size:.8rem;color:var(--text-dim);margin-top:4px}
+
+/* MESSAGE PREVIEW */
+.msg-preview{display:none;margin-top:20px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.msg-preview.active{display:block;animation:slideUp .5s ease}
+.msg-preview-header{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.msg-preview-header .label{font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.1em}
+.msg-preview-header .contact{font-size:.8rem;color:var(--text-dim)}
+.msg-preview-body{padding:20px}
+.msg-preview-body .channel-tag{display:inline-block;padding:3px 10px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;margin-bottom:12px}
+.msg-preview-body .channel-tag.sms{color:var(--green);background:rgba(0,255,136,.1)}
+.msg-preview-body .channel-tag.email{color:var(--blue);background:rgba(68,136,255,.1)}
+.msg-preview-body .msg-text{font-size:.9rem;line-height:1.6;color:var(--text)}
+
+/* PIPELINE */
+.pipeline{display:flex;align-items:stretch;gap:0;margin-top:48px;overflow-x:auto;padding-bottom:8px}
+.pipe-step{flex:1;min-width:160px;padding:24px 16px;background:var(--bg2);border:1px solid var(--border);position:relative;text-align:center}
+.pipe-step:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+.pipe-step:last-child{border-radius:0 var(--radius) var(--radius) 0}
+.pipe-step:not(:last-child)::after{content:"\2192";position:absolute;right:-12px;top:50%;transform:translateY(-50%);z-index:2;color:var(--orange);font-weight:800;background:var(--bg);padding:4px;font-size:1rem}
+.pipe-step .pipe-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--orange);font-weight:700;margin-bottom:8px}
+.pipe-step .pipe-label{font-weight:800;font-size:.85rem;margin-bottom:4px}
+.pipe-step .pipe-desc{font-size:.75rem;color:var(--text-dim)}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.feat{padding:28px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);transition:border-color .2s}
+.feat:hover{border-color:var(--orange)}
+.feat-icon{font-size:1.2rem;margin-bottom:14px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--bg3);border-radius:10px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-weight:800;color:var(--orange)}
+.feat h3{font-size:1.1rem;font-weight:800;margin-bottom:8px}
+.feat p{font-size:.9rem;color:var(--text-dim)}
+
+/* BUNDLE CTA */
+.bundle{margin-top:48px;padding:32px;background:var(--bg2);border:1px solid var(--orange);border-radius:var(--radius);display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+.bundle-text{flex:1;min-width:280px}
+.bundle-text h3{font-size:1.3rem;font-weight:900;margin-bottom:8px}
+.bundle-text h3 span{color:var(--orange)}
+.bundle-text p{color:var(--text-dim);font-size:.95rem}
+.bundle-link{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--orange);color:var(--bg);font-weight:800;text-transform:uppercase;letter-spacing:.05em;text-decoration:none;border-radius:8px;font-size:.9rem;transition:all .2s;white-space:nowrap}
+.bundle-link:hover{background:#ffaa33;transform:translateY(-1px)}
+
+/* CTA */
+.cta-section{text-align:center;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+/* FOOTER */
+.s2l-footer{padding:40px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text-dim)}
+.s2l-footer a{color:var(--orange);text-decoration:none}
+.s2l-footer a:hover{text-decoration:underline}
+
+/* RESET */
+.reset-btn{display:none;margin-top:16px;padding:10px 24px;background:transparent;color:var(--text-dim);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.8rem;transition:all .2s}
+.reset-btn:hover{border-color:var(--text);color:var(--text)}
+.reset-btn.active{display:inline-block}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero{min-height:auto;padding:60px 20px}
+  .hero-stats{gap:24px}
+  .pipeline{flex-direction:column}
+  .pipe-step{border-radius:var(--radius)!important}
+  .pipe-step:not(:last-child)::after{display:none}
+  .bundle{flex-direction:column;text-align:center}
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand"><span class="dot"></span> GRAEBENER.TECH</div>
+    <span class="topbar-tag">Database Reactivation Demo</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">// service offering</div>
+    <h1>Your database is a<br><span class="accent">goldmine.</span><br><span class="dim">Stop ignoring it.</span></h1>
+    <p class="hero-sub">Every business has hundreds of leads sitting in spreadsheets and CRMs collecting dust. We build AI-powered reactivation systems that bring them back — personalized, automated, and profitable.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">10-20%</div><div class="lbl">Reactivation Rate</div></div>
+      <div class="hero-stat"><div class="num">5-10x</div><div class="lbl">Cheaper Than New Leads</div></div>
+      <div class="hero-stat"><div class="num">0</div><div class="lbl">Acquisition Cost</div></div>
+      <div class="hero-stat"><div class="num">AI</div><div class="lbl">Personalized Outreach</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" style="background:var(--bg2)">
+  <div class="section-inner">
+    <div class="section-label reveal">// try it live</div>
+    <h2 class="section-title reveal">Watch dead leads come back to life.</h2>
+    <p class="section-desc reveal">Below is a simulated cold database. Hit the button and watch the AI segment, personalize, and dispatch reactivation campaigns in real time.</p>
+
+    <div class="demo-wrap reveal">
+      <div class="demo-toolbar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        crm-export-2024.csv &mdash; 847 contacts loaded
+      </div>
+      <div class="demo-body">
+        <div class="db-table-wrap">
+          <table class="db">
+            <thead>
+              <tr>
+                <th>Contact</th>
+                <th>Last Activity</th>
+                <th>Service Interest</th>
+                <th>Segment</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="dbBody">
+              <tr id="row0"><td>Sarah Chen</td><td>Nov 2024</td><td>Website Redesign</td><td><span class="tag-warm">Warm</span></td><td id="s0">Dormant</td></tr>
+              <tr id="row1"><td>Marcus Rivera</td><td>Aug 2024</td><td>Business Automation</td><td><span class="tag-cold">Cold</span></td><td id="s1">Dormant</td></tr>
+              <tr id="row2"><td>Dr. Patel &amp; Associates</td><td>Jan 2025</td><td>SEO &amp; Marketing</td><td><span class="tag-vip">High Value</span></td><td id="s2">Dormant</td></tr>
+              <tr id="row3"><td>Lisa Thompson</td><td>Jun 2024</td><td>Website Development</td><td><span class="tag-lost">Lost</span></td><td id="s3">Dormant</td></tr>
+              <tr id="row4"><td>Jake Morrison</td><td>Sep 2024</td><td>Technical Consulting</td><td><span class="tag-cold">Cold</span></td><td id="s4">Dormant</td></tr>
+              <tr id="row5"><td>Apex Dental Group</td><td>Mar 2025</td><td>Automation + Website</td><td><span class="tag-vip">High Value</span></td><td id="s5">Dormant</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button class="action-btn" id="startBtn" onclick="runReactivation()">
+          Run Reactivation Campaign
+          <span style="font-size:.8em;opacity:.7">&rarr;</span>
+        </button>
+
+        <div class="status-log" id="statusLog"></div>
+
+        <!-- Message preview -->
+        <div class="msg-preview" id="msgPreview">
+          <div class="msg-preview-header">
+            <span class="label">AI-Generated Outreach</span>
+            <span class="contact" id="previewContact"></span>
+          </div>
+          <div class="msg-preview-body">
+            <div class="channel-tag sms" id="previewChannel">SMS</div>
+            <div class="msg-text" id="previewMsg"></div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="results-panel" id="resultsPanel">
+          <div class="result-card">
+            <h4>Contacts Processed</h4>
+            <div class="big-num" id="resProcessed">0</div>
+            <div class="sub">of 847 in database</div>
+          </div>
+          <div class="result-card">
+            <h4>Messages Dispatched</h4>
+            <div class="big-num" id="resMessages">0</div>
+            <div class="sub">across SMS + email</div>
+          </div>
+          <div class="result-card">
+            <h4>Est. Reactivation</h4>
+            <div class="big-num" id="resReactivated">0</div>
+            <div class="sub">based on 15% avg rate</div>
+          </div>
+          <div class="result-card">
+            <h4>Est. Revenue Recovered</h4>
+            <div class="big-num" id="resRevenue">$0</div>
+            <div class="sub">at $2,400 avg lifetime value</div>
+          </div>
+        </div>
+
+        <button class="reset-btn" id="resetBtn" onclick="resetDemo()">Run demo again</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section>
+  <div class="section-inner">
+    <div class="section-label reveal">// the workflow</div>
+    <h2 class="section-title reveal">From dead database to recovered revenue.</h2>
+    <p class="section-desc reveal">A systematic approach to turning forgotten contacts into paying customers.</p>
+    <div class="pipeline reveal">
+      <div class="pipe-step"><div class="pipe-num">01</div><div class="pipe-label">Import</div><div class="pipe-desc">CRM export or CSV upload</div></div>
+      <div class="pipe-step"><div class="pipe-num">02</div><div class="pipe-label">Segment</div><div class="pipe-desc">AI scores &amp; categorizes</div></div>
+      <div class="pipe-step"><div class="pipe-num">03</div><div class="pipe-label">Personalize</div><div class="pipe-desc">Custom messages per contact</div></div>
+      <div class="pipe-step"><div class="pipe-num">04</div><div class="pipe-label">Dispatch</div><div class="pipe-desc">SMS + email sequences</div></div>
+      <div class="pipe-step"><div class="pipe-num">05</div><div class="pipe-label">Track</div><div class="pipe-desc">Responses routed instantly</div></div>
+      <div class="pipe-step"><div class="pipe-num">06</div><div class="pipe-label">Report</div><div class="pipe-desc">Revenue &amp; ROI dashboard</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section style="background:var(--bg2)">
+  <div class="section-inner">
+    <div class="section-label reveal">// what we build</div>
+    <h2 class="section-title reveal">The full reactivation engine.</h2>
+    <p class="section-desc reveal">Not a one-off email blast. A smart, ongoing system that keeps working your database month after month.</p>
+    <div class="features-grid">
+      <div class="feat reveal"><div class="feat-icon">AI</div><h3>Smart Segmentation</h3><p>AI categorizes contacts by recency, value, service type, and funnel stage. High-value leads get priority treatment.</p></div>
+      <div class="feat reveal"><div class="feat-icon">Tx</div><h3>Personalized Outreach</h3><p>Every message references what the contact originally asked about. Context-aware, not cookie-cutter.</p></div>
+      <div class="feat reveal"><div class="feat-icon">Sq</div><h3>Drip Sequences</h3><p>Staggered multi-touch campaigns over days and weeks. Follow up if no response, back off if they're not interested.</p></div>
+      <div class="feat reveal"><div class="feat-icon">Rt</div><h3>Instant Response Routing</h3><p>When someone replies, it gets flagged and routed to the right team member immediately. Ties into Speed to Lead.</p></div>
+      <div class="feat reveal"><div class="feat-icon">Ab</div><h3>A/B Testing</h3><p>Test different messages, timing, and channels. The system learns what works best for each segment.</p></div>
+      <div class="feat reveal"><div class="feat-icon">$$</div><h3>Revenue Attribution</h3><p>Track exactly how much revenue came from reactivated leads. Prove ROI on every campaign.</p></div>
+    </div>
+
+    <!-- BUNDLE -->
+    <div class="bundle reveal">
+      <div class="bundle-text">
+        <h3>Pair with <span>Speed to Lead</span> for full pipeline coverage.</h3>
+        <p>Speed to Lead catches new inbound leads instantly. Database Reactivation wakes up the ones that slipped through. Together, nothing falls through the cracks.</p>
+      </div>
+      <a href="/projects/speed-to-lead" class="bundle-link">See Speed to Lead</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner" style="max-width:700px">
+    <div class="section-label reveal">// ready?</div>
+    <h2 class="section-title reveal" style="text-align:center">Stop leaving money on the table.</h2>
+    <p class="section-desc reveal" style="text-align:center;margin-left:auto;margin-right:auto">Your database is full of people who already know you. Let's bring them back.</p>
+    <div class="reveal" style="text-align:center"><a href="#demo" class="action-btn">Try the Demo Again</a></div>
+  </div>
+</section>
+
+<div class="s2l-footer">Built by <a href="/">Graebener.Tech</a> &mdash; Custom Automation &amp; Web Development</div>
+
+<script>
+const contacts = [
+  {name:"Sarah Chen", service:"website redesign", lastDate:"November 2024", segment:"warm", idx:0},
+  {name:"Marcus Rivera", service:"business automation", lastDate:"August 2024", segment:"cold", idx:1},
+  {name:"Dr. Patel & Associates", service:"SEO & marketing", lastDate:"January 2025", segment:"vip", idx:2},
+  {name:"Lisa Thompson", service:"website development", lastDate:"June 2024", segment:"lost", idx:3},
+  {name:"Jake Morrison", service:"technical consulting", lastDate:"September 2024", segment:"cold", idx:4},
+  {name:"Apex Dental Group", service:"automation and a new website", lastDate:"March 2025", segment:"vip", idx:5}
+];
+
+const messages = {
+  warm: (c) => ({
+    channel: "sms",
+    msg: `Hi ${c.name.split(' ')[0]}! It's Graebener.Tech. You reached out about ${c.service} back in ${c.lastDate}. We've been building some great stuff since then and I'd love to show you what's possible now. Got 10 min this week?`
+  }),
+  cold: (c) => ({
+    channel: "email",
+    msg: `Hi ${c.name.split(' ')[0]},\n\nWe connected back in ${c.lastDate} about ${c.service}. I know things get busy and priorities shift, so no pressure at all.\n\nBut I wanted to reach out because we've recently completed some projects that might be exactly what you were looking for. Happy to share some examples if you're still thinking about it.\n\nEither way, hope you're doing well.\n\n— Graebener.Tech`
+  }),
+  vip: (c) => ({
+    channel: "sms",
+    msg: `Hi ${c.name.split(' ')[0]} — Mark from Graebener.Tech here. I've been thinking about the ${c.service} project we discussed in ${c.lastDate}. I actually have a specific idea that could be a great fit for your business. Mind if I send over a quick proposal? No strings attached.`
+  }),
+  lost: (c) => ({
+    channel: "email",
+    msg: `Hi ${c.name.split(' ')[0]},\n\nI know it's been a while since we last talked about ${c.service} (back in ${c.lastDate}). No idea if this is still on your radar, but I wanted to put it out there:\n\nWe're running a reactivation special this month — 20% off any project for returning inquiries. If the timing is better now, I'd love to pick up where we left off.\n\nIf not, totally understand. Just didn't want you to miss it.\n\n— Graebener.Tech`
+  })
+};
+
+let logTimeout = [];
+
+function addLog(html, delay) {
+  return new Promise(resolve => {
+    const t = setTimeout(() => {
+      const log = document.getElementById('statusLog');
+      const line = document.createElement('div');
+      line.className = 'log-line';
+      line.innerHTML = `<span class="time">${new Date().toLocaleTimeString()}</span> ${html}`;
+      log.appendChild(line);
+      log.scrollTop = log.scrollHeight;
+      resolve();
+    }, delay);
+    logTimeout.push(t);
+  });
+}
+
+async function runReactivation() {
+  const btn = document.getElementById('startBtn');
+  btn.disabled = true;
+
+  const log = document.getElementById('statusLog');
+  log.classList.add('active');
+
+  // Phase 1: Import
+  await addLog('<span class="action">IMPORT</span> Loading CRM export... 847 contacts found', 0);
+  await addLog('<span class="action">IMPORT</span> Filtering duplicates and invalid records...', 600);
+  await addLog('<span class="info">INFO</span> 812 valid contacts after cleanup', 1000);
+
+  // Phase 2: Segment
+  await addLog('<span class="action">SEGMENT</span> AI analyzing contact history and engagement signals...', 1500);
+  await addLog('<span class="info">INFO</span> Segments: 127 Warm | 384 Cold | 89 High Value | 212 Lost', 2400);
+
+  // Phase 3: Process each visible row
+  for (let i = 0; i < contacts.length; i++) {
+    const c = contacts[i];
+    const row = document.getElementById(`row${i}`);
+    const status = document.getElementById(`s${i}`);
+
+    row.classList.add('processing');
+    status.textContent = 'Processing...';
+    status.style.color = 'var(--yellow)';
+
+    await addLog(`<span class="action">AI</span> Generating personalized outreach for <strong>${c.name}</strong> (${c.segment})...`, 800);
+
+    // Show message preview
+    const msgData = messages[c.segment](c);
+    const preview = document.getElementById('msgPreview');
+    const previewChannel = document.getElementById('previewChannel');
+    const previewContact = document.getElementById('previewContact');
+    const previewMsg = document.getElementById('previewMsg');
+
+    preview.classList.add('active');
+    previewContact.textContent = c.name;
+    previewChannel.textContent = msgData.channel.toUpperCase();
+    previewChannel.className = `channel-tag ${msgData.channel}`;
+    previewMsg.innerHTML = '';
+
+    // Type out message
+    await typeText('previewMsg', msgData.msg, 12);
+
+    await addLog(`<span class="success">SENT</span> ${msgData.channel.toUpperCase()} dispatched to ${c.name}`, 400);
+
+    row.classList.remove('processing');
+    row.classList.add('sent');
+    status.textContent = 'Sent';
+    status.style.color = 'var(--green)';
+  }
+
+  // Phase 4: Results
+  await addLog('<span class="action">CAMPAIGN</span> All sequences queued. Drip schedule active.', 600);
+  await addLog('<span class="success">DONE</span> Reactivation campaign launched successfully.', 400);
+
+  // Show results
+  const panel = document.getElementById('resultsPanel');
+  panel.classList.add('active');
+
+  // Animate numbers
+  animateNum('resProcessed', 812, 1500);
+  animateNum('resMessages', 1624, 1500);
+  animateNum('resReactivated', 122, 1500);
+  animateMoney('resRevenue', 292800, 1500);
+
+  document.getElementById('resetBtn').classList.add('active');
+}
+
+function typeText(elId, text, speed) {
+  return new Promise(resolve => {
+    const el = document.getElementById(elId);
+    el.innerHTML = '';
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        if (text[i] === '\n') el.innerHTML += '<br>';
+        else el.innerHTML += text[i];
+        i++;
+      } else {
+        clearInterval(interval);
+        resolve();
+      }
+    }, speed);
+  });
+}
+
+function animateNum(elId, target, duration) {
+  const el = document.getElementById(elId);
+  const start = 0;
+  const startTime = Date.now();
+  function tick() {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(start + (target - start) * eased).toLocaleString();
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+function animateMoney(elId, target, duration) {
+  const el = document.getElementById(elId);
+  const startTime = Date.now();
+  function tick() {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = '$' + Math.round(target * eased).toLocaleString();
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+function resetDemo() {
+  logTimeout.forEach(t => clearTimeout(t));
+  logTimeout = [];
+
+  document.getElementById('startBtn').disabled = false;
+  document.getElementById('statusLog').classList.remove('active');
+  document.getElementById('statusLog').innerHTML = '';
+  document.getElementById('msgPreview').classList.remove('active');
+  document.getElementById('resultsPanel').classList.remove('active');
+  document.getElementById('resetBtn').classList.remove('active');
+
+  for (let i = 0; i < contacts.length; i++) {
+    const row = document.getElementById(`row${i}`);
+    const status = document.getElementById(`s${i}`);
+    row.classList.remove('processing','sent','highlight');
+    status.textContent = 'Dormant';
+    status.style.color = '';
+  }
+
+  document.getElementById('demo').scrollIntoView({behavior:'smooth'});
+}
+
+// Scroll reveal
+document.addEventListener('DOMContentLoaded', () => {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+});
+</script>
+</body>
+</html>

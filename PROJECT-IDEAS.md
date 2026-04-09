@@ -41,7 +41,48 @@ Small-to-mid businesses that get leads through web forms, social media, or phone
 
 ---
 
-## 2. (Next idea goes here)
+## 2. Database Reactivation — Wake Up Dead Leads
+
+**Status:** Demo built (db-reactivation demo) | Not yet a live product
+
+**What it is:**
+An AI-powered workflow that mines a business's existing CRM or contact database, identifies cold leads and lapsed customers, and runs personalized re-engagement campaigns to bring them back. Every business has hundreds or thousands of contacts sitting in spreadsheets and CRMs collecting dust — people who inquired, got a quote, or even started onboarding but never converted. This system wakes them up.
+
+**Why it matters:**
+Acquiring a new lead costs 5-10x more than re-engaging an existing one. Most businesses are sitting on a goldmine of warm contacts they've already paid to acquire but never properly followed up with. A single reactivation campaign can recover 10-20% of dormant leads — that's revenue pulled from thin air with almost zero acquisition cost.
+
+**Who it's for:**
+Any business with a CRM, email list, or contact database that's been operating for 6+ months. Ideal for service businesses (HVAC, dental, legal, real estate, agencies) where the lifetime value of a reactivated customer is high. Pairs perfectly with Speed to Lead as a two-part pipeline offering.
+
+**Key features:**
+- Database import & smart segmentation (by recency, value, service type, funnel stage)
+- AI-generated personalized outreach based on each contact's history and original inquiry
+- Multi-channel staggered sequences (SMS + email over days/weeks)
+- Smart cadence control — follow up if no response, back off after set touches
+- Response detection and instant routing (ties into Speed to Lead)
+- Reactivation dashboard: recovered leads, revenue attributed, best-performing segments
+- A/B testing on messaging and timing
+- Do-not-contact and compliance filtering built in
+
+**Tech stack:**
+- Frontend: Next.js on Vercel
+- AI: Claude API for personalized message generation and segmentation logic
+- SMS: Twilio
+- Email: Resend or SendGrid
+- Database: Supabase (contact storage, campaign tracking, analytics)
+- CRM Import: CSV upload + API connectors for HubSpot/Salesforce/Airtable
+- Scheduling: Cron jobs or Vercel Edge Functions for drip sequences
+- Dashboard: React + Recharts
+
+**Estimated build time:** MVP in 1-2 weeks, polished product in 3-4 weeks
+
+**Revenue model:** Setup fee ($3K-$8K per client depending on database size and integrations) + monthly retainer ($500-$1500/mo) for campaign management, AI usage, and messaging costs. Performance-based pricing option: percentage of recovered revenue.
+
+**Bundle opportunity:** Package with Speed to Lead as "Full Pipeline Automation" — Speed to Lead handles new inbound, Database Reactivation handles the backlog. Stronger value prop than either alone.
+
+---
+
+## 3. (Next idea goes here)
 
 ---
 
