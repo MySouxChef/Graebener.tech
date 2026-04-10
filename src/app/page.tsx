@@ -5,12 +5,16 @@ import { ProjectGrid } from "@/components/projects/ProjectGrid";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { GlowButton } from "@/components/ui/GlowButton";
 import { GridBackground } from "@/components/ui/GridBackground";
-import { getFeaturedProjects } from "@/data/projects";
+import { projects } from "@/data/projects";
 import { getAllPosts } from "@/lib/mdx";
 
+const HOME_PROJECT_SLUGS = ["mysouxchef", "db-reactivation", "speed-to-lead"];
+
 export default function HomePage() {
-  const featuredProjects = getFeaturedProjects();
-  const recentPosts = getAllPosts().slice(0, 3);
+  const homeProjects = HOME_PROJECT_SLUGS.map(
+    (slug) => projects.find((p) => p.slug === slug)!
+  ).filter(Boolean);
+  const recentPosts = getAllPosts().slice(0, 2);
 
   return (
     <>
@@ -23,7 +27,7 @@ export default function HomePage() {
         <section className="py-24 sm:py-32">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeading>Featured Projects</SectionHeading>
-            <ProjectGrid projects={featuredProjects} />
+            <ProjectGrid projects={homeProjects} />
             <div className="mt-12 text-center">
               <GlowButton href="/projects" variant="outline">
                 View All Projects
