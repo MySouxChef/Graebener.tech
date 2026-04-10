@@ -10,7 +10,7 @@ import { getAllPosts } from "@/lib/mdx";
 
 export default function HomePage() {
   const featuredProjects = getFeaturedProjects();
-  const recentPosts = getAllPosts().slice(0, 2);
+  const recentPosts = getAllPosts().slice(0, 3);
 
   return (
     <>
