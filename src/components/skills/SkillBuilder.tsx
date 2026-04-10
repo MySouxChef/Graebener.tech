@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Copy, Check, Download, Eye, Code } from "lucide-react";
+import { Copy, Check, Download, Eye, Code, Save } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { GlowButton } from "@/components/ui/GlowButton";
+import { saveSkill } from "@/lib/saved-skills";
 
 const CATEGORIES = [
   "Code Generation",
@@ -25,6 +27,13 @@ interface SkillForm {
   body: string;
 }
 
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 function generateMarkdown(form: SkillForm): string {
   const tags = form.tags
     .split(",")
@@ -45,6 +54,7 @@ ${form.body}`;
 }
 
 export function SkillBuilder() {
+  const router = useRouter();
   const [form, setForm] = useState<SkillForm>({
     title: "",
     description: "",
@@ -77,8 +87,10 @@ Describe the expected output format here.
 
   const [view, setView] = useState<"edit" | "preview">("edit");
   const [copied, setCopied] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   const markdown = generateMarkdown(form);
+  const slug = generateSlug(form.title);
 
   const update = (field: keyof SkillForm, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -90,10 +102,6 @@ Describe the expected output format here.
   };
 
   const handleDownload = () => {
-    const slug = form.title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
     const blob = new Blob([markdown], { type: "text/markdown" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -101,6 +109,33 @@ Describe the expected output format here.
     a.download = `${slug || "skill"}.md`;
     a.click();
     URL.revokeObjectURL(url);
+  };
+
+  const handleSave = () => {
+    if (!form.title || !form.description) return;
+
+    const tags = form.tags
+      .split(",")
+      .map((t) => t.trim())
+      .filter(Boolean);
+
+    saveSkill({
+      slug,
+      title: form.title,
+      description: form.description,
+      category: form.category,
+      tags,
+      author: form.author,
+      version: form.version,
+      rawFile: markdown,
+      createdAt: new Date().toISOString(),
+    });
+
+    setSaved(true);
+    setTimeout(() => {
+      setSaved(false);
+      router.push("/skills");
+    }, 1500);
   };
 
   const inputClass =
@@ -240,13 +275,7 @@ Describe the expected output format here.
                 <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
                 <div className="h-3 w-3 rounded-full bg-green-500/80" />
                 <span className="ml-3 font-mono text-xs text-text-muted">
-                  {form.title
-                    ? form.title
-                        .toLowerCase()
-                        .replace(/[^a-z0-9]+/g, "-")
-                        .replace(/(^-|-$)/g, "")
-                    : "skill"}
-                  .md
+                  {slug || "skill"}.md
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -288,8 +317,12 @@ Describe the expected output format here.
           </div>
 
           {/* Actions */}
-          <div className="mt-4 flex gap-3">
-            <GlowButton onClick={handleCopy}>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <GlowButton onClick={handleSave}>
+              {saved ? <Check size={14} /> : <Save size={14} />}
+              {saved ? "Saved!" : "Save & Publish"}
+            </GlowButton>
+            <GlowButton onClick={handleCopy} variant="outline">
               {copied ? <Check size={14} /> : <Copy size={14} />}
               {copied ? "Copied!" : "Copy Markdown"}
             </GlowButton>

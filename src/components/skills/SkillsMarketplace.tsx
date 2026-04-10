@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Search } from "lucide-react";
 import { SkillCard } from "@/components/skills/SkillCard";
 import type { SkillMeta } from "@/lib/skills";
+import { getSavedSkills, savedSkillToMeta } from "@/lib/saved-skills";
 
 interface SkillsMarketplaceProps {
   skills: SkillMeta[];
@@ -13,9 +14,36 @@ interface SkillsMarketplaceProps {
 export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [savedSkillMetas, setSavedSkillMetas] = useState<SkillMeta[]>([]);
+
+  useEffect(() => {
+    const saved = getSavedSkills().map(savedSkillToMeta);
+    setSavedSkillMetas(saved);
+  }, []);
+
+  // Merge file-based and saved skills, deduplicate by slug
+  const allSkills = useMemo(() => {
+    const slugs = new Set(skills.map((s) => s.slug));
+    const merged = [...skills];
+    for (const saved of savedSkillMetas) {
+      if (!slugs.has(saved.slug)) {
+        merged.push(saved);
+      }
+    }
+    return merged.sort((a, b) => a.title.localeCompare(b.title));
+  }, [skills, savedSkillMetas]);
+
+  // Collect all categories including from saved skills
+  const allCategories = useMemo(() => {
+    const cats = new Set([...categories]);
+    for (const s of savedSkillMetas) {
+      cats.add(s.category);
+    }
+    return Array.from(cats).sort();
+  }, [categories, savedSkillMetas]);
 
   const filtered = useMemo(() => {
-    return skills.filter((skill) => {
+    return allSkills.filter((skill) => {
       const matchesSearch =
         !search ||
         skill.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -26,7 +54,7 @@ export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps
 
       return matchesSearch && matchesCategory;
     });
-  }, [skills, search, activeCategory]);
+  }, [allSkills, search, activeCategory]);
 
   return (
     <div>
@@ -57,7 +85,7 @@ export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps
         >
           All
         </button>
-        {categories.map((cat) => (
+        {allCategories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}

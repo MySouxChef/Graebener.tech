@@ -1,43 +1,37 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Sparkles, Tag } from "lucide-react";
-import { remark } from "remark";
-import html from "remark-html";
-import { getAllSkills, getSkillBySlug } from "@/lib/skills";
 import { SkillViewer } from "@/components/skills/SkillViewer";
-import { SavedSkillDetail } from "@/components/skills/SavedSkillDetail";
 import { GridBackground } from "@/components/ui/GridBackground";
+import { getSavedSkills, type SavedSkill } from "@/lib/saved-skills";
 
-interface Props {
-  params: Promise<{ slug: string }>;
+interface SavedSkillDetailProps {
+  slug: string;
 }
 
-export async function generateStaticParams() {
-  return getAllSkills().map((s) => ({ slug: s.slug }));
-}
+export function SavedSkillDetail({ slug }: SavedSkillDetailProps) {
+  const [skill, setSkill] = useState<SavedSkill | null>(null);
+  const [loading, setLoading] = useState(true);
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const skill = getSkillBySlug(slug);
-  if (!skill)
-    return { title: "Skill — Skills Marketplace" };
-  return {
-    title: `${skill.title} — Skills`,
-    description: skill.description,
-  };
-}
+  useEffect(() => {
+    const saved = getSavedSkills().find((s) => s.slug === slug);
+    setSkill(saved || null);
+    setLoading(false);
+  }, [slug]);
 
-export default async function SkillDetailPage({ params }: Props) {
-  const { slug } = await params;
-  const skill = getSkillBySlug(slug);
-
-  // If not a file-based skill, try localStorage via client component
-  if (!skill) {
-    return <SavedSkillDetail slug={slug} />;
+  if (loading) {
+    return (
+      <GridBackground className="min-h-screen pt-28 pb-24">
+        <div className="mx-auto max-w-4xl px-6 text-center font-mono text-text-muted">
+          Loading...
+        </div>
+      </GridBackground>
+    );
   }
 
-  const result = await remark().use(html).process(skill.content);
-  const renderedHtml = result.toString();
+  if (!skill) return null;
 
   return (
     <GridBackground className="min-h-screen pt-28 pb-24">
@@ -61,6 +55,9 @@ export default async function SkillDetailPage({ params }: Props) {
             </span>
             <span className="font-mono text-xs text-text-muted">
               by {skill.author}
+            </span>
+            <span className="rounded-sm border border-accent-purple/30 bg-accent-purple/5 px-2 py-0.5 font-mono text-[10px] text-accent-purple">
+              Community
             </span>
           </div>
 
@@ -91,17 +88,6 @@ export default async function SkillDetailPage({ params }: Props) {
             <span className="text-accent">$</span> Skill File
           </h2>
           <SkillViewer rawFile={skill.rawFile} slug={skill.slug} />
-        </div>
-
-        {/* Rendered preview */}
-        <div className="mb-8">
-          <h2 className="mb-4 font-mono text-xl font-semibold text-text-primary">
-            <span className="text-accent">$</span> Preview
-          </h2>
-          <div
-            className="skill-preview rounded-sm border border-border bg-bg-card p-6 md:p-8"
-            dangerouslySetInnerHTML={{ __html: renderedHtml }}
-          />
         </div>
       </div>
     </GridBackground>
