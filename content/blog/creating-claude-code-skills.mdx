@@ -1,0 +1,215 @@
+---
+title: "How to Create Claude Code Skills — Best Practices and Patterns"
+description: "A practical guide to building reusable Claude Code skills that actually work. Covers skill anatomy, trigger design, workflow automation, and the patterns that separate good skills from great ones."
+date: "2026-04-09"
+tags: ["claude", "skills", "agentic", "automation", "devtools"]
+published: true
+---
+
+Claude Code skills are the closest thing we have to programming an AI colleague. A well-crafted skill turns a vague request into a reliable, repeatable workflow — and the difference between a skill that works and one that frustrates comes down to a handful of design decisions.
+
+After building and iterating on dozens of skills, here are the patterns and best practices I've landed on.
+
+## What Is a Claude Code Skill?
+
+A skill is a Markdown file (SKILL.md) that lives in your project's `.claude/skills/` directory. It tells Claude Code *how* to handle a specific type of task — the steps to follow, the conventions to respect, and the guardrails to stay within.
+
+```
+.claude/
+  skills/
+    blog-post/
+      SKILL.md
+    git-auto/
+      SKILL.md
+```
+
+When Claude detects that your request matches a skill's description, it loads the skill and follows its instructions instead of improvising.
+
+## Anatomy of a Great Skill
+
+Every skill file has two parts: **frontmatter** (metadata) and **body** (instructions).
+
+### Frontmatter
+
+```yaml
+---
+name: blog-post
+description: >
+  Creates, saves, commits, and deploys blog posts to the website.
+  Use this skill when the user says "write a blog post", "new post",
+  "blog about X", "publish an article", or similar.
+---
+```
+
+The `description` field is critical — it's how Claude decides whether to activate the skill. More on this below.
+
+### Body
+
+The body is plain Markdown that describes:
+
+1. **What the skill does** (one-line summary)
+2. **When to use it** (trigger conditions)
+3. **How to execute it** (step-by-step workflow)
+4. **Reference data** (file paths, formats, conventions)
+
+## Best Practice 1: Nail Your Trigger Description
+
+The most common failure mode is a skill that never activates because the description doesn't match how users actually talk.
+
+**Bad:**
+```yaml
+description: "Handles blog post creation"
+```
+
+**Good:**
+```yaml
+description: >
+  Creates blog posts. Trigger when the user says "write a blog post",
+  "new post", "blog about X", "publish something about X",
+  "write an article", "add a blog entry", or casual phrases like
+  "let's blog", "post about this", or "write something up".
+```
+
+The trick is to think about every way you'd naturally phrase the request — formal, casual, abbreviated — and include those phrases explicitly. Claude matches on semantic similarity, but being explicit removes ambiguity.
+
+## Best Practice 2: Define the Full Workflow, Not Just the Task
+
+A skill that writes a blog post but doesn't commit and deploy it is half a skill. Think end-to-end:
+
+```markdown
+## Workflow
+
+### Step 1: Gather Info
+Ask for topic, audience, key points if not provided.
+
+### Step 2: Write the Post
+Generate MDX with correct frontmatter and formatting.
+
+### Step 3: Save the File
+Write to `content/blog/{slug}.mdx`
+
+### Step 4: Commit & Push
+git add, commit with conventional message, push.
+
+### Step 5: Deploy
+Run `vercel --prod --yes`
+
+### Step 6: Confirm
+Report the live URL to the user.
+```
+
+Each step should be specific enough that Claude doesn't need to make judgment calls about *what* to do — only *how* to do it well.
+
+## Best Practice 3: Include File Paths and Formats
+
+Claude operates in your codebase. The more concrete your references, the fewer mistakes it makes.
+
+**Bad:**
+```markdown
+Save the post to the blog directory.
+```
+
+**Good:**
+```markdown
+Write the MDX file to `content/blog/{slug}.mdx`.
+Slug = title in lowercase kebab-case: "My Post Title" → `my-post-title.mdx`
+```
+
+Include a quick reference table for complex skills:
+
+```markdown
+| Field | Location |
+|-------|----------|
+| Blog directory | `content/blog/` |
+| File format | `.mdx` |
+| Live URL pattern | `https://example.com/blog/{slug}` |
+```
+
+## Best Practice 4: Set Voice and Quality Standards
+
+Without guidance, Claude will produce generic content. Your skill should define the voice:
+
+```markdown
+**Voice & Tone:**
+- Technical but accessible
+- Practical and opinionated — share real experience
+- No fluff or filler — every paragraph earns its place
+- First person for experience, second person for teaching
+```
+
+This is especially important for content-generating skills (blog posts, docs, commit messages) where the output represents you.
+
+## Best Practice 5: Add Safety Rails
+
+Every skill should define what NOT to do. These are the guardrails that prevent costly mistakes:
+
+```markdown
+## Safety Rails
+- Never overwrite an existing file without asking
+- Never commit .env files or secrets
+- Never force push to main/master
+- Set `published: false` for drafts — don't deploy unfinished work
+```
+
+Think about what could go wrong and prevent it explicitly.
+
+## Best Practice 6: Make Skills Composable
+
+The best skills reference other skills. My `blog-post` skill delegates git operations to the `git-auto` skill's conventions:
+
+```markdown
+### Step 4: Commit & Push
+Follow the git-auto skill conventions:
+git add content/blog/{slug}.mdx
+git commit -m 'docs: add blog post "{title}"'
+git push
+```
+
+This keeps skills focused and avoids duplicating workflow logic.
+
+## Best Practice 7: Include Examples
+
+Show Claude what success looks like with concrete input/output examples:
+
+```markdown
+## Examples
+
+**User says:** "Write a post about building AI agents"
+
+**Skill does:**
+1. Generates `content/blog/building-ai-agents.mdx`
+2. Commits with `docs: add blog post "Building AI Agents"`
+3. Deploys to Vercel
+4. Reports: "Live at https://example.com/blog/building-ai-agents"
+```
+
+Examples are more effective than abstract rules because they demonstrate the *pattern* you want followed.
+
+## Advanced: Self-Improving Skills
+
+The most powerful pattern is a skill that learns from its own usage. My `git-auto` skill logs every git session to a JSON file, periodically reviews the logs, and generates suggestions to improve itself:
+
+1. **Log** every execution (what commands ran, what went wrong)
+2. **Review** logs periodically (pattern analysis, recurring issues)
+3. **Suggest** improvements (both to the skill and to the user's workflow)
+4. **Apply** approved improvements back to the SKILL.md
+
+This creates a feedback loop: use the skill, log it, review it, improve it, repeat. Over time, the skill gets tailored to exactly how you work.
+
+## Quick Checklist for New Skills
+
+Before shipping a skill, verify:
+
+- Does the description cover how users actually phrase this request?
+- Does the workflow go end-to-end (not just the core task)?
+- Are all file paths, formats, and conventions explicit?
+- Is the voice/quality bar defined?
+- Are safety rails in place?
+- Are there concrete examples?
+- Does it compose well with other skills?
+
+## The Bigger Picture
+
+Skills are how you turn Claude Code from a general-purpose assistant into a specialized teammate that knows your project, your conventions, and your workflow. The investment in writing a good skill pays off every time it executes — and compounds as your skill library grows.
+
+Start with the workflows you repeat most often. Write the skill. Use it. Improve it. That's the agentic engineering loop in its simplest form.
