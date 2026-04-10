@@ -4,354 +4,360 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mixtli — Progressive Mexican Culinaria</title>
-<meta name="description" content="Mixtli. Aztec for cloud. A ticket-only progressive Mexican tasting menu in San Antonio. Michelin recognized. James Beard nominated.">
-<meta name="theme-color" content="#0A0A0A">
+<meta name="description" content="Mixtli. Nahuatl for cloud. Ticket-only progressive Mexican tasting menu. Michelin recognized. San Antonio, TX.">
+<meta name="theme-color" content="#1C1917">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --black: #0A0A0A;
-  --charcoal: #1A1816;
-  --warm-dark: #141210;
-  --ivory: #F5F0E8;
-  --ivory-muted: #D4CFC6;
-  --gold: #C4A265;
-  --gold-dim: rgba(196,162,101,0.4);
-  --terra: #A0583C;
-  --serif: 'Cormorant Garamond', 'Georgia', serif;
-  --sans: 'Libre Franklin', 'Helvetica Neue', sans-serif;
+  --obsidian: #1C1917;
+  --obsidian-deep: #0F0D0B;
+  --obsidian-light: #2A2520;
+  --clay: #C4956A;
+  --clay-dim: rgba(196,149,106,0.35);
+  --turquoise: #3D8B8B;
+  --turquoise-bright: #4DA8A8;
+  --bone: #E8DDD0;
+  --bone-muted: #B8AFA4;
+  --blood: #8B2F2F;
+  --blood-dim: rgba(139,47,47,0.4);
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
-html { scroll-behavior: smooth }
-body {
-  font-family: var(--sans);
-  background: var(--black);
-  color: var(--ivory);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',system-ui,sans-serif;
+  background:var(--obsidian);color:var(--bone);
+  line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
-/* Grain */
-body::after {
-  content: ""; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 256px;
+/* Heavy obsidian grain */
+body::after{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.06;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:256px;
 }
-::selection { background: var(--gold); color: var(--black) }
-a { color: inherit; text-decoration: none }
-img { max-width: 100%; display: block }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 32px }
-.container-wide { max-width: 1200px; margin: 0 auto; padding: 0 32px }
+::selection{background:var(--turquoise);color:var(--obsidian-deep)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:900px;margin:0 auto;padding:0 32px}
+
+/* --- GRECA BORDERS (stepped fret pattern) --- */
+.greca-left,.greca-right{
+  position:fixed;top:0;bottom:0;width:36px;z-index:50;pointer-events:none;
+  background-repeat:repeat-y;background-size:36px 72px;opacity:0.08;
+}
+.greca-left{left:0}
+.greca-right{right:0}
+.greca-left,.greca-right{
+  background-image:url("data:image/svg+xml,%3Csvg width='36' height='72' viewBox='0 0 36 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h36v9h-27v9h18v9h-18v9h27v9h-36v-9h27v-9h-18v-9h18v-9h-27z' fill='%23C4956A'/%3E%3Cpath d='M0 36h36v9h-27v9h18v9h-18v9h27v9h-36v-9h27v-9h-18v-9h18v-9h-27z' fill='%23C4956A'/%3E%3C/svg%3E");
+}
+@media(max-width:900px){.greca-left,.greca-right{display:none}}
 
 /* --- TYPOGRAPHY --- */
-h1, h2, h3 { font-family: var(--serif); font-weight: 300 }
-h1 { font-size: clamp(4rem, 12vw, 10rem); letter-spacing: 0.04em; line-height: 0.9 }
-h2 { font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: 0.02em; line-height: 1.15 }
-h3 { font-size: 1.4rem; letter-spacing: 0.03em }
-.serif { font-family: var(--serif) }
-.italic { font-style: italic }
-.gold { color: var(--gold) }
-.terra { color: var(--terra) }
-.muted { color: var(--ivory-muted) }
-.uppercase { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; font-weight: 500 }
-.divider {
-  width: 60px; height: 1px; background: var(--gold-dim);
-  margin: 40px auto; display: block;
+h1,h2,h3{font-family:'Cinzel',serif;font-weight:400;letter-spacing:0.08em;text-transform:uppercase}
+h1{font-size:clamp(3.5rem,11vw,9rem);line-height:0.9;letter-spacing:0.18em}
+h2{font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.2;letter-spacing:0.12em}
+h3{font-size:1.1rem;letter-spacing:0.15em}
+.bone-muted{color:var(--bone-muted)}
+.clay{color:var(--clay)}
+.turquoise{color:var(--turquoise)}
+.blood{color:var(--blood)}
+
+/* --- AZTEC DIVIDER --- */
+.aztec-div{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:48px 0;opacity:0.3;
 }
-.divider-wide { width: 100%; opacity: 0.15 }
+.aztec-div::before,.aztec-div::after{
+  content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--clay),transparent);
+}
+.aztec-div .glyph{
+  font-size:1.4rem;color:var(--clay);line-height:1;
+}
 
 /* --- NAV --- */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 28px 40px;
-  display: flex; align-items: center; justify-content: space-between;
-  transition: background 0.5s ease, padding 0.4s ease;
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:24px 48px;display:flex;align-items:center;justify-content:space-between;
+  transition:all 0.5s ease;
 }
-.nav.scrolled {
-  background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
-  padding: 16px 40px; border-bottom: 1px solid rgba(196,162,101,0.1);
+.nav.scrolled{
+  background:rgba(28,25,23,0.95);backdrop-filter:blur(10px);padding:14px 48px;
+  border-bottom:1px solid var(--clay-dim);
 }
-.nav-brand {
-  font-family: var(--serif); font-size: 1.3rem; font-weight: 300;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--ivory);
+.nav-brand{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--clay)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  font-size:0.65rem;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;
+  color:var(--bone-muted);transition:color 0.3s;
 }
-.nav-links { display: flex; gap: 36px; list-style: none }
-.nav-links a {
-  font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
-  letter-spacing: 0.18em; color: var(--ivory-muted);
-  transition: color 0.3s;
+.nav-links a:hover{color:var(--turquoise)}
+.nav-cta{
+  padding:10px 28px;border:1px solid var(--turquoise);
+  font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.2em;
+  color:var(--turquoise);transition:all 0.3s;
 }
-.nav-links a:hover { color: var(--gold) }
-.nav-cta {
-  display: inline-block; padding: 10px 28px; border: 1px solid var(--gold);
-  font-size: 0.65rem; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.2em; color: var(--gold); transition: all 0.3s;
-}
-.nav-cta:hover { background: var(--gold); color: var(--black) }
-.burger { display: none; background: none; border: 0; color: var(--ivory); font-size: 24px; cursor: pointer }
-@media(max-width:900px) {
-  .nav-links { display: none }
-  .burger { display: block }
-  .nav.open .nav-links {
-    display: flex; flex-direction: column; gap: 20px;
-    position: absolute; top: 100%; left: 0; right: 0;
-    background: rgba(10,10,10,0.96); padding: 32px 40px;
-    border-bottom: 1px solid rgba(196,162,101,0.1);
+.nav-cta:hover{background:var(--turquoise);color:var(--obsidian-deep)}
+.burger{display:none;background:none;border:0;color:var(--clay);font-size:24px;cursor:pointer}
+@media(max-width:800px){
+  .nav{padding:20px 24px}
+  .nav-links{display:none}.burger{display:block}.nav-cta{display:none}
+  .nav.open .nav-links{
+    display:flex;flex-direction:column;gap:20px;position:absolute;
+    top:100%;left:0;right:0;background:rgba(28,25,23,0.98);padding:32px 24px;
+    border-bottom:1px solid var(--clay-dim);
   }
-  .nav-cta { display: none }
 }
 
 /* --- HERO --- */
-.hero {
-  position: relative; height: 100vh; display: flex; align-items: center;
-  justify-content: center; text-align: center; overflow: hidden;
+.hero{
+  position:relative;height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;overflow:hidden;
 }
-.hero-bg {
-  position: absolute; inset: 0; z-index: 0;
-  background: url('https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/1732153908646-TPIPOLD4EJR5V0QH9SFA/Untitled+design-3.png?format=2500w') center/cover;
-  animation: heroBreath 20s ease-in-out infinite;
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse at 50% 60%,var(--obsidian-light) 0%,var(--obsidian-deep) 70%);
 }
-.hero-bg::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to bottom,
-    rgba(10,10,10,0.5) 0%,
-    rgba(10,10,10,0.3) 40%,
-    rgba(10,10,10,0.7) 80%,
-    var(--black) 100%
-  );
-}
-@keyframes heroBreath { 0%,100% { transform: scale(1) } 50% { transform: scale(1.04) } }
-.hero-content { position: relative; z-index: 2 }
-.hero-pre {
-  font-size: 0.65rem; font-weight: 500; text-transform: uppercase;
-  letter-spacing: 0.35em; color: var(--gold); margin-bottom: 32px;
-  opacity: 0; animation: fadeUp 1.2s ease 0.3s forwards;
-}
-.hero h1 {
-  color: var(--ivory); font-weight: 300;
-  opacity: 0; animation: fadeUp 1.4s ease 0.6s forwards;
-}
-.hero-sub {
-  font-family: var(--serif); font-size: 1.15rem; font-style: italic;
-  font-weight: 300; color: var(--ivory-muted); margin-top: 20px;
-  letter-spacing: 0.06em;
-  opacity: 0; animation: fadeUp 1.2s ease 0.9s forwards;
-}
-.hero-cta {
-  display: inline-block; margin-top: 56px;
-  padding: 16px 56px; border: 1px solid var(--gold);
-  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.25em; color: var(--gold);
-  transition: all 0.4s ease;
-  opacity: 0; animation: fadeUp 1.2s ease 1.2s forwards;
-}
-.hero-cta:hover { background: var(--gold); color: var(--black) }
-.hero-scroll {
-  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-  z-index: 2; font-size: 0.6rem; text-transform: uppercase;
-  letter-spacing: 0.3em; color: var(--gold-dim);
-  opacity: 0; animation: fadeUp 1s ease 1.8s forwards;
-}
-.hero-scroll::after {
-  content: ""; display: block; width: 1px; height: 40px;
-  background: var(--gold-dim); margin: 12px auto 0;
-  animation: scrollLine 2s ease-in-out infinite;
-}
-@keyframes scrollLine { 0%,100% { opacity: 0.3; transform: scaleY(0.6) } 50% { opacity: 1; transform: scaleY(1) } }
+/* Animated floating clouds */
+.cloud{position:absolute;z-index:1;opacity:0}
+.cloud svg{fill:var(--clay);opacity:0.04}
+.cloud-1{top:15%;left:-5%;animation:drift1 35s linear infinite}
+.cloud-2{top:55%;right:-10%;animation:drift2 45s linear infinite}
+.cloud-3{top:35%;left:20%;animation:drift3 55s linear infinite}
+@keyframes drift1{0%{transform:translateX(-100px);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateX(110vw);opacity:0}}
+@keyframes drift2{0%{transform:translateX(100px);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateX(-110vw);opacity:0}}
+@keyframes drift3{0%{transform:translateX(-200px);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateX(100vw);opacity:0}}
 
-/* --- PHILOSOPHY --- */
-.philosophy { padding: 160px 0; text-align: center }
-.philosophy-meaning {
-  font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.2rem);
-  font-style: italic; color: var(--ivory-muted); max-width: 600px;
-  margin: 0 auto 60px; line-height: 1.9;
+/* Hero geometric frame */
+.hero-frame{
+  position:absolute;z-index:2;
+  width:min(80vw,700px);height:min(60vh,500px);
+  border:1px solid var(--clay-dim);
 }
-.philosophy h2 { max-width: 700px; margin: 0 auto; color: var(--ivory) }
-.philosophy-body {
-  max-width: 620px; margin: 40px auto 0; font-size: 1rem;
-  color: var(--ivory-muted); line-height: 1.9;
+.hero-frame::before,.hero-frame::after{
+  content:"";position:absolute;width:24px;height:24px;border-color:var(--clay);border-style:solid;
 }
+.hero-frame::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.hero-frame::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
 
-/* --- TASTING MENU --- */
-.menu-section { padding: 120px 0; position: relative }
-.menu-card {
-  max-width: 640px; margin: 0 auto; text-align: center;
-  padding: 80px 48px; position: relative;
-  border: 1px solid rgba(196,162,101,0.12);
-  background: var(--warm-dark);
+.hero-content{position:relative;z-index:3}
+.hero-glyph{
+  font-size:2rem;color:var(--clay);margin-bottom:24px;letter-spacing:0.5em;
+  opacity:0;animation:fadeIn 1.5s ease 0.2s forwards;
 }
-@media(max-width:600px) { .menu-card { padding: 48px 24px } }
-.menu-card::before, .menu-card::after {
-  content: ""; position: absolute; width: 30px; height: 30px;
-  border-color: var(--gold-dim); border-style: solid;
+.hero h1{
+  color:var(--bone);opacity:0;animation:fadeIn 1.8s ease 0.5s forwards;
 }
-.menu-card::before { top: 16px; left: 16px; border-width: 1px 0 0 1px }
-.menu-card::after { bottom: 16px; right: 16px; border-width: 0 1px 1px 0 }
-.menu-season {
-  font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.35em;
-  color: var(--gold); margin-bottom: 8px; font-weight: 500;
+.hero-sub{
+  font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:300;
+  letter-spacing:0.4em;text-transform:uppercase;color:var(--bone-muted);
+  margin-top:28px;opacity:0;animation:fadeIn 1.5s ease 1s forwards;
 }
-.menu-title {
-  font-family: var(--serif); font-size: 2.4rem; font-style: italic;
-  font-weight: 300; color: var(--ivory); margin-bottom: 8px;
+.hero-meaning{
+  font-family:'Outfit',sans-serif;font-size:0.7rem;font-weight:400;
+  letter-spacing:0.2em;color:var(--clay);margin-top:12px;font-style:italic;
+  opacity:0;animation:fadeIn 1.5s ease 1.3s forwards;
 }
-.menu-dates { font-size: 0.75rem; color: var(--ivory-muted); letter-spacing: 0.1em; margin-bottom: 48px }
-.course {
-  padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+.hero-cta-wrap{margin-top:56px;opacity:0;animation:fadeIn 1.2s ease 1.6s forwards}
+.hero-cta{
+  padding:16px 56px;border:1px solid var(--turquoise);
+  font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.25em;
+  text-transform:uppercase;color:var(--turquoise);transition:all 0.4s;
 }
-.course:last-of-type { border-bottom: none }
-.course-num {
-  font-family: var(--serif); font-size: 0.8rem; color: var(--gold-dim);
-  font-style: italic; margin-bottom: 6px;
+.hero-cta:hover{background:var(--turquoise);color:var(--obsidian-deep)}
+/* Scroll indicator */
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;animation:fadeIn 1s ease 2.2s forwards;
 }
-.course-name {
-  font-family: var(--serif); font-size: 1.25rem; font-weight: 400;
-  color: var(--ivory); letter-spacing: 0.02em;
+.hero-scroll span{font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--clay-dim)}
+.hero-scroll .line{width:1px;height:36px;background:var(--clay-dim);animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:0.3;transform:scaleY(0.5)}50%{opacity:1;transform:scaleY(1)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* --- SECTIONS --- */
+section{padding:120px 0;position:relative}
+.section-label{
+  font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.35em;
+  text-transform:uppercase;color:var(--clay);margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
 }
-.course-desc {
-  font-size: 0.85rem; color: var(--ivory-muted); font-style: italic;
-  margin-top: 4px; letter-spacing: 0.02em;
+.section-label::before{content:"";width:32px;height:1px;background:var(--clay)}
+
+/* --- MEANING --- */
+.meaning{text-align:center;padding:140px 0}
+.meaning-nahuatl{
+  font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:400;letter-spacing:0.1em;color:var(--bone);line-height:1.3;
+}
+.meaning-translation{
+  font-size:0.95rem;color:var(--bone-muted);margin-top:20px;
+  font-style:italic;max-width:500px;margin-left:auto;margin-right:auto;
+}
+.meaning-quote{
+  max-width:640px;margin:60px auto 0;font-size:1.05rem;
+  color:var(--bone-muted);line-height:2;text-align:center;
+}
+.meaning-quote em{color:var(--turquoise);font-style:normal}
+
+/* --- STONE TABLET (tasting menu) --- */
+.tablet-section{padding:100px 0}
+.tablet{
+  max-width:580px;margin:0 auto;text-align:center;padding:72px 56px;
+  position:relative;
+  background:
+    linear-gradient(135deg,rgba(42,37,32,0.8) 0%,rgba(28,25,23,0.95) 100%);
+  border:1px solid var(--clay-dim);
+  box-shadow:
+    0 0 80px rgba(0,0,0,0.5),
+    inset 0 0 60px rgba(0,0,0,0.3);
+}
+@media(max-width:600px){.tablet{padding:48px 20px}}
+/* Corner glyphs */
+.tablet::before{
+  content:"◇";position:absolute;top:20px;left:50%;transform:translateX(-50%);
+  color:var(--clay-dim);font-size:0.8rem;
+}
+.tablet::after{
+  content:"◇";position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  color:var(--clay-dim);font-size:0.8rem;
+}
+.tablet-season{font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--turquoise);font-weight:500}
+.tablet-title{
+  font-family:'Cinzel',serif;font-size:2rem;font-weight:400;
+  letter-spacing:0.06em;color:var(--bone);margin:12px 0 8px;
+  font-style:italic;text-transform:none;
+}
+.tablet-dates{font-size:0.7rem;color:var(--bone-muted);letter-spacing:0.15em;margin-bottom:48px}
+.course{padding:18px 0;border-bottom:1px solid rgba(196,149,106,0.08)}
+.course:last-of-type{border-bottom:none}
+.course-dots{color:var(--clay);font-size:0.7rem;letter-spacing:0.3em;margin-bottom:6px}
+.course-name{
+  font-family:'Cinzel',serif;font-size:1.05rem;font-weight:400;
+  letter-spacing:0.06em;color:var(--bone);
+}
+.course-desc{
+  font-size:0.82rem;color:var(--bone-muted);font-style:italic;
+  margin-top:3px;letter-spacing:0.02em;
+}
+.course-intermezzo{
+  font-family:'Cinzel',serif;font-size:0.9rem;font-style:italic;
+  color:var(--clay-dim);letter-spacing:0.1em;
 }
 
 /* --- BAR --- */
-.bar-section {
-  padding: 140px 0; position: relative;
-  background:
-    linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.9)),
-    url('https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/1734039322524-33QOZ7JXV6YCGTSBIFVL/IMG_0631.jpeg?format=2500w') center/cover fixed;
+.bar-section{
+  padding:140px 0;
+  background:linear-gradient(180deg,var(--obsidian-deep) 0%,var(--obsidian) 50%,var(--obsidian-deep) 100%);
+  border-top:1px solid rgba(196,149,106,0.06);
+  border-bottom:1px solid rgba(196,149,106,0.06);
 }
-.cocktails {
-  display: grid; grid-template-columns: 1fr; gap: 0;
-  max-width: 700px; margin: 56px auto 0;
-}
-@media(min-width:600px) { .cocktails { grid-template-columns: 1fr 1fr } }
-.cocktail {
-  padding: 28px 24px; border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-.cocktail-name {
-  font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
-  display: flex; justify-content: space-between; align-items: baseline;
-}
-.cocktail-price { color: var(--gold); font-size: 0.9rem }
-.cocktail-desc {
-  font-size: 0.78rem; color: var(--ivory-muted); font-style: italic;
-  margin-top: 4px; line-height: 1.5;
-}
+.cocktails{display:grid;grid-template-columns:1fr;gap:0;max-width:640px;margin:48px auto 0}
+@media(min-width:600px){.cocktails{grid-template-columns:1fr 1fr}}
+.cocktail{padding:24px 20px;border-bottom:1px solid rgba(196,149,106,0.06)}
+.cocktail-head{display:flex;justify-content:space-between;align-items:baseline}
+.cocktail-name{font-family:'Cinzel',serif;font-size:0.95rem;letter-spacing:0.04em;color:var(--bone)}
+.cocktail-price{color:var(--turquoise);font-family:'Cinzel',serif;font-size:0.85rem}
+.cocktail-desc{font-size:0.75rem;color:var(--bone-muted);font-style:italic;margin-top:4px}
 
 /* --- CELLAR --- */
-.cellar-section { padding: 140px 0; text-align: center }
-.cellar-img {
-  width: 100%; max-width: 800px; margin: 56px auto 0;
-  aspect-ratio: 16/9; object-fit: cover; border-radius: 2px;
-  filter: brightness(0.85);
+.cellar-section{padding:140px 0;text-align:center}
+.cellar-img{
+  width:100%;max-width:760px;margin:48px auto 0;aspect-ratio:16/9;
+  object-fit:cover;filter:brightness(0.7) sepia(0.15);
+  border:1px solid var(--clay-dim);
 }
-.cellar-quote {
-  max-width: 560px; margin: 56px auto 0; font-family: var(--serif);
-  font-size: 1.15rem; font-style: italic; color: var(--ivory-muted);
-  line-height: 1.8;
+.cellar-quote{
+  max-width:540px;margin:48px auto 0;font-size:1rem;
+  font-style:italic;color:var(--bone-muted);line-height:1.9;
 }
-.cellar-attr {
-  margin-top: 20px; font-size: 0.7rem; text-transform: uppercase;
-  letter-spacing: 0.2em; color: var(--gold);
+.cellar-attr{
+  margin-top:16px;font-family:'Cinzel',serif;font-size:0.6rem;
+  letter-spacing:0.25em;text-transform:uppercase;color:var(--clay);
 }
 
 /* --- ACCOLADES --- */
-.accolades {
-  padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+.accolades{
+  padding:72px 0;text-align:center;
+  border-top:1px solid rgba(196,149,106,0.06);
+  border-bottom:1px solid rgba(196,149,106,0.06);
 }
-.accolade-row {
-  display: flex; justify-content: center; align-items: center;
-  gap: 48px; flex-wrap: wrap;
+.accolade-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.accolade{
+  font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--bone-muted);opacity:0.5;
+  transition:opacity 0.3s;line-height:1.6;
 }
-.accolade {
-  font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em;
-  color: var(--ivory-muted); text-align: center; opacity: 0.6;
-  transition: opacity 0.3s;
-}
-.accolade:hover { opacity: 1 }
-.accolade-icon {
-  font-size: 1.4rem; margin-bottom: 8px; display: block; color: var(--gold-dim);
-}
+.accolade:hover{opacity:1}
+.accolade-dot{display:block;color:var(--blood);font-size:1.2rem;margin-bottom:6px}
 
 /* --- TEAM --- */
-.team-section { padding: 120px 0; text-align: center }
-.team-grid {
-  display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
-  margin-top: 56px;
-}
-.team-member { text-align: center; min-width: 160px }
-.team-name {
-  font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
-  color: var(--ivory); margin-bottom: 4px;
-}
-.team-role {
-  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
-  color: var(--gold);
-}
+.team-section{padding:120px 0;text-align:center}
+.team-grid{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;margin-top:48px}
+.team-member{min-width:140px}
+.team-name{font-family:'Cinzel',serif;font-size:0.95rem;letter-spacing:0.06em;color:var(--bone)}
+.team-role{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--turquoise);margin-top:4px}
 
 /* --- VISIT --- */
-.visit-section {
-  padding: 140px 0; text-align: center;
-  background: var(--warm-dark);
-  border-top: 1px solid rgba(196,162,101,0.08);
+.visit-section{
+  padding:140px 0;text-align:center;
+  background:var(--obsidian-deep);
+  border-top:1px solid rgba(196,149,106,0.06);
 }
-.visit-details {
-  max-width: 480px; margin: 48px auto 0;
-  font-size: 0.95rem; color: var(--ivory-muted); line-height: 2;
+.visit-details{
+  max-width:400px;margin:48px auto 0;font-size:0.95rem;
+  color:var(--bone-muted);line-height:2.2;
 }
-.visit-details a { color: var(--gold); transition: opacity 0.2s }
-.visit-details a:hover { opacity: 0.7 }
-.visit-cta {
-  display: inline-block; margin-top: 48px;
-  padding: 18px 64px; background: var(--gold); color: var(--black);
-  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.25em; transition: all 0.3s;
+.visit-details a{color:var(--turquoise);transition:opacity 0.2s}
+.visit-details a:hover{opacity:0.7}
+.visit-divider{width:40px;height:1px;background:var(--clay-dim);margin:20px auto}
+.visit-cta{
+  display:inline-block;margin-top:48px;padding:18px 64px;
+  background:var(--turquoise);color:var(--obsidian-deep);
+  font-family:'Cinzel',serif;font-size:0.7rem;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;transition:all 0.3s;
 }
-.visit-cta:hover { background: var(--ivory); transform: translateY(-2px) }
+.visit-cta:hover{background:var(--turquoise-bright);transform:translateY(-2px);box-shadow:0 8px 32px rgba(61,139,139,0.3)}
 
 /* --- FOOTER --- */
-footer {
-  padding: 48px 0; text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.04);
+footer{padding:40px 0;text-align:center;border-top:1px solid rgba(196,149,106,0.04)}
+.footer-social{display:flex;justify-content:center;gap:36px;margin-bottom:16px}
+.footer-social a{
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--bone-muted);opacity:0.35;transition:all 0.3s;
 }
-.footer-copy { font-size: 0.7rem; color: rgba(245,240,232,0.25); letter-spacing: 0.1em }
-.footer-social {
-  display: flex; justify-content: center; gap: 32px; margin-bottom: 20px;
+.footer-social a:hover{color:var(--turquoise);opacity:1}
+.footer-copy{font-size:0.6rem;color:rgba(232,221,208,0.15);letter-spacing:0.1em}
+
+/* --- FOOD IMAGE STRIP --- */
+.food-strip{
+  padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  max-width:100%;overflow:hidden;
 }
-.footer-social a {
-  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
-  color: var(--ivory-muted); opacity: 0.5; transition: all 0.3s;
-}
-.footer-social a:hover { color: var(--gold); opacity: 1 }
+.food-strip img{aspect-ratio:4/3;object-fit:cover;width:100%;filter:brightness(0.75) sepia(0.1);transition:filter 0.5s}
+.food-strip img:hover{filter:brightness(0.9) sepia(0)}
 
 /* --- ANIMATIONS --- */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px) }
-  to { opacity: 1; transform: none }
-}
-.reveal {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.reveal.in { opacity: 1; transform: none }
-.reveal-slow { transition-duration: 1.4s }
-.rd1 { transition-delay: 0.1s } .rd2 { transition-delay: 0.2s }
-.rd3 { transition-delay: 0.3s } .rd4 { transition-delay: 0.4s }
-.rd5 { transition-delay: 0.5s } .rd6 { transition-delay: 0.6s }
-.rd7 { transition-delay: 0.7s } .rd8 { transition-delay: 0.8s }
-.rd9 { transition-delay: 0.9s } .rd10 { transition-delay: 1.0s }
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 1.2s cubic-bezier(0.2,0.8,0.2,1),transform 1.2s cubic-bezier(0.2,0.8,0.2,1)}
+.reveal.in{opacity:1;transform:none}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+.rd4{transition-delay:.4s}.rd5{transition-delay:.5s}.rd6{transition-delay:.6s}
+.rd7{transition-delay:.7s}.rd8{transition-delay:.8s}.rd9{transition-delay:.9s}
+.rd10{transition-delay:1s}
 </style>
 </head>
 <body>
+
+<!-- Greca borders -->
+<div class="greca-left"></div>
+<div class="greca-right"></div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a class="nav-brand" href="#">Mixtli</a>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#meaning">Origin</a></li>
     <li><a href="#menu">Menu</a></li>
     <li><a href="#bar">The Bar</a></li>
     <li><a href="#cellar">The Cellar</a></li>
@@ -364,87 +370,86 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <!-- Floating clouds -->
+  <div class="cloud cloud-1"><svg width="320" height="120" viewBox="0 0 320 120"><ellipse cx="160" cy="70" rx="160" ry="50"/><ellipse cx="100" cy="50" rx="80" ry="40"/><ellipse cx="220" cy="55" rx="90" ry="35"/></svg></div>
+  <div class="cloud cloud-2"><svg width="260" height="100" viewBox="0 0 260 100"><ellipse cx="130" cy="60" rx="130" ry="40"/><ellipse cx="80" cy="40" rx="70" ry="30"/><ellipse cx="180" cy="45" rx="60" ry="28"/></svg></div>
+  <div class="cloud cloud-3"><svg width="200" height="80" viewBox="0 0 200 80"><ellipse cx="100" cy="45" rx="100" ry="35"/><ellipse cx="60" cy="30" rx="50" ry="25"/></svg></div>
+  <div class="hero-frame"></div>
   <div class="hero-content">
-    <p class="hero-pre">San Antonio, Texas</p>
+    <div class="hero-glyph">&#9674; &#9674; &#9674;</div>
     <h1>Mixtli</h1>
     <p class="hero-sub">Progressive Mexican Culinaria</p>
-    <a href="https://www.exploretock.com/mixtli" class="hero-cta" target="_blank" rel="noopener">Reserve a Table</a>
+    <p class="hero-meaning">meesh-lee &middot; Nahuatl for cloud</p>
+    <div class="hero-cta-wrap">
+      <a href="https://www.exploretock.com/mixtli" class="hero-cta" target="_blank" rel="noopener">Reserve a Table</a>
+    </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-scroll"><span>Descend</span><div class="line"></div></div>
 </section>
 
-<!-- PHILOSOPHY -->
-<section class="philosophy" id="philosophy">
+<!-- AZTEC DIVIDER -->
+<div class="aztec-div"><span class="glyph">&#9674;</span></div>
+
+<!-- MEANING -->
+<section class="meaning" id="meaning">
   <div class="container">
-    <p class="philosophy-meaning reveal">
-      <span class="gold">Mixtli</span> &mdash; <em>meesh-lee</em> &mdash; Aztec spoken word for cloud.
-    </p>
-    <span class="divider reveal rd1"></span>
-    <h2 class="reveal rd2">Like clouds, our menu travels from place to place &mdash; offering a tour in Mexican gastronomy.</h2>
-    <p class="philosophy-body reveal rd3">
-      To define Mexican cuisine is impossible. Mexico is as diverse as it is vast. Within its borders lie rocky mountains, humid jungles, arid deserts, and endless coasts &mdash; a stark diversity that forced each region to develop uniquely rich cultural and culinary histories.
-    </p>
-    <p class="philosophy-body reveal rd4" style="margin-top:16px">
-      After each season, the cloud travels to other lands and we begin again. <em class="gold">It is our mission that you fall in love with Mexico.</em>
+    <p class="meaning-nahuatl reveal">Mixtli &mdash; Mextli</p>
+    <p class="meaning-translation reveal rd1">Aztec spoken word for cloud. Variant form: Mextli.</p>
+    <div class="aztec-div reveal rd2"><span class="glyph">&#9674;</span></div>
+    <p class="meaning-quote reveal rd3">
+      Like clouds, our menu travels from place to place &mdash; offering a tour in Mexican gastronomy. If the state has a border with the ocean, we start our trek on the coast and work inland. After each season, the cloud travels to other lands and we begin again.<br><br>
+      <em>It is our mission that you fall in love with Mexico.</em>
     </p>
   </div>
 </section>
+
+<!-- FOOD STRIP -->
+<div class="food-strip reveal">
+  <img src="https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/1676589571945-6W9XWUPFB99CK4VN5114/mixtli-pats-pick-scallops.jpg?format=2500w" alt="Scallop dish at Mixtli">
+  <img src="https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/1734039322524-33QOZ7JXV6YCGTSBIFVL/IMG_0631.jpeg?format=2500w" alt="The Bar at Mixtli">
+  <img src="https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/d7ddb934-3449-4edb-b0cb-1cbb6e2c5e08/The+Cellar+1.jpg" alt="The Cellar at Mixtli">
+</div>
 
 <!-- TASTING MENU -->
-<section class="menu-section" id="menu">
+<section class="tablet-section" id="menu">
   <div class="container">
-    <div class="menu-card reveal reveal-slow">
-      <p class="menu-season">Current Season</p>
-      <h2 class="menu-title">La Vecindad</h2>
-      <p class="menu-dates">February 7 &ndash; April 25</p>
+    <div class="tablet reveal">
+      <p class="tablet-season">Current Season</p>
+      <h2 class="tablet-title" style="text-transform:none;letter-spacing:0.02em">La Vecindad</h2>
+      <p class="tablet-dates">February &mdash; April</p>
 
-      <div class="course reveal rd1"><div class="course-num">i</div><div class="course-name">Botanas</div><div class="course-desc">Pork Trotter Escabeche, Chorizo Molote, Popcorn</div></div>
-      <div class="course reveal rd2"><div class="course-num">ii</div><div class="course-name">Ceviche Chilango</div><div class="course-desc">Blue Prawns, Tomato, Sunchoke / Scallop, Mandarin Salsa Macha</div></div>
-      <div class="course reveal rd3"><div class="course-num">iii</div><div class="course-name">Marisquer&iacute;a de la Capital</div><div class="course-desc">Poached Halibut, Sorrel, Corn</div></div>
-      <div class="course reveal rd4"><div class="course-num">iv</div><div class="course-name">Mujeres del Ma&iacute;z</div><div class="course-desc">Roasted Squash Tamal, Quelites, Epazote</div></div>
-      <div class="course reveal rd5"><div class="course-num">v</div><div class="course-name">Comida Corrida</div><div class="course-desc">Crab Chile Relleno, Tomato Consomm&eacute;</div></div>
-      <div class="course reveal rd6"><div class="course-num">vi</div><div class="course-name">Taco de Guisado</div><div class="course-desc">Tinga de Pollo</div></div>
-      <div class="course reveal rd7"><div class="course-num">vii</div><div class="course-name">Pambazo</div><div class="course-desc">Potato Bread, Koji Aged Wagyu, Chorizo Aioli</div></div>
-      <div class="course reveal rd8"><div class="course-num">viii</div><div class="course-name" style="font-style:italic;color:var(--ivory-muted)">Intermezzo</div></div>
-      <div class="course reveal rd9"><div class="course-num">ix</div><div class="course-name">Dessert</div><div class="course-desc">Squash, Pear, Piloncillo</div></div>
-      <div class="course reveal rd10"><div class="course-num">x</div><div class="course-name" style="font-style:italic">Mignardise</div></div>
+      <div class="course reveal rd1"><div class="course-dots">&bull;</div><div class="course-name">Botanas</div><div class="course-desc">Pork Trotter Escabeche, Chorizo Molote, Popcorn</div></div>
+      <div class="course reveal rd2"><div class="course-dots">&bull;&bull;</div><div class="course-name">Ceviche Chilango</div><div class="course-desc">Blue Prawns, Tomato, Sunchoke / Scallop, Mandarin Salsa Macha</div></div>
+      <div class="course reveal rd3"><div class="course-dots">&bull;&bull;&bull;</div><div class="course-name">Marisquer&iacute;a de la Capital</div><div class="course-desc">Poached Halibut, Sorrel, Corn</div></div>
+      <div class="course reveal rd4"><div class="course-dots">&bull;&bull;&bull;&bull;</div><div class="course-name">Mujeres del Ma&iacute;z</div><div class="course-desc">Roasted Squash Tamal, Quelites, Epazote</div></div>
+      <div class="course reveal rd5"><div class="course-dots">&bull;&bull;&bull;&bull;&bull;</div><div class="course-name">Comida Corrida</div><div class="course-desc">Crab Chile Relleno, Tomato Consomm&eacute;</div></div>
+      <div class="course reveal rd6"><div class="course-dots">&bull;&bull;&bull;&bull;&bull;&bull;</div><div class="course-name">Taco de Guisado</div><div class="course-desc">Tinga de Pollo</div></div>
+      <div class="course reveal rd7"><div class="course-dots">&bull;&bull;&bull;&bull;&bull;&bull;&bull;</div><div class="course-name">Pambazo</div><div class="course-desc">Potato Bread, Koji Aged Wagyu, Chorizo Aioli</div></div>
+      <div class="course reveal rd8"><div class="course-dots">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</div><div class="course-intermezzo">Intermezzo</div></div>
+      <div class="course reveal rd9"><div class="course-dots">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</div><div class="course-name">Dessert</div><div class="course-desc">Squash, Pear, Piloncillo</div></div>
+      <div class="course reveal rd10"><div class="course-dots">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</div><div class="course-intermezzo">Mignardise</div></div>
     </div>
   </div>
 </section>
 
+<!-- AZTEC DIVIDER -->
+<div class="aztec-div"><span class="glyph">&#9674;</span></div>
+
 <!-- BAR -->
 <section class="bar-section" id="bar">
   <div class="container" style="text-align:center">
-    <p class="uppercase gold reveal">The Bar at Mixtli</p>
-    <h2 class="reveal rd1" style="margin-top:16px">Cocteles</h2>
-    <p class="muted reveal rd2" style="max-width:480px;margin:20px auto 0;font-size:0.95rem">
-      An ever-rotating menu of cocktails, agave spirits, and a progressive wine list. Fancy a custom pour? Our bar staff will be delighted.
+    <div class="section-label reveal" style="justify-content:center"><span>The Bar at Mixtli</span></div>
+    <h2 class="reveal rd1" style="margin-top:12px">Cocteles</h2>
+    <p class="bone-muted reveal rd2" style="max-width:460px;margin:20px auto 0;font-size:0.9rem">
+      An ever-rotating menu of cocktails, agave spirits, and a progressive wine list. The bar offers a unique menu of snacks and small bites &mdash; separate from the tasting menu.
     </p>
     <div class="cocktails">
-      <div class="cocktail reveal rd1">
-        <div class="cocktail-name"><span>La Vecindad</span><span class="cocktail-price">$18</span></div>
-        <div class="cocktail-desc">Mezcal, Sotol, Fermented Tomato, Tamarind, Oregano</div>
-      </div>
-      <div class="cocktail reveal rd2">
-        <div class="cocktail-name"><span>Susurros</span><span class="cocktail-price">$17</span></div>
-        <div class="cocktail-desc">Gin, Passionfruit, Elderflower, Marigold</div>
-      </div>
-      <div class="cocktail reveal rd3">
-        <div class="cocktail-name"><span>Mixtli Margarita</span><span class="cocktail-price">$16</span></div>
-        <div class="cocktail-desc">Blanco Tequila, Triple Sec, Clarified Lime, Salted Orange Foam</div>
-      </div>
-      <div class="cocktail reveal rd4">
-        <div class="cocktail-name"><span>Smoked Old Fashioned</span><span class="cocktail-price">$17</span></div>
-        <div class="cocktail-desc">Corn Butter Washed Tequila &amp; Mezcal, Velvet Falernum, Mol&eacute; Bitters</div>
-      </div>
-      <div class="cocktail reveal rd5">
-        <div class="cocktail-name"><span>Casas y Cantinas</span><span class="cocktail-price">$18</span></div>
-        <div class="cocktail-desc">Rye Whisky, Sweet Vermouth, House Caf&eacute; de Olla Liqueur, Orange Blossom</div>
-      </div>
-      <div class="cocktail reveal rd6">
-        <div class="cocktail-name"><span>Edgar&rsquo;s Paloma</span><span class="cocktail-price">$14</span></div>
-        <div class="cocktail-desc">Tequila Reposado, Cinnamon, Grapefruit, Lime, Sal de Gusano</div>
-      </div>
+      <div class="cocktail reveal rd1"><div class="cocktail-head"><span class="cocktail-name">La Vecindad</span><span class="cocktail-price">$18</span></div><div class="cocktail-desc">Mezcal, Sotol, Fermented Tomato, Tamarind, Oregano</div></div>
+      <div class="cocktail reveal rd2"><div class="cocktail-head"><span class="cocktail-name">Susurros</span><span class="cocktail-price">$17</span></div><div class="cocktail-desc">Gin, Passionfruit, Elderflower, Marigold</div></div>
+      <div class="cocktail reveal rd3"><div class="cocktail-head"><span class="cocktail-name">Mixtli Margarita</span><span class="cocktail-price">$16</span></div><div class="cocktail-desc">Blanco Tequila, Triple Sec, Clarified Lime, Salted Orange Foam</div></div>
+      <div class="cocktail reveal rd4"><div class="cocktail-head"><span class="cocktail-name">Smoked Old Fashioned</span><span class="cocktail-price">$17</span></div><div class="cocktail-desc">Corn Butter Washed Tequila &amp; Mezcal, Velvet Falernum, Mol&eacute; Bitters</div></div>
+      <div class="cocktail reveal rd5"><div class="cocktail-head"><span class="cocktail-name">Casas y Cantinas</span><span class="cocktail-price">$18</span></div><div class="cocktail-desc">Rye Whisky, Sweet Vermouth, Caf&eacute; de Olla Liqueur, Orange Blossom</div></div>
+      <div class="cocktail reveal rd6"><div class="cocktail-head"><span class="cocktail-name">Edgar&rsquo;s Paloma</span><span class="cocktail-price">$14</span></div><div class="cocktail-desc">Tequila Reposado, Cinnamon, Grapefruit, Lime, Sal de Gusano</div></div>
     </div>
   </div>
 </section>
@@ -452,11 +457,11 @@ footer {
 <!-- CELLAR -->
 <section class="cellar-section" id="cellar">
   <div class="container">
-    <p class="uppercase gold reveal">The Cellar</p>
-    <h2 class="reveal rd1" style="margin-top:16px">1,200+ Wines</h2>
+    <div class="section-label reveal" style="justify-content:center"><span>The Cellar</span></div>
+    <h2 class="reveal rd1" style="margin-top:12px">1,200+ Wines</h2>
     <img class="cellar-img reveal rd2" src="https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/d7ddb934-3449-4edb-b0cb-1cbb6e2c5e08/The+Cellar+1.jpg" alt="The Cellar at Mixtli">
     <blockquote class="cellar-quote reveal rd3">
-      &ldquo;I&rsquo;m incredibly proud of the diverse wine program we&rsquo;ve built at Mixtli. Like the restaurant, The Cellar focuses on Mexican wine and sheds light on this great, but lesser-known winemaking region.&rdquo;
+      &ldquo;Like Mixtli, The Cellar focuses on Mexican wine and sheds light on this great, but lesser-known winemaking region.&rdquo;
     </blockquote>
     <p class="cellar-attr reveal rd4">Hailey Pruitt &mdash; Certified Sommelier</p>
   </div>
@@ -464,13 +469,13 @@ footer {
 
 <!-- ACCOLADES -->
 <section class="accolades">
-  <div class="container-wide">
+  <div class="container">
     <div class="accolade-row">
-      <div class="accolade reveal"><span class="accolade-icon">&#9733;</span>Michelin<br>Recognized</div>
-      <div class="accolade reveal rd1"><span class="accolade-icon">&#9733;</span>James Beard<br>Nominee 2025</div>
-      <div class="accolade reveal rd2"><span class="accolade-icon">&#9733;</span>Food &amp; Wine<br>Best New Chefs</div>
-      <div class="accolade reveal rd3"><span class="accolade-icon">&#9733;</span>Eater<br>Top 38 Texas</div>
-      <div class="accolade reveal rd4"><span class="accolade-icon">&#9733;</span>AAA<br>Four Diamond</div>
+      <div class="accolade reveal"><span class="accolade-dot">&bull;</span>Michelin<br>Recognized</div>
+      <div class="accolade reveal rd1"><span class="accolade-dot">&bull;</span>James Beard<br>Nominee 2025</div>
+      <div class="accolade reveal rd2"><span class="accolade-dot">&bull;</span>Food &amp; Wine<br>Best New Chefs</div>
+      <div class="accolade reveal rd3"><span class="accolade-dot">&bull;</span>Eater<br>Top 38 Texas</div>
+      <div class="accolade reveal rd4"><span class="accolade-dot">&bull;</span>AAA<br>Four Diamond</div>
     </div>
   </div>
 </section>
@@ -478,29 +483,14 @@ footer {
 <!-- TEAM -->
 <section class="team-section">
   <div class="container">
-    <p class="uppercase gold reveal">The Team</p>
-    <h2 class="reveal rd1" style="margin-top:16px">Behind the Cloud</h2>
+    <div class="section-label reveal" style="justify-content:center"><span>The Team</span></div>
+    <h2 class="reveal rd1" style="margin-top:12px">Behind the Cloud</h2>
     <div class="team-grid">
-      <div class="team-member reveal rd1">
-        <div class="team-name">Diego Galicia</div>
-        <div class="team-role">Executive Chef</div>
-      </div>
-      <div class="team-member reveal rd2">
-        <div class="team-name">Rico Torres</div>
-        <div class="team-role">Executive Chef</div>
-      </div>
-      <div class="team-member reveal rd3">
-        <div class="team-name">Alexana Cabrera</div>
-        <div class="team-role">Chef de Cuisine</div>
-      </div>
-      <div class="team-member reveal rd4">
-        <div class="team-name">Hailey Pruitt</div>
-        <div class="team-role">Sommelier</div>
-      </div>
-      <div class="team-member reveal rd5">
-        <div class="team-name">Lauren Beckman</div>
-        <div class="team-role">Bar Director</div>
-      </div>
+      <div class="team-member reveal rd1"><div class="team-name">Diego Galicia</div><div class="team-role">Executive Chef</div></div>
+      <div class="team-member reveal rd2"><div class="team-name">Rico Torres</div><div class="team-role">Executive Chef</div></div>
+      <div class="team-member reveal rd3"><div class="team-name">Alexana Cabrera</div><div class="team-role">Chef de Cuisine</div></div>
+      <div class="team-member reveal rd4"><div class="team-name">Hailey Pruitt</div><div class="team-role">Sommelier</div></div>
+      <div class="team-member reveal rd5"><div class="team-name">Lauren Beckman</div><div class="team-role">Bar Director</div></div>
     </div>
   </div>
 </section>
@@ -508,13 +498,13 @@ footer {
 <!-- VISIT -->
 <section class="visit-section" id="visit">
   <div class="container">
-    <p class="uppercase gold reveal">Visit</p>
-    <h2 class="reveal rd1" style="margin-top:16px">Join Us</h2>
+    <div class="section-label reveal" style="justify-content:center"><span>Visit</span></div>
+    <h2 class="reveal rd1" style="margin-top:12px">Join Us</h2>
     <div class="visit-details reveal rd2">
       <p>812 S. Alamo St STE 103<br>San Antonio, TX 78205</p>
-      <span class="divider" style="margin:24px auto"></span>
-      <p>Tuesday &ndash; Saturday<br><em class="muted">Service by ticket only</em></p>
-      <span class="divider" style="margin:24px auto"></span>
+      <div class="visit-divider"></div>
+      <p>Tuesday &ndash; Saturday<br><em class="bone-muted" style="font-size:0.85rem">Service by ticket only</em></p>
+      <div class="visit-divider"></div>
       <p><a href="tel:+12103380746">(210) 338-0746</a></p>
       <p><a href="mailto:info@restaurantmixtli.com">info@restaurantmixtli.com</a></p>
     </div>
@@ -535,24 +525,21 @@ footer {
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',()=>{
   // Burger
-  const b = document.getElementById('burger'), n = document.getElementById('nav');
-  if (b) b.addEventListener('click', () => n.classList.toggle('open'));
+  const b=document.getElementById('burger'),n=document.getElementById('nav');
+  if(b)b.addEventListener('click',()=>n.classList.toggle('open'));
   // Nav scroll
-  let last = 0;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    n.classList.toggle('scrolled', y > 80);
-    last = y;
-  }, { passive: true });
+  window.addEventListener('scroll',()=>{
+    n.classList.toggle('scrolled',window.scrollY>60);
+  },{passive:true});
   // Reveal
-  const io = new IntersectionObserver(e => {
-    e.forEach(x => { if (x.isIntersecting) x.target.classList.add('in') });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const io=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')});
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // Year
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('yr').textContent=new Date().getFullYear();
 });
 </script>
 </body>
