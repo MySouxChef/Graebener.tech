@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mixtli — Progressive Mexican Culinaria</title>
+<meta name="description" content="Mixtli. Aztec for cloud. A ticket-only progressive Mexican tasting menu in San Antonio. Michelin recognized. James Beard nominated.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0A;
+  --charcoal: #1A1816;
+  --warm-dark: #141210;
+  --ivory: #F5F0E8;
+  --ivory-muted: #D4CFC6;
+  --gold: #C4A265;
+  --gold-dim: rgba(196,162,101,0.4);
+  --terra: #A0583C;
+  --serif: 'Cormorant Garamond', 'Georgia', serif;
+  --sans: 'Libre Franklin', 'Helvetica Neue', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+html { scroll-behavior: smooth }
+body {
+  font-family: var(--sans);
+  background: var(--black);
+  color: var(--ivory);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+/* Grain */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px;
+}
+::selection { background: var(--gold); color: var(--black) }
+a { color: inherit; text-decoration: none }
+img { max-width: 100%; display: block }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 32px }
+.container-wide { max-width: 1200px; margin: 0 auto; padding: 0 32px }
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 { font-family: var(--serif); font-weight: 300 }
+h1 { font-size: clamp(4rem, 12vw, 10rem); letter-spacing: 0.04em; line-height: 0.9 }
+h2 { font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: 0.02em; line-height: 1.15 }
+h3 { font-size: 1.4rem; letter-spacing: 0.03em }
+.serif { font-family: var(--serif) }
+.italic { font-style: italic }
+.gold { color: var(--gold) }
+.terra { color: var(--terra) }
+.muted { color: var(--ivory-muted) }
+.uppercase { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; font-weight: 500 }
+.divider {
+  width: 60px; height: 1px; background: var(--gold-dim);
+  margin: 40px auto; display: block;
+}
+.divider-wide { width: 100%; opacity: 0.15 }
+
+/* --- NAV --- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 28px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.5s ease, padding 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
+  padding: 16px 40px; border-bottom: 1px solid rgba(196,162,101,0.1);
+}
+.nav-brand {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 300;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--ivory);
+}
+.nav-links { display: flex; gap: 36px; list-style: none }
+.nav-links a {
+  font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.18em; color: var(--ivory-muted);
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold) }
+.nav-cta {
+  display: inline-block; padding: 10px 28px; border: 1px solid var(--gold);
+  font-size: 0.65rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.2em; color: var(--gold); transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--black) }
+.burger { display: none; background: none; border: 0; color: var(--ivory); font-size: 24px; cursor: pointer }
+@media(max-width:900px) {
+  .nav-links { display: none }
+  .burger { display: block }
+  .nav.open .nav-links {
+    display: flex; flex-direction: column; gap: 20px;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(10,10,10,0.96); padding: 32px 40px;
+    border-bottom: 1px solid rgba(196,162,101,0.1);
+  }
+  .nav-cta { display: none }
+}
+
+/* --- HERO --- */
+.hero {
+  position: relative; height: 100vh; display: flex; align-items: center;
+  justify-content: center; text-align: center; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: url('https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/1732153908646-TPIPOLD4EJR5V0QH9SFA/Untitled+design-3.png?format=2500w') center/cover;
+  animation: heroBreath 20s ease-in-out infinite;
+}
+.hero-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,10,10,0.5) 0%,
+    rgba(10,10,10,0.3) 40%,
+    rgba(10,10,10,0.7) 80%,
+    var(--black) 100%
+  );
+}
+@keyframes heroBreath { 0%,100% { transform: scale(1) } 50% { transform: scale(1.04) } }
+.hero-content { position: relative; z-index: 2 }
+.hero-pre {
+  font-size: 0.65rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.35em; color: var(--gold); margin-bottom: 32px;
+  opacity: 0; animation: fadeUp 1.2s ease 0.3s forwards;
+}
+.hero h1 {
+  color: var(--ivory); font-weight: 300;
+  opacity: 0; animation: fadeUp 1.4s ease 0.6s forwards;
+}
+.hero-sub {
+  font-family: var(--serif); font-size: 1.15rem; font-style: italic;
+  font-weight: 300; color: var(--ivory-muted); margin-top: 20px;
+  letter-spacing: 0.06em;
+  opacity: 0; animation: fadeUp 1.2s ease 0.9s forwards;
+}
+.hero-cta {
+  display: inline-block; margin-top: 56px;
+  padding: 16px 56px; border: 1px solid var(--gold);
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.25em; color: var(--gold);
+  transition: all 0.4s ease;
+  opacity: 0; animation: fadeUp 1.2s ease 1.2s forwards;
+}
+.hero-cta:hover { background: var(--gold); color: var(--black) }
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  z-index: 2; font-size: 0.6rem; text-transform: uppercase;
+  letter-spacing: 0.3em; color: var(--gold-dim);
+  opacity: 0; animation: fadeUp 1s ease 1.8s forwards;
+}
+.hero-scroll::after {
+  content: ""; display: block; width: 1px; height: 40px;
+  background: var(--gold-dim); margin: 12px auto 0;
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine { 0%,100% { opacity: 0.3; transform: scaleY(0.6) } 50% { opacity: 1; transform: scaleY(1) } }
+
+/* --- PHILOSOPHY --- */
+.philosophy { padding: 160px 0; text-align: center }
+.philosophy-meaning {
+  font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.2rem);
+  font-style: italic; color: var(--ivory-muted); max-width: 600px;
+  margin: 0 auto 60px; line-height: 1.9;
+}
+.philosophy h2 { max-width: 700px; margin: 0 auto; color: var(--ivory) }
+.philosophy-body {
+  max-width: 620px; margin: 40px auto 0; font-size: 1rem;
+  color: var(--ivory-muted); line-height: 1.9;
+}
+
+/* --- TASTING MENU --- */
+.menu-section { padding: 120px 0; position: relative }
+.menu-card {
+  max-width: 640px; margin: 0 auto; text-align: center;
+  padding: 80px 48px; position: relative;
+  border: 1px solid rgba(196,162,101,0.12);
+  background: var(--warm-dark);
+}
+@media(max-width:600px) { .menu-card { padding: 48px 24px } }
+.menu-card::before, .menu-card::after {
+  content: ""; position: absolute; width: 30px; height: 30px;
+  border-color: var(--gold-dim); border-style: solid;
+}
+.menu-card::before { top: 16px; left: 16px; border-width: 1px 0 0 1px }
+.menu-card::after { bottom: 16px; right: 16px; border-width: 0 1px 1px 0 }
+.menu-season {
+  font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.35em;
+  color: var(--gold); margin-bottom: 8px; font-weight: 500;
+}
+.menu-title {
+  font-family: var(--serif); font-size: 2.4rem; font-style: italic;
+  font-weight: 300; color: var(--ivory); margin-bottom: 8px;
+}
+.menu-dates { font-size: 0.75rem; color: var(--ivory-muted); letter-spacing: 0.1em; margin-bottom: 48px }
+.course {
+  padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.course:last-of-type { border-bottom: none }
+.course-num {
+  font-family: var(--serif); font-size: 0.8rem; color: var(--gold-dim);
+  font-style: italic; margin-bottom: 6px;
+}
+.course-name {
+  font-family: var(--serif); font-size: 1.25rem; font-weight: 400;
+  color: var(--ivory); letter-spacing: 0.02em;
+}
+.course-desc {
+  font-size: 0.85rem; color: var(--ivory-muted); font-style: italic;
+  margin-top: 4px; letter-spacing: 0.02em;
+}
+
+/* --- BAR --- */
+.bar-section {
+  padding: 140px 0; position: relative;
+  background:
+    linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.9)),
+    url('https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/1734039322524-33QOZ7JXV6YCGTSBIFVL/IMG_0631.jpeg?format=2500w') center/cover fixed;
+}
+.cocktails {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  max-width: 700px; margin: 56px auto 0;
+}
+@media(min-width:600px) { .cocktails { grid-template-columns: 1fr 1fr } }
+.cocktail {
+  padding: 28px 24px; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.cocktail-name {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.cocktail-price { color: var(--gold); font-size: 0.9rem }
+.cocktail-desc {
+  font-size: 0.78rem; color: var(--ivory-muted); font-style: italic;
+  margin-top: 4px; line-height: 1.5;
+}
+
+/* --- CELLAR --- */
+.cellar-section { padding: 140px 0; text-align: center }
+.cellar-img {
+  width: 100%; max-width: 800px; margin: 56px auto 0;
+  aspect-ratio: 16/9; object-fit: cover; border-radius: 2px;
+  filter: brightness(0.85);
+}
+.cellar-quote {
+  max-width: 560px; margin: 56px auto 0; font-family: var(--serif);
+  font-size: 1.15rem; font-style: italic; color: var(--ivory-muted);
+  line-height: 1.8;
+}
+.cellar-attr {
+  margin-top: 20px; font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.2em; color: var(--gold);
+}
+
+/* --- ACCOLADES --- */
+.accolades {
+  padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.accolade-row {
+  display: flex; justify-content: center; align-items: center;
+  gap: 48px; flex-wrap: wrap;
+}
+.accolade {
+  font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--ivory-muted); text-align: center; opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.accolade:hover { opacity: 1 }
+.accolade-icon {
+  font-size: 1.4rem; margin-bottom: 8px; display: block; color: var(--gold-dim);
+}
+
+/* --- TEAM --- */
+.team-section { padding: 120px 0; text-align: center }
+.team-grid {
+  display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
+  margin-top: 56px;
+}
+.team-member { text-align: center; min-width: 160px }
+.team-name {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+  color: var(--ivory); margin-bottom: 4px;
+}
+.team-role {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+/* --- VISIT --- */
+.visit-section {
+  padding: 140px 0; text-align: center;
+  background: var(--warm-dark);
+  border-top: 1px solid rgba(196,162,101,0.08);
+}
+.visit-details {
+  max-width: 480px; margin: 48px auto 0;
+  font-size: 0.95rem; color: var(--ivory-muted); line-height: 2;
+}
+.visit-details a { color: var(--gold); transition: opacity 0.2s }
+.visit-details a:hover { opacity: 0.7 }
+.visit-cta {
+  display: inline-block; margin-top: 48px;
+  padding: 18px 64px; background: var(--gold); color: var(--black);
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.25em; transition: all 0.3s;
+}
+.visit-cta:hover { background: var(--ivory); transform: translateY(-2px) }
+
+/* --- FOOTER --- */
+footer {
+  padding: 48px 0; text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-copy { font-size: 0.7rem; color: rgba(245,240,232,0.25); letter-spacing: 0.1em }
+.footer-social {
+  display: flex; justify-content: center; gap: 32px; margin-bottom: 20px;
+}
+.footer-social a {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--ivory-muted); opacity: 0.5; transition: all 0.3s;
+}
+.footer-social a:hover { color: var(--gold); opacity: 1 }
+
+/* --- ANIMATIONS --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px) }
+  to { opacity: 1; transform: none }
+}
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.in { opacity: 1; transform: none }
+.reveal-slow { transition-duration: 1.4s }
+.rd1 { transition-delay: 0.1s } .rd2 { transition-delay: 0.2s }
+.rd3 { transition-delay: 0.3s } .rd4 { transition-delay: 0.4s }
+.rd5 { transition-delay: 0.5s } .rd6 { transition-delay: 0.6s }
+.rd7 { transition-delay: 0.7s } .rd8 { transition-delay: 0.8s }
+.rd9 { transition-delay: 0.9s } .rd10 { transition-delay: 1.0s }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="#">Mixtli</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#bar">The Bar</a></li>
+    <li><a href="#cellar">The Cellar</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a href="https://www.exploretock.com/mixtli" class="nav-cta" target="_blank" rel="noopener">Reserve</a>
+  <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-pre">San Antonio, Texas</p>
+    <h1>Mixtli</h1>
+    <p class="hero-sub">Progressive Mexican Culinaria</p>
+    <a href="https://www.exploretock.com/mixtli" class="hero-cta" target="_blank" rel="noopener">Reserve a Table</a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <p class="philosophy-meaning reveal">
+      <span class="gold">Mixtli</span> &mdash; <em>meesh-lee</em> &mdash; Aztec spoken word for cloud.
+    </p>
+    <span class="divider reveal rd1"></span>
+    <h2 class="reveal rd2">Like clouds, our menu travels from place to place &mdash; offering a tour in Mexican gastronomy.</h2>
+    <p class="philosophy-body reveal rd3">
+      To define Mexican cuisine is impossible. Mexico is as diverse as it is vast. Within its borders lie rocky mountains, humid jungles, arid deserts, and endless coasts &mdash; a stark diversity that forced each region to develop uniquely rich cultural and culinary histories.
+    </p>
+    <p class="philosophy-body reveal rd4" style="margin-top:16px">
+      After each season, the cloud travels to other lands and we begin again. <em class="gold">It is our mission that you fall in love with Mexico.</em>
+    </p>
+  </div>
+</section>
+
+<!-- TASTING MENU -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="menu-card reveal reveal-slow">
+      <p class="menu-season">Current Season</p>
+      <h2 class="menu-title">La Vecindad</h2>
+      <p class="menu-dates">February 7 &ndash; April 25</p>
+
+      <div class="course reveal rd1"><div class="course-num">i</div><div class="course-name">Botanas</div><div class="course-desc">Pork Trotter Escabeche, Chorizo Molote, Popcorn</div></div>
+      <div class="course reveal rd2"><div class="course-num">ii</div><div class="course-name">Ceviche Chilango</div><div class="course-desc">Blue Prawns, Tomato, Sunchoke / Scallop, Mandarin Salsa Macha</div></div>
+      <div class="course reveal rd3"><div class="course-num">iii</div><div class="course-name">Marisquer&iacute;a de la Capital</div><div class="course-desc">Poached Halibut, Sorrel, Corn</div></div>
+      <div class="course reveal rd4"><div class="course-num">iv</div><div class="course-name">Mujeres del Ma&iacute;z</div><div class="course-desc">Roasted Squash Tamal, Quelites, Epazote</div></div>
+      <div class="course reveal rd5"><div class="course-num">v</div><div class="course-name">Comida Corrida</div><div class="course-desc">Crab Chile Relleno, Tomato Consomm&eacute;</div></div>
+      <div class="course reveal rd6"><div class="course-num">vi</div><div class="course-name">Taco de Guisado</div><div class="course-desc">Tinga de Pollo</div></div>
+      <div class="course reveal rd7"><div class="course-num">vii</div><div class="course-name">Pambazo</div><div class="course-desc">Potato Bread, Koji Aged Wagyu, Chorizo Aioli</div></div>
+      <div class="course reveal rd8"><div class="course-num">viii</div><div class="course-name" style="font-style:italic;color:var(--ivory-muted)">Intermezzo</div></div>
+      <div class="course reveal rd9"><div class="course-num">ix</div><div class="course-name">Dessert</div><div class="course-desc">Squash, Pear, Piloncillo</div></div>
+      <div class="course reveal rd10"><div class="course-num">x</div><div class="course-name" style="font-style:italic">Mignardise</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAR -->
+<section class="bar-section" id="bar">
+  <div class="container" style="text-align:center">
+    <p class="uppercase gold reveal">The Bar at Mixtli</p>
+    <h2 class="reveal rd1" style="margin-top:16px">Cocteles</h2>
+    <p class="muted reveal rd2" style="max-width:480px;margin:20px auto 0;font-size:0.95rem">
+      An ever-rotating menu of cocktails, agave spirits, and a progressive wine list. Fancy a custom pour? Our bar staff will be delighted.
+    </p>
+    <div class="cocktails">
+      <div class="cocktail reveal rd1">
+        <div class="cocktail-name"><span>La Vecindad</span><span class="cocktail-price">$18</span></div>
+        <div class="cocktail-desc">Mezcal, Sotol, Fermented Tomato, Tamarind, Oregano</div>
+      </div>
+      <div class="cocktail reveal rd2">
+        <div class="cocktail-name"><span>Susurros</span><span class="cocktail-price">$17</span></div>
+        <div class="cocktail-desc">Gin, Passionfruit, Elderflower, Marigold</div>
+      </div>
+      <div class="cocktail reveal rd3">
+        <div class="cocktail-name"><span>Mixtli Margarita</span><span class="cocktail-price">$16</span></div>
+        <div class="cocktail-desc">Blanco Tequila, Triple Sec, Clarified Lime, Salted Orange Foam</div>
+      </div>
+      <div class="cocktail reveal rd4">
+        <div class="cocktail-name"><span>Smoked Old Fashioned</span><span class="cocktail-price">$17</span></div>
+        <div class="cocktail-desc">Corn Butter Washed Tequila &amp; Mezcal, Velvet Falernum, Mol&eacute; Bitters</div>
+      </div>
+      <div class="cocktail reveal rd5">
+        <div class="cocktail-name"><span>Casas y Cantinas</span><span class="cocktail-price">$18</span></div>
+        <div class="cocktail-desc">Rye Whisky, Sweet Vermouth, House Caf&eacute; de Olla Liqueur, Orange Blossom</div>
+      </div>
+      <div class="cocktail reveal rd6">
+        <div class="cocktail-name"><span>Edgar&rsquo;s Paloma</span><span class="cocktail-price">$14</span></div>
+        <div class="cocktail-desc">Tequila Reposado, Cinnamon, Grapefruit, Lime, Sal de Gusano</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CELLAR -->
+<section class="cellar-section" id="cellar">
+  <div class="container">
+    <p class="uppercase gold reveal">The Cellar</p>
+    <h2 class="reveal rd1" style="margin-top:16px">1,200+ Wines</h2>
+    <img class="cellar-img reveal rd2" src="https://images.squarespace-cdn.com/content/v1/52152f02e4b0aa8504d33eed/d7ddb934-3449-4edb-b0cb-1cbb6e2c5e08/The+Cellar+1.jpg" alt="The Cellar at Mixtli">
+    <blockquote class="cellar-quote reveal rd3">
+      &ldquo;I&rsquo;m incredibly proud of the diverse wine program we&rsquo;ve built at Mixtli. Like the restaurant, The Cellar focuses on Mexican wine and sheds light on this great, but lesser-known winemaking region.&rdquo;
+    </blockquote>
+    <p class="cellar-attr reveal rd4">Hailey Pruitt &mdash; Certified Sommelier</p>
+  </div>
+</section>
+
+<!-- ACCOLADES -->
+<section class="accolades">
+  <div class="container-wide">
+    <div class="accolade-row">
+      <div class="accolade reveal"><span class="accolade-icon">&#9733;</span>Michelin<br>Recognized</div>
+      <div class="accolade reveal rd1"><span class="accolade-icon">&#9733;</span>James Beard<br>Nominee 2025</div>
+      <div class="accolade reveal rd2"><span class="accolade-icon">&#9733;</span>Food &amp; Wine<br>Best New Chefs</div>
+      <div class="accolade reveal rd3"><span class="accolade-icon">&#9733;</span>Eater<br>Top 38 Texas</div>
+      <div class="accolade reveal rd4"><span class="accolade-icon">&#9733;</span>AAA<br>Four Diamond</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="container">
+    <p class="uppercase gold reveal">The Team</p>
+    <h2 class="reveal rd1" style="margin-top:16px">Behind the Cloud</h2>
+    <div class="team-grid">
+      <div class="team-member reveal rd1">
+        <div class="team-name">Diego Galicia</div>
+        <div class="team-role">Executive Chef</div>
+      </div>
+      <div class="team-member reveal rd2">
+        <div class="team-name">Rico Torres</div>
+        <div class="team-role">Executive Chef</div>
+      </div>
+      <div class="team-member reveal rd3">
+        <div class="team-name">Alexana Cabrera</div>
+        <div class="team-role">Chef de Cuisine</div>
+      </div>
+      <div class="team-member reveal rd4">
+        <div class="team-name">Hailey Pruitt</div>
+        <div class="team-role">Sommelier</div>
+      </div>
+      <div class="team-member reveal rd5">
+        <div class="team-name">Lauren Beckman</div>
+        <div class="team-role">Bar Director</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit-section" id="visit">
+  <div class="container">
+    <p class="uppercase gold reveal">Visit</p>
+    <h2 class="reveal rd1" style="margin-top:16px">Join Us</h2>
+    <div class="visit-details reveal rd2">
+      <p>812 S. Alamo St STE 103<br>San Antonio, TX 78205</p>
+      <span class="divider" style="margin:24px auto"></span>
+      <p>Tuesday &ndash; Saturday<br><em class="muted">Service by ticket only</em></p>
+      <span class="divider" style="margin:24px auto"></span>
+      <p><a href="tel:+12103380746">(210) 338-0746</a></p>
+      <p><a href="mailto:info@restaurantmixtli.com">info@restaurantmixtli.com</a></p>
+    </div>
+    <a href="https://www.exploretock.com/mixtli" class="visit-cta reveal rd3" target="_blank" rel="noopener">Reserve on Tock</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-social">
+      <a href="https://www.facebook.com/restaurantmixtli" target="_blank" rel="noopener">Facebook</a>
+      <a href="http://instagram.com/mixtlicloud" target="_blank" rel="noopener">Instagram</a>
+      <a href="http://twitter.com/mixtlicloud" target="_blank" rel="noopener">Twitter</a>
+    </div>
+    <p class="footer-copy">&copy; <span id="yr"></span> Restaurant Mixtli. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Burger
+  const b = document.getElementById('burger'), n = document.getElementById('nav');
+  if (b) b.addEventListener('click', () => n.classList.toggle('open'));
+  // Nav scroll
+  let last = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    n.classList.toggle('scrolled', y > 80);
+    last = y;
+  }, { passive: true });
+  // Reveal
+  const io = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) x.target.classList.add('in') });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+});
+</script>
+</body>
+</html>
