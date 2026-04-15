@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
 import { Barlow, JetBrains_Mono } from "next/font/google";
-import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ShaderBackground } from "@/components/ui/ShaderBackground";
 import "./globals.css";
-
-const CyberneticGridShader = dynamic(
-  () =>
-    import("@/components/ui/CyberneticGridShader").then(
-      (mod) => mod.CyberneticGridShader
-    ),
-  { ssr: false }
-);
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -51,7 +43,7 @@ export default function RootLayout({
       className={`${barlow.variable} ${jetbrainsMono.variable} dark`}
     >
       <body className="min-h-screen bg-black text-[#f0f0fa] antialiased">
-        <CyberneticGridShader />
+        <ShaderBackground />
         <Navbar />
         <main>{children}</main>
         <Footer />
