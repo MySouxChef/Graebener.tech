@@ -1,16 +1,5 @@
 {
   "permissions": {
-    "deny": [
-      "Bash(git push --force *)",
-      "Bash(git push -f *)",
-      "Bash(git reset --hard *)",
-      "Bash(git clean -f *)"
-    ],
-    "ask": [
-      "Bash(git push * main)",
-      "Bash(git push * master)",
-      "Bash(git push * prod)"
-    ],
     "allow": [
       "Bash(git *)",
       "Bash(gh *)",
@@ -43,7 +32,23 @@
       "mcp__playwright__browser_snapshot",
       "Bash(curl:*)",
       "Bash(wc -l *.js *.css *.html)",
-      "Bash(file *.js *.css)"
+      "Bash(file *.js *.css)",
+      "Bash(npx serve:*)",
+      "Bash(npx playwright:*)",
+      "Bash(start:*)",
+      "Read(//c/Users/markg/.agents/skills/firecrawl/**)",
+      "Read(//c/Users/markg/.claude/plugins/**)"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -f *)"
+    ],
+    "ask": [
+      "Bash(git push * main)",
+      "Bash(git push * master)",
+      "Bash(git push * prod)"
     ]
   }
 }

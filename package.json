@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
-    "@tsparticles/react": "^3.0.0",
-    "@tsparticles/slim": "^3.9.1",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.8.0",
@@ -24,15 +22,18 @@
     "rehype-pretty-code": "^0.14.3",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "shiki": "^4.0.2"
+    "shiki": "^4.0.2",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.183.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
+    "playwright": "^1.59.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
