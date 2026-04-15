@@ -43,13 +43,13 @@ export function TechStackGrid() {
         <motion.div
           key={tech.name}
           variants={item}
-          whileHover={{ scale: 1.05, borderColor: "rgba(0,240,255,0.5)" }}
-          className="flex flex-col items-center gap-1 rounded-sm border border-border bg-bg-card p-3 text-center transition-colors"
+          whileHover={{ scale: 1.05, borderColor: "rgba(240,240,250,0.35)" }}
+          className="flex flex-col items-center gap-1 rounded-sm border border-[rgba(240,240,250,0.1)] bg-transparent p-3 text-center transition-colors"
         >
-          <span className="font-mono text-xs font-medium text-text-primary">
+          <span className="text-xs font-medium text-text-primary">
             {tech.name}
           </span>
-          <span className="font-mono text-[10px] text-text-muted">
+          <span className="text-[10px] text-text-muted">
             {tech.category}
           </span>
         </motion.div>

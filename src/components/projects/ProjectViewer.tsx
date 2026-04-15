@@ -25,9 +25,8 @@ export function ProjectViewer({ demoPath, title }: ProjectViewerProps) {
   };
 
   return (
-    <div ref={containerRef} className="overflow-hidden rounded-sm border border-border bg-bg-card">
-      {/* Terminal chrome */}
-      <div className="flex items-center justify-between border-b border-border bg-bg-secondary px-4 py-2">
+    <div ref={containerRef} className="overflow-hidden rounded-sm border border-[rgba(240,240,250,0.1)] bg-[rgba(240,240,250,0.03)]">
+      <div className="flex items-center justify-between border-b border-[rgba(240,240,250,0.1)] bg-[rgba(240,240,250,0.03)] px-4 py-2">
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-red-500/80" />
           <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
@@ -38,18 +37,17 @@ export function ProjectViewer({ demoPath, title }: ProjectViewerProps) {
         </div>
         <button
           onClick={toggleFullscreen}
-          className="text-text-muted transition-colors hover:text-accent"
+          className="text-text-muted transition-colors hover:text-[#f0f0fa]"
           aria-label="Toggle fullscreen"
         >
           {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
         </button>
       </div>
 
-      {/* Iframe container */}
       <div className="relative aspect-video w-full bg-white">
         {loading && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-bg-primary">
-            <Loader2 className="h-8 w-8 animate-spin text-accent" />
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black">
+            <Loader2 className="h-8 w-8 animate-spin text-[#f0f0fa]" />
           </div>
         )}
         <iframe

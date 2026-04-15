@@ -21,7 +21,6 @@ export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps
     setSavedSkillMetas(saved);
   }, []);
 
-  // Merge file-based and saved skills, deduplicate by slug
   const allSkills = useMemo(() => {
     const slugs = new Set(skills.map((s) => s.slug));
     const merged = [...skills];
@@ -33,7 +32,6 @@ export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps
     return merged.sort((a, b) => a.title.localeCompare(b.title));
   }, [skills, savedSkillMetas]);
 
-  // Collect all categories including from saved skills
   const allCategories = useMemo(() => {
     const cats = new Set([...categories]);
     for (const s of savedSkillMetas) {
@@ -58,7 +56,6 @@ export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps
 
   return (
     <div>
-      {/* Search bar */}
       <div className="relative mb-8">
         <Search
           size={16}
@@ -69,18 +66,17 @@ export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search skills..."
-          className="w-full rounded-sm border border-border bg-bg-card py-3 pl-11 pr-4 font-mono text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/50"
+          className="w-full rounded-sm border border-[rgba(240,240,250,0.15)] bg-transparent py-3 pl-11 pr-4 text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-[rgba(240,240,250,0.35)] focus:outline-none normal-case"
         />
       </div>
 
-      {/* Category filters */}
       <div className="mb-8 flex flex-wrap gap-2">
         <button
           onClick={() => setActiveCategory(null)}
-          className={`rounded-sm border px-3 py-1.5 font-mono text-xs transition-all ${
+          className={`rounded-sm border px-3 py-1.5 text-xs transition-all ${
             !activeCategory
-              ? "border-accent bg-accent/10 text-accent"
-              : "border-border text-text-muted hover:border-accent/50 hover:text-accent"
+              ? "border-[rgba(240,240,250,0.35)] bg-[rgba(240,240,250,0.1)] text-[#f0f0fa]"
+              : "border-[rgba(240,240,250,0.1)] text-text-muted hover:border-[rgba(240,240,250,0.2)] hover:text-[#f0f0fa]"
           }`}
         >
           All
@@ -89,10 +85,10 @@ export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps
           <button
             key={cat}
             onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-            className={`rounded-sm border px-3 py-1.5 font-mono text-xs transition-all ${
+            className={`rounded-sm border px-3 py-1.5 text-xs transition-all ${
               activeCategory === cat
-                ? "border-accent bg-accent/10 text-accent"
-                : "border-border text-text-muted hover:border-accent/50 hover:text-accent"
+                ? "border-[rgba(240,240,250,0.35)] bg-[rgba(240,240,250,0.1)] text-[#f0f0fa]"
+                : "border-[rgba(240,240,250,0.1)] text-text-muted hover:border-[rgba(240,240,250,0.2)] hover:text-[#f0f0fa]"
             }`}
           >
             {cat}
@@ -100,11 +96,9 @@ export function SkillsMarketplace({ skills, categories }: SkillsMarketplaceProps
         ))}
       </div>
 
-      {/* Results */}
       {filtered.length === 0 ? (
-        <p className="py-12 text-center font-mono text-text-muted">
-          <span className="text-accent">$</span> No skills found matching your
-          query.
+        <p className="py-12 text-center text-text-muted">
+          No skills found matching your query.
         </p>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

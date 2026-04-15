@@ -61,14 +61,13 @@ export function SiteGallery() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader2 className="h-8 w-8 animate-spin text-accent" />
+        <Loader2 className="h-8 w-8 animate-spin text-[#f0f0fa]" />
       </div>
     );
   }
 
   return (
     <div>
-      {/* Search */}
       <div className="relative mb-8">
         <Search
           size={16}
@@ -79,19 +78,18 @@ export function SiteGallery() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search websites..."
-          className="w-full rounded-sm border border-border bg-bg-card py-3 pl-11 pr-4 font-mono text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/50"
+          className="w-full rounded-sm border border-[rgba(240,240,250,0.15)] bg-transparent py-3 pl-11 pr-4 text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-[rgba(240,240,250,0.35)] focus:outline-none normal-case"
         />
       </div>
 
-      {/* Industry filters */}
       {industries.length > 1 && (
         <div className="mb-8 flex flex-wrap gap-2">
           <button
             onClick={() => setActiveIndustry(null)}
-            className={`rounded-sm border px-3 py-1.5 font-mono text-xs transition-all ${
+            className={`rounded-sm border px-3 py-1.5 text-xs transition-all ${
               !activeIndustry
-                ? "border-accent bg-accent/10 text-accent"
-                : "border-border text-text-muted hover:border-accent/50 hover:text-accent"
+                ? "border-[rgba(240,240,250,0.35)] bg-[rgba(240,240,250,0.1)] text-[#f0f0fa]"
+                : "border-[rgba(240,240,250,0.1)] text-text-muted hover:border-[rgba(240,240,250,0.2)] hover:text-[#f0f0fa]"
             }`}
           >
             All
@@ -102,10 +100,10 @@ export function SiteGallery() {
               onClick={() =>
                 setActiveIndustry(activeIndustry === ind ? null : ind)
               }
-              className={`rounded-sm border px-3 py-1.5 font-mono text-xs capitalize transition-all ${
+              className={`rounded-sm border px-3 py-1.5 text-xs capitalize transition-all ${
                 activeIndustry === ind
-                  ? "border-accent bg-accent/10 text-accent"
-                  : "border-border text-text-muted hover:border-accent/50 hover:text-accent"
+                  ? "border-[rgba(240,240,250,0.35)] bg-[rgba(240,240,250,0.1)] text-[#f0f0fa]"
+                  : "border-[rgba(240,240,250,0.1)] text-text-muted hover:border-[rgba(240,240,250,0.2)] hover:text-[#f0f0fa]"
               }`}
             >
               {ind}
@@ -114,10 +112,8 @@ export function SiteGallery() {
         </div>
       )}
 
-      {/* Results */}
       {filtered.length === 0 ? (
-        <p className="py-12 text-center font-mono text-text-muted">
-          <span className="text-accent">$</span>{" "}
+        <p className="py-12 text-center text-text-muted">
           {sites.length === 0
             ? "No websites generated yet. Push a site to the repo to see it here."
             : "No sites matching your search."}

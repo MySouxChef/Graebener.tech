@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/mdx";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { GridBackground } from "@/components/ui/GridBackground";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -13,7 +12,7 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <GridBackground className="min-h-screen pt-28 pb-24">
+    <div className="min-h-screen pt-28 pb-24">
       <div className="mx-auto max-w-4xl px-6">
         <SectionHeading>Blog</SectionHeading>
         <p className="mb-12 max-w-2xl text-lg text-text-muted">
@@ -22,9 +21,8 @@ export default function BlogPage() {
         </p>
 
         {posts.length === 0 ? (
-          <p className="font-mono text-text-muted">
-            <span className="text-accent">$</span> No posts yet. Check back
-            soon.
+          <p className="text-text-muted">
+            No posts yet. Check back soon.
           </p>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2">
@@ -34,6 +32,6 @@ export default function BlogPage() {
           </div>
         )}
       </div>
-    </GridBackground>
+    </div>
   );
 }

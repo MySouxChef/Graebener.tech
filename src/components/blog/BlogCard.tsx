@@ -26,7 +26,7 @@ export function BlogCard({ post }: BlogCardProps) {
           </span>
         </div>
 
-        <h3 className="mb-2 font-mono text-lg font-semibold text-text-primary group-hover:text-accent transition-colors">
+        <h3 className="mb-2 text-lg font-semibold text-text-primary group-hover:text-[#f0f0fa] transition-colors">
           {post.title}
         </h3>
 
@@ -38,7 +38,7 @@ export function BlogCard({ post }: BlogCardProps) {
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-sm border border-border bg-bg-secondary px-2 py-0.5 font-mono text-[10px] text-accent-purple"
+              className="rounded-sm border border-[rgba(240,240,250,0.1)] bg-[rgba(240,240,250,0.05)] px-2 py-0.5 font-mono text-[10px] text-[rgba(240,240,250,0.5)]"
             >
               #{tag}
             </span>

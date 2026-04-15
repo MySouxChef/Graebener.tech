@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { projects } from "@/data/projects";
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { GridBackground } from "@/components/ui/GridBackground";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <GridBackground className="min-h-screen pt-28 pb-24">
+    <div className="min-h-screen pt-28 pb-24">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading>Projects</SectionHeading>
         <p className="mb-12 max-w-2xl text-lg text-text-muted">
@@ -20,6 +19,6 @@ export default function ProjectsPage() {
         </p>
         <ProjectGrid projects={projects} />
       </div>
-    </GridBackground>
+    </div>
   );
 }

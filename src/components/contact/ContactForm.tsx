@@ -17,7 +17,6 @@ export function ContactForm() {
 
     const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
     if (!formId) {
-      // Fallback: just show success for demo purposes
       setSubmitted(true);
       return;
     }
@@ -40,9 +39,9 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-sm border border-border bg-bg-card p-12 text-center">
+      <div className="flex flex-col items-center gap-4 rounded-sm border border-[rgba(240,240,250,0.1)] bg-[rgba(240,240,250,0.03)] p-12 text-center">
         <CheckCircle2 className="h-12 w-12 text-green-500" />
-        <h3 className="font-mono text-xl font-semibold text-text-primary">
+        <h3 className="text-xl font-semibold text-text-primary">
           Message Sent
         </h3>
         <p className="text-text-muted">
@@ -52,10 +51,13 @@ export function ContactForm() {
     );
   }
 
+  const inputClass =
+    "w-full rounded-sm border border-[rgba(240,240,250,0.15)] bg-transparent px-4 py-3 text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-[rgba(240,240,250,0.35)] focus:outline-none normal-case";
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="mb-2 block font-mono text-sm text-text-muted">
+        <label htmlFor="name" className="mb-2 block text-sm text-text-muted">
           Name
         </label>
         <input
@@ -63,13 +65,13 @@ export function ContactForm() {
           name="name"
           type="text"
           required
-          className="w-full rounded-sm border border-border bg-bg-card px-4 py-3 font-mono text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/50"
+          className={inputClass}
           placeholder="Your name"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-2 block font-mono text-sm text-text-muted">
+        <label htmlFor="email" className="mb-2 block text-sm text-text-muted">
           Email
         </label>
         <input
@@ -77,19 +79,19 @@ export function ContactForm() {
           name="email"
           type="email"
           required
-          className="w-full rounded-sm border border-border bg-bg-card px-4 py-3 font-mono text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/50"
+          className={inputClass}
           placeholder="you@example.com"
         />
       </div>
 
       <div>
-        <label htmlFor="subject" className="mb-2 block font-mono text-sm text-text-muted">
+        <label htmlFor="subject" className="mb-2 block text-sm text-text-muted">
           Subject
         </label>
         <select
           id="subject"
           name="subject"
-          className="w-full rounded-sm border border-border bg-bg-card px-4 py-3 font-mono text-sm text-text-primary transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/50"
+          className={inputClass}
         >
           <option value="freelance">Freelance Project</option>
           <option value="collaboration">Collaboration</option>
@@ -98,7 +100,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-2 block font-mono text-sm text-text-muted">
+        <label htmlFor="message" className="mb-2 block text-sm text-text-muted">
           Message
         </label>
         <textarea
@@ -106,7 +108,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full resize-none rounded-sm border border-border bg-bg-card px-4 py-3 font-mono text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/50"
+          className={`${inputClass} resize-none`}
           placeholder="Tell me about your project..."
         />
       </div>

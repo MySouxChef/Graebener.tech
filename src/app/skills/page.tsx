@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Plus } from "lucide-react";
 import { getAllSkills, getCategories } from "@/lib/skills";
 import { SkillsMarketplace } from "@/components/skills/SkillsMarketplace";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlowButton } from "@/components/ui/GlowButton";
-import { GridBackground } from "@/components/ui/GridBackground";
 
 export const metadata: Metadata = {
   title: "Skills Marketplace",
@@ -18,7 +16,7 @@ export default function SkillsPage() {
   const categories = getCategories();
 
   return (
-    <GridBackground className="min-h-screen pt-28 pb-24">
+    <div className="min-h-screen pt-28 pb-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -35,6 +33,6 @@ export default function SkillsPage() {
 
         <SkillsMarketplace skills={skills} categories={categories} />
       </div>
-    </GridBackground>
+    </div>
   );
 }

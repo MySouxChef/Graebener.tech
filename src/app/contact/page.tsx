@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { GridBackground } from "@/components/ui/GridBackground";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <GridBackground className="min-h-screen pt-28 pb-24">
+    <div className="min-h-screen pt-28 pb-24">
       <div className="mx-auto max-w-2xl px-6">
         <SectionHeading>Contact</SectionHeading>
         <p className="mb-12 text-lg text-text-muted">
@@ -18,6 +17,6 @@ export default function ContactPage() {
         </p>
         <ContactForm />
       </div>
-    </GridBackground>
+    </div>
   );
 }

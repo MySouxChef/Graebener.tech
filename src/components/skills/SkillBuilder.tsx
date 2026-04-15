@@ -139,7 +139,7 @@ Describe the expected output format here.
   };
 
   const inputClass =
-    "w-full rounded-sm border border-border bg-bg-card px-4 py-2.5 font-mono text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/50";
+    "w-full rounded-sm border border-[rgba(240,240,250,0.15)] bg-transparent px-4 py-2.5 text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-[rgba(240,240,250,0.35)] focus:outline-none normal-case";
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
@@ -249,8 +249,8 @@ Describe the expected output format here.
               onClick={() => setView("preview")}
               className={`flex items-center gap-1.5 rounded-sm border px-3 py-1.5 font-mono text-xs transition-all ${
                 view === "preview"
-                  ? "border-accent bg-accent/10 text-accent"
-                  : "border-border text-text-muted hover:border-accent/50"
+                  ? "border-[rgba(240,240,250,0.35)] bg-[rgba(240,240,250,0.1)] text-[#f0f0fa]"
+                  : "border-[rgba(240,240,250,0.1)] text-text-muted hover:border-[rgba(240,240,250,0.2)]"
               }`}
             >
               <Eye size={12} /> Preview
@@ -259,8 +259,8 @@ Describe the expected output format here.
               onClick={() => setView("edit")}
               className={`flex items-center gap-1.5 rounded-sm border px-3 py-1.5 font-mono text-xs transition-all ${
                 view === "edit"
-                  ? "border-accent bg-accent/10 text-accent"
-                  : "border-border text-text-muted hover:border-accent/50"
+                  ? "border-[rgba(240,240,250,0.35)] bg-[rgba(240,240,250,0.1)] text-[#f0f0fa]"
+                  : "border-[rgba(240,240,250,0.1)] text-text-muted hover:border-[rgba(240,240,250,0.2)]"
               }`}
             >
               <Code size={12} /> Raw Output
@@ -268,8 +268,8 @@ Describe the expected output format here.
           </div>
 
           {/* Content */}
-          <div className="overflow-hidden rounded-sm border border-border bg-bg-card">
-            <div className="flex items-center justify-between border-b border-border bg-bg-secondary px-4 py-2">
+          <div className="overflow-hidden rounded-sm border border-[rgba(240,240,250,0.1)] bg-[rgba(240,240,250,0.03)]">
+            <div className="flex items-center justify-between border-b border-[rgba(240,240,250,0.1)] bg-[rgba(240,240,250,0.03)] px-4 py-2">
               <div className="flex items-center gap-2">
                 <div className="h-3 w-3 rounded-full bg-red-500/80" />
                 <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
@@ -281,7 +281,7 @@ Describe the expected output format here.
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleCopy}
-                  className="flex items-center gap-1.5 rounded-sm border border-border px-2.5 py-1 font-mono text-xs text-text-muted transition-all hover:border-accent hover:text-accent"
+                  className="flex items-center gap-1.5 rounded-sm border border-border px-2.5 py-1 font-mono text-xs text-text-muted transition-all hover:border-[rgba(240,240,250,0.35)] hover:text-[#f0f0fa]"
                 >
                   {copied ? <Check size={12} /> : <Copy size={12} />}
                   {copied ? "Copied!" : "Copy"}
