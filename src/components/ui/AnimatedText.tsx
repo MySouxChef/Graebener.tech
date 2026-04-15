@@ -38,10 +38,10 @@ export function AnimatedText({
   }, [started, displayed, text, speed]);
 
   return (
-    <span className={cn("font-mono", className)}>
+    <span className={cn(className)}>
       {displayed}
       {cursor && (
-        <span className="inline-block w-[2px] h-[1em] bg-accent align-middle animate-pulse ml-0.5" />
+        <span className="inline-block w-[2px] h-[1em] bg-[#f0f0fa] align-middle animate-pulse ml-0.5" />
       )}
     </span>
   );
