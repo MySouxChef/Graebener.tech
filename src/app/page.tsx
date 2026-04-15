@@ -4,7 +4,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { GlowButton } from "@/components/ui/GlowButton";
-import { GridBackground } from "@/components/ui/GridBackground";
 import { projects } from "@/data/projects";
 import { getAllPosts } from "@/lib/mdx";
 
@@ -23,25 +22,23 @@ export default function HomePage() {
       <AboutSection />
 
       {/* Featured Projects */}
-      <GridBackground>
-        <section className="py-24 sm:py-32">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading>Featured Projects</SectionHeading>
-            <ProjectGrid projects={homeProjects} />
-            <div className="mt-12 text-center">
-              <GlowButton href="/projects" variant="outline">
-                View All Projects
-              </GlowButton>
-            </div>
+      <section className="py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading>Featured Projects</SectionHeading>
+          <ProjectGrid projects={homeProjects} />
+          <div className="mt-12 text-center">
+            <GlowButton href="/projects" variant="outline">
+              View All Projects
+            </GlowButton>
           </div>
-        </section>
-      </GridBackground>
+        </div>
+      </section>
 
       {/* Recent Blog Posts */}
       {recentPosts.length > 0 && (
-        <section className="border-t border-border py-24 sm:py-32">
+        <section className="py-24 sm:py-32">
           <div className="mx-auto max-w-4xl px-6">
-            <SectionHeading prefix="$">Latest Writing</SectionHeading>
+            <SectionHeading>Latest Writing</SectionHeading>
             <div className="grid gap-6 sm:grid-cols-2">
               {recentPosts.map((post) => (
                 <BlogCard key={post.slug} post={post} />
@@ -57,12 +54,12 @@ export default function HomePage() {
       )}
 
       {/* CTA Section */}
-      <section className="border-t border-border bg-bg-secondary py-24 sm:py-32">
+      <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <h2 className="mb-4 font-mono text-3xl font-bold text-text-primary md:text-4xl">
-            Let&apos;s Build Something <span className="text-accent">Impressive</span>
+          <h2 className="mb-4 text-3xl font-bold tracking-[0.96px] uppercase text-[#f0f0fa] md:text-4xl">
+            Let&apos;s Build Something Impressive
           </h2>
-          <p className="mb-8 text-lg text-text-muted">
+          <p className="mb-8 text-lg text-[rgba(240,240,250,0.5)]">
             Ready to bring your ideas to life with agentic engineering and modern
             development? Let&apos;s talk.
           </p>
