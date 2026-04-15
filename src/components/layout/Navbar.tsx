@@ -28,34 +28,32 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-bg-primary/80 backdrop-blur-xl border-b border-border"
+          ? "bg-black/80 backdrop-blur-xl"
           : "bg-transparent"
       )}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="font-mono text-lg font-bold tracking-wider text-accent glow-text"
+          className="text-sm font-bold tracking-[1.17px] uppercase text-[#f0f0fa]"
         >
-          GRAEBENER.TECH
+          Graebener.tech
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-sm text-text-muted transition-colors hover:text-accent"
+              className="text-[13px] font-bold tracking-[1.17px] uppercase text-[rgba(240,240,250,0.7)] transition-colors hover:text-[#f0f0fa]"
             >
               {link.label}
             </Link>
           ))}
         </div>
 
-        {/* Mobile toggle */}
         <button
-          className="text-text-primary md:hidden"
+          className="text-[#f0f0fa] md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -63,15 +61,14 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-border bg-bg-primary/95 backdrop-blur-xl md:hidden">
+        <div className="bg-black/95 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-4 px-6 py-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-mono text-sm text-text-muted transition-colors hover:text-accent"
+                className="text-[13px] font-bold tracking-[1.17px] uppercase text-[rgba(240,240,250,0.7)] transition-colors hover:text-[#f0f0fa]"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
