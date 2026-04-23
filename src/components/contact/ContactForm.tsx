@@ -7,39 +7,46 @@ import { GlowButton } from "@/components/ui/GlowButton";
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [sending, setSending] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
+    setSending(true);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-    if (!formId) {
-      setSubmitted(true);
-      return;
-    }
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
 
     try {
-      const res = await fetch(`https://formspree.io/f/${formId}`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+
       if (res.ok) {
         setSubmitted(true);
       } else {
-        setError("Something went wrong. Please try again.");
+        const data = await res.json();
+        setError(data.error || "Something went wrong. Please try again.");
       }
     } catch {
       setError("Failed to send. Please try again later.");
+    } finally {
+      setSending(false);
     }
   }
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-sm border border-[rgba(240,240,250,0.1)] bg-[rgba(240,240,250,0.03)] p-12 text-center">
+      <div className="flex flex-col items-center gap-4 rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)] p-12 text-center">
         <CheckCircle2 className="h-12 w-12 text-green-500" />
         <h3 className="text-xl font-semibold text-text-primary">
           Message Sent
@@ -52,7 +59,7 @@ export function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-sm border border-[rgba(240,240,250,0.15)] bg-transparent px-4 py-3 text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-[rgba(240,240,250,0.35)] focus:outline-none normal-case";
+    "w-full rounded-xl border border-[rgba(255,255,255,0.08)] bg-transparent px-4 py-3 text-sm text-text-primary placeholder-text-muted/50 transition-colors focus:border-[rgba(240,240,250,0.35)] focus:outline-none normal-case";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -93,9 +100,9 @@ export function ContactForm() {
           name="subject"
           className={inputClass}
         >
-          <option value="freelance">Freelance Project</option>
-          <option value="collaboration">Collaboration</option>
-          <option value="general">General Inquiry</option>
+          <option value="Freelance Project">Freelance Project</option>
+          <option value="Collaboration">Collaboration</option>
+          <option value="General Inquiry">General Inquiry</option>
         </select>
       </div>
 
@@ -118,7 +125,7 @@ export function ContactForm() {
       )}
 
       <GlowButton type="submit">
-        <Send size={16} /> Send Message
+        <Send size={16} /> {sending ? "Sending..." : "Send Message"}
       </GlowButton>
     </form>
   );
