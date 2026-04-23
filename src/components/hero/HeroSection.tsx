@@ -24,9 +24,9 @@ export function HeroSection() {
           initial={{ opacity: 0, letterSpacing: "0.5em", filter: "blur(14px)" }}
           animate={{ opacity: 1, letterSpacing: "-0.02em", filter: "blur(0px)" }}
           transition={{
-            letterSpacing: { type: "spring", damping: 18, stiffness: 90 },
-            filter: { type: "spring", damping: 18, stiffness: 90 },
-            opacity: { duration: 0.5, ease: "easeOut" },
+            letterSpacing: { type: "spring", damping: 14, stiffness: 35 },
+            filter: { type: "spring", damping: 14, stiffness: 35 },
+            opacity: { duration: 1.2, ease: "easeOut" },
           }}
           className="mb-6 text-5xl font-bold text-[#f4f3ee] sm:text-6xl md:text-7xl lg:text-8xl whitespace-nowrap"
           style={{ willChange: "letter-spacing, filter, opacity" }}
