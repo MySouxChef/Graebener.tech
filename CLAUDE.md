@@ -78,4 +78,4 @@ This project uses the **git-auto** skill (`.claude/skills/git-auto/SKILL.md`) fo
 
 ## Design System
 
-Dark cyberpunk aesthetic. Key colors: cyan accent `#00f0ff`, purple `#7b2ff7`, pink `#ff2d55`. Backgrounds: `#0a0a0f` (primary), `#12121a` (secondary), `#1a1a2e` (card). Fonts: Inter (sans), JetBrains Mono (mono). CSS utility classes: `.glow-text`, `.glow-box`, `.glitch-text`, `.grid-bg`. Custom animations defined in globals.css: `glow-pulse`, `text-glow`, `glitch`, `border-glow`, `float`, `scanline`.
+Premium dark tech-firm aesthetic. Pure black background (`#000000`), spectral white text (`#f0f0fa`). Fonts: Barlow (sans, weights 400-700), JetBrains Mono (mono). Sentence case body text; uppercase reserved for `.eyebrow` labels, nav links, and badges. Glass-card surfaces: `rgba(255,255,255,0.03)` bg, `rgba(255,255,255,0.08)` border, `16px` radius, `backdrop-blur`. Ghost buttons with `12px` radius. Subtle WebGL atmospheric shader background. 3D project carousel on homepage using CSS transforms + Motion. Full design docs in `DESIGN.md`.

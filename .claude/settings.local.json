@@ -37,7 +37,20 @@
       "Bash(npx playwright:*)",
       "Bash(start:*)",
       "Read(//c/Users/markg/.agents/skills/firecrawl/**)",
-      "Read(//c/Users/markg/.claude/plugins/**)"
+      "Read(//c/Users/markg/.claude/plugins/**)",
+      "Bash(python3 skills/ui-ux-pro-max/scripts/search.py \"high-end tech firm portfolio engineering dark premium\" --design-system -p \"Graebener.tech\")",
+      "Bash(python skills/ui-ux-pro-max/scripts/search.py \"high-end tech firm portfolio engineering dark premium\" --design-system -p \"Graebener.tech\")",
+      "Read(//c/Users/markg/.claude/skills/ui-ux-pro-max/**)",
+      "Bash(python *)",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_click",
+      "Bash(taskkill //PID 36240 //F)",
+      "Bash(taskkill //PID 47736 //F)",
+      "Bash(xargs grep *)",
+      "Bash(grep -E \"^-.*\\\\.\\(json|ts|js|md|yml|yaml\\)$\")",
+      "mcp__supabase__apply_migration",
+      "Bash(/c/Users/markg/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh *)",
+      "Bash(firecrawl scrape *)"
     ],
     "deny": [
       "Bash(git push --force *)",

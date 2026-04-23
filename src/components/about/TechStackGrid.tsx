@@ -26,7 +26,7 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, scale: 0.8 },
+  hidden: { opacity: 0, scale: 0.9 },
   show: { opacity: 1, scale: 1 },
 };
 
@@ -43,13 +43,17 @@ export function TechStackGrid() {
         <motion.div
           key={tech.name}
           variants={item}
-          whileHover={{ scale: 1.05, borderColor: "rgba(240,240,250,0.35)" }}
-          className="flex flex-col items-center gap-1 rounded-sm border border-[rgba(240,240,250,0.1)] bg-transparent p-3 text-center transition-colors"
+          whileHover={{
+            scale: 1.04,
+            borderColor: "rgba(255,255,255,0.12)",
+            backgroundColor: "rgba(255,255,255,0.03)",
+          }}
+          className="flex flex-col items-center gap-1.5 rounded-xl border border-[rgba(255,255,255,0.06)] bg-transparent p-4 text-center transition-colors cursor-pointer"
         >
-          <span className="text-xs font-medium text-text-primary">
+          <span className="text-xs font-medium text-[#f0f0fa]">
             {tech.name}
           </span>
-          <span className="text-[10px] text-text-muted">
+          <span className="text-[10px] text-[rgba(240,240,250,0.4)]">
             {tech.category}
           </span>
         </motion.div>

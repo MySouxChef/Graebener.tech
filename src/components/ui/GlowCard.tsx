@@ -11,10 +11,10 @@ interface GlowCardProps {
 export function GlowCard({ children, className }: GlowCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -2 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      whileHover={{ y: -3 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className={cn(
-        "group relative p-6 border border-transparent hover:border-[rgba(240,240,250,0.1)] rounded-sm transition-colors duration-300",
+        "group relative p-6 rounded-2xl border border-transparent hover:border-[rgba(255,255,255,0.08)] hover:bg-[rgba(255,255,255,0.02)] hover:backdrop-blur-xl transition-all duration-400",
         className
       )}
     >
