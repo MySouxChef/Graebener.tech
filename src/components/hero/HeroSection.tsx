@@ -19,12 +19,17 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        {/* Wordmark */}
+        {/* Wordmark — tracking-in animation */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-6 text-5xl font-bold tracking-[-0.02em] text-[#f4f3ee] sm:text-6xl md:text-7xl lg:text-8xl"
+          initial={{ opacity: 0, letterSpacing: "0.5em", filter: "blur(14px)" }}
+          animate={{ opacity: 1, letterSpacing: "-0.02em", filter: "blur(0px)" }}
+          transition={{
+            letterSpacing: { type: "spring", damping: 18, stiffness: 90 },
+            filter: { type: "spring", damping: 18, stiffness: 90 },
+            opacity: { duration: 0.5, ease: "easeOut" },
+          }}
+          className="mb-6 text-5xl font-bold text-[#f4f3ee] sm:text-6xl md:text-7xl lg:text-8xl whitespace-nowrap"
+          style={{ willChange: "letter-spacing, filter, opacity" }}
         >
           GRAEBENER.TECH
         </motion.h1>
