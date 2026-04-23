@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Globe, ExternalLink } from "lucide-react";
 import { projects, getProjectBySlug } from "@/data/projects";
 import { ProjectViewer } from "@/components/projects/ProjectViewer";
+import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { GlowButton } from "@/components/ui/GlowButton";
 import { notFound } from "next/navigation";
 
@@ -30,6 +31,9 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   if (!project) notFound();
 
+  const hasGallery = project.gallery && project.gallery.length > 0;
+  const hasDemo = Boolean(project.demoPath);
+
   return (
     <div className="min-h-screen pt-28 pb-24">
       <div className="mx-auto max-w-5xl px-6">
@@ -55,7 +59,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           ))}
         </div>
 
-        <p className="mb-8 max-w-3xl text-lg leading-relaxed text-text-muted">
+        <p className="mb-10 max-w-3xl text-lg leading-relaxed text-text-muted">
           {project.longDescription}
         </p>
 
@@ -72,12 +76,29 @@ export default async function ProjectDetailPage({ params }: Props) {
           )}
         </div>
 
-        <div className="mb-6">
+        <div className="mb-12">
           <h2 className="mb-4 text-xl font-semibold text-text-primary">
-            Live Demo
+            Tech Details
           </h2>
-          <ProjectViewer demoPath={project.demoPath} title={project.title} />
+          <div className="max-w-3xl space-y-4 leading-relaxed text-text-muted whitespace-pre-line">
+            {project.techDetails}
+          </div>
         </div>
+
+        {hasGallery && (
+          <div className="mb-6">
+            <ProjectGallery images={project.gallery!} title={project.title} />
+          </div>
+        )}
+
+        {!hasGallery && hasDemo && (
+          <div className="mb-6">
+            <h2 className="mb-4 text-xl font-semibold text-text-primary">
+              Live Demo
+            </h2>
+            <ProjectViewer demoPath={project.demoPath} title={project.title} />
+          </div>
+        )}
       </div>
     </div>
   );

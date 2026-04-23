@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="RAG Memory indexes three source trees into one local database">
+  <defs>
+    <linearGradient id="bg-sources" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050508"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <style>
+      .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; fill: #f0f0fa; }
+      .muted { fill: rgba(240, 240, 250, 0.55); }
+      .dim { fill: rgba(240, 240, 250, 0.35); }
+      .accent { fill: #c9c9e8; }
+      .panel { fill: rgba(255, 255, 255, 0.03); stroke: rgba(255, 255, 255, 0.10); stroke-width: 1; }
+      .db { fill: rgba(255, 255, 255, 0.04); stroke: rgba(255, 255, 255, 0.16); stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#bg-sources)"/>
+
+  <text x="64" y="80" class="mono dim" font-size="16" letter-spacing="3">01 · WHAT IT INDEXES</text>
+  <text x="64" y="130" class="mono" font-size="32">Three source trees → one local index</text>
+
+  <!-- source boxes -->
+  <rect x="80" y="220" width="320" height="140" rx="12" class="panel"/>
+  <text x="104" y="260" class="mono accent" font-size="20">~/.claude/skills/</text>
+  <text x="104" y="294" class="mono muted" font-size="16">SKILL.md · frontmatter</text>
+  <text x="104" y="318" class="mono muted" font-size="16">name · description · when</text>
+  <text x="104" y="342" class="mono dim" font-size="14">~ 80 skills</text>
+
+  <rect x="480" y="220" width="320" height="140" rx="12" class="panel"/>
+  <text x="504" y="260" class="mono accent" font-size="20">~/.claude/superpowers/agents/</text>
+  <text x="504" y="294" class="mono muted" font-size="16">subagent catalog</text>
+  <text x="504" y="318" class="mono muted" font-size="16">role · triggers · tools</text>
+  <text x="504" y="342" class="mono dim" font-size="14">~ 20 agents</text>
+
+  <rect x="880" y="220" width="320" height="140" rx="12" class="panel"/>
+  <text x="904" y="260" class="mono accent" font-size="20">~/.claude/rag/resources/</text>
+  <text x="904" y="294" class="mono muted" font-size="16">curated references</text>
+  <text x="904" y="318" class="mono muted" font-size="16">design · palettes · refs</text>
+  <text x="904" y="342" class="mono dim" font-size="14">~ 30 resources</text>
+
+  <!-- arrows to DB -->
+  <path d="M 240 360 L 240 440 L 640 500" stroke="rgba(240,240,250,0.25)" stroke-width="1.5" fill="none"/>
+  <path d="M 640 360 L 640 500" stroke="rgba(240,240,250,0.25)" stroke-width="1.5" fill="none"/>
+  <path d="M 1040 360 L 1040 440 L 640 500" stroke="rgba(240,240,250,0.25)" stroke-width="1.5" fill="none"/>
+
+  <!-- DB -->
+  <rect x="420" y="500" width="440" height="180" rx="16" class="db"/>
+  <text x="640" y="544" class="mono accent" font-size="22" text-anchor="middle">~/.claude/rag/memory.db</text>
+  <text x="640" y="586" class="mono muted" font-size="16" text-anchor="middle">SQLite · sqlite-vec · FTS5</text>
+  <text x="640" y="614" class="mono muted" font-size="16" text-anchor="middle">entries · entries_vec · entries_fts</text>
+  <text x="640" y="650" class="mono dim" font-size="14" text-anchor="middle">embedding target:  name + description + when_to_use</text>
+</svg>

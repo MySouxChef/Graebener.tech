@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Module layout: ollama, store, sources, index, search, server">
+  <defs>
+    <linearGradient id="bg-modules" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050508"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <style>
+      .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; fill: #f0f0fa; }
+      .muted { fill: rgba(240, 240, 250, 0.55); }
+      .dim { fill: rgba(240, 240, 250, 0.35); }
+      .accent { fill: #c9c9e8; }
+      .panel { fill: rgba(255, 255, 255, 0.03); stroke: rgba(255, 255, 255, 0.10); stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#bg-modules)"/>
+
+  <text x="64" y="80" class="mono dim" font-size="16" letter-spacing="3">03 · MODULE LAYOUT</text>
+  <text x="64" y="130" class="mono" font-size="32">Strict one-way dependencies</text>
+  <text x="64" y="168" class="mono dim" font-size="16">lower levels know nothing about higher ones · each module owns one concern</text>
+
+  <!-- 6 stacked modules, bottom-up -->
+  <g transform="translate(280, 220)">
+    <rect x="0" y="460" width="720" height="72" rx="10" class="panel"/>
+    <text x="32" y="500" class="mono accent" font-size="20">ollama.py</text>
+    <text x="260" y="500" class="mono muted" font-size="16">HTTP client → localhost:11434 · embeddings only</text>
+
+    <rect x="0" y="380" width="720" height="72" rx="10" class="panel"/>
+    <text x="32" y="420" class="mono accent" font-size="20">store.py</text>
+    <text x="260" y="420" class="mono muted" font-size="16">SQL only · entries · entries_vec · entries_fts</text>
+
+    <rect x="0" y="300" width="720" height="72" rx="10" class="panel"/>
+    <text x="32" y="340" class="mono accent" font-size="20">sources.py</text>
+    <text x="260" y="340" class="mono muted" font-size="16">filesystem walks · frontmatter parsing</text>
+
+    <rect x="0" y="220" width="720" height="72" rx="10" class="panel"/>
+    <text x="32" y="260" class="mono accent" font-size="20">index.py</text>
+    <text x="260" y="260" class="mono muted" font-size="16">sync logic · embed + upsert · change detection</text>
+
+    <rect x="0" y="140" width="720" height="72" rx="10" class="panel"/>
+    <text x="32" y="180" class="mono accent" font-size="20">search.py</text>
+    <text x="260" y="180" class="mono muted" font-size="16">hybrid retrieval · vector + FTS + RRF</text>
+
+    <rect x="0" y="60" width="720" height="72" rx="10" class="panel"/>
+    <text x="32" y="100" class="mono accent" font-size="20">server.py</text>
+    <text x="260" y="100" class="mono muted" font-size="16">MCP stdio plumbing · find_resource tool</text>
+
+    <!-- arrow -->
+    <path d="M 760 96 L 760 524" stroke="rgba(240,240,250,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+    <path d="M 755 96 L 760 86 L 765 96 Z" fill="rgba(240,240,250,0.35)"/>
+    <text x="776" y="300" class="mono dim" font-size="14">depends on ↓</text>
+  </g>
+</svg>
