@@ -41,3 +41,9 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# superpowers brainstorm scratch (mockups, scraped references)
+.superpowers/
+
+# playwright mcp output
+.playwright-mcp/

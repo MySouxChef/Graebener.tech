@@ -8,7 +8,7 @@ import "./globals.css";
 const barlow = Barlow({
   variable: "--font-barlow",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -42,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={`${barlow.variable} ${jetbrainsMono.variable} dark`}
     >
-      <body className="min-h-screen bg-black text-[#f0f0fa] antialiased">
+      <body className="min-h-screen bg-bg-primary text-text-primary antialiased">
         <ShaderBackground />
         <Navbar />
         <main>{children}</main>

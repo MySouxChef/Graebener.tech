@@ -10,8 +10,9 @@ export function CyberneticGridShader() {
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    // Render at half resolution — this is a barely-visible background effect
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
     container.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
@@ -25,43 +26,45 @@ export function CyberneticGridShader() {
     `;
 
     const fragmentShader = `
-      precision highp float;
+      precision mediump float;
       uniform vec2 iResolution;
       uniform float iTime;
       uniform vec2 iMouse;
 
-      float random(vec2 st) {
-        return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+      // Cheap value noise — single hash per sample
+      float hash(vec2 p) {
+        return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+      }
+
+      float noise(vec2 p) {
+        vec2 i = floor(p);
+        vec2 f = fract(p);
+        f = f * f * (3.0 - 2.0 * f);
+        return mix(
+          mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
+          mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x),
+          f.y
+        );
       }
 
       void main() {
-        vec2 uv = (gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y;
-        vec2 mouse = (iMouse - 0.5 * iResolution.xy) / iResolution.y;
+        vec2 uv = gl_FragCoord.xy / iResolution.xy;
+        vec2 mouse = iMouse / iResolution.xy;
 
-        float t = iTime * 0.2;
-        float mouseDist = length(uv - mouse);
+        float t = iTime * 0.05;
 
-        float warp = sin(mouseDist * 20.0 - t * 4.0) * 0.1;
-        warp *= smoothstep(0.4, 0.0, mouseDist);
-        uv += warp;
+        // Single noise pass — cheap and subtle
+        float n = noise(uv * 2.0 + t * 0.6);
 
-        vec2 gridUv = abs(fract(uv * 10.0) - 0.5);
-        float line = pow(1.0 - min(gridUv.x, gridUv.y), 50.0);
+        // Warm charcoal gradient (matches Claude-dark palette)
+        vec3 color = mix(vec3(0.04, 0.035, 0.03), vec3(0.08, 0.05, 0.04), n);
 
-        vec3 gridColor = vec3(0.1, 0.5, 1.0);
-        vec3 color = gridColor * line * (0.5 + sin(t * 2.0) * 0.2);
+        // Warm mouse bloom (coral-tinted, very subtle)
+        float bloom = smoothstep(0.35, 0.0, length(uv - mouse)) * 0.035;
+        color += vec3(1.0, 0.9, 0.85) * bloom;
 
-        float energy = sin(uv.x * 20.0 + t * 5.0) * sin(uv.y * 20.0 + t * 3.0);
-        energy = smoothstep(0.8, 1.0, energy);
-        color += vec3(1.0, 0.2, 0.8) * energy * line;
-
-        float glow = smoothstep(0.1, 0.0, mouseDist);
-        color += vec3(1.0) * glow * 0.25;
-
-        color += random(uv + t * 0.1) * 0.03;
-
-        // Dim the entire output for subtle background effect
-        color *= 0.18;
+        // Vignette
+        color *= 0.6 + (1.0 - smoothstep(0.3, 0.9, length(uv - 0.5))) * 0.4;
 
         gl_FragColor = vec4(color, 1.0);
       }

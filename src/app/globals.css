@@ -1,55 +1,73 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-primary: #000000;
-  --color-bg-secondary: #000000;
-  --color-text-primary: #f0f0fa;
-  --color-text-muted: rgba(240, 240, 250, 0.5);
-  --color-accent: #f0f0fa;
-  --color-border: rgba(240, 240, 250, 0.15);
-  --color-ghost-surface: rgba(240, 240, 250, 0.1);
-  --color-ghost-border: rgba(240, 240, 250, 0.35);
+  --color-bg-primary: #0a0a09;
+  --color-bg-secondary: #0a0a09;
+  --color-bg-elevated: #141413;
+  --color-bg-surface: #1a1918;
+  --color-text-primary: #f4f3ee;
+  --color-text-secondary: rgba(244, 243, 238, 0.65);
+  --color-text-muted: rgba(244, 243, 238, 0.6);
+  --color-accent: #cc785c;
+  --color-accent-hover: #d97757;
+  --color-accent-subtle: rgba(204, 120, 92, 0.12);
+  --color-accent-border: rgba(204, 120, 92, 0.35);
+  --color-border: rgba(244, 243, 238, 0.1);
+  --color-ghost-surface: rgba(244, 243, 238, 0.08);
+  --color-ghost-border: rgba(244, 243, 238, 0.25);
   --font-sans: var(--font-barlow);
   --font-mono: var(--font-jetbrains-mono);
 }
 
 /* Base styles */
 body {
-  background: #000000;
+  background: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 ::selection {
-  background: rgba(240, 240, 250, 0.2);
+  background: rgba(204, 120, 92, 0.3);
   color: #fff;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #000000; }
-::-webkit-scrollbar-thumb { background: rgba(240, 240, 250, 0.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(240, 240, 250, 0.5); }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(244, 243, 238, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(244, 243, 238, 0.5); }
 
-/* Ghost surface — the sole interactive surface style */
+/* Ghost surface — interactive surface style */
 .ghost-surface {
   background: var(--color-ghost-surface);
   border: 1px solid var(--color-ghost-border);
-  border-radius: 32px;
+  border-radius: 16px;
 }
 
-/* SpaceX industrial typography: universal uppercase */
-h1, h2, h3, h4, h5, h6, p, a, span, li, label, button, th, td, figcaption {
+/* Glass card — premium translucent surface */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Eyebrow label — small uppercase micro-label */
+.eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
 }
 
-/* Exempt content that must remain readable */
-code, pre, input, textarea, select,
-.prose-custom, .prose-custom *, .skill-preview p, .skill-preview li,
-.normal-case {
-  text-transform: none;
-  letter-spacing: normal;
+/* Hide scrollbar for mobile carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* Skill preview rendered markdown */

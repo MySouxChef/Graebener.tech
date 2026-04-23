@@ -6,12 +6,13 @@ import { cn } from "@/lib/utils";
 interface SectionHeadingProps {
   children: React.ReactNode;
   className?: string;
-  prefix?: string;
+  eyebrow?: string;
 }
 
 export function SectionHeading({
   children,
   className,
+  eyebrow,
 }: SectionHeadingProps) {
   return (
     <motion.div
@@ -19,9 +20,12 @@ export function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
-      className={cn("mb-12", className)}
+      className={cn("mb-14", className)}
     >
-      <h2 className="text-3xl font-bold tracking-[0.96px] uppercase text-[#f0f0fa] md:text-4xl">
+      {eyebrow && (
+        <span className="eyebrow mb-3 block">{eyebrow}</span>
+      )}
+      <h2 className="text-3xl font-bold tracking-tight text-[#f4f3ee] md:text-4xl">
         {children}
       </h2>
     </motion.div>
