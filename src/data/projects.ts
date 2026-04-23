@@ -9,7 +9,6 @@ export interface Project {
   thumbnailExists: boolean;
   demoPath: string;
   gallery?: string[];
-  githubUrl?: string;
   liveUrl?: string;
   externalLink?: string;
   featured: boolean;
@@ -29,7 +28,6 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/webbuilder-thumb.png",
     thumbnailExists: true,
     demoPath: "",
-    githubUrl: "https://github.com/MySouxChef/website-demos",
     externalLink: "/webbuilder",
     featured: true,
   },
@@ -46,7 +44,6 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/mysouxchef-thumb.png",
     thumbnailExists: true,
     demoPath: "/projects/mysouxchef/index.html",
-    githubUrl: "https://github.com/MySouxChef/MySouxChef",
     featured: true,
   },
   {

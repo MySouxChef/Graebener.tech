@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Globe, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { projects, getProjectBySlug } from "@/data/projects";
 import { ProjectViewer } from "@/components/projects/ProjectViewer";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
@@ -63,18 +63,13 @@ export default async function ProjectDetailPage({ params }: Props) {
           {project.longDescription}
         </p>
 
-        <div className="mb-10 flex gap-4">
-          {project.githubUrl && (
-            <GlowButton href={project.githubUrl} variant="outline">
-              <Globe size={16} /> Source Code
-            </GlowButton>
-          )}
-          {project.liveUrl && (
+        {project.liveUrl && (
+          <div className="mb-10 flex gap-4">
             <GlowButton href={project.liveUrl} variant="outline">
               <ExternalLink size={16} /> Live Site
             </GlowButton>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="mb-12">
           <h2 className="mb-4 text-xl font-semibold text-text-primary">
