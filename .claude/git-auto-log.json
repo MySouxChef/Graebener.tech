@@ -73,6 +73,137 @@
         "Should have used conventional commit prefix (feat: or refactor:)",
         "Multiple concerns in one commit — could have split API route changes from static file additions"
       ]
+    },
+    {
+      "id": "session-2026-04-23-001",
+      "timestamp": "2026-04-23T06:35:00Z",
+      "project": "Graebener.tech",
+      "operations": [
+        {
+          "command": "git add src/app/globals.css src/app/layout.tsx src/app/page.tsx src/components/hero/HeroSection.tsx src/components/layout/Navbar.tsx src/components/ui/GlowButton.tsx src/components/ui/CyberneticGridShader.tsx src/components/ui/SectionHeading.tsx src/components/ui/RotatingWord.tsx src/components/services/ServiceCard.tsx src/components/services/ServicesSection.tsx src/components/approach/StepCard.tsx src/components/approach/ApproachSection.tsx .gitignore",
+          "intent": "Stage Claude-dark landing redesign + gitignore for brainstorm scratch",
+          "result": "success",
+          "notes": "Explicit file list; no git add -A"
+        },
+        {
+          "command": "git commit -m \"feat: redesign landing page with Claude-dark palette and services + approach sections\"",
+          "intent": "Ship the landing redesign as its own commit",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git add package.json package-lock.json",
+          "intent": "Stage new deps separately (supabase, anthropic, resend)",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git commit -m \"chore: add supabase, anthropic sdk, and resend dependencies\"",
+          "intent": "Separate dependency manifest update from feature commits",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git add src/app/api/speed-to-lead src/app/speed-to-lead src/components/speed-to-lead src/lib/speed-to-lead.ts src/lib/supabase.ts",
+          "intent": "Stage speed-to-lead feature files",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git commit -m \"feat: add speed-to-lead feature with supabase-backed leads dashboard\"",
+          "intent": "Commit pre-existing speed-to-lead work",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git add src/data/projects.ts src/app/projects/[slug]/page.tsx src/components/projects/CarouselCard.tsx src/components/projects/ProjectCarousel.tsx src/components/projects/ProjectGallery.tsx public/images/projects/poker-gallery public/images/projects/poker-thumb.png public/images/projects/rag-memory-gallery public/images/projects/rag-memory-thumb.svg <deleted demo thumbs + html>",
+          "intent": "Stage project portfolio updates (adds, renames-by-delete-add, and deletions of old demos)",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git commit -m \"feat: expand project portfolio with poker trainer + rag memory, add carousel and gallery\"",
+          "intent": "Commit portfolio expansion and removal of placeholder demos",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git add src/app/api/contact src/components/contact/ContactForm.tsx",
+          "intent": "Stage contact-form API route and updated form client",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git commit -m \"feat: add contact form api route with resend email delivery\"",
+          "intent": "Commit contact form + API",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git add src/components/about/AboutSection.tsx src/components/about/TechStackGrid.tsx src/components/ui/GlowCard.tsx DESIGN.md CLAUDE.md .claude/settings.local.json",
+          "intent": "Stage the remaining UI polish and doc/config updates",
+          "result": "success",
+          "notes": null
+        },
+        {
+          "command": "git commit -m \"refactor: polish about, tech stack, glow-card styling plus CLAUDE.md and DESIGN.md\"",
+          "intent": "Final cleanup commit for misc polish and docs",
+          "result": "success",
+          "notes": null
+        }
+      ],
+      "workflow_type": "multi-commit-split",
+      "files_touched": [
+        "src/app/globals.css",
+        "src/app/layout.tsx",
+        "src/app/page.tsx",
+        "src/components/hero/HeroSection.tsx",
+        "src/components/layout/Navbar.tsx",
+        "src/components/ui/GlowButton.tsx",
+        "src/components/ui/CyberneticGridShader.tsx",
+        "src/components/ui/SectionHeading.tsx",
+        "src/components/ui/RotatingWord.tsx",
+        "src/components/services/ServiceCard.tsx",
+        "src/components/services/ServicesSection.tsx",
+        "src/components/approach/StepCard.tsx",
+        "src/components/approach/ApproachSection.tsx",
+        ".gitignore",
+        "package.json",
+        "package-lock.json",
+        "src/app/api/speed-to-lead/route.ts",
+        "src/app/speed-to-lead/page.tsx",
+        "src/app/speed-to-lead/sell/page.tsx",
+        "src/components/speed-to-lead/LeadsDashboard.tsx",
+        "src/components/speed-to-lead/SpeedToLeadSales.tsx",
+        "src/lib/speed-to-lead.ts",
+        "src/lib/supabase.ts",
+        "src/data/projects.ts",
+        "src/app/projects/[slug]/page.tsx",
+        "src/components/projects/CarouselCard.tsx",
+        "src/components/projects/ProjectCarousel.tsx",
+        "src/components/projects/ProjectGallery.tsx",
+        "public/images/projects/poker-gallery/",
+        "public/images/projects/poker-thumb.png",
+        "public/images/projects/rag-memory-gallery/",
+        "public/images/projects/rag-memory-thumb.svg",
+        "src/app/api/contact/route.ts",
+        "src/components/contact/ContactForm.tsx",
+        "src/components/about/AboutSection.tsx",
+        "src/components/about/TechStackGrid.tsx",
+        "src/components/ui/GlowCard.tsx",
+        "DESIGN.md",
+        "CLAUDE.md",
+        ".claude/settings.local.json"
+      ],
+      "branch": "master",
+      "outcome": "success",
+      "issues_encountered": [],
+      "time_estimate_seconds": 90,
+      "improvements_noted": [
+        "User requested 'commit all but separate the work with its commit' — resolved by grouping changes into 6 scoped commits. Good pattern for future multi-feature sessions.",
+        "Working tree had a large pile of pre-existing uncommitted work mixed with new work; peeking at individual diffs before grouping prevented accidentally bundling unrelated concerns.",
+        "Loose PNG screenshots at repo root (approach.png, hero-desktop.png, etc.) were left untracked intentionally — scratch artifacts from Playwright verification, not worth committing."
+      ]
     }
   ]
 }
