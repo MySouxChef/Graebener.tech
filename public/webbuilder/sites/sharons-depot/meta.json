@@ -1,10 +1,10 @@
 {
-  "title": "Sharon's Depot — Family-Owned Discount Tool Shop",
-  "description": "Warm hardware-store americana redesign for a 10-year San Antonio family business selling new Home Depot overstock at discounted prices.",
+  "title": "Lone Star Surplus — Real Tools at Real Prices",
+  "description": "Warm Texas-pride redesign concept for a fictional San Antonio surplus shop. Family-owned discount tools, lighting, and home goods from overstock truckloads, with new-arrival alerts, multi-channel listing demo, and a concierge chatbot.",
   "industry": "retail",
   "category": "landing-page",
-  "tags": ["retail", "tools", "home-improvement", "san-antonio", "family-owned", "ecommerce", "warm"],
+  "tags": ["retail", "tools", "home-improvement", "san-antonio", "family-owned", "ecommerce", "texas", "surplus"],
   "status": "published",
-  "color_accent": "#C44A1F",
-  "client_name": "Sharon's Depot"
+  "color_accent": "#C2392C",
+  "client_name": "Lone Star Surplus"
 }

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sharon's Depot — Brand-new Home Depot tools at family-discount prices.</title>
-<meta name="description" content="Family-owned San Antonio shop selling new overstock Home Depot tools, lighting, and home goods at discounted prices. Open since 2016. Visit us in-store or shop on eBay, Amazon, Facebook, and OfferUp.">
+<title>Lone Star Surplus — Texas tools at Texas prices.</title>
+<meta name="description" content="Family-owned San Antonio surplus shop selling new overstock tools, lighting, and home goods at discounted prices. Real surplus, real cheap, since 2012. Visit on Bandera Rd or shop on eBay, Amazon, Facebook, and OfferUp.">
 <meta name="theme-color" content="#FAF6EE">
-<link rel="icon" type="image/jpeg" href="assets/logos/10.30.2025_6903ce513051d0.64517956.jpeg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C2392C'%3E%3Cpath d='M12 2 L14.7 9.3 L22 9.3 L16.2 13.9 L18.5 21 L12 16.5 L5.5 21 L7.8 13.9 L2 9.3 L9.3 9.3 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -14,11 +14,11 @@
 :root{
   --bg:#FAF6EE; --surface:#FFFFFF; --surface-2:#F0E6D2; --surface-3:#E7D9BC;
   --text:#1F1A14; --text-muted:#6E5E4A; --text-faint:#9C8A73;
-  --accent:#C44A1F; --accent-2:#E8A93D; --accent-deep:#8A2E0E; --accent-soft:rgba(196,74,31,.08);
+  --accent:#C2392C; --accent-2:#E8A93D; --accent-deep:#8A2208; --accent-soft:rgba(194,57,44,.08); --navy:#1F2F4A;
   --border:rgba(31,26,20,0.10); --border-strong:rgba(31,26,20,0.20);
   --r-card:14px; --r-input:8px; --r-pill:999px;
   --shadow-card:0 1px 2px rgba(31,26,20,.05),0 8px 32px rgba(31,26,20,.08);
-  --shadow-lift:0 1px 2px rgba(31,26,20,.06),0 16px 40px rgba(138,46,14,.14);
+  --shadow-lift:0 1px 2px rgba(31,26,20,.06),0 16px 40px rgba(138,34,8,.14);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -33,7 +33,7 @@ body::before{
   content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
   background:
     radial-gradient(circle at 12% 8%,rgba(232,169,61,.08),transparent 40%),
-    radial-gradient(circle at 88% 92%,rgba(196,74,31,.05),transparent 45%);
+    radial-gradient(circle at 88% 92%,rgba(194,57,44,.05),transparent 45%);
 }
 .container{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
 @media(max-width:600px){.container{padding:0 20px}}
@@ -50,7 +50,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;font-size:0.95rem;font-weight:600;border-radius:var(--r-pill);transition:transform .2s,background .2s,box-shadow .2s,color .2s;line-height:1;font-family:'Inter',sans-serif;white-space:nowrap;border:1px solid transparent}
 .btn-primary{background:var(--accent);color:#FFF}
-.btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px);box-shadow:0 8px 22px rgba(138,46,14,.28)}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px);box-shadow:0 8px 22px rgba(138,34,8,.28)}
 .btn-ghost{background:transparent;color:var(--text);border-color:var(--border-strong)}
 .btn-ghost:hover{background:var(--surface);border-color:var(--text)}
 .btn-lg{padding:15px 28px;font-size:1rem}
@@ -61,10 +61,11 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;transition:padding .3s,background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(250,246,238,.88);backdrop-filter:blur(14px);padding:12px 28px;border-bottom-color:var(--border)}
 .nav-brand{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;letter-spacing:0.04em;text-transform:uppercase}
-.nav-brand .mark{width:38px;height:38px;border-radius:8px;background:#FFF;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
-.nav-brand .mark img{width:100%;height:100%;object-fit:contain;padding:2px}
+.nav-brand .mark{width:38px;height:38px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#FFF}
+.nav-brand .mark svg{width:22px;height:22px;fill:currentColor}
 .nav-brand .wordmark{display:none}
 @media(min-width:520px){.nav-brand .wordmark{display:inline}}
+.brand-star-svg{display:inline-block;width:100%;height:100%;fill:currentColor}
 .nav-links{display:flex;gap:4px;list-style:none}
 .nav-links a{padding:9px 14px;font-size:0.92rem;font-weight:500;color:var(--text-muted);transition:color .2s;border-radius:var(--r-input)}
 .nav-links a:hover{color:var(--text)}
@@ -91,7 +92,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 
 /* Hero featured product card with stamped SALE tag */
 .hero-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:28px;box-shadow:var(--shadow-card);max-width:480px;margin:0 auto}
-.hero-card .stamp{position:absolute;top:24px;right:24px;background:var(--accent);color:#FFF;padding:8px 14px;border-radius:var(--r-pill);font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;transform:rotate(8deg);box-shadow:0 4px 14px rgba(138,46,14,.32);text-transform:uppercase;z-index:2}
+.hero-card .stamp{position:absolute;top:24px;right:24px;background:var(--accent);color:#FFF;padding:8px 14px;border-radius:var(--r-pill);font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;transform:rotate(8deg);box-shadow:0 4px 14px rgba(138,34,8,.32);text-transform:uppercase;z-index:2}
 .hero-card .photo{aspect-ratio:1/1;background:var(--surface-2);border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .hero-card .photo img{width:100%;height:100%;object-fit:contain;padding:20px}
 .hero-card .pname{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;line-height:1.25;margin-bottom:10px;color:var(--text)}
@@ -126,7 +127,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 @media(min-width:720px){.deals-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1040px){.deals-grid{grid-template-columns:repeat(3,1fr)}}
 .deal{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s;text-decoration:none}
-.deal:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:rgba(196,74,31,.3)}
+.deal:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:rgba(194,57,44,.3)}
 .deal-photo{aspect-ratio:4/3;background:var(--surface-2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .deal-photo img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .4s}
 .deal:hover .deal-photo img{transform:scale(1.04)}
@@ -162,7 +163,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 @media(min-width:920px){.store-grid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1180px){.store-grid{grid-template-columns:repeat(4,1fr)}}
 .store-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s,opacity .35s,filter .35s}
-.store-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);border-color:rgba(196,74,31,.3)}
+.store-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);border-color:rgba(194,57,44,.3)}
 .store-item.hidden{display:none}
 .store-item-photo{aspect-ratio:1/1;background:var(--surface-2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .store-item-photo img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .35s}
@@ -182,7 +183,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 
 /* ALERTS */
 .alerts{padding:110px 0;background:var(--surface-2);position:relative;overflow:hidden}
-.alerts::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(232,169,61,.14),transparent 50%),radial-gradient(circle at -10% 100%,rgba(196,74,31,.08),transparent 55%);pointer-events:none}
+.alerts::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(232,169,61,.14),transparent 50%),radial-gradient(circle at -10% 100%,rgba(194,57,44,.08),transparent 55%);pointer-events:none}
 .alerts > *{position:relative;z-index:1}
 .alerts-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;margin-top:36px}
 @media(min-width:920px){.alerts-grid{grid-template-columns:1.05fr 1fr;gap:72px;align-items:center}}
@@ -198,7 +199,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 .alerts-label{display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px}
 .alerts-input{width:100%;padding:13px 16px;font-family:'Inter',sans-serif;font-size:1rem;color:var(--text);background:var(--bg);border:1px solid var(--border-strong);border-radius:var(--r-input);transition:border-color .2s,box-shadow .2s,background .2s;font-feature-settings:"tnum"}
 .alerts-input::placeholder{color:var(--text-faint)}
-.alerts-input:focus{outline:0;border-color:var(--accent);background:var(--surface);box-shadow:0 0 0 3px rgba(196,74,31,.15)}
+.alerts-input:focus{outline:0;border-color:var(--accent);background:var(--surface);box-shadow:0 0 0 3px rgba(194,57,44,.15)}
 .alerts-help{display:block;font-size:0.78rem;color:var(--text-faint);margin-top:6px;line-height:1.5}
 .alerts-checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:6px}
 .alerts-check{position:relative;display:flex;align-items:center;gap:9px;padding:10px 14px;background:var(--bg);border:1px solid var(--border-strong);border-radius:var(--r-pill);cursor:pointer;transition:background .2s,border-color .2s,color .2s;font-size:0.92rem;font-weight:500;color:var(--text-muted);user-select:none}
@@ -317,7 +318,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 @media(min-width:920px){.listing-demo{grid-template-columns:1.2fr 1fr;min-height:520px}}
 
 .listing-stage{position:relative;background:var(--text);color:var(--bg);padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:360px;overflow:hidden}
-.listing-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(232,169,61,.12),transparent 55%),radial-gradient(circle at 80% 80%,rgba(196,74,31,.18),transparent 55%);pointer-events:none}
+.listing-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(232,169,61,.12),transparent 55%),radial-gradient(circle at 80% 80%,rgba(194,57,44,.18),transparent 55%);pointer-events:none}
 .listing-stage > *{position:relative;z-index:1}
 .stage-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .stage-eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 8px rgba(232,169,61,.7);animation:pulse 1.6s ease-in-out infinite}
@@ -379,8 +380,8 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 .pipeline-summary.done .timer{color:#3FAE6B}
 
 /* CHATBOT */
-.chat-fab{position:fixed;bottom:24px;right:24px;z-index:130;width:60px;height:60px;border-radius:50%;background:var(--accent);color:#FFF;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(138,46,14,.32),0 2px 6px rgba(31,26,20,.16);transition:transform .25s,box-shadow .25s,background .25s;padding:0}
-.chat-fab:hover{transform:scale(1.06);background:var(--accent-deep);box-shadow:0 12px 36px rgba(138,46,14,.42)}
+.chat-fab{position:fixed;bottom:24px;right:24px;z-index:130;width:60px;height:60px;border-radius:50%;background:var(--accent);color:#FFF;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(138,34,8,.32),0 2px 6px rgba(31,26,20,.16);transition:transform .25s,box-shadow .25s,background .25s;padding:0}
+.chat-fab:hover{transform:scale(1.06);background:var(--accent-deep);box-shadow:0 12px 36px rgba(138,34,8,.42)}
 .chat-fab svg{width:26px;height:26px}
 .chat-fab .badge{position:absolute;top:6px;right:6px;width:18px;height:18px;border-radius:50%;background:var(--accent-2);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #FFF}
 .chat-fab.open .badge{display:none}
@@ -413,7 +414,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 .msg.bot{background:var(--surface);border:1px solid var(--border);color:var(--text);border-top-left-radius:4px;align-self:flex-start;box-shadow:0 1px 2px rgba(31,26,20,.04)}
 .msg.user{background:var(--accent);color:#FFF;border-top-right-radius:4px;align-self:flex-end}
 .msg b{font-weight:600}
-.msg a{color:var(--accent);font-weight:600;text-decoration:underline;text-decoration-color:rgba(196,74,31,.4);text-underline-offset:2px}
+.msg a{color:var(--accent);font-weight:600;text-decoration:underline;text-decoration-color:rgba(194,57,44,.4);text-underline-offset:2px}
 .msg.bot a:hover{color:var(--accent-deep)}
 .msg.user a{color:#FFF;text-decoration-color:rgba(255,255,255,.5)}
 
@@ -436,7 +437,7 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 
 .chat-input{display:flex;gap:8px;padding:12px 14px 14px;background:var(--surface-2);border-top:1px solid var(--border);align-items:center}
 .chat-input input{flex:1;padding:10px 14px;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r-pill);font-family:'Inter',sans-serif;font-size:0.92rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
-.chat-input input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(196,74,31,.12)}
+.chat-input input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(194,57,44,.12)}
 .chat-input button{background:var(--accent);color:#FFF;border:0;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;flex-shrink:0;padding:0}
 .chat-input button:hover{background:var(--accent-deep);transform:scale(1.05)}
 .chat-input button svg{width:16px;height:16px}
@@ -493,8 +494,8 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
 
 <nav class="nav" id="nav">
   <a href="#top" class="nav-brand">
-    <span class="mark"><img src="assets/logos/sharons-depot-logo.webp" alt="Sharon's Depot logo" width="38" height="38"></span>
-    <span class="wordmark">Sharon's Depot</span>
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 L14.7 9.3 L22 9.3 L16.2 13.9 L18.5 21 L12 16.5 L5.5 21 L7.8 13.9 L2 9.3 L9.3 9.3 Z"/></svg></span>
+    <span class="wordmark">Lone Star Surplus</span>
   </a>
   <ul class="nav-links">
     <li><a href="#story">Our Story</a></li>
@@ -506,7 +507,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
     <li><a href="#visit">Visit</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="tel:+12105938701" class="btn btn-primary">Call (210) 593-8701</a>
+    <a href="tel:+12105550182" class="btn btn-primary">Call (210) 555-0182</a>
     <button class="burger" id="burger" aria-label="Open menu">☰</button>
   </div>
 </nav>
@@ -515,17 +516,17 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
   <div class="container">
     <div class="hero-grid">
       <div class="hero-copy reveal">
-        <span class="eyebrow">Est. 2016 · San Antonio, TX</span>
-        <h1>Brand-new Home Depot tools — at <em>family-discount</em> prices.</h1>
-        <p class="hero-sub">A family-owned overstock warehouse on Stahl Park, serving San Antonio since Sharon left the corporate world to start her own thing. New, in-the-box merchandise. Loyal-customer pricing. Same family at the door for 10 years.</p>
+        <span class="eyebrow">Est. 2012 · San Antonio, TX</span>
+        <h1>Texas tools at <em>Texas prices.</em></h1>
+        <p class="hero-sub">Real surplus, real cheap. Brand-new tools, lighting, and home goods pulled from overstock truckloads — running the floor on Bandera Rd since 2012. Family-owned. Veteran-owned. Built for folks who can spot a real deal.</p>
         <div class="hero-actions">
           <a href="#deals" class="btn btn-primary btn-lg">See today's deals <span class="arrow">→</span></a>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">Get directions</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=5717+Bandera+Rd+Suite+12+San+Antonio+TX+78238" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">Get directions</a>
         </div>
         <div class="hero-meta">
           <span>Mon–Fri · 9 AM – 5:30 PM</span>
           <span class="dot"></span>
-          <span>(210) 593-8701</span>
+          <span>(210) 555-0182</span>
           <span class="dot"></span>
           <span>Walk-ins welcome</span>
         </div>
@@ -549,9 +550,9 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
 <section class="trust">
   <div class="container">
     <div class="trust-row">
-      <span>10+ Years Family-Owned</span>
+      <span>Family-Owned Since 2012</span>
       <span>Overstock = New in Box</span>
-      <span>Loyal-Customer Pricing</span>
+      <span>Real Tools, Real Prices</span>
       <span>Shop In-Store or Online</span>
     </div>
   </div>
@@ -561,14 +562,14 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
   <div class="container">
     <div class="story-inner reveal">
       <span class="eyebrow">The story</span>
-      <h2>From a 53-foot container in the garage — to your trusted San Antonio depot.</h2>
-      <p>In 2016, Sharon was left without a job. This time, she would not allow Corporate America to dictate her future and decided to start her own venture. Through an old friend, she got in touch with Home Depot and bought her first truckload of merchandise. The following week, a 53-foot container was unloaded in her garage. Within days, most of it had sold.</p>
-      <p>A few months later — short on space and with a few upset neighbors — we moved into our current warehouse on Stahl Park. We've met many wonderful people on this journey, and we're grateful to have built a business that works for everyone.</p>
+      <h2>From the back of a pickup — to a south-side surplus shop you can count on.</h2>
+      <p>In 2012, Frank came home from a tour with the Texas Air National Guard to find his old job gone. Through a buddy in freight, he scraped together enough to buy a single pallet of overstock from a Home Depot return center — a beat-up truckload of tools, shelving, and a couple of busted-up shop vacs. He and his daughter sold most of it out of the back of his pickup the following weekend.</p>
+      <p>A few months later — short on space and one HOA letter to the wise — we moved into a leased bay on Bandera Rd. We've been there ever since. Same family on the floor. Same handshake price for our regulars.</p>
       <blockquote class="pullquote">
-        "We treat every customer like family, and many of our shoppers have been with us for years. Loyal customers always receive the best deals, because your trust means everything to us."
-        <span class="by">— Sharon</span>
+        "We don't dress our prices up and we don't dress our tools down. Real surplus, fair prices, every time. Our regulars get the regulars' price — that's how it's been since day one."
+        <span class="by">— Frank</span>
       </blockquote>
-      <p>Whether you're a contractor stocking up for the week, a homeowner finishing a weekend project, or just hunting for a real deal — Sharon's Depot is where San Antonio shops for brand-new tools at brand-new prices, minus a chunk.</p>
+      <p>Whether you're a contractor stocking up for the week, a homeowner finishing a weekend project, or just hunting for a real deal — Lone Star Surplus is where San Antonio shops for brand-new tools at brand-new prices, minus a chunk.</p>
     </div>
   </div>
 </section>
@@ -661,7 +662,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
         </div>
       </a>
 
-      <a href="https://www.sharonsdepot.com/s/shop" target="_blank" rel="noopener" class="deal reveal" style="background:var(--surface-3);border-style:dashed">
+      <a href="#store" class="deal reveal" style="background:var(--surface-3);border-style:dashed">
         <div class="deal-photo" style="background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:24px;text-align:center">
           <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent)">Plus 700+ more</span>
           <span style="font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--text);line-height:1.05">Browse the full warehouse →</span>
@@ -911,7 +912,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
               </div>
             </div>
 
-            <p class="alerts-fineprint">By signing up you agree to receive promotional messages from Sharon's Depot. Reply STOP to cancel anytime. Msg &amp; data rates may apply.</p>
+            <p class="alerts-fineprint">By signing up you agree to receive promotional messages from Lone Star Surplus. Reply STOP to cancel anytime. Msg &amp; data rates may apply.</p>
 
             <button type="submit" class="btn btn-primary btn-lg alerts-submit">Notify me <span class="arrow">→</span></button>
           </fieldset>
@@ -946,8 +947,8 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
             <div class="email-head"><div class="dots"><span></span><span></span><span></span></div><span>Inbox · Today</span></div>
             <div class="email-body">
               <div class="email-from">
-                <span class="avatar"><img src="assets/logos/sharons-depot-logo.webp" alt=""></span>
-                <span><b>Sharon's Depot</b> <span class="addr">&lt;alerts@sharonsdepot.com&gt;</span></span>
+                <span class="avatar"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:var(--accent)"><path d="M12 2 L14.7 9.3 L22 9.3 L16.2 13.9 L18.5 21 L12 16.5 L5.5 21 L7.8 13.9 L2 9.3 L9.3 9.3 Z"/></svg></span>
+                <span><b>Lone Star Surplus</b> <span class="addr">&lt;alerts@lonestarsurplus.com&gt;</span></span>
               </div>
               <div class="email-meta">To you · Just now</div>
               <div class="email-subject">New in box at the warehouse — DeWalt 5" Random Orbital Sander</div>
@@ -971,8 +972,8 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
           <div class="sms-preview">
             <div class="sms-head"><span class="time">9:42</span><span class="icons">5G ▮▮▮▮ 86%</span></div>
             <div class="sms-bubble">
-              <div class="sms-sender">Sharon's Depot</div>
-              Just hit the floor: 20V MAX XR Random Orbital Sander, was $179, now $125. First come first served — 4503 N Stahl Park or sharonsdepot.com.
+              <div class="sms-sender">Lone Star Surplus</div>
+              Just hit the floor: 20V MAX XR Random Orbital Sander, was $179, now $125. First come first served — 5717 Bandera Rd or lonestarsurplus.com.
             </div>
             <div class="sms-stamp">Today · 9:42 AM</div>
           </div>
@@ -1023,7 +1024,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
           <div class="channel-row" data-channel="square">
             <span class="channel-icon sq">SQ</span>
             <div class="channel-info">
-              <div class="channel-name">sharonsdepot.com</div>
+              <div class="channel-name">lonestarsurplus.com</div>
               <div class="channel-sub">Square Online</div>
             </div>
             <div class="channel-status queued">Queued</div>
@@ -1032,7 +1033,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
             <span class="channel-icon eb">eB</span>
             <div class="channel-info">
               <div class="channel-name">eBay</div>
-              <div class="channel-sub">str/sharonsdepot</div>
+              <div class="channel-sub">str/lonestarsurplus</div>
             </div>
             <div class="channel-status queued">Queued</div>
           </div>
@@ -1048,7 +1049,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
             <span class="channel-icon fb">f</span>
             <div class="channel-info">
               <div class="channel-name">Facebook Marketplace</div>
-              <div class="channel-sub">/p/Sharons-Depot</div>
+              <div class="channel-sub">/p/Lone-Star-Surplus</div>
             </div>
             <div class="channel-status queued">Queued</div>
           </div>
@@ -1078,23 +1079,23 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
       <p class="subtitle" style="margin-top:14px">Same family, same warehouse, same prices — wherever you prefer to shop.</p>
     </div>
     <div class="channels-grid">
-      <a href="https://www.ebay.com/str/sharonsdepot" target="_blank" rel="noopener" class="channel reveal">
+      <a href="https://www.ebay.com/str/lonestarsurplus" target="_blank" rel="noopener" class="channel reveal">
         <span class="channel-name">eBay</span>
         <span class="channel-arrow">↗</span>
       </a>
-      <a href="https://www.amazon.com/sp?seller=A38BW3ZIVDJEGH&marketplaceID=ATVPDKIKX0DER" target="_blank" rel="noopener" class="channel reveal">
+      <a href="https://www.amazon.com/s?me=lonestarsurplus" target="_blank" rel="noopener" class="channel reveal">
         <span class="channel-name">Amazon</span>
         <span class="channel-arrow">↗</span>
       </a>
-      <a href="https://www.facebook.com/p/Sharons-Depot-100028246016789/" target="_blank" rel="noopener" class="channel reveal">
+      <a href="https://www.facebook.com/lonestarsurplus" target="_blank" rel="noopener" class="channel reveal">
         <span class="channel-name">Facebook</span>
         <span class="channel-arrow">↗</span>
       </a>
-      <a href="https://www.instagram.com/sharonsdepot/" target="_blank" rel="noopener" class="channel reveal">
+      <a href="https://www.instagram.com/lonestarsurplus/" target="_blank" rel="noopener" class="channel reveal">
         <span class="channel-name">Instagram</span>
         <span class="channel-arrow">↗</span>
       </a>
-      <a href="https://offerup.co/NDa69XrfRYb" target="_blank" rel="noopener" class="channel reveal">
+      <a href="https://offerup.com/p/lonestarsurplus" target="_blank" rel="noopener" class="channel reveal">
         <span class="channel-name">OfferUp</span>
         <span class="channel-arrow">↗</span>
       </a>
@@ -1107,19 +1108,19 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
     <div class="visit-grid">
       <div class="visit-info reveal">
         <span class="eyebrow">Come on by</span>
-        <h2>The warehouse on Stahl Park.</h2>
+        <h2>The shop on Bandera Rd.</h2>
         <div class="info-card">
           <div class="info-row">
             <span class="label">Address</span>
-            <span class="value">4503 N Stahl Park, Ste 110<br>San Antonio, TX 78217</span>
+            <span class="value">5717 Bandera Rd, Suite 12<br>San Antonio, TX 78238</span>
           </div>
           <div class="info-row">
             <span class="label">Call</span>
-            <a href="tel:+12105938701" class="value">(210) 593-8701</a>
+            <a href="tel:+12105550182" class="value">(210) 555-0182</a>
           </div>
           <div class="info-row">
             <span class="label">Email</span>
-            <a href="mailto:Sharonsdepot@gmail.com" class="value">Sharonsdepot@gmail.com</a>
+            <a href="mailto:hello@lonestarsurplus.com" class="value">hello@lonestarsurplus.com</a>
           </div>
         </div>
 
@@ -1139,16 +1140,16 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
         </div>
 
         <div class="visit-cta">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217" target="_blank" rel="noopener" class="btn btn-primary">Get directions</a>
-          <a href="tel:+12105938701" class="btn btn-ghost">Call us</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=5717+Bandera+Rd+Suite+12+San+Antonio+TX+78238" target="_blank" rel="noopener" class="btn btn-primary">Get directions</a>
+          <a href="tel:+12105550182" class="btn btn-ghost">Call us</a>
         </div>
       </div>
-      <div class="map-wrap reveal" aria-label="Map of Sharon's Depot location">
+      <div class="map-wrap reveal" aria-label="Map of Lone Star Surplus location">
         <iframe
-          src="https://www.google.com/maps?q=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217&output=embed"
+          src="https://www.google.com/maps?q=5717+Bandera+Rd+Suite+12+San+Antonio+TX+78238&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Sharon's Depot — map"></iframe>
+          title="Lone Star Surplus — map"></iframe>
       </div>
     </div>
   </div>
@@ -1157,10 +1158,10 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
 <footer>
   <div class="container">
     <div class="footer-row">
-      <div class="footer-brand">Sharon's Depot</div>
+      <div class="footer-brand">Lone Star Surplus</div>
       <div class="footer-meta">
-        Family-owned · San Antonio, TX · Est. 2016<br>
-        Redesign concept by <a href="https://www.graebener.tech" target="_blank" rel="noopener">Graebener.tech</a> — not affiliated with Home Depot.
+        Family-owned · San Antonio, TX · Est. 2012<br>
+        Concept site by <a href="https://www.graebener.tech" target="_blank" rel="noopener">Graebener.tech</a> — fictional brand; not affiliated with Home Depot.
       </div>
     </div>
   </div>
@@ -1168,7 +1169,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
 
 <div class="toast-wrap" id="toast-wrap" aria-live="polite" aria-atomic="false"></div>
 
-<button class="chat-fab" id="chat-fab" type="button" aria-label="Open chat with Sharon's Depot" aria-expanded="false">
+<button class="chat-fab" id="chat-fab" type="button" aria-label="Open chat with Lone Star Surplus" aria-expanded="false">
   <span class="badge">1</span>
   <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
@@ -1178,11 +1179,11 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
   </svg>
 </button>
 
-<aside class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with Sharon's Depot" aria-hidden="true">
+<aside class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with Lone Star Surplus" aria-hidden="true">
   <div class="chat-head">
-    <div class="chat-avatar"><img src="assets/logos/sharons-depot-logo.webp" alt=""></div>
+    <div class="chat-avatar"><svg viewBox="0 0 24 24" style="width:60%;height:60%;fill:var(--accent)"><path d="M12 2 L14.7 9.3 L22 9.3 L16.2 13.9 L18.5 21 L12 16.5 L5.5 21 L7.8 13.9 L2 9.3 L9.3 9.3 Z"/></svg></div>
     <div>
-      <div class="chat-name">Sharon's Depot</div>
+      <div class="chat-name">Lone Star Surplus</div>
       <div class="chat-status">Online · usually replies in a few minutes</div>
     </div>
     <button class="chat-close" id="chat-close" type="button" aria-label="Close chat">&times;</button>
@@ -1294,7 +1295,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
   // Alerts: signup, success, sample-alert toast
   const form = document.getElementById('alerts-form');
   const success = document.getElementById('alerts-success');
-  const STORAGE_KEY = 'sharons_depot_alerts_signup';
+  const STORAGE_KEY = 'lone_star_surplus_alerts_signup';
   const FREQ_LABELS = {instant: 'As they arrive', weekly: 'Friday digest'};
   const CAT_LABELS = {all: 'All categories', tools: 'Tools', lighting: 'Lighting', storage: 'Storage', outdoor: 'Outdoor'};
   let lastSampleProductId = null;
@@ -1471,7 +1472,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
             <span class="badge" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
             </span>
-            Sharon's Depot · just now
+            Lone Star Surplus · just now
           </div>
           <button class="toast-close" aria-label="Dismiss" type="button">&times;</button>
         </div>
@@ -1736,19 +1737,19 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
       hours: () => {
         const { open, dayName } = isOpenNow();
         const status = open ? '<b>We\'re open right now.</b>' : `<b>We're closed at the moment.</b>`;
-        return `${status} Today is ${dayName}. We're open Mon–Fri, 9:00 AM – 5:30 PM, and walk-ins are always welcome at <a href=\"https://www.google.com/maps/dir/?api=1&destination=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217\" target=\"_blank\" rel=\"noopener\">4503 N Stahl Park Ste 110, San Antonio TX 78217</a>.`;
+        return `${status} Today is ${dayName}. We're open Mon–Fri, 9:00 AM – 5:30 PM, and walk-ins are always welcome at <a href=\"https://www.google.com/maps/dir/?api=1&destination=5717+Bandera+Rd+Suite+12+San+Antonio+TX+78238\" target=\"_blank\" rel=\"noopener\">5717 Bandera Rd Suite 12, San Antonio TX 78238</a>.`;
       },
       visit: () => {
-        return `<b>4503 N Stahl Park, Ste 110</b><br>San Antonio, TX 78217<br>📞 <a href="tel:+12105938701">(210) 593-8701</a><br><br>Mon–Fri 9 AM – 5:30 PM. Closed Sat & Sun.<br><a href="https://www.google.com/maps/dir/?api=1&destination=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217" target="_blank" rel="noopener">Get directions →</a>`;
+        return `<b>5717 Bandera Rd, Suite 12</b><br>San Antonio, TX 78238<br>📞 <a href="tel:+12105550182">(210) 555-0182</a><br><br>Mon–Fri 9 AM – 5:30 PM. Closed Sat & Sun.<br><a href="https://www.google.com/maps/dir/?api=1&destination=5717+Bandera+Rd+Suite+12+San+Antonio+TX+78238" target="_blank" rel="noopener">Get directions →</a>`;
       },
       human: () => {
-        return "Sharon's not at the keyboard, but she's a phone call away — <a href=\"tel:+12105938701\">(210) 593-8701</a>. Or shoot us an email at <a href=\"mailto:Sharonsdepot@gmail.com\">Sharonsdepot@gmail.com</a> and we'll get back to you the same day.";
+        return "Frank's not at the keyboard, but he's a phone call away — <a href=\"tel:+12105550182\">(210) 555-0182</a>. Or shoot us an email at <a href=\"mailto:hello@lonestarsurplus.com\">hello@lonestarsurplus.com</a> and we'll get back to you the same day.";
       },
       thanks: () => {
         return "Anytime. Holler if you need a hand finding something — that's what we're here for.";
       },
       fallback: () => {
-        return "I'm a small bot — I can answer about hours, location, what's new on the floor, or how to reach a human. Pick one of those, or call <a href=\"tel:+12105938701\">(210) 593-8701</a> if it's urgent.";
+        return "I'm a small bot — I can answer about hours, location, what's new on the floor, or how to reach a human. Pick one of those, or call <a href=\"tel:+12105550182\">(210) 555-0182</a> if it's urgent.";
       }
     };
 
@@ -1784,7 +1785,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
       if (/\b(new|stock|drop|truck|fresh|just in|today)\b/.test(s)) return 'whatsnew';
       if (/\b(have|stock|in stock|got|carry|sell|find)\b/.test(s)) return 'stock';
       if (/\b(where|address|location|visit|directions|map)\b/.test(s)) return 'visit';
-      if (/\b(human|person|sharon|call|phone|talk to)\b/.test(s)) return 'human';
+      if (/\b(human|person|frank|call|phone|talk to)\b/.test(s)) return 'human';
       if (/\b(thanks|thank you|thx|ty)\b/.test(s)) return 'thanks';
       return 'fallback';
     };
@@ -1808,7 +1809,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
       const t = showTyping();
       await wait(500);
       t.remove();
-      addBubble('bot', "Hi 👋 I'm Sharon's. What can I help you find today?");
+      addBubble('bot', "Howdy 🤠 I'm the Lone Star Surplus bot. What can I help you find today?");
       await wait(280);
       setQuickReplies(QUICK_INITIAL);
     };
