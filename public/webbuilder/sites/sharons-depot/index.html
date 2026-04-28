@@ -281,8 +281,8 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 .sms-stamp{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:rgba(244,238,227,.4);letter-spacing:0.12em;text-transform:uppercase;text-align:center;margin:10px 0}
 
 /* Toast */
-.toast-wrap{position:fixed;bottom:24px;right:24px;z-index:120;display:flex;flex-direction:column;gap:12px;pointer-events:none;max-width:380px;width:calc(100% - 48px)}
-@media(max-width:640px){.toast-wrap{right:16px;left:16px;bottom:16px;width:auto;max-width:none}}
+.toast-wrap{position:fixed;bottom:24px;left:24px;z-index:120;display:flex;flex-direction:column;gap:12px;pointer-events:none;max-width:380px;width:calc(100% - 48px)}
+@media(max-width:640px){.toast-wrap{right:16px;left:16px;bottom:96px;width:auto;max-width:none}}
 .toast{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px 18px;box-shadow:0 16px 48px rgba(31,26,20,.18),0 2px 6px rgba(31,26,20,.08);display:flex;flex-direction:column;gap:10px;pointer-events:auto;animation:toast-in .45s cubic-bezier(.18,.7,.28,1.1) both}
 .toast.leaving{animation:toast-out .35s ease-in both}
 @keyframes toast-in{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:none}}
@@ -307,6 +307,139 @@ h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
 .store-cta-inline:hover{color:var(--accent-deep);border-bottom-color:var(--accent-deep)}
 .store-cta-inline .arrow{transition:transform .2s}
 .store-cta-inline:hover .arrow{transform:translateX(3px)}
+
+/* INSIDE THE WAREHOUSE */
+.inside{padding:120px 0;background:linear-gradient(180deg,var(--bg) 0%,#F4EBDC 100%);position:relative;overflow:hidden}
+.inside-head{max-width:760px;margin-bottom:48px}
+.inside-head h2{margin:14px 0 18px}
+
+.listing-demo{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-card);overflow:hidden;display:grid;grid-template-columns:1fr;align-items:stretch}
+@media(min-width:920px){.listing-demo{grid-template-columns:1.2fr 1fr;min-height:520px}}
+
+.listing-stage{position:relative;background:var(--text);color:var(--bg);padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:360px;overflow:hidden}
+.listing-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(232,169,61,.12),transparent 55%),radial-gradient(circle at 80% 80%,rgba(196,74,31,.18),transparent 55%);pointer-events:none}
+.listing-stage > *{position:relative;z-index:1}
+.stage-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.stage-eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 8px rgba(232,169,61,.7);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+
+.product-frame{position:relative;background:var(--bg);border-radius:14px;padding:18px;width:min(320px,100%);box-shadow:0 12px 40px rgba(0,0,0,.4);transition:transform .35s,box-shadow .35s}
+.product-frame img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:8px;background:var(--surface-2);padding:8px}
+.product-frame .pname{margin-top:12px;font-family:'Fraunces',serif;font-size:0.95rem;font-weight:600;color:var(--text);line-height:1.3;min-height:2.6em}
+.product-frame .pprices{margin-top:6px;display:flex;align-items:baseline;gap:8px}
+.product-frame .pwas{color:var(--text-faint);text-decoration:line-through;font-size:0.82rem}
+.product-frame .pnow{color:var(--accent);font-weight:700;font-family:'Fraunces',serif;font-size:1.1rem}
+
+/* Bounding-box overlay during detection */
+.detect-box{position:absolute;inset:8px;border:2px dashed var(--accent-2);border-radius:10px;opacity:0;transition:opacity .35s;pointer-events:none}
+.detect-box::after{content:"";position:absolute;top:-3px;left:-3px;right:-3px;bottom:-3px;border:2px solid var(--accent-2);border-radius:12px;box-shadow:0 0 24px rgba(232,169,61,.5);opacity:.5}
+.detect-corner{position:absolute;width:18px;height:18px;border:2.5px solid var(--accent-2);transform:rotate(45deg);transform-origin:center}
+.detect-corner.tl{top:-9px;left:-9px;border-right:0;border-bottom:0}
+.detect-corner.tr{top:-9px;right:-9px;border-left:0;border-bottom:0}
+.detect-corner.bl{bottom:-9px;left:-9px;border-right:0;border-top:0}
+.detect-corner.br{bottom:-9px;right:-9px;border-left:0;border-top:0}
+.product-frame.detecting .detect-box{opacity:1}
+
+.stage-status{margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:rgba(244,238,227,.8);letter-spacing:0.06em;min-height:1.2em;text-align:center;display:flex;align-items:center;gap:10px}
+.stage-status .blink{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent-2);animation:pulse 1s ease-in-out infinite}
+.stage-status.idle .blink{background:var(--text-muted);animation:none}
+
+.stage-cta{margin-top:24px}
+.stage-cta button{font-family:inherit;background:var(--accent);color:#FFF;border:0;padding:13px 22px;font-size:0.95rem;font-weight:600;border-radius:var(--r-pill);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
+.stage-cta button:hover{background:#FFA452;transform:translateY(-1px)}
+.stage-cta button[disabled]{background:var(--surface-3);color:var(--text-muted);cursor:wait}
+
+/* Right column: channel pipeline */
+.pipeline{padding:32px;display:flex;flex-direction:column;gap:14px;background:var(--bg)}
+.pipeline-head{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px}
+.pipeline-h2{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:700;color:var(--text);margin-bottom:18px;line-height:1.2}
+.pipeline-list{display:flex;flex-direction:column;gap:10px}
+.channel-row{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:14px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:10px;transition:background .25s,border-color .25s}
+.channel-row.publishing{border-color:var(--accent-2);background:rgba(232,169,61,.06)}
+.channel-row.live{border-color:#3FAE6B;background:rgba(63,174,107,.05)}
+.channel-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:0.86rem;flex-shrink:0;color:#FFF}
+.channel-icon.sq{background:#000}
+.channel-icon.eb{background:#E53238;color:#FFF}
+.channel-icon.am{background:#FF9900;color:#000}
+.channel-icon.fb{background:#1877F2}
+.channel-icon.ou{background:#15B868}
+.channel-info{min-width:0}
+.channel-name{font-family:'Inter',sans-serif;font-weight:600;font-size:0.95rem;color:var(--text);line-height:1.2}
+.channel-sub{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-faint);margin-top:2px;letter-spacing:0.04em;text-transform:uppercase}
+.channel-status{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-faint);display:flex;align-items:center;gap:6px}
+.channel-status.queued{color:var(--text-faint)}
+.channel-status.publishing{color:var(--accent)}
+.channel-status.publishing::after{content:"";width:10px;height:10px;border:1.5px solid var(--accent);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.channel-status.live{color:#3FAE6B}
+.channel-status.live::after{content:"\2713";font-weight:700;font-size:0.95rem}
+
+.pipeline-summary{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:baseline;font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--text-faint);letter-spacing:0.04em}
+.pipeline-summary .timer{color:var(--text);font-weight:600;font-size:1.05rem;font-feature-settings:"tnum"}
+.pipeline-summary.done .timer{color:#3FAE6B}
+
+/* CHATBOT */
+.chat-fab{position:fixed;bottom:24px;right:24px;z-index:130;width:60px;height:60px;border-radius:50%;background:var(--accent);color:#FFF;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(138,46,14,.32),0 2px 6px rgba(31,26,20,.16);transition:transform .25s,box-shadow .25s,background .25s;padding:0}
+.chat-fab:hover{transform:scale(1.06);background:var(--accent-deep);box-shadow:0 12px 36px rgba(138,46,14,.42)}
+.chat-fab svg{width:26px;height:26px}
+.chat-fab .badge{position:absolute;top:6px;right:6px;width:18px;height:18px;border-radius:50%;background:var(--accent-2);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #FFF}
+.chat-fab.open .badge{display:none}
+.chat-fab .icon-close{display:none}
+.chat-fab.open .icon-chat{display:none}
+.chat-fab.open .icon-close{display:inline-block}
+
+.chat-panel{position:fixed;bottom:96px;right:24px;z-index:129;width:380px;max-width:calc(100vw - 48px);height:560px;max-height:calc(100vh - 120px);background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:0 18px 48px rgba(31,26,20,.28),0 4px 10px rgba(31,26,20,.1);display:flex;flex-direction:column;overflow:hidden;transform-origin:bottom right;transform:scale(.85) translateY(20px);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.18,.7,.28,1.1),opacity .25s}
+.chat-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:auto}
+@media(max-width:640px){
+  .chat-panel{right:8px;left:8px;bottom:84px;width:auto;max-width:none;height:calc(100vh - 100px)}
+}
+
+.chat-head{display:flex;align-items:center;gap:12px;padding:18px 20px;background:var(--text);color:var(--bg);position:relative}
+.chat-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(244,238,227,.08)}
+.chat-avatar{width:40px;height:40px;border-radius:10px;background:#FFF;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.chat-avatar img{width:100%;height:100%;object-fit:contain;padding:2px}
+.chat-avatar::after{content:"";position:absolute;bottom:-2px;right:-2px;width:11px;height:11px;border-radius:50%;background:#3FAE6B;border:2px solid var(--text)}
+.chat-name{font-family:'Fraunces',serif;font-weight:700;font-size:1.02rem;color:var(--bg);line-height:1.2}
+.chat-status{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:rgba(244,238,227,.55);letter-spacing:0.1em;text-transform:uppercase;margin-top:3px}
+.chat-close{margin-left:auto;background:none;border:0;color:rgba(244,238,227,.65);font-size:24px;line-height:1;padding:6px 8px;cursor:pointer;border-radius:6px;transition:background .2s,color .2s}
+.chat-close:hover{background:rgba(244,238,227,.1);color:var(--bg)}
+
+.chat-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,var(--bg) 0%,var(--surface-2) 100%);scroll-behavior:smooth}
+.chat-body::-webkit-scrollbar{width:6px}
+.chat-body::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
+
+.msg{max-width:82%;padding:10px 14px;font-size:0.92rem;line-height:1.4;border-radius:14px;animation:msg-in .3s ease-out both;font-family:'Inter',sans-serif}
+@keyframes msg-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.bot{background:var(--surface);border:1px solid var(--border);color:var(--text);border-top-left-radius:4px;align-self:flex-start;box-shadow:0 1px 2px rgba(31,26,20,.04)}
+.msg.user{background:var(--accent);color:#FFF;border-top-right-radius:4px;align-self:flex-end}
+.msg b{font-weight:600}
+.msg a{color:var(--accent);font-weight:600;text-decoration:underline;text-decoration-color:rgba(196,74,31,.4);text-underline-offset:2px}
+.msg.bot a:hover{color:var(--accent-deep)}
+.msg.user a{color:#FFF;text-decoration-color:rgba(255,255,255,.5)}
+
+.msg-prods{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.msg-prod{display:flex;align-items:center;gap:10px;background:var(--surface-2);border-radius:8px;padding:8px;text-decoration:none;color:inherit;transition:background .2s}
+.msg-prod:hover{background:var(--surface-3)}
+.msg-prod img{width:42px;height:42px;object-fit:contain;background:var(--surface);border-radius:6px;padding:3px;flex-shrink:0}
+.msg-prod-name{font-family:'Fraunces',serif;font-size:0.8rem;font-weight:600;color:var(--text);line-height:1.3}
+.msg-prod-price{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--accent);font-weight:700;margin-top:2px;letter-spacing:0.02em}
+
+.typing{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-top-left-radius:4px;border-radius:14px;animation:msg-in .3s ease-out both}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--text-faint);animation:typing-bounce 1.2s ease-in-out infinite}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes typing-bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+
+.chat-quickreplies{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px 0;background:linear-gradient(180deg,transparent 0%,var(--surface-2) 100%)}
+.chat-quickreplies button{font-family:'Inter',sans-serif;font-size:0.84rem;font-weight:500;background:var(--surface);border:1px solid var(--border-strong);color:var(--text);padding:7px 13px;border-radius:var(--r-pill);cursor:pointer;transition:background .2s,border-color .2s,color .2s;line-height:1.2}
+.chat-quickreplies button:hover{background:var(--accent);color:#FFF;border-color:var(--accent)}
+
+.chat-input{display:flex;gap:8px;padding:12px 14px 14px;background:var(--surface-2);border-top:1px solid var(--border);align-items:center}
+.chat-input input{flex:1;padding:10px 14px;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r-pill);font-family:'Inter',sans-serif;font-size:0.92rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+.chat-input input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(196,74,31,.12)}
+.chat-input button{background:var(--accent);color:#FFF;border:0;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;flex-shrink:0;padding:0}
+.chat-input button:hover{background:var(--accent-deep);transform:scale(1.05)}
+.chat-input button svg{width:16px;height:16px}
 
 /* CHANNELS */
 .channels{padding:100px 0}
@@ -368,6 +501,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
     <li><a href="#deals">Today's Deals</a></li>
     <li><a href="#store">Store</a></li>
     <li><a href="#alerts">Alerts</a></li>
+    <li><a href="#inside">Inside</a></li>
     <li><a href="#channels">Where to Find Us</a></li>
     <li><a href="#visit">Visit</a></li>
   </ul>
@@ -848,6 +982,94 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
   </div>
 </section>
 
+<section class="inside" id="inside">
+  <div class="container">
+    <div class="inside-head reveal">
+      <span class="eyebrow">Inside the warehouse</span>
+      <h2>How a fresh truckload becomes 5 listings, in minutes.</h2>
+      <p class="subtitle">New deliveries roll in by the truckload. Here's how we stay on top of every box — and how a single new arrival lands on every place you might shop, while you're still finishing your coffee.</p>
+    </div>
+
+    <div class="listing-demo reveal">
+      <div class="listing-stage" id="stage">
+        <div class="stage-eyebrow"><span>Listing agent · standby</span></div>
+        <div class="product-frame" id="product-frame">
+          <div class="detect-box">
+            <span class="detect-corner tl"></span>
+            <span class="detect-corner tr"></span>
+            <span class="detect-corner bl"></span>
+            <span class="detect-corner br"></span>
+          </div>
+          <img id="demo-prod-img" src="assets/products/SINJNKXE4ZIXVSDJF5DBVIJB.jpeg" alt="">
+          <div class="pname" id="demo-prod-name">PowerSmart 21" 3-in-1 Self-Propelled Mower</div>
+          <div class="pprices">
+            <span class="pwas" id="demo-prod-was">$329.00</span>
+            <span class="pnow" id="demo-prod-now">$197.40</span>
+          </div>
+        </div>
+        <div class="stage-status idle" id="stage-status"><span class="blink"></span><span id="stage-status-text">Click "drop a new arrival" to run the demo</span></div>
+        <div class="stage-cta">
+          <button id="run-listing" type="button">
+            <span>Drop a new arrival</span>
+            <span class="arrow">→</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pipeline">
+        <div class="pipeline-head">Auto-publishing pipeline</div>
+        <div class="pipeline-h2">One photo, every channel.</div>
+        <div class="pipeline-list" id="pipeline-list">
+          <div class="channel-row" data-channel="square">
+            <span class="channel-icon sq">SQ</span>
+            <div class="channel-info">
+              <div class="channel-name">sharonsdepot.com</div>
+              <div class="channel-sub">Square Online</div>
+            </div>
+            <div class="channel-status queued">Queued</div>
+          </div>
+          <div class="channel-row" data-channel="ebay">
+            <span class="channel-icon eb">eB</span>
+            <div class="channel-info">
+              <div class="channel-name">eBay</div>
+              <div class="channel-sub">str/sharonsdepot</div>
+            </div>
+            <div class="channel-status queued">Queued</div>
+          </div>
+          <div class="channel-row" data-channel="amazon">
+            <span class="channel-icon am">a.</span>
+            <div class="channel-info">
+              <div class="channel-name">Amazon</div>
+              <div class="channel-sub">Seller Central</div>
+            </div>
+            <div class="channel-status queued">Queued</div>
+          </div>
+          <div class="channel-row" data-channel="facebook">
+            <span class="channel-icon fb">f</span>
+            <div class="channel-info">
+              <div class="channel-name">Facebook Marketplace</div>
+              <div class="channel-sub">/p/Sharons-Depot</div>
+            </div>
+            <div class="channel-status queued">Queued</div>
+          </div>
+          <div class="channel-row" data-channel="offerup">
+            <span class="channel-icon ou">Ou</span>
+            <div class="channel-info">
+              <div class="channel-name">OfferUp</div>
+              <div class="channel-sub">offerup.co</div>
+            </div>
+            <div class="channel-status queued">Queued</div>
+          </div>
+        </div>
+        <div class="pipeline-summary" id="pipeline-summary">
+          <span>Total pipeline time</span>
+          <span class="timer" id="pipeline-timer">--:--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="channels" id="channels">
   <div class="container">
     <div class="section-head reveal">
@@ -943,6 +1165,37 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
     </div>
   </div>
 </footer>
+
+<div class="toast-wrap" id="toast-wrap" aria-live="polite" aria-atomic="false"></div>
+
+<button class="chat-fab" id="chat-fab" type="button" aria-label="Open chat with Sharon's Depot" aria-expanded="false">
+  <span class="badge">1</span>
+  <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+  <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  </svg>
+</button>
+
+<aside class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with Sharon's Depot" aria-hidden="true">
+  <div class="chat-head">
+    <div class="chat-avatar"><img src="assets/logos/sharons-depot-logo.webp" alt=""></div>
+    <div>
+      <div class="chat-name">Sharon's Depot</div>
+      <div class="chat-status">Online · usually replies in a few minutes</div>
+    </div>
+    <button class="chat-close" id="chat-close" type="button" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-body" id="chat-body" role="log" aria-live="polite"></div>
+  <div class="chat-quickreplies" id="chat-quickreplies"></div>
+  <form class="chat-input" id="chat-form">
+    <input type="text" id="chat-text" placeholder="Type a message…" autocomplete="off" aria-label="Type a message">
+    <button type="submit" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </form>
+</aside>
 
 <script>
 (function(){
@@ -1257,10 +1510,311 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--b
       }, 3500);
     });
   }
+
+  // -------------------------------------------------------------
+  // Multi-channel listing agent demo
+  // -------------------------------------------------------------
+  const stage = document.getElementById('stage');
+  if (stage) {
+    const productFrame = document.getElementById('product-frame');
+    const stageEyebrow = stage.querySelector('.stage-eyebrow span');
+    const stageStatus = document.getElementById('stage-status');
+    const stageStatusText = document.getElementById('stage-status-text');
+    const runBtn = document.getElementById('run-listing');
+    const summary = document.getElementById('pipeline-summary');
+    const timer = document.getElementById('pipeline-timer');
+    const channelRows = [...document.querySelectorAll('#pipeline-list .channel-row')];
+
+    const setStatus = (text, busy = true) => {
+      stageStatusText.textContent = text;
+      stageStatus.classList.toggle('idle', !busy);
+    };
+
+    const setChannel = (idx, state) => {
+      const row = channelRows[idx];
+      const status = row.querySelector('.channel-status');
+      row.classList.remove('publishing', 'live');
+      status.classList.remove('queued', 'publishing', 'live');
+      if (state === 'queued') {
+        status.classList.add('queued');
+        status.textContent = 'Queued';
+      } else if (state === 'publishing') {
+        row.classList.add('publishing');
+        status.classList.add('publishing');
+        status.textContent = 'Publishing';
+      } else if (state === 'live') {
+        row.classList.add('live');
+        status.classList.add('live');
+        status.textContent = 'Live';
+      }
+    };
+
+    const resetPipeline = () => {
+      channelRows.forEach((_, i) => setChannel(i, 'queued'));
+      summary.classList.remove('done');
+      timer.textContent = '--:--';
+    };
+
+    const wait = (ms) => new Promise(r => setTimeout(r, ms));
+
+    // Pick a different product each run from the existing store-items
+    const pickFreshProduct = () => {
+      const items = [...document.querySelectorAll('.store-item')];
+      const current = document.getElementById('demo-prod-img').getAttribute('src').split('/').pop();
+      const others = items.filter(it => !it.querySelector('img').getAttribute('src').endsWith(current));
+      const pool = others.length ? others : items;
+      return pool[Math.floor(Math.random() * pool.length)];
+    };
+
+    const swapProduct = (item) => {
+      document.getElementById('demo-prod-img').setAttribute('src', item.querySelector('img').getAttribute('src'));
+      document.getElementById('demo-prod-name').textContent = item.dataset.name;
+      const fmt = (n) => '$' + parseFloat(n).toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2});
+      document.getElementById('demo-prod-was').textContent = fmt(item.dataset.was);
+      document.getElementById('demo-prod-now').textContent = fmt(item.dataset.now);
+    };
+
+    const run = async () => {
+      runBtn.disabled = true;
+      resetPipeline();
+      productFrame.classList.remove('detecting');
+
+      // Pick + show new product
+      const item = pickFreshProduct();
+      swapProduct(item);
+
+      // Detection
+      stageEyebrow.textContent = 'Listing agent · running';
+      setStatus('Inspecting photo…');
+      await wait(700);
+      productFrame.classList.add('detecting');
+      setStatus('Detecting product, category, price…');
+      await wait(1100);
+      setStatus('Drafting listings (5)…');
+      await wait(900);
+
+      // Channel cascade
+      const startedAt = performance.now();
+      for (let i = 0; i < channelRows.length; i++) {
+        setChannel(i, 'publishing');
+        const channelName = channelRows[i].querySelector('.channel-name').textContent;
+        setStatus('Publishing to ' + channelName + '…');
+        await wait(420 + Math.random() * 280);
+        setChannel(i, 'live');
+      }
+      const elapsedMs = performance.now() - startedAt;
+
+      // Compute fake "minutes:seconds" — real elapsed sec maps to display ~30-40 sec
+      const fakeSeconds = Math.round(elapsedMs / 1000) * 11 + 23;
+      const mm = Math.floor(fakeSeconds / 60);
+      const ss = fakeSeconds % 60;
+      timer.textContent = `${mm}:${ss.toString().padStart(2,'0')}`;
+      summary.classList.add('done');
+      productFrame.classList.remove('detecting');
+      stageEyebrow.textContent = 'Listing agent · idle';
+      setStatus('Live on 5 channels. New listing earnings the moment someone clicks.', false);
+      runBtn.disabled = false;
+      runBtn.querySelector('span').textContent = 'Drop another arrival';
+    };
+
+    runBtn.addEventListener('click', () => {
+      if (runBtn.disabled) return;
+      run();
+    });
+  }
+
+  // -------------------------------------------------------------
+  // Concierge chatbot
+  // -------------------------------------------------------------
+  const chatFab = document.getElementById('chat-fab');
+  const chatPanel = document.getElementById('chat-panel');
+  if (chatFab && chatPanel) {
+    const chatBody = document.getElementById('chat-body');
+    const chatQuick = document.getElementById('chat-quickreplies');
+    const chatForm = document.getElementById('chat-form');
+    const chatText = document.getElementById('chat-text');
+    const chatClose = document.getElementById('chat-close');
+    const allItems = () => [...document.querySelectorAll('.store-item')];
+
+    let opened = false;
+    const openChat = () => {
+      chatPanel.classList.add('open');
+      chatPanel.setAttribute('aria-hidden', 'false');
+      chatFab.classList.add('open');
+      chatFab.setAttribute('aria-expanded', 'true');
+      if (!opened) {
+        opened = true;
+        startGreeting();
+      } else {
+        setTimeout(() => chatText.focus(), 320);
+      }
+    };
+    const closeChat = () => {
+      chatPanel.classList.remove('open');
+      chatPanel.setAttribute('aria-hidden', 'true');
+      chatFab.classList.remove('open');
+      chatFab.setAttribute('aria-expanded', 'false');
+    };
+
+    chatFab.addEventListener('click', () => {
+      if (chatPanel.classList.contains('open')) closeChat();
+      else openChat();
+    });
+    chatClose.addEventListener('click', closeChat);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && chatPanel.classList.contains('open')) closeChat();
+    });
+
+    const scrollDown = () => { chatBody.scrollTop = chatBody.scrollHeight; };
+
+    const addBubble = (who, html) => {
+      const div = document.createElement('div');
+      div.className = 'msg ' + who;
+      div.innerHTML = html;
+      chatBody.appendChild(div);
+      scrollDown();
+      return div;
+    };
+
+    const showTyping = () => {
+      const t = document.createElement('div');
+      t.className = 'typing';
+      t.innerHTML = '<span></span><span></span><span></span>';
+      chatBody.appendChild(t);
+      scrollDown();
+      return t;
+    };
+
+    const wait = (ms) => new Promise(r => setTimeout(r, ms));
+
+    const setQuickReplies = (replies) => {
+      chatQuick.innerHTML = '';
+      replies.forEach(r => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = r.label;
+        b.addEventListener('click', () => handleIntent(r.intent, r.label));
+        chatQuick.appendChild(b);
+      });
+    };
+
+    const escapeHtml = (s) => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    const formatMoney = (n) => '$' + parseFloat(n).toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2});
+
+    const isOpenNow = () => {
+      const now = new Date();
+      const day = now.getDay(); // 0=Sun, 6=Sat
+      const minutes = now.getHours() * 60 + now.getMinutes();
+      const open = day >= 1 && day <= 5 && minutes >= 9 * 60 && minutes < 17 * 60 + 30;
+      const dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][day];
+      return { open, dayName };
+    };
+
+    const renderProductMini = (item) => {
+      const img = item.querySelector('img').getAttribute('src');
+      const name = item.dataset.name;
+      const now = formatMoney(item.dataset.now);
+      const url = item.getAttribute('href');
+      return `<a class="msg-prod" href="${url}" target="_blank" rel="noopener"><img src="${img}" alt=""><div><div class="msg-prod-name">${escapeHtml(name)}</div><div class="msg-prod-price">${now}</div></div></a>`;
+    };
+
+    const sample = (arr, n) => {
+      const a = [...arr].sort(() => Math.random() - 0.5);
+      return a.slice(0, n);
+    };
+
+    const RESPONSES = {
+      whatsnew: () => {
+        const picks = sample(allItems(), 3);
+        const list = picks.map(renderProductMini).join('');
+        return `<b>Just hit the floor:</b> ${picks.length} fresh items today.<div class="msg-prods">${list}</div>Want a text the next time something drops? <a href="#alerts">Sign up for alerts →</a>`;
+      },
+      stock: () => {
+        return "Most stock here is one-of-a-kind — when it sells, it's gone. Tell me what you're hunting (drill, mower, cabinet?) and I'll text you the moment it lands. Or browse what's on the floor right now: <a href=\"#store\">See the store →</a>";
+      },
+      hours: () => {
+        const { open, dayName } = isOpenNow();
+        const status = open ? '<b>We\'re open right now.</b>' : `<b>We're closed at the moment.</b>`;
+        return `${status} Today is ${dayName}. We're open Mon–Fri, 9:00 AM – 5:30 PM, and walk-ins are always welcome at <a href=\"https://www.google.com/maps/dir/?api=1&destination=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217\" target=\"_blank\" rel=\"noopener\">4503 N Stahl Park Ste 110, San Antonio TX 78217</a>.`;
+      },
+      visit: () => {
+        return `<b>4503 N Stahl Park, Ste 110</b><br>San Antonio, TX 78217<br>📞 <a href="tel:+12105938701">(210) 593-8701</a><br><br>Mon–Fri 9 AM – 5:30 PM. Closed Sat & Sun.<br><a href="https://www.google.com/maps/dir/?api=1&destination=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217" target="_blank" rel="noopener">Get directions →</a>`;
+      },
+      human: () => {
+        return "Sharon's not at the keyboard, but she's a phone call away — <a href=\"tel:+12105938701\">(210) 593-8701</a>. Or shoot us an email at <a href=\"mailto:Sharonsdepot@gmail.com\">Sharonsdepot@gmail.com</a> and we'll get back to you the same day.";
+      },
+      thanks: () => {
+        return "Anytime. Holler if you need a hand finding something — that's what we're here for.";
+      },
+      fallback: () => {
+        return "I'm a small bot — I can answer about hours, location, what's new on the floor, or how to reach a human. Pick one of those, or call <a href=\"tel:+12105938701\">(210) 593-8701</a> if it's urgent.";
+      }
+    };
+
+    const QUICK_INITIAL = [
+      { label: "What's new today?", intent: 'whatsnew' },
+      { label: "Are you open right now?", intent: 'hours' },
+      { label: "Do you have an item?", intent: 'stock' },
+      { label: "Where are you located?", intent: 'visit' },
+      { label: "Talk to a human", intent: 'human' },
+    ];
+
+    const QUICK_FOLLOWUP = [
+      { label: "What's new today?", intent: 'whatsnew' },
+      { label: "Are you open?", intent: 'hours' },
+      { label: "Talk to a human", intent: 'human' },
+    ];
+
+    const handleIntent = async (intent, label) => {
+      addBubble('user', escapeHtml(label));
+      setQuickReplies([]); // clear while bot "types"
+      const t = showTyping();
+      await wait(900 + Math.random() * 600);
+      t.remove();
+      const fn = RESPONSES[intent] || RESPONSES.fallback;
+      addBubble('bot', fn());
+      setQuickReplies(QUICK_FOLLOWUP);
+    };
+
+    // Crude keyword matcher for free-text input
+    const classify = (text) => {
+      const s = text.toLowerCase();
+      if (/\b(open|hours|hour|closed|today)\b/.test(s)) return 'hours';
+      if (/\b(new|stock|drop|truck|fresh|just in|today)\b/.test(s)) return 'whatsnew';
+      if (/\b(have|stock|in stock|got|carry|sell|find)\b/.test(s)) return 'stock';
+      if (/\b(where|address|location|visit|directions|map)\b/.test(s)) return 'visit';
+      if (/\b(human|person|sharon|call|phone|talk to)\b/.test(s)) return 'human';
+      if (/\b(thanks|thank you|thx|ty)\b/.test(s)) return 'thanks';
+      return 'fallback';
+    };
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = chatText.value.trim();
+      if (!text) return;
+      chatText.value = '';
+      addBubble('user', escapeHtml(text));
+      setQuickReplies([]);
+      const t = showTyping();
+      await wait(900 + Math.random() * 600);
+      t.remove();
+      const intent = classify(text);
+      addBubble('bot', RESPONSES[intent]());
+      setQuickReplies(QUICK_FOLLOWUP);
+    });
+
+    const startGreeting = async () => {
+      const t = showTyping();
+      await wait(500);
+      t.remove();
+      addBubble('bot', "Hi 👋 I'm Sharon's. What can I help you find today?");
+      await wait(280);
+      setQuickReplies(QUICK_INITIAL);
+    };
+  }
 })();
 </script>
-
-<div class="toast-wrap" id="toast-wrap" aria-live="polite" aria-atomic="false"></div>
 
 </body>
 </html>
