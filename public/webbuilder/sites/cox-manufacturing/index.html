@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cox Manufacturing — Precision parts at scale, on-time, on-spec.</title>
+<meta name="description" content="ISO 9001:2015 / ITAR registered Swiss screw machining, CNC mill-turn, and micromachining for aerospace, medical, defense, and electronics. Quote in 24h.">
+<meta name="theme-color" content="#0B1220">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B1220;--bg-2:#0F1A2E;--surface:#111C33;--surface-2:#172642;
+  --border:rgba(241,245,249,0.10);--border-strong:rgba(241,245,249,0.18);
+  --text:#F1F5F9;--text-muted:#94A3B8;--text-faint:#64748B;
+  --accent:#FB923C;--accent-soft:rgba(251,146,60,0.12);--accent-mid:rgba(251,146,60,0.24);--accent-deep:#C2410C;
+  --r-card:12px;--r-input:8px;--r-pill:999px;
+  --shadow-card:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  --shadow-glow:0 0 0 1px rgba(251,146,60,.5),0 8px 32px rgba(251,146,60,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 75% 0%,rgba(251,146,60,.10),transparent 50%),radial-gradient(circle at 10% 95%,rgba(3,105,161,.08),transparent 55%)}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+@media(max-width:600px){.container{padding:0 20px}}
+
+/* TYPE */
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.02em;line-height:1.1;font-weight:700}
+h1{font-size:clamp(2.4rem,5.5vw,4rem);letter-spacing:-0.025em;line-height:1.05}
+h2{font-size:clamp(1.8rem,3.5vw,2.6rem)}
+h3{font-size:1.15rem;font-weight:600}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent)}
+.subtitle{color:var(--text-muted);font-size:1.05rem;line-height:1.6}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;font-size:0.92rem;font-weight:600;border-radius:var(--r-input);transition:transform .2s,background .2s,box-shadow .2s;cursor:pointer;border:none;line-height:1;font-family:inherit;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--bg)}
+.btn-primary:hover{background:#FFA452;transform:translateY(-1px);box-shadow:0 8px 24px rgba(251,146,60,.3)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border-strong)}
+.btn-ghost:hover{background:rgba(241,245,249,.05);border-color:rgba(241,245,249,.3)}
+.btn-lg{padding:14px 26px;font-size:1rem}
+.btn[disabled]{opacity:.6;cursor:not-allowed;pointer-events:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;transition:padding .3s,background .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,18,32,.85);backdrop-filter:blur(14px);padding:12px 28px;border-bottom-color:var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;letter-spacing:-0.01em}
+.nav-logo .mark{width:30px;height:30px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--bg);font-weight:800;font-size:0.85rem;font-family:'JetBrains Mono',monospace}
+.nav-links{display:flex;gap:6px;list-style:none}
+.nav-links a{padding:8px 14px;font-size:0.9rem;font-weight:500;color:var(--text-muted);transition:color .2s;border-radius:var(--r-input)}
+.nav-links a:hover{color:var(--text)}
+.burger{display:none;background:none;border:0;color:var(--text);font-size:22px;cursor:pointer;padding:6px}
+@media(max-width:880px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .nav.open .nav-links{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:rgba(11,18,32,.97);backdrop-filter:blur(20px);padding:8px;border-bottom:1px solid var(--border)}
+  .nav.open .nav-links a{padding:14px 16px;border-bottom:1px solid var(--border)}
+  .nav.open .nav-links li:last-child a{border-bottom:0}
+}
+
+/* HERO */
+.hero{padding:130px 0 80px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start}
+@media(min-width:980px){.hero-grid{grid-template-columns:1.15fr 1fr;gap:64px;align-items:center}}
+.hero h1{margin:14px 0 18px}
+.hero h1 em{font-style:normal;background:linear-gradient(95deg,var(--accent) 0%,#FFC893 60%,var(--accent) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:1.1rem;color:var(--text-muted);max-width:540px;margin-bottom:32px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px;max-width:540px}
+.stat{padding:16px 18px;background:rgba(241,245,249,.025);border:1px solid var(--border);border-radius:var(--r-card)}
+.stat-num{font-size:1.6rem;font-weight:700;letter-spacing:-0.02em;line-height:1;font-family:'Plus Jakarta Sans'}
+.stat-num span{color:var(--accent)}
+.stat-lbl{font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);margin-top:6px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.hero-cert{margin-top:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hero-cert .label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;color:var(--text-faint);text-transform:uppercase}
+.hero-cert .pills{display:flex;gap:6px;flex-wrap:wrap}
+.cert-pill{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.06em;padding:5px 10px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent-mid)}
+
+/* HERO RFQ FORM */
+.rfq-card{background:linear-gradient(180deg,rgba(241,245,249,.04) 0%,rgba(241,245,249,.015) 100%);border:1px solid var(--border-strong);border-radius:16px;padding:26px;box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.rfq-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent)}
+.rfq-card .label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.rfq-card .label-row .eyebrow{margin:0}
+.rfq-card .resp-time{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--text-faint);letter-spacing:0.08em}
+.rfq-card .resp-time::before{content:"●";color:#10b981;margin-right:5px;font-size:0.75rem}
+.rfq-card h3{font-size:1.3rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:6px}
+.rfq-card .lead{color:var(--text-muted);font-size:0.92rem;margin-bottom:20px}
+.field{margin-bottom:12px;position:relative}
+.field label{display:block;font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+.field input,.field textarea{width:100%;padding:11px 13px;background:rgba(241,245,249,.04);border:1px solid var(--border-strong);border-radius:var(--r-input);color:var(--text);font-family:inherit;font-size:0.95rem;line-height:1.5;transition:border-color .2s,box-shadow .2s,background .2s}
+.field textarea{resize:vertical;min-height:74px}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);background:rgba(241,245,249,.06)}
+.field input::placeholder,.field textarea::placeholder{color:var(--text-faint)}
+.attach-btn{display:flex;align-items:center;gap:10px;width:100%;padding:11px 13px;background:rgba(241,245,249,.04);border:1px dashed var(--border-strong);border-radius:var(--r-input);color:var(--text-muted);font-family:inherit;font-size:0.9rem;cursor:pointer;transition:all .2s;text-align:left;line-height:1.4}
+.attach-btn:hover{border-color:var(--accent);color:var(--text);background:var(--accent-soft)}
+.attach-btn .icon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;background:var(--accent-soft);color:var(--accent);flex-shrink:0;font-size:0.85rem}
+.attach-btn .filename{color:var(--accent);font-weight:600}
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.rfq-submit{margin-top:8px;width:100%;padding:13px 20px;font-size:0.95rem}
+.magnet{margin-top:14px;padding:11px 13px;border:1px solid var(--accent-mid);border-radius:var(--r-input);background:var(--accent-soft);font-size:0.82rem;color:var(--text);line-height:1.5;display:flex;gap:10px;align-items:flex-start}
+.magnet .badge{font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;letter-spacing:0.1em;color:var(--accent);text-transform:uppercase;background:rgba(251,146,60,.18);padding:3px 6px;border-radius:4px;flex-shrink:0;margin-top:1px}
+
+/* TRUST STRIP */
+.trust{padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(241,245,249,.015)}
+.trust-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.trust-label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;color:var(--text-faint);text-transform:uppercase;flex-shrink:0}
+.trust-logos{display:flex;align-items:center;gap:36px;flex-wrap:wrap;flex:1;justify-content:flex-end}
+.trust-logos img{height:32px;width:auto;opacity:.6;filter:brightness(1.4) saturate(0);transition:opacity .25s,filter .25s}
+.trust-logos img:hover{opacity:1;filter:brightness(1.6) saturate(0.5)}
+@media(max-width:680px){.trust-row{justify-content:center}.trust-logos{justify-content:center;gap:24px}.trust-logos img{height:24px}}
+
+/* SECTIONS */
+section{padding:96px 0;position:relative}
+.section-head{max-width:680px;margin-bottom:48px}
+.section-head h2{margin-top:10px}
+.section-head .subtitle{margin-top:14px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+
+/* CAPABILITY CARDS */
+.cap-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:640px){.cap-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.cap-grid{grid-template-columns:repeat(4,1fr)}}
+.cap{padding:26px 24px 28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);transition:border-color .2s,transform .2s,background .2s;position:relative;overflow:hidden}
+.cap:hover{border-color:var(--accent-mid);transform:translateY(-3px);background:var(--surface-2)}
+.cap-icon{width:46px;height:46px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:18px}
+.cap-icon svg{width:22px;height:22px}
+.cap h3{margin-bottom:8px;letter-spacing:-0.015em}
+.cap p{font-size:0.92rem;color:var(--text-muted);line-height:1.55}
+.cap .meta{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;color:var(--text-faint);text-transform:uppercase}
+
+/* NUMBERS */
+.numbers{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.num-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 20px;text-align:left}
+@media(min-width:780px){.num-grid{grid-template-columns:repeat(5,1fr);gap:24px}}
+.bignum{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;letter-spacing:-0.03em;line-height:1;color:var(--accent)}
+.bignum-lbl{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;color:var(--text-muted);text-transform:uppercase;margin-top:10px;line-height:1.4}
+
+/* INDUSTRIES */
+.ind-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:640px){.ind-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.ind-grid{grid-template-columns:repeat(4,1fr)}}
+.ind{position:relative;border-radius:var(--r-card);overflow:hidden;background:var(--surface);border:1px solid var(--border);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;transition:transform .25s,border-color .2s}
+.ind:hover{transform:translateY(-3px);border-color:var(--accent-mid)}
+.ind-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.55) contrast(1.05);transition:filter .3s,transform .4s}
+.ind:hover .ind-bg{filter:brightness(.7);transform:scale(1.04)}
+.ind::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(11,18,32,.95) 100%)}
+.ind-body{position:relative;z-index:1;padding:22px 22px 22px}
+.ind-body .label{font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;margin-bottom:6px}
+.ind-body h3{font-size:1.4rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:6px}
+.ind-body p{font-size:0.86rem;color:var(--text-muted);line-height:1.5}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:1fr;gap:18px;position:relative}
+@media(min-width:880px){.steps{grid-template-columns:repeat(3,1fr);gap:24px}}
+.step{position:relative;padding:28px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card)}
+.step-num{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.step-num::before{content:"";display:inline-block;width:24px;height:1px;background:var(--accent)}
+.step h3{margin-bottom:8px;font-size:1.15rem;letter-spacing:-0.015em}
+.step p{font-size:0.92rem;color:var(--text-muted);line-height:1.55}
+
+/* MATERIALS */
+.mat-pills{display:flex;flex-wrap:wrap;gap:10px;max-width:920px}
+.mat-pill{padding:10px 18px;font-size:0.88rem;font-weight:500;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-pill);transition:all .2s;cursor:default}
+.mat-pill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.mat-pill .count{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text-faint);margin-left:8px}
+
+/* TESTIMONIALS */
+.t-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:880px){.t-grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+.tcard{padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);position:relative;display:flex;flex-direction:column}
+.tcard::before{content:"\201C";position:absolute;top:8px;left:18px;font-size:3.5rem;color:var(--accent);opacity:.4;font-family:Georgia,serif;line-height:1}
+.tcard p{font-size:0.98rem;line-height:1.6;color:var(--text);position:relative;z-index:1;margin:14px 0 18px;flex:1}
+.tcard .who{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
+.tcard .avatar{width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:0.85rem;flex-shrink:0}
+.tcard .who-meta strong{display:block;font-size:0.92rem;font-weight:600}
+.tcard .who-meta span{font-size:0.78rem;color:var(--text-faint);font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
+
+/* RFQ SECTION */
+.rfq-section{background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%);border-top:1px solid var(--border)}
+.rfq-wrap{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
+@media(min-width:980px){.rfq-wrap{grid-template-columns:1fr 1.1fr;gap:60px}}
+.rfq-info h2{margin:10px 0 18px}
+.rfq-info .subtitle{margin-bottom:30px}
+.rfq-features{list-style:none;display:grid;gap:14px;margin-top:24px}
+.rfq-features li{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:rgba(241,245,249,.03);border:1px solid var(--border);border-radius:var(--r-card)}
+.rfq-features .check{width:28px;height:28px;border-radius:7px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.rfq-features .check svg{width:14px;height:14px}
+.rfq-features strong{display:block;font-size:0.95rem;font-weight:600;margin-bottom:2px}
+.rfq-features span{font-size:0.86rem;color:var(--text-muted);line-height:1.5}
+
+/* DROP ZONE (in RFQ section) */
+.dropzone{background:var(--surface);border:1px solid var(--border-strong);border-radius:16px;padding:28px;box-shadow:var(--shadow-card)}
+.dropzone h3{font-size:1.25rem;margin-bottom:6px;letter-spacing:-0.02em}
+.dropzone .lead{color:var(--text-muted);font-size:0.92rem;margin-bottom:20px}
+.drop-area{border:2px dashed var(--border-strong);border-radius:12px;padding:36px 22px;text-align:center;background:rgba(251,146,60,.04);transition:all .2s;cursor:pointer;margin-bottom:14px}
+.drop-area.drag{border-color:var(--accent);background:var(--accent-soft);transform:scale(1.01)}
+.drop-area:hover{border-color:var(--accent-mid);background:var(--accent-soft)}
+.drop-icon{width:46px;height:46px;border-radius:11px;background:var(--accent-soft);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+.drop-icon svg{width:22px;height:22px}
+.drop-h{font-size:1rem;font-weight:600;margin-bottom:5px}
+.drop-sub{font-size:0.82rem;color:var(--text-muted);line-height:1.5}
+.drop-area .filename{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--accent);font-weight:600;display:none}
+.drop-area.has-file .filename{display:block}
+.drop-area input[type=file]{display:none}
+
+/* SUCCESS STATE */
+.success{padding:32px;text-align:center;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.3);border-radius:var(--r-card);display:none}
+.success.shown{display:block}
+.success-icon{width:54px;height:54px;border-radius:50%;background:rgba(16,185,129,.18);color:#10b981;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+.success-icon svg{width:26px;height:26px}
+.success h3{font-size:1.2rem;margin-bottom:6px}
+.success p{color:var(--text-muted);font-size:0.92rem}
+
+/* FOOTER */
+footer{background:var(--bg-2);border-top:1px solid var(--border);padding:64px 0 32px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:48px}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand .nav-logo{margin-bottom:14px}
+.foot-brand p{font-size:0.88rem;color:var(--text-muted);line-height:1.6;max-width:340px;margin-bottom:16px}
+.foot-brand .addr{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--text-faint);letter-spacing:0.04em;line-height:1.7}
+.foot-col h4{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;color:var(--text-faint);text-transform:uppercase;margin-bottom:14px;font-weight:600}
+.foot-col ul{list-style:none;display:grid;gap:10px}
+.foot-col a{font-size:0.88rem;color:var(--text-muted);transition:color .2s}
+.foot-col a:hover{color:var(--accent)}
+.foot-bot{padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.foot-bot p{font-size:0.78rem;color:var(--text-faint);font-family:'JetBrains Mono',monospace;letter-spacing:0.04em}
+.foot-bot .certs{display:flex;gap:8px;flex-wrap:wrap}
+.foot-bot .certs span{font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;padding:4px 8px;border:1px solid var(--border);border-radius:4px;color:var(--text-faint);text-transform:uppercase}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(11,18,32,.78);backdrop-filter:blur(8px)}
+.modal.open{display:flex}
+.modal-card{background:var(--surface);border:1px solid var(--border-strong);border-radius:16px;padding:28px;max-width:520px;width:100%;max-height:92vh;overflow-y:auto;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.5);animation:modalIn .25s cubic-bezier(.2,.8,.2,1)}
+@keyframes modalIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:8px;background:transparent;border:1px solid var(--border);color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:18px;line-height:1}
+.modal-close:hover{background:rgba(241,245,249,.06);color:var(--text);border-color:var(--border-strong)}
+.modal h3{font-size:1.4rem;letter-spacing:-0.02em;margin-bottom:6px;padding-right:36px}
+.modal .lead{color:var(--text-muted);font-size:0.95rem;margin-bottom:20px}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal.in{opacity:1;transform:none;transition:none}
+  *{animation-duration:.001s !important;transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="#">
+    <span class="mark">CX</span>
+    <span>COX MANUFACTURING</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#materials">Materials</a></li>
+  </ul>
+  <a href="#rfq" class="btn btn-primary">Start an RFQ</a>
+  <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal">San Antonio, TX · Est. 1956</span>
+        <h1 class="reveal rd1">Precision parts at scale, <em>on-time, on-spec.</em></h1>
+        <p class="hero-sub reveal rd2">Swiss screw machining, CNC mill-turn, and micromachining for aerospace, medical, defense, and electronics. 70 years of getting it right the first time.</p>
+        <div class="hero-stats reveal rd3">
+          <div class="stat"><div class="stat-num"><span>2.4M</span></div><div class="stat-lbl">Parts shipped weekly</div></div>
+          <div class="stat"><div class="stat-num"><span>350</span></div><div class="stat-lbl">Active spindles</div></div>
+          <div class="stat"><div class="stat-num"><span>70 yr</span></div><div class="stat-lbl">Operating history</div></div>
+        </div>
+        <div class="hero-actions reveal rd3">
+          <a href="#rfq" class="btn btn-primary btn-lg">Start an RFQ →</a>
+          <a href="#capabilities" class="btn btn-ghost btn-lg">See capabilities</a>
+        </div>
+        <div class="hero-cert reveal rd4">
+          <span class="label">Registered &amp; certified</span>
+          <div class="pills">
+            <span class="cert-pill">ISO 9001:2015</span>
+            <span class="cert-pill">ITAR</span>
+            <span class="cert-pill">NIST 800-171</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO RFQ FORM -->
+      <form class="rfq-card reveal rd2" id="hero-form" autocomplete="off">
+        <div class="label-row">
+          <span class="eyebrow">Get a quote</span>
+          <span class="resp-time">Reply within 24h</span>
+        </div>
+        <h3>Tell us about your part</h3>
+        <p class="lead">Drop your spec — we'll route to the right machining cell and reply within a business day.</p>
+
+        <div class="field">
+          <label for="hero-email">Work email</label>
+          <input type="email" id="hero-email" name="email" placeholder="you@company.com" required>
+        </div>
+
+        <div class="field">
+          <label for="hero-part">Part description</label>
+          <textarea id="hero-part" name="part" rows="3" placeholder="e.g. Stainless 304 fitting, ¼&quot; OD, ±0.001″, qty 5,000/mo" required></textarea>
+        </div>
+
+        <div class="field">
+          <label>Drawing or CAD (optional)</label>
+          <button type="button" class="attach-btn" id="hero-attach" onclick="openModal()">
+            <span class="icon" aria-hidden="true">↑</span>
+            <span id="hero-attach-text">Attach drawing — STEP, IGES, PDF, DWG, JPG</span>
+          </button>
+        </div>
+
+        <div class="honeypot" aria-hidden="true">
+          <label>Leave this empty</label>
+          <input type="text" name="company_url" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn btn-primary rfq-submit" id="hero-submit">Request quote →</button>
+
+        <div class="magnet">
+          <span class="badge">Free</span>
+          <span><strong>DFM review with every quote.</strong> Our engineers flag tolerance, material, and cost issues before you commit.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="container">
+    <div class="trust-row">
+      <span class="trust-label">Registered with / accredited by</span>
+      <div class="trust-logos">
+        <img src="https://www.coxmanufacturing.com/assets/images/logos/itar.png" alt="ITAR">
+        <img src="https://www.coxmanufacturing.com/assets/uploads/nist.png" alt="NIST">
+        <img src="https://www.coxmanufacturing.com/assets/images/logos/ntma.jpg" alt="NTMA">
+        <img src="https://www.coxmanufacturing.com/assets/images/logos/pmpa-logo-resize.jpg" alt="PMPA">
+        <img src="https://www.coxmanufacturing.com/assets/images/logos/sama-logo.jpg" alt="SAMA">
+        <img src="https://www.coxmanufacturing.com/assets/files/BV_Certification_ISO9001.jpg" alt="Bureau Veritas ISO 9001:2015">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Capabilities</span>
+      <h2>Four ways we machine your part.</h2>
+      <p class="subtitle">Three shifts a day, Monday through Friday. Most parts ship complete in one operation.</p>
+    </div>
+    <div class="cap-grid">
+      <article class="cap reveal rd1">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg></div>
+        <h3>Swiss Screw Machining</h3>
+        <p>50+ Swiss-turn machines (5–12 axis) including the latest Tornos technology. Tight tolerances, high volumes, complex geometry.</p>
+        <div class="meta">5–12 axis · Tornos / Tsugami</div>
+      </article>
+      <article class="cap reveal rd2">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+        <h3>CNC Mill-Turn</h3>
+        <p>9–12 axis Mill/Turn cells drop complex parts complete in one operation — lower handling cost, higher repeatability.</p>
+        <div class="meta">9–12 axis · Single-op complete</div>
+      </article>
+      <article class="cap reveal rd3">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg></div>
+        <h3>Micromachining</h3>
+        <p>Sub-millimeter features with the most advanced ultra-precision tooling. Tornos Nano cells for the smallest, most exacting parts.</p>
+        <div class="meta">Ultra-precision · Sub-mm</div>
+      </article>
+      <article class="cap reveal rd4">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-4 4 4 4-8 6 12"/><path d="M3 21h18"/></svg></div>
+        <h3>High-Volume Production</h3>
+        <p>20+ European 6-spindle screw machines purpose-built for low-cost, high-volume runs. 1.7M–2.4M precision components per week.</p>
+        <div class="meta">6-spindle · Production runs</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section class="numbers">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">By the numbers</span>
+      <h2>Scale, sustained.</h2>
+    </div>
+    <div class="num-grid">
+      <div class="reveal rd1"><div class="bignum">2.4M</div><div class="bignum-lbl">Parts shipped<br>per week</div></div>
+      <div class="reveal rd2"><div class="bignum">350</div><div class="bignum-lbl">Active<br>spindles</div></div>
+      <div class="reveal rd3"><div class="bignum">200</div><div class="bignum-lbl">Skilled<br>employees</div></div>
+      <div class="reveal rd4"><div class="bignum">50+</div><div class="bignum-lbl">Swiss-turn<br>machines</div></div>
+      <div class="reveal rd4"><div class="bignum">70 yr</div><div class="bignum-lbl">Operating<br>history</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Industries served</span>
+      <h2>Built for the demanding ones.</h2>
+      <p class="subtitle">Where tolerances are tight, regulatory burden is real, and lead-time matters more than the lowest unit cost.</p>
+    </div>
+    <div class="ind-grid">
+      <a href="#rfq" class="ind reveal rd1">
+        <div class="ind-bg" style="background-image:url('https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/swiss-turn-new-img.261bae7e96e88d5fb897321ebaebabaf.png')"></div>
+        <div class="ind-body">
+          <span class="label">01 — Aerospace</span>
+          <h3>Aerospace</h3>
+          <p>Mission-critical parts to AS9100-aligned process discipline.</p>
+        </div>
+      </a>
+      <a href="#rfq" class="ind reveal rd2">
+        <div class="ind-bg" style="background-image:url('https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/micromachining-img.261bae7e96e88d5fb897321ebaebabaf.png')"></div>
+        <div class="ind-body">
+          <span class="label">02 — Medical</span>
+          <h3>Medical</h3>
+          <p>Bio-compatible materials, sub-millimeter features, traceable batches.</p>
+        </div>
+      </a>
+      <a href="#rfq" class="ind reveal rd3">
+        <div class="ind-bg" style="background-image:url('https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/preecison-img-bucket.261bae7e96e88d5fb897321ebaebabaf.png')"></div>
+        <div class="ind-body">
+          <span class="label">03 — Defense</span>
+          <h3>Defense &amp; Firearm</h3>
+          <p>ITAR-registered. Domestic supply chain. Pins, fittings, fire-control parts.</p>
+        </div>
+      </a>
+      <a href="#rfq" class="ind reveal rd4">
+        <div class="ind-bg" style="background-image:url('https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/cnc-mill-img-bucket.261bae7e96e88d5fb897321ebaebabaf.png')"></div>
+        <div class="ind-body">
+          <span class="label">04 — Electronics</span>
+          <h3>Electronics</h3>
+          <p>Connectors, contact pins, conductive housings — copper, brass, beryllium copper.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Quote in 24 hours. No reCAPTCHA, no runaround.</h2>
+      <p class="subtitle">A real engineer reviews every drawing. We push back on tolerances and materials before you sign a PO — not after.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal rd1">
+        <div class="step-num">Step 01</div>
+        <h3>Drop your drawing</h3>
+        <p>Upload a STEP file, PDF, or back-of-napkin sketch. We accept whatever you've got.</p>
+      </div>
+      <div class="step reveal rd2">
+        <div class="step-num">Step 02</div>
+        <h3>Free DFM review</h3>
+        <p>Our engineers flag tolerance, material, and cost issues. Two-page summary delivered with every quote.</p>
+      </div>
+      <div class="step reveal rd3">
+        <div class="step-num">Step 03</div>
+        <h3>Quote in 24 hours</h3>
+        <p>Detailed quote with cycle time, material lead, and shipping window. No hidden setup fees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Materials</span>
+      <h2>Hundreds of metals &amp; plastics.</h2>
+      <p class="subtitle">From 1018 mild steel to PEEK and beryllium copper — Cox machines what other shops won't touch.</p>
+    </div>
+    <div class="mat-pills reveal rd1">
+      <span class="mat-pill">Steel <span class="count">14 alloys</span></span>
+      <span class="mat-pill">Stainless <span class="count">5 grades</span></span>
+      <span class="mat-pill">Aluminum <span class="count">2011 · 2024 · 6061 · 7075</span></span>
+      <span class="mat-pill">Brass</span>
+      <span class="mat-pill">Copper <span class="count">incl. beryllium</span></span>
+      <span class="mat-pill">Titanium <span class="count">Ti-6Al-4V</span></span>
+      <span class="mat-pill">Hastelloy</span>
+      <span class="mat-pill">Nitronic 60</span>
+      <span class="mat-pill">Greek Ascoloy</span>
+      <span class="mat-pill">Delrin / Acetal</span>
+      <span class="mat-pill">PEEK</span>
+      <span class="mat-pill">Ultem</span>
+      <span class="mat-pill">PTFE / Teflon</span>
+      <span class="mat-pill">UHMW</span>
+      <span class="mat-pill">Nylon</span>
+      <span class="mat-pill">PVC</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">From our customers</span>
+      <h2>Suppliers don't usually get this kind of feedback.</h2>
+    </div>
+    <div class="t-grid">
+      <div class="tcard reveal rd1">
+        <p>Our compliments on your 100% on-time &amp; 100% quality success. This dovetails with our initiative to achieve this level of performance across the supply chain.</p>
+        <div class="who">
+          <div class="avatar">R</div>
+          <div class="who-meta"><strong>Roger</strong><span>Aerospace · Supply Chain</span></div>
+        </div>
+      </div>
+      <div class="tcard reveal rd2">
+        <p>I wish more suppliers were like Cox in their passion for quality and service.</p>
+        <div class="who">
+          <div class="avatar">C</div>
+          <div class="who-meta"><strong>Carolyn</strong><span>Medical Devices · Sourcing</span></div>
+        </div>
+      </div>
+      <div class="tcard reveal rd3">
+        <p>We greatly appreciate your quick response on the increased volumes — terrific. Thank you again for your support.</p>
+        <div class="who">
+          <div class="avatar">T</div>
+          <div class="who-meta"><strong>Tim</strong><span>Defense · Procurement</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RFQ SECTION -->
+<section class="rfq-section" id="rfq">
+  <div class="container">
+    <div class="rfq-wrap">
+      <div class="rfq-info reveal">
+        <span class="eyebrow">Start an RFQ</span>
+        <h2>Drop your drawing. Get a quote in 24 hours.</h2>
+        <p class="subtitle">No login required. No reCAPTCHA puzzles. Just your file and a few notes — a Cox engineer reads every submission.</p>
+        <ul class="rfq-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Free DFM review with every quote</strong><span>We flag tolerance, material, and cost issues before you buy.</span></div>
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>24-hour response, guaranteed</strong><span>A real engineer reviews your drawing and replies within one business day.</span></div>
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>NDA available on request</strong><span>For ITAR or sensitive defense work — we sign before you send.</span></div>
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Domestic supply chain</strong><span>Made in San Antonio, TX. ITAR-registered, ISO 9001:2015 certified.</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="dropzone reveal rd2" id="rfq-form" autocomplete="off">
+        <h3>Send a part for quote</h3>
+        <p class="lead">Drag a file or click to browse. Most quotes return same business day.</p>
+
+        <div class="drop-area" id="drop-area" tabindex="0" role="button" aria-label="Upload a file">
+          <input type="file" id="file-input" name="file" accept=".step,.stp,.iges,.igs,.pdf,.dwg,.dxf,.jpg,.jpeg,.png">
+          <div class="drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+          <div class="drop-h">Drop CAD, drawing, or photo</div>
+          <div class="drop-sub">STEP · IGES · PDF · DWG · DXF · JPG · PNG — up to 50 MB</div>
+          <div class="filename" id="drop-filename"></div>
+        </div>
+
+        <div class="field">
+          <label for="rfq-email">Work email</label>
+          <input type="email" id="rfq-email" name="email" placeholder="you@company.com" required>
+        </div>
+
+        <div class="field">
+          <label for="rfq-notes">Quantity &amp; notes (optional)</label>
+          <textarea id="rfq-notes" name="notes" rows="3" placeholder="Annual qty, target price, due date, any tolerances we should pay attention to…"></textarea>
+        </div>
+
+        <div class="honeypot" aria-hidden="true">
+          <label>Leave this empty</label>
+          <input type="text" name="company_url" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn btn-primary rfq-submit" id="rfq-submit">Send to Cox →</button>
+
+        <div class="success" id="rfq-success">
+          <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>Got it — your file is in the queue.</h3>
+          <p>A Cox engineer will reply within 24 hours with a DFM review and quote.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="nav-logo" href="#"><span class="mark">CX</span><span>COX MANUFACTURING</span></a>
+        <p>Precision CNC and Swiss screw machining since 1956. ISO 9001:2015 certified, ITAR registered. Made in San Antonio, Texas.</p>
+        <div class="addr">
+          1339 East Highland Blvd.<br>
+          San Antonio, TX 78210<br>
+          (210) 532-1400
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Capabilities</h4>
+        <ul>
+          <li><a href="#capabilities">Swiss Machining</a></li>
+          <li><a href="#capabilities">CNC Mill-Turn</a></li>
+          <li><a href="#capabilities">Micromachining</a></li>
+          <li><a href="#capabilities">High-Volume Production</a></li>
+          <li><a href="#materials">Materials Guide</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="#industries">Aerospace</a></li>
+          <li><a href="#industries">Medical</a></li>
+          <li><a href="#industries">Defense &amp; Firearm</a></li>
+          <li><a href="#industries">Electronics</a></li>
+          <li><a href="#industries">Automotive</a></li>
+          <li><a href="#industries">Oil &amp; Energy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Cox</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Apprenticeship</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#rfq">Start an RFQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>© <span id="yr"></span> Cox Manufacturing Company, Inc.</p>
+      <div class="certs">
+        <span>ISO 9001:2015</span>
+        <span>ITAR</span>
+        <span>NIST 800-171</span>
+        <span>NTMA</span>
+        <span>PMPA</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL: full drop zone -->
+<div class="modal" id="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <span class="eyebrow">Attach drawing</span>
+    <h3 id="modal-title">Drop your CAD or drawing</h3>
+    <p class="lead">We accept STEP, IGES, PDF, DWG, DXF, JPG, and PNG up to 50&nbsp;MB. Files are reviewed by a Cox engineer — no automated parsing.</p>
+
+    <div class="drop-area" id="modal-drop" tabindex="0" role="button" aria-label="Upload a file">
+      <input type="file" id="modal-file" accept=".step,.stp,.iges,.igs,.pdf,.dwg,.dxf,.jpg,.jpeg,.png">
+      <div class="drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+      <div class="drop-h">Drop file here</div>
+      <div class="drop-sub">or click to browse</div>
+      <div class="filename" id="modal-filename"></div>
+    </div>
+
+    <p style="margin-top:14px;font-size:0.82rem;color:var(--text-muted);line-height:1.5">After you attach, you'll continue with email and notes in the form. NDA available on request — just mention it in the notes.</p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  // NAV behavior
+  var nav=document.getElementById('nav');
+  var burger=document.getElementById('burger');
+  if(burger){burger.addEventListener('click',function(){nav.classList.toggle('open')});}
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+
+  // Smooth nav close on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('open')});
+  });
+
+  // IntersectionObserver scroll-reveal
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+  }
+
+  // Year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // Modal
+  var modal=document.getElementById('modal');
+  var modalClose=document.getElementById('modal-close');
+  window.openModal=function(){modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';};
+  function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  modalClose.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeModal()});
+
+  // Drop zone helper — wires a drop-area + file-input pair
+  function wireDrop(areaId,fileId,fnId,onPick){
+    var area=document.getElementById(areaId);
+    var input=document.getElementById(fileId);
+    var fn=document.getElementById(fnId);
+    if(!area||!input)return;
+    area.addEventListener('click',function(){input.click()});
+    area.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();input.click()}});
+    ['dragover','dragenter'].forEach(function(ev){area.addEventListener(ev,function(e){e.preventDefault();area.classList.add('drag')})});
+    ['dragleave','drop'].forEach(function(ev){area.addEventListener(ev,function(e){e.preventDefault();area.classList.remove('drag')})});
+    area.addEventListener('drop',function(e){
+      var f=e.dataTransfer.files&&e.dataTransfer.files[0];
+      if(f){setFile(f)}
+    });
+    input.addEventListener('change',function(){
+      var f=input.files&&input.files[0];
+      if(f)setFile(f);
+    });
+    function setFile(f){
+      area.classList.add('has-file');
+      fn.textContent='✓ '+f.name+' ('+formatSize(f.size)+')';
+      if(typeof onPick==='function')onPick(f);
+    }
+  }
+  function formatSize(b){if(b<1024)return b+' B';if(b<1024*1024)return (b/1024).toFixed(1)+' KB';return (b/1024/1024).toFixed(1)+' MB';}
+
+  // RFQ-section drop zone
+  wireDrop('drop-area','file-input','drop-filename');
+
+  // Modal drop zone — when picked, close modal and reflect on hero attach button
+  wireDrop('modal-drop','modal-file','modal-filename',function(f){
+    var t=document.getElementById('hero-attach-text');
+    if(t)t.innerHTML='<span class="filename">✓ '+f.name+'</span>';
+    setTimeout(closeModal,650);
+  });
+
+  // Form submission — both forms simulate submit
+  function handleSubmit(form,btn,onSuccess){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      // Honeypot check
+      var hp=form.querySelector('input[name=company_url]');
+      if(hp&&hp.value){return} // bot, silently drop
+      btn.disabled=true;
+      var orig=btn.innerHTML;
+      btn.innerHTML='Sending…';
+      setTimeout(function(){
+        btn.innerHTML='✓ Received — checking your inbox';
+        if(typeof onSuccess==='function')onSuccess();
+      },900);
+    });
+  }
+  handleSubmit(document.getElementById('hero-form'),document.getElementById('hero-submit'));
+  handleSubmit(document.getElementById('rfq-form'),document.getElementById('rfq-submit'),function(){
+    document.getElementById('rfq-success').classList.add('shown');
+  });
+});
+</script>
+</body>
+</html>

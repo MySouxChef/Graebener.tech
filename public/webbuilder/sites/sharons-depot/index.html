@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sharon's Depot — Brand-new Home Depot tools at family-discount prices.</title>
+<meta name="description" content="Family-owned San Antonio shop selling new overstock Home Depot tools, lighting, and home goods at discounted prices. Open since 2016. Visit us in-store or shop on eBay, Amazon, Facebook, and OfferUp.">
+<meta name="theme-color" content="#FAF6EE">
+<link rel="icon" type="image/jpeg" href="assets/logos/10.30.2025_6903ce513051d0.64517956.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF6EE; --surface:#FFFFFF; --surface-2:#F0E6D2; --surface-3:#E7D9BC;
+  --text:#1F1A14; --text-muted:#6E5E4A; --text-faint:#9C8A73;
+  --accent:#C44A1F; --accent-2:#E8A93D; --accent-deep:#8A2E0E; --accent-soft:rgba(196,74,31,.08);
+  --border:rgba(31,26,20,0.10); --border-strong:rgba(31,26,20,0.20);
+  --r-card:14px; --r-input:8px; --r-pill:999px;
+  --shadow-card:0 1px 2px rgba(31,26,20,.05),0 8px 32px rgba(31,26,20,.08);
+  --shadow-lift:0 1px 2px rgba(31,26,20,.06),0 16px 40px rgba(138,46,14,.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+
+/* Subtle paper-grain background — pure CSS, no images */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background:
+    radial-gradient(circle at 12% 8%,rgba(232,169,61,.08),transparent 40%),
+    radial-gradient(circle at 88% 92%,rgba(196,74,31,.05),transparent 45%);
+}
+.container{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+@media(max-width:600px){.container{padding:0 20px}}
+
+/* TYPE */
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;letter-spacing:-0.015em;line-height:1.08;font-weight:600;color:var(--text)}
+h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700;letter-spacing:-0.025em;line-height:1.02}
+h1 em{font-style:italic;color:var(--accent);font-weight:600}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
+h3{font-size:1.2rem;font-weight:600;letter-spacing:-0.005em}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);display:inline-block}
+.subtitle{color:var(--text-muted);font-size:1.08rem;line-height:1.65}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;font-size:0.95rem;font-weight:600;border-radius:var(--r-pill);transition:transform .2s,background .2s,box-shadow .2s,color .2s;line-height:1;font-family:'Inter',sans-serif;white-space:nowrap;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:#FFF}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px);box-shadow:0 8px 22px rgba(138,46,14,.28)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--surface);border-color:var(--text)}
+.btn-lg{padding:15px 28px;font-size:1rem}
+.btn .arrow{transition:transform .2s}
+.btn:hover .arrow{transform:translateX(3px)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;transition:padding .3s,background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(250,246,238,.88);backdrop-filter:blur(14px);padding:12px 28px;border-bottom-color:var(--border)}
+.nav-brand{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;letter-spacing:0.04em;text-transform:uppercase}
+.nav-brand .mark{width:38px;height:38px;border-radius:8px;background:#FFF;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.nav-brand .mark img{width:100%;height:100%;object-fit:contain;padding:2px}
+.nav-brand .wordmark{display:none}
+@media(min-width:520px){.nav-brand .wordmark{display:inline}}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{padding:9px 14px;font-size:0.92rem;font-weight:500;color:var(--text-muted);transition:color .2s;border-radius:var(--r-input)}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.burger{display:none;color:var(--text);font-size:24px;padding:6px;line-height:1}
+@media(max-width:920px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .nav.open .nav-links{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:rgba(250,246,238,.98);backdrop-filter:blur(20px);padding:8px;border-bottom:1px solid var(--border)}
+  .nav.open .nav-links a{padding:14px 16px;border-bottom:1px solid var(--border)}
+  .nav.open .nav-links li:last-child a{border-bottom:0}
+}
+
+/* HERO */
+.hero{padding:140px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+@media(min-width:980px){.hero-grid{grid-template-columns:1.1fr 1fr;gap:64px}}
+.hero h1{margin:18px 0 22px}
+.hero-sub{font-size:1.15rem;color:var(--text-muted);max-width:560px;margin-bottom:34px;line-height:1.55}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.hero-meta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.13em}
+.hero-meta .dot{width:5px;height:5px;background:var(--accent-2);border-radius:50%}
+
+/* Hero featured product card with stamped SALE tag */
+.hero-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:28px;box-shadow:var(--shadow-card);max-width:480px;margin:0 auto}
+.hero-card .stamp{position:absolute;top:24px;right:24px;background:var(--accent);color:#FFF;padding:8px 14px;border-radius:var(--r-pill);font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;transform:rotate(8deg);box-shadow:0 4px 14px rgba(138,46,14,.32);text-transform:uppercase;z-index:2}
+.hero-card .photo{aspect-ratio:1/1;background:var(--surface-2);border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.hero-card .photo img{width:100%;height:100%;object-fit:contain;padding:20px}
+.hero-card .pname{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;line-height:1.25;margin-bottom:10px;color:var(--text)}
+.hero-card .prow{display:flex;align-items:baseline;gap:10px}
+.hero-card .pwas{color:var(--text-faint);text-decoration:line-through;font-size:0.95rem}
+.hero-card .pnow{color:var(--accent);font-weight:700;font-family:'Fraunces',serif;font-size:1.4rem}
+.hero-card .psave{margin-left:auto;background:var(--accent-soft);color:var(--accent);padding:4px 10px;border-radius:var(--r-pill);font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;letter-spacing:0.08em}
+
+/* TRUST STRIP */
+.trust{padding:36px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface-2);position:relative;z-index:1}
+.trust-row{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text)}
+.trust-row span{display:inline-flex;align-items:center;gap:10px}
+.trust-row span::before{content:"";width:7px;height:7px;background:var(--accent);border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* SECTION SHELL */
+.section{padding:100px 0;position:relative}
+.section-head{margin-bottom:50px;max-width:680px}
+.section-head h2{margin-top:14px}
+
+/* STORY */
+.story{padding:110px 0}
+.story-inner{max-width:740px;margin:0 auto}
+.story-inner h2{margin:14px 0 28px}
+.story-inner p{font-size:1.12rem;color:var(--text-muted);line-height:1.75;margin-bottom:22px}
+.story-inner p:last-child{margin-bottom:0}
+.pullquote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.3;color:var(--text);border-left:3px solid var(--accent);padding:14px 0 14px 28px;margin:38px 0;font-weight:500}
+.pullquote .by{display:block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:0.74rem;font-style:normal;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint)}
+
+/* DEALS */
+.deals{padding:100px 0;background:var(--surface-2)}
+.deals-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:40px}
+@media(min-width:720px){.deals-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.deals-grid{grid-template-columns:repeat(3,1fr)}}
+.deal{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s;text-decoration:none}
+.deal:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:rgba(196,74,31,.3)}
+.deal-photo{aspect-ratio:4/3;background:var(--surface-2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.deal-photo img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .4s}
+.deal:hover .deal-photo img{transform:scale(1.04)}
+.deal-tag{position:absolute;top:14px;left:14px;background:var(--accent-2);color:var(--text);padding:5px 11px;border-radius:var(--r-pill);font-family:'JetBrains Mono',monospace;font-size:0.66rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase}
+.deal-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1;gap:14px}
+.deal-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;line-height:1.32;color:var(--text);min-height:2.6em}
+.deal-pricing{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:auto}
+.deal-was{color:var(--text-faint);text-decoration:line-through;font-size:0.92rem}
+.deal-now{color:var(--accent);font-weight:700;font-family:'Fraunces',serif;font-size:1.4rem;line-height:1}
+.deal-save{margin-left:auto;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.08em}
+.deal-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:0.9rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;padding-top:6px;border-top:1px solid var(--border)}
+.deal-link .arrow{transition:transform .2s}
+.deal:hover .deal-link .arrow{transform:translateX(4px)}
+
+/* STORE */
+.store{padding:110px 0;background:var(--bg)}
+.store-head{display:flex;flex-direction:column;gap:14px;max-width:760px;margin-bottom:36px}
+.store-controls{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+.store-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:transparent;border:1px solid var(--border-strong);color:var(--text-muted);border-radius:var(--r-pill);font-family:'Inter',sans-serif;font-weight:500;font-size:0.9rem;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.tab:hover{color:var(--text);border-color:var(--text)}
+.tab.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.tab .count{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;color:inherit;opacity:.65}
+.sort-wrap{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-faint)}
+.sort-wrap label{font-weight:500}
+.sort-buttons{display:inline-flex;gap:0;border:1px solid var(--border-strong);border-radius:var(--r-pill);overflow:hidden}
+.sort-btn{padding:9px 14px;background:transparent;border:0;color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;border-right:1px solid var(--border-strong);line-height:1.2}
+.sort-btn:last-child{border-right:0}
+.sort-btn:hover{color:var(--text)}
+.sort-btn.active{background:var(--accent);color:#FFF}
+.store-grid{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:600px){.store-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:920px){.store-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1180px){.store-grid{grid-template-columns:repeat(4,1fr)}}
+.store-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s,opacity .35s,filter .35s}
+.store-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);border-color:rgba(196,74,31,.3)}
+.store-item.hidden{display:none}
+.store-item-photo{aspect-ratio:1/1;background:var(--surface-2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.store-item-photo img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .35s}
+.store-item:hover .store-item-photo img{transform:scale(1.05)}
+.store-item-cat{position:absolute;top:12px;left:12px;background:rgba(31,26,20,.85);color:var(--bg);padding:4px 10px;border-radius:var(--r-pill);font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;backdrop-filter:blur(4px)}
+.store-item-save{position:absolute;top:12px;right:12px;background:var(--accent);color:#FFF;padding:4px 10px;border-radius:var(--r-pill);font-family:'JetBrains Mono',monospace;font-size:0.66rem;font-weight:600;letter-spacing:0.06em}
+.store-item-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1;gap:10px}
+.store-item-name{font-family:'Fraunces',serif;font-size:0.98rem;font-weight:600;line-height:1.3;color:var(--text);min-height:2.6em}
+.store-item-prices{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:auto}
+.store-item-was{color:var(--text-faint);text-decoration:line-through;font-size:0.85rem}
+.store-item-now{color:var(--accent);font-weight:700;font-family:'Fraunces',serif;font-size:1.25rem;line-height:1}
+.store-item-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:0.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;padding-top:8px;border-top:1px solid var(--border)}
+.store-item-link .arrow{transition:transform .2s}
+.store-item:hover .store-item-link .arrow{transform:translateX(3px)}
+.store-empty{padding:64px 0;text-align:center;color:var(--text-faint);font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;display:none}
+.store-empty.show{display:block}
+
+/* ALERTS */
+.alerts{padding:110px 0;background:var(--surface-2);position:relative;overflow:hidden}
+.alerts::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(232,169,61,.14),transparent 50%),radial-gradient(circle at -10% 100%,rgba(196,74,31,.08),transparent 55%);pointer-events:none}
+.alerts > *{position:relative;z-index:1}
+.alerts-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;margin-top:36px}
+@media(min-width:920px){.alerts-grid{grid-template-columns:1.05fr 1fr;gap:72px;align-items:center}}
+
+/* Form panel */
+.alerts-pitch h2{margin:14px 0 18px;max-width:560px}
+.alerts-pitch .subtitle{margin-bottom:32px;max-width:560px}
+.alerts-form{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:32px;box-shadow:var(--shadow-card)}
+.alerts-form fieldset{border:0;padding:0;margin:0}
+.alerts-form legend{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:10px}
+.alerts-field{margin-bottom:22px}
+.alerts-field:last-of-type{margin-bottom:24px}
+.alerts-label{display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px}
+.alerts-input{width:100%;padding:13px 16px;font-family:'Inter',sans-serif;font-size:1rem;color:var(--text);background:var(--bg);border:1px solid var(--border-strong);border-radius:var(--r-input);transition:border-color .2s,box-shadow .2s,background .2s;font-feature-settings:"tnum"}
+.alerts-input::placeholder{color:var(--text-faint)}
+.alerts-input:focus{outline:0;border-color:var(--accent);background:var(--surface);box-shadow:0 0 0 3px rgba(196,74,31,.15)}
+.alerts-help{display:block;font-size:0.78rem;color:var(--text-faint);margin-top:6px;line-height:1.5}
+.alerts-checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:6px}
+.alerts-check{position:relative;display:flex;align-items:center;gap:9px;padding:10px 14px;background:var(--bg);border:1px solid var(--border-strong);border-radius:var(--r-pill);cursor:pointer;transition:background .2s,border-color .2s,color .2s;font-size:0.92rem;font-weight:500;color:var(--text-muted);user-select:none}
+.alerts-check:hover{color:var(--text);border-color:var(--text-muted)}
+.alerts-check input{position:absolute;opacity:0;pointer-events:none}
+.alerts-check::before{content:"";width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:4px;flex-shrink:0;transition:background .2s,border-color .2s}
+.alerts-check.checked{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-deep)}
+.alerts-check.checked::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--surface)}
+.alerts-radios{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.alerts-radio{position:relative;display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg);border:1px solid var(--border-strong);border-radius:var(--r-pill);cursor:pointer;transition:background .2s,border-color .2s,color .2s;font-size:0.9rem;font-weight:500;color:var(--text-muted)}
+.alerts-radio:hover{color:var(--text);border-color:var(--text-muted)}
+.alerts-radio input{position:absolute;opacity:0;pointer-events:none}
+.alerts-radio::before{content:"";width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:50%;flex-shrink:0;transition:border-color .2s,box-shadow .2s}
+.alerts-radio.checked{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-deep)}
+.alerts-radio.checked::before{border-color:var(--accent);background:var(--accent);box-shadow:inset 0 0 0 3px var(--surface)}
+.alerts-fineprint{font-size:0.74rem;color:var(--text-faint);line-height:1.55;margin:6px 0 22px}
+.alerts-submit{width:100%;justify-content:center}
+
+/* Success card */
+.alerts-success{background:var(--surface);border:1px solid var(--accent);border-radius:var(--r-card);padding:36px 32px;box-shadow:var(--shadow-lift);display:none;animation:alerts-pop .35s ease-out}
+.alerts-success.show{display:block}
+.alerts-form.hidden{display:none}
+@keyframes alerts-pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.alerts-check-icon{width:56px;height:56px;border-radius:50%;background:var(--accent);color:#FFF;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.alerts-check-icon svg{width:28px;height:28px}
+.alerts-success h3{font-size:1.55rem;font-weight:700;margin-bottom:18px;line-height:1.18}
+.alerts-summary{display:flex;flex-direction:column;gap:10px;padding:18px 0;margin:0 0 24px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.alerts-summary-row{display:flex;align-items:baseline;gap:14px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.04em}
+.alerts-summary-row .k{color:var(--text-faint);text-transform:uppercase;letter-spacing:0.14em;flex-shrink:0;min-width:88px}
+.alerts-summary-row .v{color:var(--text);word-break:break-word;font-family:'Inter',sans-serif;letter-spacing:normal;font-size:0.92rem}
+.alerts-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.alerts-sample{width:100%;justify-content:center;position:relative;min-height:48px}
+.alerts-sample[disabled]{opacity:.85;cursor:wait}
+.alerts-sample .dots{display:none;font-family:'JetBrains Mono',monospace;letter-spacing:0.5em}
+.alerts-sample.loading .label{display:none}
+.alerts-sample.loading .dots{display:inline-block;animation:alerts-dots 1.2s steps(4,end) infinite}
+@keyframes alerts-dots{0%{content:"."}25%{content:".."}50%{content:"..."}75%{content:" "}}
+.alerts-update{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);background:none;border:0;cursor:pointer;padding:4px 0;border-bottom:1px solid var(--border-strong);transition:color .2s,border-color .2s}
+.alerts-update:hover{color:var(--accent);border-color:var(--accent)}
+
+/* Email + SMS previews (right column) */
+.alerts-previews{display:flex;flex-direction:column;gap:24px;perspective:1400px}
+.preview-label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.preview-label::before{content:"";width:6px;height:6px;background:var(--accent-2);border-radius:50%}
+
+/* Email preview */
+.email-preview{background:#F7F4ED;border:1px solid var(--border);border-radius:14px;box-shadow:0 18px 40px rgba(31,26,20,.12);overflow:hidden;transform:rotate(-1.2deg);transition:transform .35s}
+.email-preview:hover{transform:rotate(0)}
+.email-head{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#EBE5D7;border-bottom:1px solid var(--border);font-family:'Inter',sans-serif;font-size:0.78rem;color:var(--text-muted);letter-spacing:0.02em}
+.email-head .dots{display:flex;gap:6px}
+.email-head .dots span{width:9px;height:9px;border-radius:50%}
+.email-head .dots span:nth-child(1){background:#E04949}
+.email-head .dots span:nth-child(2){background:#E0C24A}
+.email-head .dots span:nth-child(3){background:#5BC76A}
+.email-body{padding:22px 24px 24px}
+.email-from{display:flex;align-items:center;gap:11px;font-family:'Inter',sans-serif;font-size:0.86rem;color:var(--text);margin-bottom:6px}
+.email-from .avatar{width:28px;height:28px;border-radius:50%;background:#FFF;border:1px solid var(--border);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.email-from .avatar img{width:100%;height:100%;object-fit:contain;padding:2px}
+.email-from b{font-weight:600}
+.email-from .addr{color:var(--text-faint);font-size:0.78rem}
+.email-meta{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:14px}
+.email-subject{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;color:var(--text);line-height:1.32;margin-bottom:18px}
+.email-prod{display:flex;gap:14px;align-items:center;background:#FFF;border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px}
+.email-prod img{width:80px;height:80px;object-fit:contain;background:#F4EBDC;border-radius:6px;flex-shrink:0;padding:6px}
+.email-prod-name{font-family:'Fraunces',serif;font-size:0.94rem;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:6px}
+.email-prod-prices{display:flex;align-items:baseline;gap:8px}
+.email-prod-was{color:var(--text-faint);text-decoration:line-through;font-size:0.82rem}
+.email-prod-now{color:var(--accent);font-weight:700;font-family:'Fraunces',serif;font-size:1.15rem}
+.email-cta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#FFF;padding:10px 18px;border-radius:var(--r-pill);font-size:0.85rem;font-weight:600;letter-spacing:0.02em}
+
+/* SMS preview */
+.sms-preview{background:#0E0E10;border-radius:22px;padding:20px 18px 22px;box-shadow:0 18px 40px rgba(31,26,20,.18),inset 0 0 0 1px rgba(255,255,255,.05);transform:rotate(1.5deg);transition:transform .35s}
+.sms-preview:hover{transform:rotate(0)}
+.sms-head{display:flex;align-items:center;justify-content:space-between;font-family:'Inter',sans-serif;color:#F4EEE3;font-size:0.78rem;margin-bottom:14px;letter-spacing:0.02em;padding:0 4px}
+.sms-head .time{font-weight:600;font-feature-settings:"tnum"}
+.sms-head .icons{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.05em;color:rgba(244,238,227,.6)}
+.sms-bubble{background:#1F1F23;color:#F4EEE3;border-radius:18px;padding:14px 16px 16px;max-width:90%;font-family:'Inter',sans-serif;font-size:0.92rem;line-height:1.45;box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.sms-sender{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin-bottom:8px;font-weight:500}
+.sms-sender::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 8px rgba(232,169,61,.7)}
+.sms-stamp{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:rgba(244,238,227,.4);letter-spacing:0.12em;text-transform:uppercase;text-align:center;margin:10px 0}
+
+/* Toast */
+.toast-wrap{position:fixed;bottom:24px;right:24px;z-index:120;display:flex;flex-direction:column;gap:12px;pointer-events:none;max-width:380px;width:calc(100% - 48px)}
+@media(max-width:640px){.toast-wrap{right:16px;left:16px;bottom:16px;width:auto;max-width:none}}
+.toast{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px 18px;box-shadow:0 16px 48px rgba(31,26,20,.18),0 2px 6px rgba(31,26,20,.08);display:flex;flex-direction:column;gap:10px;pointer-events:auto;animation:toast-in .45s cubic-bezier(.18,.7,.28,1.1) both}
+.toast.leaving{animation:toast-out .35s ease-in both}
+@keyframes toast-in{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes toast-out{to{opacity:0;transform:translateX(24px)}}
+.toast-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.toast-sender{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);font-weight:500}
+.toast-sender .badge{width:22px;height:22px;border-radius:6px;background:var(--accent);color:#FFF;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toast-sender .badge svg{width:13px;height:13px}
+.toast-close{background:none;border:0;color:var(--text-faint);font-size:18px;line-height:1;padding:4px 6px;cursor:pointer;border-radius:4px;transition:background .15s,color .15s}
+.toast-close:hover{background:var(--surface-2);color:var(--text)}
+.toast-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--text);line-height:1.25}
+.toast-prod{display:flex;align-items:center;gap:12px;background:var(--surface-2);border-radius:8px;padding:10px;text-decoration:none;color:inherit;transition:background .2s,transform .2s}
+.toast-prod:hover{background:var(--surface-3);transform:translateX(2px)}
+.toast-prod img{width:52px;height:52px;object-fit:contain;background:var(--surface);border-radius:6px;flex-shrink:0;padding:4px}
+.toast-prod-name{font-family:'Fraunces',serif;font-size:0.86rem;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:4px}
+.toast-prod-prices{display:flex;align-items:baseline;gap:8px;font-size:0.82rem}
+.toast-prod-was{color:var(--text-faint);text-decoration:line-through}
+.toast-prod-now{color:var(--accent);font-weight:700;font-family:'Fraunces',serif;font-size:1rem}
+
+/* Inline store CTA — secondary entry into Alerts */
+.store-cta-inline{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:0.74rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-top:6px;padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .2s,color .2s;align-self:flex-start}
+.store-cta-inline:hover{color:var(--accent-deep);border-bottom-color:var(--accent-deep)}
+.store-cta-inline .arrow{transition:transform .2s}
+.store-cta-inline:hover .arrow{transform:translateX(3px)}
+
+/* CHANNELS */
+.channels{padding:100px 0}
+.channels-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px}
+@media(min-width:600px){.channels-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:920px){.channels-grid{grid-template-columns:repeat(5,1fr)}}
+.channel{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);transition:transform .25s,border-color .25s,box-shadow .25s}
+.channel:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow-card)}
+.channel-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;color:var(--text)}
+.channel-arrow{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:1rem;line-height:1}
+
+/* VISIT */
+.visit{padding:100px 0;background:var(--surface-2)}
+.visit-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start}
+@media(min-width:880px){.visit-grid{grid-template-columns:1fr 1.2fr;gap:56px}}
+.visit-info h2{margin:14px 0 24px}
+.info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:28px;margin-bottom:24px;box-shadow:var(--shadow-card)}
+.info-row{display:flex;flex-direction:column;gap:6px;padding:14px 0;border-bottom:1px solid var(--border)}
+.info-row:first-child{padding-top:0}
+.info-row:last-child{border-bottom:0;padding-bottom:0}
+.info-row .label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint)}
+.info-row .value{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:500;color:var(--text);line-height:1.35}
+.info-row a.value:hover{color:var(--accent)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:8px 28px;font-family:'Inter',sans-serif;font-size:0.95rem}
+.hours .day{color:var(--text-muted);font-weight:500}
+.hours .time{color:var(--text);font-variant-numeric:tabular-nums}
+.hours .closed{color:var(--text-faint)}
+.visit-cta{display:flex;gap:10px;flex-wrap:wrap}
+.map-wrap{border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);background:var(--surface);min-height:480px}
+.map-wrap iframe{display:block;width:100%;height:100%;min-height:480px;border:0}
+
+/* FOOTER */
+footer{padding:48px 0 40px;border-top:1px solid var(--border);background:var(--bg)}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-brand{font-family:'Fraunces',serif;font-weight:700;font-size:1rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--text)}
+.footer-meta{font-family:'JetBrains Mono',monospace;font-size:0.74rem;letter-spacing:0.1em;color:var(--text-faint);text-transform:uppercase;text-align:right;line-height:1.7}
+.footer-meta a{color:var(--text-muted)}
+.footer-meta a:hover{color:var(--accent)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease-out,transform .7s ease-out}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-brand">
+    <span class="mark"><img src="assets/logos/sharons-depot-logo.webp" alt="Sharon's Depot logo" width="38" height="38"></span>
+    <span class="wordmark">Sharon's Depot</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#deals">Today's Deals</a></li>
+    <li><a href="#store">Store</a></li>
+    <li><a href="#alerts">Alerts</a></li>
+    <li><a href="#channels">Where to Find Us</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="tel:+12105938701" class="btn btn-primary">Call (210) 593-8701</a>
+    <button class="burger" id="burger" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Est. 2016 · San Antonio, TX</span>
+        <h1>Brand-new Home Depot tools — at <em>family-discount</em> prices.</h1>
+        <p class="hero-sub">A family-owned overstock warehouse on Stahl Park, serving San Antonio since Sharon left the corporate world to start her own thing. New, in-the-box merchandise. Loyal-customer pricing. Same family at the door for 10 years.</p>
+        <div class="hero-actions">
+          <a href="#deals" class="btn btn-primary btn-lg">See today's deals <span class="arrow">→</span></a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">Get directions</a>
+        </div>
+        <div class="hero-meta">
+          <span>Mon–Fri · 9 AM – 5:30 PM</span>
+          <span class="dot"></span>
+          <span>(210) 593-8701</span>
+          <span class="dot"></span>
+          <span>Walk-ins welcome</span>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <span class="stamp">Today's pick</span>
+        <div class="photo">
+          <img src="assets/products/XJFB5DSLX7CNQDUYMUTM3LXJ.jpeg" alt="2-Shelf Steel Garage Storage Flammable Safety Cabinet in Yellow" loading="eager">
+        </div>
+        <div class="pname">2-Shelf Steel Garage Storage<br>Flammable Safety Cabinet</div>
+        <div class="prow">
+          <span class="pwas">$1,160.88</span>
+          <span class="pnow">$812.61</span>
+          <span class="psave">Save 30%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="trust">
+  <div class="container">
+    <div class="trust-row">
+      <span>10+ Years Family-Owned</span>
+      <span>Overstock = New in Box</span>
+      <span>Loyal-Customer Pricing</span>
+      <span>Shop In-Store or Online</span>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-inner reveal">
+      <span class="eyebrow">The story</span>
+      <h2>From a 53-foot container in the garage — to your trusted San Antonio depot.</h2>
+      <p>In 2016, Sharon was left without a job. This time, she would not allow Corporate America to dictate her future and decided to start her own venture. Through an old friend, she got in touch with Home Depot and bought her first truckload of merchandise. The following week, a 53-foot container was unloaded in her garage. Within days, most of it had sold.</p>
+      <p>A few months later — short on space and with a few upset neighbors — we moved into our current warehouse on Stahl Park. We've met many wonderful people on this journey, and we're grateful to have built a business that works for everyone.</p>
+      <blockquote class="pullquote">
+        "We treat every customer like family, and many of our shoppers have been with us for years. Loyal customers always receive the best deals, because your trust means everything to us."
+        <span class="by">— Sharon</span>
+      </blockquote>
+      <p>Whether you're a contractor stocking up for the week, a homeowner finishing a weekend project, or just hunting for a real deal — Sharon's Depot is where San Antonio shops for brand-new tools at brand-new prices, minus a chunk.</p>
+    </div>
+  </div>
+</section>
+
+<section class="deals" id="deals">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">This week's selection</span>
+      <h2>Today's deals from the warehouse floor.</h2>
+    </div>
+    <div class="deals-grid">
+
+      <a href="https://www.sharonsdepot.com/product/43-in-w-x-65-in-h-x-18-in-d-2-shelf-steel-freestanding-garage-storage-flammable-safety-cabinet-in-yellow/6EVNMWNEBGJL7UVCZ3DZ4T4R" target="_blank" rel="noopener" class="deal reveal">
+        <div class="deal-photo">
+          <span class="deal-tag">Sale</span>
+          <img src="assets/products/XJFB5DSLX7CNQDUYMUTM3LXJ.jpeg" alt="Yellow steel garage storage flammable safety cabinet, doors open in workshop" loading="lazy">
+        </div>
+        <div class="deal-body">
+          <div class="deal-name">43" × 65" × 18" Steel Garage Flammable Safety Cabinet</div>
+          <div class="deal-pricing">
+            <span class="deal-was">$1,160.88</span>
+            <span class="deal-now">$812.61</span>
+            <span class="deal-save">−30%</span>
+          </div>
+          <span class="deal-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/professional-2-amp-automotive-battery-charger-and-maintainer/VEQHVBEEBRB5KRBPOVSVEPUJ" target="_blank" rel="noopener" class="deal reveal">
+        <div class="deal-photo">
+          <span class="deal-tag">Sale</span>
+          <img src="assets/products/YXHELFGHCUH4OUHM5VHOFYRA.jpeg" alt="Professional 2-Amp automotive battery charger and maintainer" loading="lazy">
+        </div>
+        <div class="deal-body">
+          <div class="deal-name">Professional 2-Amp Automotive Battery Charger &amp; Maintainer</div>
+          <div class="deal-pricing">
+            <span class="deal-was">$49.98</span>
+            <span class="deal-now">$34.98</span>
+            <span class="deal-save">−30%</span>
+          </div>
+          <span class="deal-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/lochemeade-1-light-natural-iron-pendant-with-smoked-glass-shade-kitchen-light/64ASFYZ2QQPKSHJYJB2GMD5E" target="_blank" rel="noopener" class="deal reveal">
+        <div class="deal-photo">
+          <span class="deal-tag">Sale</span>
+          <img src="assets/products/TWVD7FHFTB6OPZXK5Q3BYUUX.jpeg" alt="Lochemeade 1-light natural iron kitchen pendant with smoked glass shade" loading="lazy">
+        </div>
+        <div class="deal-body">
+          <div class="deal-name">Lochemeade 1-Light Natural Iron Pendant w/ Smoked Glass</div>
+          <div class="deal-pricing">
+            <span class="deal-was">$219.99</span>
+            <span class="deal-now">$109.99</span>
+            <span class="deal-save">−50%</span>
+          </div>
+          <span class="deal-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/powersmart-21-in-3-in-1-self-propelled-lawn-mower/42X2WKZDPQX2VMBZYPBVJRSA" target="_blank" rel="noopener" class="deal reveal">
+        <div class="deal-photo">
+          <span class="deal-tag">Sale</span>
+          <img src="assets/products/SINJNKXE4ZIXVSDJF5DBVIJB.jpeg" alt="PowerSmart 21-inch 3-in-1 self-propelled lawn mower" loading="lazy">
+        </div>
+        <div class="deal-body">
+          <div class="deal-name">PowerSmart 21" 3-in-1 Self-Propelled Lawn Mower</div>
+          <div class="deal-pricing">
+            <span class="deal-was">$329.00</span>
+            <span class="deal-now">$197.40</span>
+            <span class="deal-save">−40%</span>
+          </div>
+          <span class="deal-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/14-gallon-6-0-peak-hp-nxt-wet-dry-shop-vacuum-with-fine-dust-filter-hose-accessories-and-premium-car-cleaning-kit/ALJBD4X7MBAKAAJBPUI4K22K" target="_blank" rel="noopener" class="deal reveal">
+        <div class="deal-photo">
+          <span class="deal-tag">Sale</span>
+          <img src="assets/products/BI7YGGFN22O2ZQ4RGKV25M6Z.jpeg" alt="14-gallon 6.0 peak HP NXT wet/dry shop vacuum with car cleaning kit" loading="lazy">
+        </div>
+        <div class="deal-body">
+          <div class="deal-name">14-Gallon 6.0 Peak HP NXT Wet/Dry Shop Vac + Car Kit</div>
+          <div class="deal-pricing">
+            <span class="deal-was">$159.00</span>
+            <span class="deal-now">$95.40</span>
+            <span class="deal-save">−40%</span>
+          </div>
+          <span class="deal-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/s/shop" target="_blank" rel="noopener" class="deal reveal" style="background:var(--surface-3);border-style:dashed">
+        <div class="deal-photo" style="background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:24px;text-align:center">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent)">Plus 700+ more</span>
+          <span style="font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--text);line-height:1.05">Browse the full warehouse →</span>
+        </div>
+        <div class="deal-body" style="text-align:center">
+          <div class="deal-name" style="min-height:0;color:var(--text-muted);font-style:italic">New stock arrives by the truckload — check back often.</div>
+          <span class="deal-link" style="margin:0 auto;border-top:0">Shop everything <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="store" id="store">
+  <div class="container">
+    <div class="store-head reveal">
+      <span class="eyebrow">The full store</span>
+      <h2>Browse the warehouse, your way.</h2>
+      <p class="subtitle">A snapshot of what's on the floor right now. Filter by category, sort by what matters to you, and tap through to buy.</p>
+      <a href="#alerts" class="store-cta-inline">Get alerts when new ones arrive <span class="arrow">→</span></a>
+    </div>
+
+    <div class="store-controls reveal">
+      <div class="store-tabs" role="tablist" aria-label="Product categories">
+        <button class="tab active" data-cat="all" role="tab" aria-selected="true">All <span class="count" data-count="all"></span></button>
+        <button class="tab" data-cat="tools" role="tab">Tools <span class="count" data-count="tools"></span></button>
+        <button class="tab" data-cat="lighting" role="tab">Lighting <span class="count" data-count="lighting"></span></button>
+        <button class="tab" data-cat="storage" role="tab">Storage <span class="count" data-count="storage"></span></button>
+        <button class="tab" data-cat="outdoor" role="tab">Outdoor <span class="count" data-count="outdoor"></span></button>
+      </div>
+      <div class="sort-wrap">
+        <label id="sort-label">Sort</label>
+        <div class="sort-buttons" role="group" aria-labelledby="sort-label">
+          <button class="sort-btn active" data-sort="discount">% Off</button>
+          <button class="sort-btn" data-sort="price-asc">Price ↑</button>
+          <button class="sort-btn" data-sort="price-desc">Price ↓</button>
+          <button class="sort-btn" data-sort="alpha">A–Z</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="store-grid" id="store-grid">
+      <!-- Tools -->
+      <a href="https://www.sharonsdepot.com/product/20-volt-max-xr-cordless-brushless-5-in-random-orbital-sander-tool-only-/XTHCAXMP2R3OARMQKHEIEASF" target="_blank" rel="noopener" class="store-item reveal" data-cat="tools" data-was="179.00" data-now="125.30" data-name="20-Volt MAX XR 5 in Random Orbital Sander">
+        <div class="store-item-photo"><span class="store-item-cat">Tools</span><span class="store-item-save">−30%</span><img src="assets/products/OXIQHSQYJHAXWZU5DRA3EB5F.jpeg" alt="20-Volt MAX XR cordless brushless 5-in random orbital sander" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">20V MAX XR Brushless 5" Random Orbital Sander</div>
+          <div class="store-item-prices"><span class="store-item-was">$179.00</span><span class="store-item-now">$125.30</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/1-2-in-compact-impact-wrench/6WOTRCR3VLTXTVE5SGLZXAXP" target="_blank" rel="noopener" class="store-item reveal" data-cat="tools" data-was="159.00" data-now="95.40" data-name="1/2 in Compact Impact Wrench">
+        <div class="store-item-photo"><span class="store-item-cat">Tools</span><span class="store-item-save">−40%</span><img src="assets/products/7MRU37EYE2UQBDFY35HY3S5L.jpeg" alt="1/2 inch compact impact wrench" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">1/2" Compact Impact Wrench</div>
+          <div class="store-item-prices"><span class="store-item-was">$159.00</span><span class="store-item-now">$95.40</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/19-oz-california-framer-hammer-with-straight-16-in-hardwood-handle-and-magnetic-nail-start/FRPL7LWNB6CE54B2MLOLVCUJ" target="_blank" rel="noopener" class="store-item reveal" data-cat="tools" data-was="26.32" data-now="15.79" data-name="19 oz California Framer Hammer">
+        <div class="store-item-photo"><span class="store-item-cat">Tools</span><span class="store-item-save">−40%</span><img src="assets/products/WT227XANJDEOZHEWEXG45HNI.jpeg" alt="19 oz California framer hammer with hardwood handle" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">19 oz California Framer Hammer w/ Hardwood Handle</div>
+          <div class="store-item-prices"><span class="store-item-was">$26.32</span><span class="store-item-now">$15.79</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/professional-2-amp-automotive-battery-charger-and-maintainer/VEQHVBEEBRB5KRBPOVSVEPUJ" target="_blank" rel="noopener" class="store-item reveal" data-cat="tools" data-was="49.98" data-now="34.98" data-name="Professional 2-Amp Automotive Battery Charger">
+        <div class="store-item-photo"><span class="store-item-cat">Tools</span><span class="store-item-save">−30%</span><img src="assets/products/YXHELFGHCUH4OUHM5VHOFYRA.jpeg" alt="Professional 2-Amp automotive battery charger and maintainer" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">Professional 2-Amp Automotive Battery Charger &amp; Maintainer</div>
+          <div class="store-item-prices"><span class="store-item-was">$49.98</span><span class="store-item-now">$34.98</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- Lighting -->
+      <a href="https://www.sharonsdepot.com/product/1-light-black-motion-sensing-outdoor-wall-lantern-sconce/4PHNEXAFMUOLY2WPOAMTOEEV" target="_blank" rel="noopener" class="store-item reveal" data-cat="lighting" data-was="50.22" data-now="25.11" data-name="Black Motion-Sensing Outdoor Wall Lantern">
+        <div class="store-item-photo"><span class="store-item-cat">Lighting</span><span class="store-item-save">−50%</span><img src="assets/products/56W36V6UDMNJN7IR6C4SXXUR.jpeg" alt="Black motion-sensing outdoor wall lantern sconce" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">Black Motion-Sensing Outdoor Wall Lantern Sconce</div>
+          <div class="store-item-prices"><span class="store-item-was">$50.22</span><span class="store-item-now">$25.11</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/1-light-chrome-modern-acrylic-integrated-led-pendant-light-fixture-with-glass-shade-for-kitchen-island-decor/QNLPZNCRLLJEM4W4OM6Z6A2F" target="_blank" rel="noopener" class="store-item reveal" data-cat="lighting" data-was="62.99" data-now="31.49" data-name="Chrome Modern Acrylic LED Pendant">
+        <div class="store-item-photo"><span class="store-item-cat">Lighting</span><span class="store-item-save">−50%</span><img src="assets/products/6CSJF5ZKM6DLMEHWKIDVL45W.jpeg" alt="Chrome modern acrylic integrated LED pendant for kitchen island" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">Chrome Modern Acrylic LED Pendant Light</div>
+          <div class="store-item-prices"><span class="store-item-was">$62.99</span><span class="store-item-now">$31.49</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/24-4-in-4-light-gold-vanity-light-bar-not-bulbs-included-/INY7V6O3Q7B7HKIBBVQNZXUV" target="_blank" rel="noopener" class="store-item reveal" data-cat="lighting" data-was="83.90" data-now="41.95" data-name="24.4 in 4-Light Gold Vanity Bar">
+        <div class="store-item-photo"><span class="store-item-cat">Lighting</span><span class="store-item-save">−50%</span><img src="assets/products/U43RYSQRSSA2KS2RIN3AVB5Y.jpeg" alt="24.4 inch 4-light gold vanity light bar" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">24.4" 4-Light Gold Vanity Light Bar</div>
+          <div class="store-item-prices"><span class="store-item-was">$83.90</span><span class="store-item-now">$41.95</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/lochemeade-1-light-natural-iron-pendant-with-smoked-glass-shade-kitchen-light/64ASFYZ2QQPKSHJYJB2GMD5E" target="_blank" rel="noopener" class="store-item reveal" data-cat="lighting" data-was="219.99" data-now="109.99" data-name="Lochemeade Natural Iron Pendant Smoked Glass">
+        <div class="store-item-photo"><span class="store-item-cat">Lighting</span><span class="store-item-save">−50%</span><img src="assets/products/TWVD7FHFTB6OPZXK5Q3BYUUX.jpeg" alt="Lochemeade natural iron kitchen pendant with smoked glass" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">Lochemeade Natural Iron Pendant w/ Smoked Glass</div>
+          <div class="store-item-prices"><span class="store-item-was">$219.99</span><span class="store-item-now">$109.99</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- Storage -->
+      <a href="https://www.sharonsdepot.com/product/16-6-in-modular-power-tool-organizer-with-charging-station-150-lbs-wall-mount-garage-with-hooks-yellow/TTOKOY2FABS6JN5N7VZRDL5F" target="_blank" rel="noopener" class="store-item reveal" data-cat="storage" data-was="90.09" data-now="54.05" data-name="16.6 in Modular Power Tool Organizer Yellow">
+        <div class="store-item-photo"><span class="store-item-cat">Storage</span><span class="store-item-save">−40%</span><img src="assets/products/VXQQHWL65JTTIGRW3V33PNDL.jpeg" alt="16.6 inch modular power tool organizer with charging station, yellow" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">16.6" Modular Tool Organizer w/ Charging Station</div>
+          <div class="store-item-prices"><span class="store-item-was">$90.09</span><span class="store-item-now">$54.05</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/3-tier-metal-4-wheeled-rolling-storage-cart-with-removable-drawers-in-black/H5JH5VUAYD5HPJAD2GKBY2OM" target="_blank" rel="noopener" class="store-item reveal" data-cat="storage" data-was="60.99" data-now="36.59" data-name="3-Tier Rolling Storage Cart Black">
+        <div class="store-item-photo"><span class="store-item-cat">Storage</span><span class="store-item-save">−40%</span><img src="assets/products/4RVI23T2XDFQ4SDZJCAXJCV6.jpeg" alt="3-tier metal 4-wheeled rolling storage cart in black" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">3-Tier Rolling Storage Cart w/ Removable Drawers</div>
+          <div class="store-item-prices"><span class="store-item-was">$60.99</span><span class="store-item-now">$36.59</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/15-1-in-w-x-52-36-in-h-x-17-8-in-d-4-drawer-file-cabinet-in-black-vertical-metal-structure-legal-letter-storage/Q7RDVFTLP2GJYYZNCXHLKIFK" target="_blank" rel="noopener" class="store-item reveal" data-cat="storage" data-was="233.00" data-now="139.80" data-name="4-Drawer File Cabinet Black Vertical Metal">
+        <div class="store-item-photo"><span class="store-item-cat">Storage</span><span class="store-item-save">−40%</span><img src="assets/products/ZZ2IIQ5T6C3CEJPYKV2CLNGE.jpeg" alt="15.1 in W x 52.36 in H 4-drawer file cabinet in black" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">4-Drawer Vertical File Cabinet (Black)</div>
+          <div class="store-item-prices"><span class="store-item-was">$233.00</span><span class="store-item-now">$139.80</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/43-in-w-x-65-in-h-x-18-in-d-2-shelf-steel-freestanding-garage-storage-flammable-safety-cabinet-in-yellow/6EVNMWNEBGJL7UVCZ3DZ4T4R" target="_blank" rel="noopener" class="store-item reveal" data-cat="storage" data-was="1160.88" data-now="812.61" data-name="2-Shelf Steel Garage Flammable Safety Cabinet">
+        <div class="store-item-photo"><span class="store-item-cat">Storage</span><span class="store-item-save">−30%</span><img src="assets/products/XJFB5DSLX7CNQDUYMUTM3LXJ.jpeg" alt="2-shelf steel garage flammable safety cabinet in yellow" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">2-Shelf Steel Garage Flammable Safety Cabinet</div>
+          <div class="store-item-prices"><span class="store-item-was">$1,160.88</span><span class="store-item-now">$812.61</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- Outdoor -->
+      <a href="https://www.sharonsdepot.com/product/1800-psi-1-45-gpm-k-3-power-control-cold-water-electric-pressure-washer-plus-vario-and-dirtblaster-spray-wands/R5SQFPCEEVCBULC4WDYPDQAT" target="_blank" rel="noopener" class="store-item reveal" data-cat="outdoor" data-was="139.99" data-now="97.99" data-name="K-3 1800 PSI Electric Pressure Washer">
+        <div class="store-item-photo"><span class="store-item-cat">Outdoor</span><span class="store-item-save">−30%</span><img src="assets/products/GS7473S4RVII7KLHJUFKD4NN.jpeg" alt="Karcher K-3 1800 PSI electric pressure washer" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">K-3 1800 PSI Electric Pressure Washer</div>
+          <div class="store-item-prices"><span class="store-item-was">$139.99</span><span class="store-item-now">$97.99</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/12v-lithium-90-mph-160-cfm-cordless-battery-blower-with-internal-2-5-ah-battery-and-charger/BXRMVUDNLOBBBA5T7INVUGBV" target="_blank" rel="noopener" class="store-item reveal" data-cat="outdoor" data-was="79.00" data-now="47.40" data-name="12V Lithium Cordless Battery Leaf Blower">
+        <div class="store-item-photo"><span class="store-item-cat">Outdoor</span><span class="store-item-save">−40%</span><img src="assets/products/AI33P2L3SOSW5Z6XPDYSLIPL.jpeg" alt="12V lithium cordless battery leaf blower" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">12V Lithium Cordless Leaf Blower (90 MPH)</div>
+          <div class="store-item-prices"><span class="store-item-was">$79.00</span><span class="store-item-now">$47.40</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/21-in-2-in-1-side-discharge-gas-push-lawn-mower/6D7VZFEKR7PWDOFX6XKTKBGH" target="_blank" rel="noopener" class="store-item reveal" data-cat="outdoor" data-was="239.00" data-now="143.40" data-name="21 in 2-in-1 Side Discharge Gas Push Lawn Mower">
+        <div class="store-item-photo"><span class="store-item-cat">Outdoor</span><span class="store-item-save">−40%</span><img src="assets/products/OSBM36PXP53N3372R5LB4VT4.jpeg" alt="21 inch 2-in-1 side discharge gas push lawn mower" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">21" 2-in-1 Gas Push Lawn Mower</div>
+          <div class="store-item-prices"><span class="store-item-was">$239.00</span><span class="store-item-now">$143.40</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/powersmart-21-in-3-in-1-self-propelled-lawn-mower/42X2WKZDPQX2VMBZYPBVJRSA" target="_blank" rel="noopener" class="store-item reveal" data-cat="outdoor" data-was="329.00" data-now="197.40" data-name="PowerSmart 21 in 3-in-1 Self-Propelled Lawn Mower">
+        <div class="store-item-photo"><span class="store-item-cat">Outdoor</span><span class="store-item-save">−40%</span><img src="assets/products/SINJNKXE4ZIXVSDJF5DBVIJB.jpeg" alt="PowerSmart 21 in 3-in-1 self-propelled lawn mower" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">PowerSmart 21" 3-in-1 Self-Propelled Mower</div>
+          <div class="store-item-prices"><span class="store-item-was">$329.00</span><span class="store-item-now">$197.40</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="https://www.sharonsdepot.com/product/14-gallon-6-0-peak-hp-nxt-wet-dry-shop-vacuum-with-fine-dust-filter-hose-accessories-and-premium-car-cleaning-kit/ALJBD4X7MBAKAAJBPUI4K22K" target="_blank" rel="noopener" class="store-item reveal" data-cat="outdoor" data-was="159.00" data-now="95.40" data-name="14-Gallon Wet Dry Shop Vac with Car Kit">
+        <div class="store-item-photo"><span class="store-item-cat">Outdoor</span><span class="store-item-save">−40%</span><img src="assets/products/BI7YGGFN22O2ZQ4RGKV25M6Z.jpeg" alt="14-gallon wet dry shop vacuum with car cleaning kit" loading="lazy"></div>
+        <div class="store-item-body">
+          <div class="store-item-name">14-Gallon NXT Wet/Dry Shop Vac + Car Kit</div>
+          <div class="store-item-prices"><span class="store-item-was">$159.00</span><span class="store-item-now">$95.40</span></div>
+          <span class="store-item-link">Shop now <span class="arrow">→</span></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="store-empty" id="store-empty">No items in this category right now — new stock arrives by the truckload.</div>
+  </div>
+</section>
+
+<section class="alerts" id="alerts">
+  <div class="container">
+    <div class="alerts-pitch reveal" style="max-width:760px">
+      <span class="eyebrow">Never miss a drop</span>
+      <h2>Be first when new stock hits the floor.</h2>
+      <p class="subtitle">New deliveries roll in by the truckload. Get a quick text or email the moment we tag fresh inventory — and a head start on the best deals before they sell out.</p>
+    </div>
+
+    <div class="alerts-grid">
+      <div class="alerts-form-wrap reveal">
+        <form class="alerts-form" id="alerts-form" novalidate>
+          <fieldset>
+            <legend>Sign up</legend>
+
+            <div class="alerts-field">
+              <label class="alerts-label" for="alerts-email">Email <span aria-hidden="true">·</span> required</label>
+              <input class="alerts-input" type="email" id="alerts-email" name="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+
+            <div class="alerts-field">
+              <label class="alerts-label" for="alerts-phone">Phone <span aria-hidden="true">·</span> optional</label>
+              <input class="alerts-input" type="tel" id="alerts-phone" name="phone" placeholder="(210) 555-0142" autocomplete="tel">
+              <small class="alerts-help">For SMS alerts. We never share your number.</small>
+            </div>
+
+            <div class="alerts-field">
+              <span class="alerts-label">Categories you care about</span>
+              <div class="alerts-checks" id="alerts-checks">
+                <label class="alerts-check checked" data-cat="all"><input type="checkbox" name="cat" value="all" checked> All categories</label>
+                <label class="alerts-check checked" data-cat="tools"><input type="checkbox" name="cat" value="tools" checked> Tools</label>
+                <label class="alerts-check checked" data-cat="lighting"><input type="checkbox" name="cat" value="lighting" checked> Lighting</label>
+                <label class="alerts-check checked" data-cat="storage"><input type="checkbox" name="cat" value="storage" checked> Storage</label>
+                <label class="alerts-check checked" data-cat="outdoor"><input type="checkbox" name="cat" value="outdoor" checked> Outdoor</label>
+              </div>
+            </div>
+
+            <div class="alerts-field">
+              <span class="alerts-label">How often</span>
+              <div class="alerts-radios" id="alerts-radios">
+                <label class="alerts-radio checked"><input type="radio" name="freq" value="instant" checked> As they arrive</label>
+                <label class="alerts-radio"><input type="radio" name="freq" value="weekly"> Friday digest</label>
+              </div>
+            </div>
+
+            <p class="alerts-fineprint">By signing up you agree to receive promotional messages from Sharon's Depot. Reply STOP to cancel anytime. Msg &amp; data rates may apply.</p>
+
+            <button type="submit" class="btn btn-primary btn-lg alerts-submit">Notify me <span class="arrow">→</span></button>
+          </fieldset>
+        </form>
+
+        <div class="alerts-success" id="alerts-success" role="status" aria-live="polite">
+          <div class="alerts-check-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg>
+          </div>
+          <h3 id="alerts-success-headline">You're on the list.</h3>
+          <p class="subtitle" style="margin-bottom:18px;font-size:0.98rem">We'll send a heads-up the moment new stock hits the warehouse floor — preview what that looks like below.</p>
+          <div class="alerts-summary" id="alerts-summary">
+            <div class="alerts-summary-row"><span class="k">Email</span><span class="v" data-field="email"></span></div>
+            <div class="alerts-summary-row"><span class="k">Phone</span><span class="v" data-field="phone"></span></div>
+            <div class="alerts-summary-row"><span class="k">Categories</span><span class="v" data-field="categories"></span></div>
+            <div class="alerts-summary-row"><span class="k">Frequency</span><span class="v" data-field="frequency"></span></div>
+          </div>
+          <div class="alerts-actions">
+            <button type="button" class="btn btn-primary btn-lg alerts-sample" id="alerts-sample">
+              <span class="label">Send me a sample alert now <span class="arrow">→</span></span>
+              <span class="dots" aria-hidden="true">●●●</span>
+            </button>
+            <button type="button" class="alerts-update" id="alerts-update">Update preferences</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="alerts-previews reveal" aria-hidden="true">
+        <div>
+          <div class="preview-label">Email preview</div>
+          <div class="email-preview">
+            <div class="email-head"><div class="dots"><span></span><span></span><span></span></div><span>Inbox · Today</span></div>
+            <div class="email-body">
+              <div class="email-from">
+                <span class="avatar"><img src="assets/logos/sharons-depot-logo.webp" alt=""></span>
+                <span><b>Sharon's Depot</b> <span class="addr">&lt;alerts@sharonsdepot.com&gt;</span></span>
+              </div>
+              <div class="email-meta">To you · Just now</div>
+              <div class="email-subject">New in box at the warehouse — DeWalt 5" Random Orbital Sander</div>
+              <div class="email-prod">
+                <img src="assets/products/OXIQHSQYJHAXWZU5DRA3EB5F.jpeg" alt="">
+                <div>
+                  <div class="email-prod-name">20V MAX XR Brushless 5" Random Orbital Sander</div>
+                  <div class="email-prod-prices">
+                    <span class="email-prod-was">$179.00</span>
+                    <span class="email-prod-now">$125.30</span>
+                  </div>
+                </div>
+              </div>
+              <a href="#store" class="email-cta">Shop it <span class="arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="preview-label">Text preview</div>
+          <div class="sms-preview">
+            <div class="sms-head"><span class="time">9:42</span><span class="icons">5G ▮▮▮▮ 86%</span></div>
+            <div class="sms-bubble">
+              <div class="sms-sender">Sharon's Depot</div>
+              Just hit the floor: 20V MAX XR Random Orbital Sander, was $179, now $125. First come first served — 4503 N Stahl Park or sharonsdepot.com.
+            </div>
+            <div class="sms-stamp">Today · 9:42 AM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="channels" id="channels">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Find us elsewhere</span>
+      <h2>Also on every marketplace you already use.</h2>
+      <p class="subtitle" style="margin-top:14px">Same family, same warehouse, same prices — wherever you prefer to shop.</p>
+    </div>
+    <div class="channels-grid">
+      <a href="https://www.ebay.com/str/sharonsdepot" target="_blank" rel="noopener" class="channel reveal">
+        <span class="channel-name">eBay</span>
+        <span class="channel-arrow">↗</span>
+      </a>
+      <a href="https://www.amazon.com/sp?seller=A38BW3ZIVDJEGH&marketplaceID=ATVPDKIKX0DER" target="_blank" rel="noopener" class="channel reveal">
+        <span class="channel-name">Amazon</span>
+        <span class="channel-arrow">↗</span>
+      </a>
+      <a href="https://www.facebook.com/p/Sharons-Depot-100028246016789/" target="_blank" rel="noopener" class="channel reveal">
+        <span class="channel-name">Facebook</span>
+        <span class="channel-arrow">↗</span>
+      </a>
+      <a href="https://www.instagram.com/sharonsdepot/" target="_blank" rel="noopener" class="channel reveal">
+        <span class="channel-name">Instagram</span>
+        <span class="channel-arrow">↗</span>
+      </a>
+      <a href="https://offerup.co/NDa69XrfRYb" target="_blank" rel="noopener" class="channel reveal">
+        <span class="channel-name">OfferUp</span>
+        <span class="channel-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-info reveal">
+        <span class="eyebrow">Come on by</span>
+        <h2>The warehouse on Stahl Park.</h2>
+        <div class="info-card">
+          <div class="info-row">
+            <span class="label">Address</span>
+            <span class="value">4503 N Stahl Park, Ste 110<br>San Antonio, TX 78217</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Call</span>
+            <a href="tel:+12105938701" class="value">(210) 593-8701</a>
+          </div>
+          <div class="info-row">
+            <span class="label">Email</span>
+            <a href="mailto:Sharonsdepot@gmail.com" class="value">Sharonsdepot@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-row" style="border-bottom:0;padding:0">
+            <span class="label" style="margin-bottom:14px">Hours</span>
+            <div class="hours">
+              <span class="day">Monday</span><span class="time">9:00 AM – 5:30 PM</span>
+              <span class="day">Tuesday</span><span class="time">9:00 AM – 5:30 PM</span>
+              <span class="day">Wednesday</span><span class="time">9:00 AM – 5:30 PM</span>
+              <span class="day">Thursday</span><span class="time">9:00 AM – 5:30 PM</span>
+              <span class="day">Friday</span><span class="time">9:00 AM – 5:30 PM</span>
+              <span class="day">Saturday</span><span class="time closed">Closed</span>
+              <span class="day">Sunday</span><span class="time closed">Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="visit-cta">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217" target="_blank" rel="noopener" class="btn btn-primary">Get directions</a>
+          <a href="tel:+12105938701" class="btn btn-ghost">Call us</a>
+        </div>
+      </div>
+      <div class="map-wrap reveal" aria-label="Map of Sharon's Depot location">
+        <iframe
+          src="https://www.google.com/maps?q=4503+N+Stahl+Park+Ste+110+San+Antonio+TX+78217&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Sharon's Depot — map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-brand">Sharon's Depot</div>
+      <div class="footer-meta">
+        Family-owned · San Antonio, TX · Est. 2016<br>
+        Redesign concept by <a href="https://www.graebener.tech" target="_blank" rel="noopener">Graebener.tech</a> — not affiliated with Home Depot.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  const burger = document.getElementById('burger');
+  const links = document.querySelectorAll('.nav-links a');
+
+  // Scroll-shrink nav
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Mobile burger
+  burger?.addEventListener('click', () => nav.classList.toggle('open'));
+  links.forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // Reveal-on-scroll
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {rootMargin:'-40px 0px', threshold:0.05});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+
+  // Store filter + sort
+  const grid = document.getElementById('store-grid');
+  if (grid) {
+    const items = [...grid.querySelectorAll('.store-item')];
+    const empty = document.getElementById('store-empty');
+    let cat = 'all';
+    let sort = 'discount';
+
+    const discount = it => {
+      const was = parseFloat(it.dataset.was);
+      const now = parseFloat(it.dataset.now);
+      return was > 0 ? (was - now) / was : 0;
+    };
+
+    const apply = () => {
+      // Sort first (mutate DOM order)
+      const sorted = [...items].sort((a, b) => {
+        if (sort === 'price-asc')  return parseFloat(a.dataset.now) - parseFloat(b.dataset.now);
+        if (sort === 'price-desc') return parseFloat(b.dataset.now) - parseFloat(a.dataset.now);
+        if (sort === 'alpha')      return a.dataset.name.localeCompare(b.dataset.name);
+        return discount(b) - discount(a); // discount default (highest %off first)
+      });
+      sorted.forEach(it => grid.appendChild(it));
+
+      // Filter
+      let visible = 0;
+      items.forEach(it => {
+        const show = cat === 'all' || it.dataset.cat === cat;
+        it.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      empty.classList.toggle('show', visible === 0);
+    };
+
+    // Counts
+    const counts = {all: items.length, tools: 0, lighting: 0, storage: 0, outdoor: 0};
+    items.forEach(it => { counts[it.dataset.cat] = (counts[it.dataset.cat] || 0) + 1; });
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const k = el.dataset.count;
+      el.textContent = counts[k] != null ? `(${counts[k]})` : '';
+    });
+
+    document.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(b => {
+          const on = b === btn;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        cat = btn.dataset.cat;
+        apply();
+      });
+    });
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b === btn));
+        sort = btn.dataset.sort;
+        apply();
+      });
+    });
+
+    apply();
+  }
+
+  // Alerts: signup, success, sample-alert toast
+  const form = document.getElementById('alerts-form');
+  const success = document.getElementById('alerts-success');
+  const STORAGE_KEY = 'sharons_depot_alerts_signup';
+  const FREQ_LABELS = {instant: 'As they arrive', weekly: 'Friday digest'};
+  const CAT_LABELS = {all: 'All categories', tools: 'Tools', lighting: 'Lighting', storage: 'Storage', outdoor: 'Outdoor'};
+  let lastSampleProductId = null;
+
+  if (form && success) {
+    const checks = [...form.querySelectorAll('.alerts-check')];
+    const radios = [...form.querySelectorAll('.alerts-radio')];
+    const summary = success.querySelector('#alerts-summary');
+    const sampleBtn = document.getElementById('alerts-sample');
+    const updateBtn = document.getElementById('alerts-update');
+    const headline = document.getElementById('alerts-success-headline');
+
+    // Checkbox visual sync + "All" interlock
+    const updateCheckVisual = (label) => {
+      label.classList.toggle('checked', label.querySelector('input').checked);
+    };
+    checks.forEach(label => {
+      const input = label.querySelector('input');
+      const cat = label.dataset.cat;
+      input.addEventListener('change', () => {
+        if (cat === 'all') {
+          // Clicking "All" sets all others to match
+          checks.forEach(l => {
+            if (l !== label) l.querySelector('input').checked = input.checked;
+            updateCheckVisual(l);
+          });
+        } else {
+          // Any non-"All" change syncs the "All" checkbox to the AND of others
+          updateCheckVisual(label);
+          const others = checks.filter(l => l.dataset.cat !== 'all');
+          const allChecked = others.every(l => l.querySelector('input').checked);
+          const allLabel = checks.find(l => l.dataset.cat === 'all');
+          allLabel.querySelector('input').checked = allChecked;
+          updateCheckVisual(allLabel);
+        }
+      });
+    });
+
+    // Radio visual sync
+    radios.forEach(label => {
+      label.querySelector('input').addEventListener('change', () => {
+        radios.forEach(l => l.classList.toggle('checked', l.querySelector('input').checked));
+      });
+    });
+
+    // Resolve current preferences from form
+    const readForm = () => {
+      const data = new FormData(form);
+      const cats = [...form.querySelectorAll('input[name="cat"]:checked')]
+        .map(i => i.value)
+        .filter(v => v !== 'all' || form.querySelector('input[name="cat"][value="all"]').checked);
+      const allOn = form.querySelector('input[name="cat"][value="all"]').checked;
+      return {
+        email: (data.get('email') || '').trim(),
+        phone: (data.get('phone') || '').trim(),
+        categories: allOn ? ['all'] : cats,
+        frequency: data.get('freq') || 'instant',
+      };
+    };
+
+    const prettyCats = (cats) => {
+      if (!cats || !cats.length) return '—';
+      if (cats.includes('all')) return 'All categories';
+      return cats.map(c => CAT_LABELS[c] || c).join(', ');
+    };
+
+    const renderSummary = (signup) => {
+      const firstName = (signup.email.split('@')[0] || 'friend').split(/[._-]/)[0];
+      headline.textContent = `You're on the list, ${firstName}.`;
+      summary.querySelector('[data-field="email"]').textContent = signup.email;
+      summary.querySelector('[data-field="phone"]').textContent = signup.phone || 'Not provided';
+      summary.querySelector('[data-field="categories"]').textContent = prettyCats(signup.categories);
+      summary.querySelector('[data-field="frequency"]').textContent = FREQ_LABELS[signup.frequency] || signup.frequency;
+    };
+
+    const showSuccess = (signup) => {
+      renderSummary(signup);
+      form.classList.add('hidden');
+      success.classList.add('show');
+    };
+
+    const showForm = () => {
+      success.classList.remove('show');
+      form.classList.remove('hidden');
+    };
+
+    const prefillForm = (signup) => {
+      form.querySelector('#alerts-email').value = signup.email || '';
+      form.querySelector('#alerts-phone').value = signup.phone || '';
+      const cats = (signup.categories || []).includes('all')
+        ? ['all', 'tools', 'lighting', 'storage', 'outdoor']
+        : signup.categories || [];
+      checks.forEach(l => {
+        const cat = l.dataset.cat;
+        const input = l.querySelector('input');
+        input.checked = cats.includes(cat);
+        updateCheckVisual(l);
+      });
+      radios.forEach(l => {
+        const input = l.querySelector('input');
+        input.checked = input.value === (signup.frequency || 'instant');
+        l.classList.toggle('checked', input.checked);
+      });
+    };
+
+    // Restore on load
+    let stored = null;
+    try { stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (e) { stored = null; }
+    if (stored && stored.email) {
+      showSuccess(stored);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = readForm();
+      if (!data.email) {
+        form.querySelector('#alerts-email').reportValidity();
+        return;
+      }
+      const signup = { ...data, signedUpAt: new Date().toISOString() };
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(signup)); } catch (e) {}
+      showSuccess(signup);
+      // Reveal toast container in case it's offscreen
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+
+    updateBtn?.addEventListener('click', () => {
+      let s = null;
+      try { s = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (e) {}
+      if (s) prefillForm(s);
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      showForm();
+      form.querySelector('#alerts-email').focus();
+    });
+
+    // --- Sample alert toast ---
+    const getToastWrap = () => document.getElementById('toast-wrap');
+    const storeItems = [...document.querySelectorAll('.store-item')];
+
+    const pickProduct = () => {
+      let s = null;
+      try { s = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (e) {}
+      const cats = (s && s.categories) || ['all'];
+      const wantsAll = !cats.length || cats.includes('all');
+      let pool = wantsAll ? storeItems : storeItems.filter(it => cats.includes(it.dataset.cat));
+      if (!pool.length) pool = storeItems;
+      // Avoid repeat
+      let pool2 = pool.filter(it => it.dataset.name !== lastSampleProductId);
+      if (!pool2.length) pool2 = pool;
+      const pick = pool2[Math.floor(Math.random() * pool2.length)];
+      lastSampleProductId = pick.dataset.name;
+      return pick;
+    };
+
+    const formatMoney = (s) => {
+      const n = parseFloat(s);
+      if (Number.isNaN(n)) return s;
+      return '$' + n.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    };
+
+    const spawnToast = (productEl) => {
+      const name = productEl.dataset.name;
+      const was = formatMoney(productEl.dataset.was);
+      const now = formatMoney(productEl.dataset.now);
+      const url = productEl.getAttribute('href');
+      const imgSrc = productEl.querySelector('img')?.getAttribute('src') || '';
+
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.setAttribute('role', 'alert');
+      toast.innerHTML = `
+        <div class="toast-head">
+          <div class="toast-sender">
+            <span class="badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </span>
+            Sharon's Depot · just now
+          </div>
+          <button class="toast-close" aria-label="Dismiss" type="button">&times;</button>
+        </div>
+        <div class="toast-title">Just hit the floor</div>
+        <a class="toast-prod" href="${url}" target="_blank" rel="noopener">
+          <img src="${imgSrc}" alt="">
+          <div>
+            <div class="toast-prod-name">${name}</div>
+            <div class="toast-prod-prices">
+              <span class="toast-prod-was">${was}</span>
+              <span class="toast-prod-now">${now}</span>
+            </div>
+          </div>
+        </a>
+      `;
+      const dismiss = () => {
+        toast.classList.add('leaving');
+        toast.addEventListener('animationend', () => toast.remove(), {once: true});
+      };
+      toast.querySelector('.toast-close').addEventListener('click', dismiss);
+      const wrap = getToastWrap();
+      if (!wrap) return;
+      wrap.appendChild(toast);
+      setTimeout(dismiss, 8000);
+    };
+
+    sampleBtn?.addEventListener('click', () => {
+      if (sampleBtn.classList.contains('loading')) return;
+      sampleBtn.classList.add('loading');
+      sampleBtn.disabled = true;
+      const pick = pickProduct();
+      setTimeout(() => {
+        spawnToast(pick);
+        sampleBtn.classList.remove('loading');
+        sampleBtn.disabled = false;
+      }, 3500);
+    });
+  }
+})();
+</script>
+
+<div class="toast-wrap" id="toast-wrap" aria-live="polite" aria-atomic="false"></div>
+
+</body>
+</html>

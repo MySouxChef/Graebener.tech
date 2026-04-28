@@ -47,3 +47,14 @@ next-env.d.ts
 
 # playwright mcp output
 .playwright-mcp/
+
+# firecrawl scrape research artifacts (kept local, not in repo)
+.firecrawl/
+
+# claude code runtime lock files
+.claude/scheduled_tasks.lock
+
+# stray screenshots / scratch images at repo root (Playwright + manual)
+/*.jpeg
+/*.jpg
+/*.png

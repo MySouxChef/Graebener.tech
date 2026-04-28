@@ -1,0 +1,296 @@
+[Go to Navigation](https://www.coxmanufacturing.com/#primary-nav) [Go to Content](https://www.coxmanufacturing.com/#content-wrap)
+
+- ## High Volume Swiss Screw Machine Shop
+
+
+
+## High Volume Swiss Screw Machining
+
+
+
+Specializing in producing large quantities of precision components & delivering solutions tailored to scale, our advanced screw machining technology enables rapid production without compromising on quality, making us a trusted partner for industries with demanding part requirements.
+
+[Learn More](https://www.coxmanufacturing.com/)
+
+- ## Cox Manufacturing Company, Inc.
+
+
+
+## Precision Screw Machine Shop
+
+
+
+As a leading Texas screw machine company, screw machine products and precision turned & milled bar products are the specialty of Cox Manufacturing. 1.7 million precision components machined every week!
+
+[Request a Quote](https://www.coxmanufacturing.com/rfq)
+
+- ## Cox Manufacturing Company
+
+
+
+## Swiss Machine (Swiss Turn) Parts
+
+
+
+Swiss turned parts by Cox Manufacturing provide high precision parts with consistent, patented, quality. Ideal for complex, high-volume components, our Swiss turning process efficiently serves industries like medical, aerospace, electronics, and more.
+
+[Learn More](https://www.coxmanufacturing.com/swiss-machining-swiss-turn)
+
+- ## High Volume Swiss Screw Machine Shop
+
+
+
+## High Volume Swiss Screw Machining
+
+
+
+Specializing in producing large quantities of precision components & delivering solutions tailored to scale, our advanced screw machining technology enables rapid production without compromising on quality, making us a trusted partner for industries with demanding part requirements.
+
+[Learn More](https://www.coxmanufacturing.com/)
+
+- ## Cox Manufacturing Company, Inc.
+
+
+
+## Precision Screw Machine Shop
+
+
+
+As a leading Texas screw machine company, screw machine products and precision turned & milled bar products are the specialty of Cox Manufacturing. 1.7 million precision components machined every week!
+
+[Request a Quote](https://www.coxmanufacturing.com/rfq)
+
+
+1. [1](https://www.coxmanufacturing.com/#)
+2. [2](https://www.coxmanufacturing.com/#)
+3. [3](https://www.coxmanufacturing.com/#)
+
+- [Previous](https://www.coxmanufacturing.com/#)
+- [Next](https://www.coxmanufacturing.com/#)
+
+![Ultra-precision & Micromachining](https://www.coxmanufacturing.com/assets/images/logos/micro_machining_logo.png)
+
+#### ultra-precision & micro machining
+
+![high volume orders](https://www.coxmanufacturing.com/assets/images/logos/volume_order_logo.png)
+
+#### high volume orders available
+
+![warehouse of material inventory](https://www.coxmanufacturing.com/assets/images/logos/warehouse_logo.png)
+
+#### warehouse of material inventory
+
+![relaiable & wuality made in the USA](https://www.coxmanufacturing.com/assets/images/logos/star_ribbion.png)
+
+#### reliable quality, made in usa
+
+# CNC Swiss Screw Machine Company
+
+We excel in manufacturing high precision, high production custom CNC screw machined parts and products to meet [**ISO 9001:2015 certification**](https://www.coxmanufacturing.com/assets/files/ISO%209001-2015%20BV%20Certificate.pdf) standards. Our machine shop services include [CNC turning](https://www.coxmanufacturing.com/cnc-turning), [CNC milling](https://www.coxmanufacturing.com/cnc-milling), [automatic bar machining](https://www.coxmanufacturing.com/automatic-bar-machining), [multi-spindle machining](https://www.coxmanufacturing.com/multi-spindle-machining), and [**High Volume Screw Machining**](https://www.coxmanufacturing.com/high-volume-screw-machining). We machine a wide assortment of [materials](https://www.coxmanufacturing.com/material-types) serving a variety of [industries](https://www.coxmanufacturing.com/industries) all from our plant located in San Antonio, Texas.
+
+## [Swiss Machining (Swiss Turn)](https://www.coxmanufacturing.com/swiss-machining-swiss-turn)
+
+![Swiss Machining (Swiss Turn)](https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/swiss-turn-new-img.261bae7e96e88d5fb897321ebaebabaf.png)
+
+### Swiss Machining (Swiss Turn)
+
+Over 50+, 5-12 axis Swiss Turn machines including the most advanced Tornos technology out of Switzerland, scheduled 3 shifts a day, M-F. Call Today.
+
+[Learn More](https://www.coxmanufacturing.com/swiss-machining-swiss-turn)
+
+## [Micromachining](https://www.coxmanufacturing.com/micromachining)
+
+![Micromachining](https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/micromachining-img.261bae7e96e88d5fb897321ebaebabaf.png)
+
+### Micromachining
+
+Over 50+, 5-12 axis Micromachining including the most advanced Tornos technology out of Switzerland, scheduled 3 shifts a day, M-F.
+
+[Learn More](https://www.coxmanufacturing.com/micromachining)
+
+## [Screw Machine Products](https://www.coxmanufacturing.com/screw-machine-products)
+
+![Products](https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/screw-bucket.aee7647a20de12a8fda5e55083b1ffba.jpg)
+
+### Screw Machine Products
+
+20+ precision European 6-spindle Screw machines for high volume quantity at low costs, scheduled 3 shifts a day, M-F.
+
+[Learn More](https://www.coxmanufacturing.com/screw-machine-products)
+
+## [CNC Mill/Turn](https://www.coxmanufacturing.com/cnc-mill-turn)
+
+![CNC Mill/Turn](https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/cnc-mill-img-bucket.261bae7e96e88d5fb897321ebaebabaf.png)
+
+### CNC Mill/Turn
+
+Over 50+, 9-12 axis Mill/Turn machines capable of dropping complex parts complete in one operation for lower costs and higher quality, scheduled 3 shifts a day M-F.
+
+[Learn More](https://www.coxmanufacturing.com/cnc-mill-turn)
+
+## [Precision Machining](https://www.coxmanufacturing.com/precision-machining)
+
+![Precision Machining](https://www.coxmanufacturing.com/assets/components/phpthumbof/cache/preecison-img-bucket.261bae7e96e88d5fb897321ebaebabaf.png)
+
+### Precision Machining
+
+Over 50+, 5-12 axis Precision machines including the most advanced Tornos technology out of Switzerland, scheduled 3 shifts a day, M-F.
+
+[Learn More](https://www.coxmanufacturing.com/precision-machining)
+
+## Cox Delivers Customer Confidence
+
+Cox is committed to inspiring complete customer confidence in our ability to supply precision screw machined components to a wide variety of [industries](https://www.coxmanufacturing.com/industries), straight from our plant in San Antonio, Texas.
+
+**200 employees + 350 spindles + 3 shifts**
+
+**2.4 million precision components machined every week**
+
+## Cox Mfg - Virtual Shop Tour
+
+Cox Manufacturing prides itself with a long standing history of quality components delivered to its valued customers manufactured by exceptional employees. Today, we are offering an exclusive, behind-the-scenes look at our facility and operations. Now, you have the opportunity to explore the process of your custom part being made, from ordering high-grade raw [material](https://www.coxmanufacturing.com/material-types) to your on-time shipment.
+
+[PLAY](https://www.youtube.com/embed/t9zRrkzjFbA)
+
+#### Cox Mfg - Virtual Shop Tour
+
+## Choose From Endless Industrial Machining Materials
+
+- View All Materials
+
+[**Material Types**\\
+\\
+  - Cox Manufacturing is experienced in machining various metals and plastics, allowing customers the freedom to specify components in hundreds of different materials](https://www.coxmanufacturing.com/material-types)
+
+- Alloy
+
+[**Alloy Machining**\\
+\\
+  - Cox has a reputation for successfully machining the metals other producers prefer not to handle](https://www.coxmanufacturing.com/alloy-machining)
+
+- Aluminum
+
+[**Aluminum Machining**\\
+\\
+  - Aluminum machined parts form a protective layer against rust and corrosion when exposed to the atmosphere](https://www.coxmanufacturing.com/aluminum-machining)
+
+- Brass
+
+[**Brass Machining**\\
+\\
+  - Brass turned parts and components are durable, cost-efficient, and even create a tighter seal for fittings](https://www.coxmanufacturing.com/brass-machining)
+
+- Copper
+
+[**Copper Machining**\\
+\\
+  - Copper is known for being the best electrical conductor while having a relatively low cost](https://www.coxmanufacturing.com/copper-machining)
+
+- Plastic
+
+[**Plastic Machining**\\
+\\
+  - Our in-house tooling professionals know the ideal spindle speeds and feed rates for plastic machining success](https://www.coxmanufacturing.com/plastic-machining)
+
+- Stainless Steel
+
+[**Stainless Steel Machining**\\
+\\
+  - The Cox team of manufacturing professionals knows the distinctive properties of all the 150 different metal alloys in the Stainless category, and adjust the production process to maximize production efficiency](https://www.coxmanufacturing.com/stainless-steel-machining)
+
+- High Temp & Special Alloy
+
+[**High Temperature & Special Alloy Machining**\\
+\\
+  - Cox can machine even the most exotic, high-temperature alloys for a quality, cost effective result](https://www.coxmanufacturing.com/high-temperature-and-special-alloy-machining)
+
+- Steel
+
+[**Steel Machining**\\
+\\
+  - We have mastered the cutting characteristics of hundreds of different steel alloy types, each with unique processing requirements](https://www.coxmanufacturing.com/steel-machining)
+
+- Titanium
+
+[**Titanium Machining**\\
+\\
+  - Delivering a titanium project on spec, on time and on budget is one of the toughest challenges in the machining industry](https://www.coxmanufacturing.com/titanium-machining)
+
+## [Material Types](https://www.coxmanufacturing.com/material-types)
+
+## [Alloy Machining](https://www.coxmanufacturing.com/alloy-machining)
+
+## [Aluminum Machining](https://www.coxmanufacturing.com/aluminum-machining)
+
+## [Brass Machining](https://www.coxmanufacturing.com/brass-machining)
+
+## [Copper Machining](https://www.coxmanufacturing.com/copper-machining)
+
+## [Plastic Machining](https://www.coxmanufacturing.com/plastic-machining)
+
+## [Stainless Steel Machining](https://www.coxmanufacturing.com/stainless-steel-machining)
+
+## [High Temperature & Special Alloy Machining](https://www.coxmanufacturing.com/high-temperature-and-special-alloy-machining)
+
+## [Steel Machining](https://www.coxmanufacturing.com/steel-machining)
+
+## [Titanium Machining](https://www.coxmanufacturing.com/titanium-machining)
+
+![magnifying glass icon](https://www.coxmanufacturing.com/assets/images/careers-icon.png)
+
+Interested in a career at Cox or ready to submit a resume?
+
+To view any open positions or submit a resume, [please click here!](https://www.hralliance.net/Apply/FindPosition.aspx?search=&spositionId=&slocationId=)
+
+## Ask Us A Question
+
+reCAPTCHA
+
+Recaptcha requires verification.
+
+protected by **reCAPTCHA**
+
+## Our Clients Say
+
+- Our compliments on your 100% on time & 100% Quality success... This dovetails with our initiative to achieve this level of performance across the supply chain.
+Roger
+- I wish more suppliers were like Cox in their passion for Quality & Service.
+Carolyn
+- We greatly appreciate your quick response on the increased volumes. (This is) terrific. Thank you again for your support.
+Tim
+- Your customer service (relationship) is awesome.
+Mike
+
+1. [1](https://www.coxmanufacturing.com/#)
+2. [2](https://www.coxmanufacturing.com/#)
+
+- ![](https://www.coxmanufacturing.com/assets/uploads/nist.png)
+- ![ITAR](https://www.coxmanufacturing.com/assets/images/logos/itar.png)
+- ![NTMA](https://www.coxmanufacturing.com/assets/images/logos/ntma.jpg)
+- ![SAMA](https://www.coxmanufacturing.com/assets/images/logos/sama-logo.jpg)
+- ![PMPA](https://www.coxmanufacturing.com/assets/images/logos/pmpa-logo-resize.jpg)
+- ![San Antonio Chamber of Commerce](https://www.coxmanufacturing.com/assets/images/logos/sa-chamber-of-commerce.jpg)
+- ![](https://www.coxmanufacturing.com/assets/files/BV_Certification_ISO9001.jpg)
+
+- [Previous](https://www.coxmanufacturing.com/#)
+- [Next](https://www.coxmanufacturing.com/#)
+
+reCAPTCHA
+
+Select all images with **a fire hydrant** Click verify once there are none left.
+
+|     |     |     |
+| --- | --- | --- |
+| ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) | ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) | ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) |
+| ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) | ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) | ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) |
+| ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) | ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) | ![](https://www.google.com/recaptcha/enterprise/payload?p=06AFcWeA7UhfDWwsL8dlSfr8YIrrTX5DEm_md3e_9xn8r_ZGuZcvDnekpB6pVguN08wEY-5poNrPTK6AFJE-8dZdRu569VFHARNrpNIJO8ljomONfq0nyWi-eMJjuc2i9d1Av_w8q3EA8oBQq7-0092SnS9kgw_u9p1ARBpv9Ci0iWU0WJpU-quBnuRrlM3vtSs99RxRNdvFvmQkyAMrw2O3uQDeN59SCsqA&k=6Ld_ad8ZAAAAAAqr0ePo1dUfAi0m4KPkCMQYwPPm) |
+
+Please try again.
+
+Please select all matching images.
+
+Please also check the new images.
+
+Please select around the object, or reload if there are none.
+
+Verify

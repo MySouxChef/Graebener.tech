@@ -1,0 +1,221 @@
+[Go to Navigation](https://www.coxmanufacturing.com/#primary-nav) [Go to Content](https://www.coxmanufacturing.com/#content-wrap)
+
+- [Home](https://www.coxmanufacturing.com/)
+- [Machining Services](https://www.coxmanufacturing.com/machining-services)
+- Precision Machining
+
+# Close Tolerance Precision Machining
+
+[REQUEST A QUOTE](https://www.coxmanufacturing.com/rfq)
+
+[MACHINING SERVICES](https://www.coxmanufacturing.com/machining-services)
+
+- [Machining Services](https://www.coxmanufacturing.com/machining-services)  - [Swiss Machining (Swiss Turn)](https://www.coxmanufacturing.com/swiss-machining-swiss-turn "Swiss Screw Machining & Turning - CNC Swiss Machining & Machined Parts")
+  - [Micromachining](https://www.coxmanufacturing.com/micromachining "Precision CNC Micromachining - Miniature Parts Machining - Micro Precision Parts Machining")
+  - [Multi-Spindle Machining](https://www.coxmanufacturing.com/multi-spindle-machining "Multi-Spindle CNC Screw Machining & Machined Parts")
+  - [Automatic Bar Machining](https://www.coxmanufacturing.com/automatic-bar-machining "Automatic Bar Machining Services")
+  - [CNC Mill/Turn](https://www.coxmanufacturing.com/cnc-mill-turn "CNC Mill/Turn Machining Services")
+  - [CNC Milling](https://www.coxmanufacturing.com/cnc-milling "Precision CNC Milling Services & Parts")
+  - [CNC Turning](https://www.coxmanufacturing.com/cnc-turning "CNC Swiss Turning Services - CNC Precision Turned Parts")
+  - [Precision Machining](https://www.coxmanufacturing.com/precision-machining "Close Tolerance Precision Machining & Swiss Parts - Precision Swiss Parts Machining")
+  - [Production Wire EDM](https://www.coxmanufacturing.com/production-wire-edm "Production Wire EDM Machining Services")
+  - [Custom Machining](https://www.coxmanufacturing.com/custom-machining "Custom Swiss Screw Machining Services & Machined Products")
+  - [High Volume Screw Machining](https://www.coxmanufacturing.com/high-volume-screw-machining "High Volume CNC Screw Machining Services & Screw Machine Parts")
+  - [Supply Chain Solutions](https://www.coxmanufacturing.com/supply-chain-solutions "Screw Machining Supply Chain Services & Solutions")
+- [Products](https://www.coxmanufacturing.com/screw-machine-products)  - [Screw Machined Pins](https://www.coxmanufacturing.com/cnc-machined-pins "Screw Machined Pins & Pin Products")
+  - [Retractable Pins](https://www.coxmanufacturing.com/retractable-pins)    - [Pin Types](https://www.coxmanufacturing.com/pin-types "Retractable Spring Loaded Guide Pins")
+    - [Brass Thru Pin](https://www.coxmanufacturing.com/brass-thru-pin "Brass Thru Pin")
+    - [Self Contained Aluminum Pin](https://www.coxmanufacturing.com/self-contained-aluminum-pin "Self Contained Aluminum Pin - Jace Aluminum Pin")
+    - [Price List](https://www.coxmanufacturing.com/price-list "Retractable Spring Loaded Guide Pin Price")
+- [Material Types](https://www.coxmanufacturing.com/material-types)  - [Alloy Machining](https://www.coxmanufacturing.com/alloy-machining "Alloy Steel CNC Machining & Machined Parts - Alloy Steel Screw Machined Parts")
+  - [Aluminum Machining](https://www.coxmanufacturing.com/aluminum-machining)    - [Aluminum 2011](https://www.coxmanufacturing.com/aluminum-2011 "Aluminum 2011 Screw Machined Parts & Machining")
+    - [Aluminum 2024](https://www.coxmanufacturing.com/aluminum-2024 "Aluminum 2024 Precision Machining & Machined Parts")
+    - [Aluminum 6061](https://www.coxmanufacturing.com/aluminum-6061 "Aluminum 6061 Machined Parts & Precision Machining")
+    - [Aluminum 7075](https://www.coxmanufacturing.com/aluminum-7075 "Aluminum 7075 Machining & Screw Machine Parts")
+  - [Brass Machining](https://www.coxmanufacturing.com/brass-machining)    - [Brass C35300](https://www.coxmanufacturing.com/brass-353 "Brass 353 Screw Machined Parts & Machining")
+    - [Brass C36000](https://www.coxmanufacturing.com/brass-360 "C36000 Brass Swiss Machined Parts & Machining")
+  - [Copper Machining](https://www.coxmanufacturing.com/copper-machining)    - [Copper C11000](https://www.coxmanufacturing.com/c110-c11000-copper "C110 / C11000 Copper Machining & Precision Machined Parts")
+    - [Tellurium Copper C14500](https://www.coxmanufacturing.com/c145-c14500-tellurium-copper "C145 / C14500 Tellurium Copper Swiss Machined Parts & Machining")
+    - [Beryllium Copper C17200](https://www.coxmanufacturing.com/beryllium-copper-172 "Beryllium Copper 172 Machined Parts - C17200 Swiss Machining")
+    - [Beryllium Copper C17300](https://www.coxmanufacturing.com/beryllium-copper-173 "Beryllium Copper 173 Machined Parts - C17300 Swiss Machining")
+    - [Beryllium Copper C17500](https://www.coxmanufacturing.com/beryllium-copper-175 "C17500 Swiss Machined Parts - Beryllium Copper 175 Machining")
+  - [Plastic Machining](https://www.coxmanufacturing.com/plastic-machining)    - [Acetal](https://www.coxmanufacturing.com/acetal "Acetal Precision Parts Machine Shop - Acetal CNC Machining & Machined Parts")
+    - [Delrin®](https://www.coxmanufacturing.com/delrin "Delrin Plastic Machining & Machined Parts")
+    - [Nylon](https://www.coxmanufacturing.com/nylon "Nylon Precision CNC Machining - Nylon Machined Parts")
+    - [PEEK](https://www.coxmanufacturing.com/peek "PEEK Plastic Precision Machining & Components")
+    - [PTFE and Teflon](https://www.coxmanufacturing.com/ptfe-and-teflon "PTFE Teflon Precision Swiss Machining")
+    - [PVC](https://www.coxmanufacturing.com/pvc "PVC Machining & Machined Parts")
+    - [UHMW](https://www.coxmanufacturing.com/uhmw "UHMW Machining - UHMW Machined Parts")
+    - [Ultem](https://www.coxmanufacturing.com/ultem "Ultem Plastic Machined Parts & Precision Machining")
+  - [Stainless Steel Machining](https://www.coxmanufacturing.com/stainless-steel-machining)    - [Stainless Steel Alloy 303](https://www.coxmanufacturing.com/303-steel "303 Stainless Steel Machined Parts - 303 SS Machining")
+    - [Stainless Steel Alloy 304](https://www.coxmanufacturing.com/stainless-steel-alloy-304 "304 Stainless Steel Swiss Machining & Machined Parts")
+    - [Stainless Steel Alloy 316](https://www.coxmanufacturing.com/stainless-steel-alloy-316 "316 Stainless Steel Swiss Machined Parts & Machining")
+    - [Stainless Steel Alloy 430 FR](https://www.coxmanufacturing.com/stainless-steel-alloy-430-fr "430FR Stainless Steel Swiss Machine Parts & Machining")
+    - [Stainless Steel Alloy 440](https://www.coxmanufacturing.com/stainless-steel-alloy-440 "440 Stainless Steel Swiss Machining - 440 SS Machined Parts & Precision Machining Company")
+    - [Stainless Steel Alloy 17-4 PH](https://www.coxmanufacturing.com/stainless-steel-alloy-17-4-ph "17-4 PH Stainless Steel Precision Machined Parts & Machining")
+  - [High Temperature & Special Alloy Machining](https://www.coxmanufacturing.com/high-temperature-and-special-alloy-machining)    - [Carp 49](https://www.coxmanufacturing.com/carp-49 "Carpenter 49 Swiss Machined Parts - Machining Copper Nickel Alloy")
+    - [Greek Ascoloy](https://www.coxmanufacturing.com/greek-ascoloy "Greek Ascoloy Forged Parts Machining")
+    - [Hastelloy](https://www.coxmanufacturing.com/hastelloy "Hastelloy Precision Machining Services - Hastelloy Swiss Machined Parts")
+    - [HyMu 80](https://www.coxmanufacturing.com/hymu-80 "HyMu 80 Shielding Alloy Precision Machining")
+    - [Nitronic 60](https://www.coxmanufacturing.com/nitronic-60 "Machining Nitronic 60 Stainless Steel Precision Parts - Nitronic 60 Swiss Machining & Machined Parts")
+  - [Steel Machining](https://www.coxmanufacturing.com/steel-machining)    - [1008 Steel](https://www.coxmanufacturing.com/1008-steel "Carbon Steel 1008 Swiss Machined Parts")
+    - [1018 Steel](https://www.coxmanufacturing.com/1018-steel "1018 Steel Swiss Screw Machined Parts & Machining")
+    - [1045 Steel](https://www.coxmanufacturing.com/1045-steel "1045 Carbon Steel Swiss Machined Parts & Machining")
+    - [1137 Steel](https://www.coxmanufacturing.com/1137-steel "AISI 1137 Carbon Steel Machined Parts & Precision Machining")
+    - [11L37 Steel](https://www.coxmanufacturing.com/11l37-steel "11L37 Steel Precision Machined Parts & Machining")
+    - [11L41 Steel](https://www.coxmanufacturing.com/11l41-steel "11L41 Steel Precision Machined Components & Parts - 11L41 Steel Swiss Machining")
+    - [12L14 Steel](https://www.coxmanufacturing.com/12l14-steel "12L14 Steel Machinability & Precision Parts")
+    - [1215 Steel](https://www.coxmanufacturing.com/1215-steel "Precision Machining 1215 Steel Parts")
+    - [4130 Steel](https://www.coxmanufacturing.com/4130-steel "Machining 4130 Steel Precision Parts - 4130 Steel Swiss Machining")
+    - [4140 Steel](https://www.coxmanufacturing.com/4140-steel "Machining 4140 Alloy Steel Swiss Parts")
+    - [41L40 Steel](https://www.coxmanufacturing.com/41l40-steel "41L40 Steel Precision Machining & Machined Parts")
+    - [8620 Steel](https://www.coxmanufacturing.com/8620-steel "8620 Alloy Steel Machined Parts & Precision Machining")
+    - [ES52100 Steel](https://www.coxmanufacturing.com/es52100-steel "ES 52100 Alloy Steel Machined Parts & Precision Machining")
+  - [Titanium Machining](https://www.coxmanufacturing.com/titanium-machining)    - [Ti 6Al-4V (Grade 5)](https://www.coxmanufacturing.com/ti-6al-4v "Ti 6Al-4V Titanium Alloy Swiss Machined Parts")
+    - [Ti 6Al-4V Eli (Grade 23)](https://www.coxmanufacturing.com/ti-6al-4v-eli "Ti 6Al-4V Eli Machining")
+- [Equipment List](https://www.coxmanufacturing.com/equipment-list)  - [CNC Swiss Turn by Tsugami](https://www.coxmanufacturing.com/cnc-swiss-turn-by-tsugami "CNC Swiss Turn by Tsugami")
+  - [CNC Swiss Turning by Tornos](https://www.coxmanufacturing.com/cnc-swiss-turning-by-tornos "Tornos Swiss Cam Precision Machine Parts")
+  - [CNC Swiss Tornos Nano](https://www.coxmanufacturing.com/cnc-swiss-tornos-nano "CNC Swiss Tornos Nano")
+  - [Tornos Swiss Cam Automatics](https://www.coxmanufacturing.com/tornos-swiss-cam-automatics "Tornos Swiss Cam Automatics - Precision Screw Machines")
+  - [CNC Turning Centers](https://www.coxmanufacturing.com/cnc-turning-centers "Multi-Axis CNC Swiss Turning Capabilities & Centers")
+  - [Tornos Precision Multi-Spindle Automatics](https://www.coxmanufacturing.com/tornos-precision-multi-spindle-automatics "Tornos Precision Multi-Spindle Automatics")
+  - [Multiple Spindle Cam Automatics](https://www.coxmanufacturing.com/multiple-spindle-cam-automatics "Multi Spindle Screw Machining Capabilities")
+  - [CNC Brother Production Milling](https://www.coxmanufacturing.com/cnc-brother-production-milling "CNC Brother Production Milling")
+  - [Escomatic Swiss Wire Fed Machines](https://www.coxmanufacturing.com/escomatic-swiss-wire-fed-machines "Escomatic Swiss Wire Fed Machine Capabilities")
+  - [Production Wire EDM](https://www.coxmanufacturing.com/equipment-list-wire-edm "Production Wire EDM")
+  - [Tool Room and Support Equipment](https://www.coxmanufacturing.com/tool-room-and-support-equipment "CNC Job Shop Tool Room")
+  - [Quality and Inspection Equipment](https://www.coxmanufacturing.com/quality-and-inspection-equipment "CNC Machining Quality Control & Inspection Equipment")
+- [Industries](https://www.coxmanufacturing.com/industries)  - [Aerospace Machining](https://www.coxmanufacturing.com/aerospace-machining "Aerospace Screw Machined Parts Shop & Precision Machining - Aerospace Swiss Screw Parts")
+  - [Aircraft Machining](https://www.coxmanufacturing.com/aircraft-machining "Aircraft Precision CNC Machining - Aircraft Screw Machined Parts - Aircraft CNC Machine Shop")
+  - [Automotive Machining](https://www.coxmanufacturing.com/automotive-machining "Automotive Precision Screw Machine Shop & Machined Parts Manufacturer")
+  - [Electronics Machining](https://www.coxmanufacturing.com/electronics-machining "Electronics CNC Screw Machining & Micromachining Parts - Precision Machining for Electronics Industry")
+  - [Medical Machining](https://www.coxmanufacturing.com/medical-machining "Medical Parts Precision Machining - Medical CNC Machining - Precision Machined Medical Parts")
+  - [Defense & Military Machining](https://www.coxmanufacturing.com/defense-and-military-machining "Defense & Military CNC Machining & Machined Parts - Military Spec Parts Machining")
+  - [Firearm Machining](https://www.coxmanufacturing.com/firearm-machining "High Volume Firearm Machined Parts & Components - Firearm Screw Machined Parts")
+  - [Oil Field and Energy](https://www.coxmanufacturing.com/oil-field-and-energy "Oil & Gas CNC Machining - Oil Field Screw Machined Parts - Screw Machined Parts for Energy Industry")
+- [Careers](https://www.coxmanufacturing.com/careers)  - [Benefits](https://www.coxmanufacturing.com/benefits "Benefits")
+  - [HR - FAQ](https://www.coxmanufacturing.com/hr-faq "HR  - FAQ")
+  - [Apprenticeship Programs](https://www.coxmanufacturing.com/apprentice "Apprenticeship Programs")
+  - [Internship Programs](https://www.coxmanufacturing.com/intern "Internship Programs at Cox Mfg")
+  - [CareerMe](https://www.coxmanufacturing.com/careerme "CareerMe")
+- [Blog](https://www.coxmanufacturing.com/blog "Screw Machining & CNC Screw Parts Blog")
+- [Quality Control](https://www.coxmanufacturing.com/quality-control "Advanced Quality Standards")
+
+## Close Tolerance Precision Swiss Parts
+
+Precision & close tolerance machining services means more than producing components to tight tolerances at Cox Manufacturing. At Cox, our [high volume](https://www.coxmanufacturing.com/high-volume-screw-machining) close tolerance precision [machining services](https://www.coxmanufacturing.com/machining-services) aren’t done until they are precisely in line with customer expectations for reliable delivery, component quality and world-class cost-effectiveness. Available to produce [high volume screw machined products](https://www.coxmanufacturing.com/high-volume-screw-machining), Cox machines up to **1.9 million precision components every week**.
+
+At our machining facility, we specialize in close tolerance machining, delivering parts with exceptional precision—often within a range of 0.001" or even finer. This level of accuracy is critical for industries where performance, safety, and reliability are non-negotiable, such as [aerospace](https://www.coxmanufacturing.com/aerospace-machining), [medical devices](https://www.coxmanufacturing.com/medical-machining), and [automotive](https://www.coxmanufacturing.com/automotive-machining).
+
+When it comes to precision machining, we understand that even the smallest deviation can have significant consequences. If you're looking for a partner that can deliver parts with exacting tolerances, we’re here to help. Let us put our expertise to work for you!
+
+None of these outcomes for close tolerance precision machining can be successfully achieved without Cox Manufacturing’s state-of-the-art equipment selection.
+
+[Request A Quote](https://www.coxmanufacturing.com/rfq)
+
+### Precision Machining Capabilities
+
+- Multi axis Swiss CNC lathes with up to 12 axes of control
+- [CNC turning](https://www.coxmanufacturing.com/cnc-turning) centers applying up to 12 axes of control to bar stock, producing two simultaneous operations for high volume productivity
+- Multi-spindle cam automatics with up to six spindles and complete PLC control
+- An extensive in-house tooling facility with CNC tool grinding on a 5-axis Schutte and wire EDM CNC form tools
+- Two axis equipment for short runs, and a complete [equipment list](https://www.coxmanufacturing.com/equipment-list) of other bonus capabilities
+
+## Close Tolerance Precision Swiss Parts
+
+Cox Manufacturing specializes in close tolerance machining of complex, [micro and miniature machined](https://www.coxmanufacturing.com/micromachining) parts. [Visit our Swiss Machining page](https://www.coxmanufacturing.com/swiss-machining-swiss-turn) to learn more about our expertise in high volume production of precision swiss parts.
+
+View our full equipment list [here](https://www.coxmanufacturing.com/equipment-list)
+
+### Top-Tier Precision Machined Parts
+
+Cox Manufacturing meets or exceeds the quality standards of the world's most demanding [industries](https://www.coxmanufacturing.com/industries) with our state of the art [equipment](https://www.coxmanufacturing.com/equipment-list) and quality standards. Each component operates under the watchful eye of the Cox quality management team who naturally see potential design amendments that cut costs and recognize materials issues before they hit the production floor. This tradition of pride is precisely what you’ll experience when you [contact a Cox expert](https://www.coxmanufacturing.com/contact-us) about your next precision machining job.
+
+#### **Certifications and Quality**
+
+- **[ISO 9001:2015 certified](https://www.coxmanufacturing.com/assets/files/Certificate-US020619-Final-Certificate.pdf)**
+- ITAR Registered
+- Compliance in DFARS materials sourcing requirements
+- Strict compliance with PPAP and Process FMEA for automotive customers
+
+- Industry 4.0 advanced quality system
+- Fully compliant with the exacting requirements of our customers
+- Skilled in KanBan and other customer driven quality and inventory management systems
+- Proprietary 100% automated inspection options available
+
+### JIT Delivery & Logistics Management
+
+Standing behind the technology are Cox's experts in supply logistics and [quality management](https://www.coxmanufacturing.com/quality-control), assuring each customer’s expectations for timely delivery and product quality are met and exceeded. Added assurance comes from a decades-long track record of delivering precision parts on time, so they are ready for use the moment they are needed.
+
+##### Precision Machining Materials
+
+Metals
+
+
+- [Alloys](https://www.coxmanufacturing.com/alloy-machining)
+- [Aluminum](https://www.coxmanufacturing.com/aluminum-machining)
+- [Brass](https://www.coxmanufacturing.com/brass-machining)
+- [Copper](https://www.coxmanufacturing.com/copper-machining)
+- [Stainless Steel](https://www.coxmanufacturing.com/stainless-steel-machining)
+- [Special Alloys](https://www.coxmanufacturing.com/high-temperature-and-special-alloy-machining)
+- [Precision Steel](https://www.coxmanufacturing.com/steel-machining)
+- [Titanium](https://www.coxmanufacturing.com/titanium-machining)
+
+Plastics
+
+
+- [PVC](https://www.coxmanufacturing.com/pvc)
+- [Acetal](https://www.coxmanufacturing.com/acetal)
+- [Nylon](https://www.coxmanufacturing.com/nylon)
+- [Delrin](https://www.coxmanufacturing.com/delrin)
+- [PTFE](https://www.coxmanufacturing.com/ptfe-and-teflon)
+- [UHMW](https://www.coxmanufacturing.com/uhmw)
+- [Ultem](https://www.coxmanufacturing.com/ultem)
+- [PEEK](https://www.coxmanufacturing.com/peek)
+
+##### Industries and Applications
+
+Industries
+
+
+- [Aerospace](https://www.coxmanufacturing.com/aerospace-machining)
+- [Aircraft Parts](https://www.coxmanufacturing.com/aircraft-machining)
+- [Automotive](https://www.coxmanufacturing.com/automotive-machining)
+- [Electronics](https://www.coxmanufacturing.com/electronics-machining)
+- [Medical](https://www.coxmanufacturing.com/medical-machining)
+- [Military](https://www.coxmanufacturing.com/defense-and-military-machining)
+- [Firearms](https://www.coxmanufacturing.com/firearm-machining)
+- [Oilfield & Energy](https://www.coxmanufacturing.com/oil-field-and-energy)
+
+## Ask Us A Question
+
+reCAPTCHA
+
+Recaptcha requires verification.
+
+protected by **reCAPTCHA**
+
+## Our Clients Say
+
+- Our compliments on your 100% on time & 100% Quality success... This dovetails with our initiative to achieve this level of performance across the supply chain.
+Roger
+- I wish more suppliers were like Cox in their passion for Quality & Service.
+Carolyn
+- We greatly appreciate your quick response on the increased volumes. (This is) terrific. Thank you again for your support.
+Tim
+- Your customer service (relationship) is awesome.
+Mike
+
+1. [1](https://www.coxmanufacturing.com/#)
+2. [2](https://www.coxmanufacturing.com/#)
+
+- ![](https://www.coxmanufacturing.com/assets/uploads/nist.png)
+- ![ITAR](https://www.coxmanufacturing.com/assets/images/logos/itar.png)
+- ![NTMA](https://www.coxmanufacturing.com/assets/images/logos/ntma.jpg)
+- ![SAMA](https://www.coxmanufacturing.com/assets/images/logos/sama-logo.jpg)
+- ![PMPA](https://www.coxmanufacturing.com/assets/images/logos/pmpa-logo-resize.jpg)
+- ![San Antonio Chamber of Commerce](https://www.coxmanufacturing.com/assets/images/logos/sa-chamber-of-commerce.jpg)
+- ![](https://www.coxmanufacturing.com/assets/files/BV_Certification_ISO9001.jpg)
+
+- [Previous](https://www.coxmanufacturing.com/#)
+- [Next](https://www.coxmanufacturing.com/#)
