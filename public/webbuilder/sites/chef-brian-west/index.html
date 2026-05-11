@@ -44,8 +44,8 @@ h3{font-size:1.5rem}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.15em;color:#fff;opacity:0.8;transition:opacity .3s}
 .nav-links a:hover{opacity:1;color:var(--leather-light)}
-.nav-cta{padding:10px 24px;border:1px solid var(--ember);font-family:'Bebas Neue',sans-serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--ember);transition:all .3s}
-.nav-cta:hover{background:var(--ember);color:#fff}
+.nav-cta{padding:10px 24px;background:var(--ember);font-family:'Bebas Neue',sans-serif;font-size:0.8rem;letter-spacing:0.15em;color:#fff;transition:all .3s;box-shadow:0 2px 12px rgba(184,55,42,0.3)}
+.nav-cta:hover{background:var(--ember-dark);box-shadow:0 4px 18px rgba(184,55,42,0.4)}
 .burger{display:none;background:none;border:0;color:#fff;font-size:24px;cursor:pointer}
 @media(max-width:900px){.nav-links{display:none}.burger{display:block}.nav-cta{display:none}
 .nav.open .nav-links{display:flex;flex-direction:column;gap:16px;position:absolute;top:100%;left:0;right:0;background:rgba(26,26,26,0.98);padding:24px 40px}}
@@ -113,9 +113,36 @@ footer{background:var(--charcoal);padding:40px 0;text-align:center;border-top:3p
 .footer-social a:hover{color:var(--leather-light);opacity:1}
 .footer-copy{font-size:0.7rem;color:rgba(244,237,228,0.2);letter-spacing:0.08em}
 /* ANIMATIONS */
-.reveal{opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.2,.8,.2,1)}
+.reveal{opacity:0;transform:translateY(20px);transition:all .55s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+/* CINEMATIC REVEALS — choreographed entry per section */
+/* Headline mask sweep: leather bar covers H2, then wipes right→ off as section enters */
+.reveal h2,h2.reveal{position:relative;overflow:hidden;display:inline-block}
+.reveal h2::after,h2.reveal::after{content:"";position:absolute;inset:0;background:var(--leather);transform:scaleX(1);transform-origin:left center;transition:transform .5s cubic-bezier(.7,0,.3,1) .08s;pointer-events:none}
+.reveal.in h2::after,h2.reveal.in::after{transform:scaleX(0);transform-origin:right center}
+h2.reveal{opacity:1;transform:none;transition:none}
+/* Rule draws from 0 → 60px under the headline */
+.reveal .rule,.rule.reveal{width:0;transition:width .3s cubic-bezier(.2,.8,.2,1) .45s}
+.reveal.in .rule,.rule.reveal.in{width:60px}
+.rule.reveal{opacity:1;transform:none}
+/* Eyebrow label fades up last — closing caption */
+.reveal .section-label{opacity:0;transform:translateY(6px);transition:opacity .3s ease .6s,transform .3s ease .6s}
+.reveal.in .section-label{opacity:1;transform:none}
+.section-label.reveal{transition-delay:.6s}
+/* Split images: leather bar wipes off the image (wrapper avoids clip-path hiding the IO target) */
+.split-img-wrap{position:relative;width:100%;display:block;line-height:0;overflow:hidden}
+.split-img-wrap::after{content:"";position:absolute;inset:0;background:var(--leather);transform:scaleX(1);transform-origin:left center;transition:transform .6s cubic-bezier(.7,0,.3,1);pointer-events:none;z-index:1}
+.split-img-wrap.reveal{opacity:1;transform:none;transition:none}
+.split-img-wrap.reveal.in::after{transform:scaleX(0);transform-origin:right center}
+.split-img-wrap.reveal.rd2.in::after{transition-delay:.08s}
+/* Respect reduced-motion preferences */
+@media(prefers-reduced-motion:reduce){
+  .reveal h2::after,h2.reveal::after{transform:scaleX(0);transition:none}
+  .reveal .rule,.rule.reveal{width:60px;transition:none}
+  .reveal .section-label,.section-label.reveal{opacity:1;transform:none;transition:none}
+  .split-img-wrap.reveal::after{transform:scaleX(0);transition:none}
+}
 </style>
 </head>
 <body>
@@ -180,7 +207,7 @@ footer{background:var(--charcoal);padding:40px 0;text-align:center;border-top:3p
         </ul>
         <a href="#contact" class="btn btn-ember" style="margin-top:16px">Get a Partner for Life</a>
       </div>
-      <img class="split-img reveal rd2" src="https://chefbrianwest.com/images/home/consulting-3.jpg" alt="Chef Brian West consulting">
+      <div class="split-img-wrap reveal rd2"><img class="split-img" src="https://chefbrianwest.com/images/home/consulting-3.jpg" alt="Chef Brian West consulting"></div>
     </div>
   </div>
 </section>
@@ -207,7 +234,7 @@ footer{background:var(--charcoal);padding:40px 0;text-align:center;border-top:3p
         <p style="font-size:1.05rem;color:var(--steel)">My version of farm-to-table with a twist: we bring the table to the ranch. From hunters and gatherers to full ranch family events &mdash; my team will go to your ranch and take care of everything. These are experiences not to be missed.</p>
         <a href="#contact" class="btn btn-dark" style="margin-top:24px">Live the Experience</a>
       </div>
-      <img class="split-img split-img-landscape reveal rd2" src="https://chefbrianwest.com/images/home/ranch-experience.jpg" alt="Ranch Experience">
+      <div class="split-img-wrap reveal rd2"><img class="split-img split-img-landscape" src="https://chefbrianwest.com/images/home/ranch-experience.jpg" alt="Ranch Experience"></div>
     </div>
   </div>
 </section>
@@ -233,7 +260,7 @@ footer{background:var(--charcoal);padding:40px 0;text-align:center;border-top:3p
 <section id="about">
   <div class="container">
     <div class="split">
-      <img class="split-img reveal" src="https://chefbrianwest.com/images/interior/about.jpg" alt="Chef Brian West">
+      <div class="split-img-wrap reveal"><img class="split-img" src="https://chefbrianwest.com/images/interior/about.jpg" alt="Chef Brian West"></div>
       <div class="reveal rd2">
         <p class="section-label">About</p>
         <h2>Chef Brian West</h2>
@@ -312,7 +339,11 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(b)b.addEventListener('click',()=>n.classList.toggle('open'));
   window.addEventListener('scroll',()=>{n.classList.toggle('scrolled',window.scrollY>60)},{passive:true});
   const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const observeAll=()=>document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  observeAll();
+  // Re-observe after images load — fixes split-img reveal race where observer attached before image had layout dimensions
+  window.addEventListener('load',observeAll);
+  document.querySelectorAll('img').forEach(img=>{if(!img.complete)img.addEventListener('load',()=>io.observe(img),{once:true})});
   document.getElementById('yr').textContent=new Date().getFullYear();
 });
 </script>
