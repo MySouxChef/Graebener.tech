@@ -143,6 +143,26 @@ h2.reveal{opacity:1;transform:none;transition:none}
   .reveal .section-label,.section-label.reveal{opacity:1;transform:none;transition:none}
   .split-img-wrap.reveal::after{transform:scaleX(0);transition:none}
 }
+/* TECH & AI service-line section */
+.section-dark .consult-list li{border-bottom-color:rgba(244,237,228,0.08);color:var(--cream)}
+.tech-dashboard{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%}
+.dash-tile{background:var(--charcoal-light);border:1px solid rgba(168,132,30,0.22);padding:20px}
+.dash-tile-wide{grid-column:1 / -1}
+.dash-label{font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream-muted);margin-bottom:10px}
+.dash-value{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--leather-light);line-height:1;letter-spacing:0.04em}
+.dash-unit{font-size:1.4rem;color:var(--cream-muted);margin-left:2px}
+.dash-value-sm{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--cream);line-height:1;letter-spacing:0.04em;margin-top:2px}
+.dash-delta{font-size:0.8rem;color:var(--cream-muted);margin-top:8px;letter-spacing:0.04em}
+.dash-delta-down{color:var(--ember)}
+.dash-delta-up{color:var(--leather-light)}
+.dash-spark{width:100%;height:42px;margin-top:14px;overflow:visible}
+.dash-spark path{fill:none;stroke:var(--leather-light);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dash-spark circle{fill:var(--ember)}
+.dash-pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--leather-light);margin-right:8px;vertical-align:middle;animation:dashPulse 2.4s ease-in-out infinite}
+.dash-pulse-ember{background:var(--ember)}
+@keyframes dashPulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(168,132,30,0.5)}50%{opacity:0.55;box-shadow:0 0 0 6px rgba(168,132,30,0)}}
+@media(max-width:600px){.tech-dashboard{grid-template-columns:1fr}.dash-tile-wide{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){.dash-pulse{animation:none}}
 </style>
 </head>
 <body>
@@ -154,6 +174,7 @@ h2.reveal{opacity:1;transform:none;transition:none}
     <li><a href="#consulting">Consulting</a></li>
     <li><a href="#catering">Catering</a></li>
     <li><a href="#ranch">Ranch</a></li>
+    <li><a href="#tech">Tech</a></li>
     <li><a href="#venue">West Point</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -235,6 +256,61 @@ h2.reveal{opacity:1;transform:none;transition:none}
         <a href="#contact" class="btn btn-dark" style="margin-top:24px">Live the Experience</a>
       </div>
       <div class="split-img-wrap reveal rd2"><img class="split-img split-img-landscape" src="https://chefbrianwest.com/images/home/ranch-experience.jpg" alt="Ranch Experience"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH & AI -->
+<section class="section-dark" id="tech">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <p class="section-label">Tech &amp; AI</p>
+        <h2>Modern Tech,<br>Texas Soul</h2>
+        <div class="rule"></div>
+        <p style="font-size:1.05rem;color:var(--cream-muted)">Today's restaurants live and die by the data they don't see. We bring AI and smart systems into your kitchen, your front-of-house, and your guest experience &mdash; without losing the heart of what makes your place yours. From margin recovery to menu intelligence, every system speaks your language.</p>
+        <ul class="consult-list">
+          <li>AI Menu Engineering</li>
+          <li>Food Cost Intelligence</li>
+          <li>Smart Reservations</li>
+          <li>Guest CRM &amp; Loyalty</li>
+          <li>POS &amp; Inventory Sync</li>
+          <li>Demand Forecasting</li>
+          <li>Social Content Automation</li>
+          <li>Online Ordering Optimization</li>
+          <li>Kitchen Analytics</li>
+          <li>SMS &amp; Email Flows</li>
+        </ul>
+        <a href="#contact" class="btn btn-ember" style="margin-top:16px">Bring AI to Your Kitchen</a>
+      </div>
+      <div>
+        <div class="tech-dashboard">
+          <div class="dash-tile dash-tile-wide reveal rd1">
+            <p class="dash-label">Food Cost &middot; Last 30 Days</p>
+            <p class="dash-value">28.4<span class="dash-unit">%</span></p>
+            <p class="dash-delta dash-delta-down">&#x2193; 3.2 pts vs prior period</p>
+            <svg class="dash-spark" viewBox="0 0 200 42" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,8 L28,14 L56,10 L84,20 L112,22 L140,28 L168,32 L200,38"/>
+              <circle cx="200" cy="38" r="3"/>
+            </svg>
+          </div>
+          <div class="dash-tile reveal rd2">
+            <p class="dash-label">Top Mover</p>
+            <p class="dash-value-sm">Pork Belly</p>
+            <p class="dash-delta dash-delta-up">+47% wk/wk</p>
+          </div>
+          <div class="dash-tile reveal rd3">
+            <p class="dash-label"><span class="dash-pulse"></span>Tonight's Prep</p>
+            <p class="dash-value-sm">Optimized</p>
+            <p class="dash-delta">12 items &middot; 3.4 hrs</p>
+          </div>
+          <div class="dash-tile dash-tile-wide reveal rd4">
+            <p class="dash-label"><span class="dash-pulse dash-pulse-ember"></span>Reservations</p>
+            <p class="dash-value-sm">87% Booked</p>
+            <p class="dash-delta">Sat &middot; 6pm</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
