@@ -25,7 +25,7 @@ export const projects: Project[] = [
     techDetails:
       "The pipeline is a three-stage agent loop: a Claude-driven planner decomposes the prompt into page structure and content briefs, a generator stage emits self-contained HTML/CSS/JS per page (no build step, no dependencies — every site is a static folder), and a publisher stage commits the bundle to a demo GitHub repo via the GitHub REST API.\n\nEach generated site is paired with a `meta.json` manifest (title, description, industry, tags, status, color accent). The portfolio route `/webbuilder` hits `GET /api/sites`, which walks `public/webbuilder/sites/*/meta.json` server-side, filters on `status === \"published\"`, and returns sorted metadata. Individual sites render inside sandboxed iframes so untrusted generated markup can't touch the parent page.\n\nKey decisions: keeping sites as flat static folders avoids the deploy complexity of per-site builds; storing provenance in `meta.json` rather than a database keeps the gallery deterministically reproducible from the repo alone; GitHub-as-storage makes every generated site independently cloneable.",
     techStack: ["Next.js", "Claude AI", "GitHub API", "TypeScript"],
-    thumbnail: "/images/projects/webbuilder-thumb.png",
+    thumbnail: "/images/projects/webbuilder-thumb.svg",
     thumbnailExists: true,
     demoPath: "",
     externalLink: "/webbuilder",
